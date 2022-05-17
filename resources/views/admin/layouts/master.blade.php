@@ -22,6 +22,7 @@
             <div class="navbar-bg"></div>
             @include('admin.layouts.header')
             @include('admin.layouts.sidebar')
+            <!-- Main Content -->
             <div class="main-content">
                 @yield('content')
             </div>

@@ -1,1 +1,280 @@
-var _0x41bf=['find','index','url','checked','splice','assets/js/data/task.json','reset','input[name=priority][value=','assets/js/data/task-completed.json','trigger','ready','keyup','#all','indeterminate','data-src','task-selected','<h6\x20class=\x22task-title\x22>','High','toggle','#example-select-all','to$','load','<a\x20class=\x22btn-view\x22\x20data-toggle=\x22tooltip\x22\x20title=\x22Edit\x22><i\x20class=\x22far\x20fa-edit\x20m-r-10\x22></i></a>','ajaxComplete','input[type=\x27radio\x27].prio-radio:checked','click','Please\x20provide\x20date','tooltip','[data-toggle=\x22tooltip\x22]','removeClass','val','Medium','input[type=\x22checkbox\x22]',':checked','priority','#status','adjust','<div\x20class=\x22col-green\x22\x20data-toggle=\x22tooltip\x22\x20title=\x22Low\x22><i\x20class=\x22far\x20fa-arrow-alt-circle-down\x20font-20\x22></i></div>','Once\x20deleted,\x20you\x20will\x20not\x20be\x20able\x20to\x20recover\x20this\x20contact!','parents','details','#taskForm\x20.textAreaModal','<input\x20type=\x22checkbox\x22','#taskForm\x20.textItemModal','.contact-list\x20a','date','<div\x20class=\x22col-red\x22\x20data-toggle=\x22tooltip\x22\x20title=\x22High\x22><i\x20class=\x22far\x20fa-arrow-alt-circle-up\x20font-20\x22></i></i></div>','#completed','</h6><p\x20class=\x22task-date\x22>','Are\x20you\x20sure?','.btn-view','data','remove','active','assign','addClass','rows','preventDefault','Task\x20title\x20must\x20be\x20at\x20least\x203\x20characters','validate','assets/js/data/task-trashed.json','title','#trashed','show','applied','<div\x20class=\x22pretty\x20p-default\x20p-curve\x20p-thick\x22>','.contact-list\x20li','<div\x20class=\x22state\x20p-success-o\x22>','columns','assets/js/data/task-important.json','modal','prop','form','rtip','not','hidden.bs.modal','type','each','input[type=\x27radio\x27].prio-radio','Low','attr','</div>','status','Please\x20provide\x20task\x20title','get','<a\x20class=\x22btn-delete\x22\x20data-toggle=\x22tooltip\x22\x20title=\x22Delete\x22><i\x20class=\x22far\x20fa-trash-alt\x22></i></a>','dt-body-center','action','row','</p>','ajax','input[type=\x27checkbox\x27].prio-check:checked','draw','rowindex','.btn-delete','#taskForm','#taskTbl','search','#important','asc','then','\x20/>','closest','nodes'];(function(_0x43c894,_0x41bf94){var _0x259501=function(_0x1634ee){while(--_0x1634ee){_0x43c894['push'](_0x43c894['shift']());}};_0x259501(++_0x41bf94);}(_0x41bf,0x181));var _0x2595=function(_0x43c894,_0x41bf94){_0x43c894=_0x43c894-0x0;var _0x259501=_0x41bf[_0x43c894];return _0x259501;};'use strict';$(document)[_0x2595('0x29')](()=>{$(_0x2595('0x4b'))['on'](_0x2595('0x38'),function(){return $('.contact-list\x20a')[_0x2595('0x3c')](_0x2595('0x54')),$(this)[_0x2595('0x56')]('active'),$('.contact-item')['hide'](),$('.'+$(this)[_0x2595('0x52')](_0x2595('0x3')))[_0x2595('0x5e')](0xa),![];});var _0x2fcd6c=$(_0x2595('0x61'))[_0x2595('0x38')](function(){$(this)[_0x2595('0x56')](_0x2595('0x54')),_0x2fcd6c[_0x2595('0x1')](this)[_0x2595('0x3c')](_0x2595('0x54'));});$(_0x2595('0x2b'))[_0x2595('0x38')](function(_0x23af63){_0x4fad21[_0x2595('0x11')][_0x2595('0x21')](_0x2595('0x24'))[_0x2595('0x34')](),_0x23af63[_0x2595('0x58')]();}),$(_0x2595('0x4e'))[_0x2595('0x38')](function(_0x4156db){_0x4fad21[_0x2595('0x11')][_0x2595('0x21')](_0x2595('0x27'))[_0x2595('0x34')](),_0x4156db[_0x2595('0x58')]();}),$(_0x2595('0x19'))[_0x2595('0x38')](function(_0x2ceeba){_0x4fad21[_0x2595('0x11')][_0x2595('0x21')](_0x2595('0x64'))[_0x2595('0x34')](),_0x2ceeba[_0x2595('0x58')]();}),$(_0x2595('0x5d'))[_0x2595('0x38')](function(_0x59dd26){_0x4fad21[_0x2595('0x11')][_0x2595('0x21')](_0x2595('0x5b'))[_0x2595('0x34')](),_0x59dd26[_0x2595('0x58')]();}),$('#myForm')[_0x2595('0x5a')]({'rules':{'title':{'required':!![],'minlength':0x3},'date':{'required':!![]}},'messages':{'title':{'required':_0x2595('0xa'),'minlength':_0x2595('0x59')},'date':{'required':_0x2595('0x39')}},'submitHandler':function(_0x56603a){var _0x311e4d=$(_0x2595('0x16'))['attr'](_0x2595('0x14'));const _0x2512a7={};$[_0x2595('0x4')]($(_0x2595('0x4a')),function(){Object[_0x2595('0x55')](_0x2512a7,{[$(this)[_0x2595('0x7')](_0x2595('0x2d'))]:$(this)[_0x2595('0x3d')]()});}),$[_0x2595('0x4')]($(_0x2595('0x48')),function(){Object['assign'](_0x2512a7,{[$(this)[_0x2595('0x7')](_0x2595('0x2d'))]:$(this)[_0x2595('0x3d')]()});});if($(_0x2595('0x5'))['is'](_0x2595('0x40'))){var _0x39661f=$(_0x2595('0x37'))[_0x2595('0x3d')]();Object[_0x2595('0x55')](_0x2512a7,{'priority':_0x39661f});}var _0x52671a=$(_0x2595('0x12'))[_0x2595('0x3d')]()=='on'?'1':'0';Object[_0x2595('0x55')](_0x2512a7,{'status':_0x52671a}),_0x52671a=='1'?_0x4fad21[_0x2595('0xf')](_0x311e4d)[_0x2595('0x1e')]()[_0x2595('0x33')]()[_0x2595('0x56')](_0x2595('0x2e')):_0x4fad21[_0x2595('0xf')](_0x311e4d)['nodes']()[_0x2595('0x33')]()[_0x2595('0x3c')]('task-selected'),_0xdba3f2?_0x4fad21[_0x2595('0xf')](_0x311e4d)[_0x2595('0x52')](_0x2512a7)[_0x2595('0x13')]():_0x4fad21[_0x2595('0xf')]['add'](_0x2512a7)[_0x2595('0x13')](),_0x4fad21[_0x2595('0x63')][_0x2595('0x43')]()['draw'](),$(_0x2595('0x16'))[_0x2595('0x65')]('toggle');}});var _0x6db821=[],_0xdba3f2=![];const _0x4fad21=$(_0x2595('0x17'))['DataTable']({'ajax':{'url':_0x2595('0x24'),'dataSrc':function(_0x3404d2){return _0x3404d2[_0x2595('0x52')];}},'dom':_0x2595('0x0'),'columns':[{'data':_0x2595('0x9')},{'data':'details','render':function(_0x18d1a7,_0xdf04b1,_0x3ec001){return _0x2595('0x2f')+_0x3ec001[_0x2595('0x5c')]+_0x2595('0x4f')+_0x3ec001[_0x2595('0x4c')]+'</p><p\x20class=\x22task-details\x22>'+_0x3ec001[_0x2595('0x47')]+_0x2595('0x10');}},{'data':'priority','orderable':![],'targets':0x0,'render':function(_0x884f6f,_0x45099d,_0x1fec60,_0x428b14){if(_0x884f6f==_0x2595('0x30'))return _0x2595('0x4d');else{if(_0x884f6f==_0x2595('0x3e'))return'<div\x20class=\x22col-dark-gray\x22\x20data-toggle=\x22tooltip\x22\x20title=\x22Medium\x22><i\x20class=\x22fas\x20fa-ellipsis-h\x20font-20\x22></i></div>';else{if(_0x884f6f==_0x2595('0x6'))return _0x2595('0x44');}}}},{'data':_0x2595('0xe'),'width':0x32,'orderable':![],'targets':0x0,'render':function(_0x567e6a,_0x1414a3,_0x175543,_0x3b29cf){return _0x2595('0x35')+_0x2595('0xc');}}],'createdRow':function(_0x33952b,_0x3fd0d8,_0x145752){_0x3fd0d8[_0x2595('0x9')]=='1'&&$(_0x33952b)[_0x2595('0x56')](_0x2595('0x2e'));},'columnDefs':[{'targets':0x0,'width':0x1e,'searchable':![],'orderable':![],'className':_0x2595('0xd'),'render':function(_0x1856fb,_0x58d73d,_0x4f0e57,_0x40efc3){return _0x2595('0x60')+_0x2595('0x49')+(_0x1856fb==0x1?_0x2595('0x22'):'')+_0x2595('0x1c')+_0x2595('0x62')+'<label></label>'+_0x2595('0x8')+_0x2595('0x8');}}],'order':[0x1,_0x2595('0x1a')]});$('#searchItem')[_0x2595('0x2a')](function(){_0x4fad21[_0x2595('0x18')]($(this)[_0x2595('0x3d')]())['draw']();}),$('#addBtn')[_0x2595('0x38')](function(){_0xdba3f2=![],$(_0x2595('0x16'))[_0x2595('0x65')](_0x2595('0x31'));}),$('#example-select-all')['on'](_0x2595('0x38'),function(){var _0x5e6caf=_0x4fad21[_0x2595('0x57')]({'search':_0x2595('0x5f')})[_0x2595('0x1e')]();$(_0x2595('0x3f'),_0x5e6caf)[_0x2595('0x66')](_0x2595('0x22'),this['checked']);}),$('#taskTbl\x20tbody')['on']('change','input[type=\x22checkbox\x22]',function(){if(!this[_0x2595('0x22')]){var _0x22519f=$(_0x2595('0x32'))[_0x2595('0xb')](0x0);_0x22519f&&_0x22519f[_0x2595('0x22')]&&_0x2595('0x2c')in _0x22519f&&(_0x22519f[_0x2595('0x2c')]=!![]);}var _0x32c10b=$(this)[_0x2595('0x1d')]('tr'),_0x11206b=_0x4fad21[_0x2595('0xf')](_0x32c10b)[_0x2595('0x52')](),_0xc25440=_0x11206b[0x0],_0x26bcb7=$['inArray'](_0xc25440,_0x6db821);if(this[_0x2595('0x22')]&&_0x26bcb7===-0x1)_0x6db821['push'](_0xc25440);else!this[_0x2595('0x22')]&&_0x26bcb7!==-0x1&&_0x6db821[_0x2595('0x23')](_0x26bcb7,0x1);this[_0x2595('0x22')]?_0x32c10b[_0x2595('0x56')](_0x2595('0x2e')):_0x32c10b[_0x2595('0x3c')]('task-selected');}),$('#taskTbl\x20tbody')['on']('click',_0x2595('0x15'),function(_0x55c894){swal({'title':_0x2595('0x50'),'text':_0x2595('0x45'),'buttons':!![]})[_0x2595('0x1b')](_0x4a51a3=>{if(_0x4a51a3)_0x4fad21['row']($(this)[_0x2595('0x46')]('tr'))[_0x2595('0x53')]()[_0x2595('0x13')]();else{}});}),$('#taskTbl')['on']('click',_0x2595('0x51'),function(){_0xdba3f2=!![];const _0x5594b0=_0x4fad21[_0x2595('0xf')]($(this)[_0x2595('0x1d')]('tr'));$['each']($(_0x2595('0x4a')),function(){$(this)[_0x2595('0x3d')](_0x5594b0[_0x2595('0x52')]()[$(this)[_0x2595('0x7')](_0x2595('0x2d'))]);}),$[_0x2595('0x4')]($(_0x2595('0x48')),function(){$(this)[_0x2595('0x3d')](_0x5594b0[_0x2595('0x52')]()[$(this)[_0x2595('0x7')](_0x2595('0x2d'))]);}),$(_0x2595('0x26')+_0x5594b0[_0x2595('0x52')]()[_0x2595('0x41')]+']')[_0x2595('0x66')](_0x2595('0x22'),!![]),_0x5594b0[_0x2595('0x52')]()[_0x2595('0x9')]=='1'&&$(_0x2595('0x42'))['prop'](_0x2595('0x22'),!![]),$(_0x2595('0x16'))[_0x2595('0x7')](_0x2595('0x14'),_0x5594b0[_0x2595('0x20')]()),$(_0x2595('0x16'))[_0x2595('0x65')](_0x2595('0x31'));}),$(_0x2595('0x16'))['on'](_0x2595('0x2'),function(){$(this)[_0x2595('0x1f')](_0x2595('0x67'))[_0x2595('0x28')](_0x2595('0x25'));}),$(document)[_0x2595('0x36')](function(){$(_0x2595('0x3b'))[_0x2595('0x3a')]({'html':!![],'delay':{'show':0x64,'hide':0x0}});});});
+/*************** TO DO **********************/
+"use strict";
+$(document).ready(() => {
+  $(".contact-list a").on("click", function () {
+    $(".contact-list a").removeClass("active");
+    $(this).addClass("active");
+    $(".contact-item").hide();
+    $("." + $(this).data("type")).show(10);
+
+    return false;
+  });
+  var anchors = $(".contact-list li").click(function () {
+    //savesubcat()
+    $(this).addClass("active");
+    anchors.not(this).removeClass("active");
+  });
+
+  $("#all").click(function (e) {
+    dataTable.ajax.url("assets/js/data/task.json").load();
+    e.preventDefault();
+  });
+  $("#completed").click(function (e) {
+    dataTable.ajax.url("assets/js/data/task-completed.json").load();
+    e.preventDefault();
+  });
+  $("#important").click(function (e) {
+    dataTable.ajax.url("assets/js/data/task-important.json").load();
+    e.preventDefault();
+  });
+  $("#trashed").click(function (e) {
+    dataTable.ajax.url("assets/js/data/task-trashed.json").load();
+    e.preventDefault();
+  });
+
+  $('#myForm').validate({
+    rules: {
+      title: {
+        required: true,
+        minlength: 3
+      },
+      date: {
+        required: true,
+      }
+    },
+    messages: {
+      title: {
+        required: "Please provide task title",
+        minlength: "Task title must be at least 3 characters"
+      },
+      date: {
+        required: "Please provide date",
+      },
+    },
+    submitHandler: function (form) {
+      var rowIndex = $("#taskForm").attr("rowindex");
+      const modifiedData = {};
+      $.each($("#taskForm .textItemModal"), function () {
+        Object.assign(modifiedData, {
+          [$(this).attr("data-src")]: $(this).val(),
+        });
+      });
+      $.each($("#taskForm .textAreaModal"), function () {
+        Object.assign(modifiedData, {
+          [$(this).attr("data-src")]: $(this).val(),
+        });
+      });
+
+      if ($("input[type='radio'].prio-radio").is(":checked")) {
+        var priority = $("input[type='radio'].prio-radio:checked").val();
+        Object.assign(modifiedData, {
+          priority,
+        });
+      }
+
+      var status =
+        $("input[type='checkbox'].prio-check:checked").val() == "on" ? "1" : "0";
+      Object.assign(modifiedData, {
+        status,
+      });
+
+      if (status == "1") {
+        dataTable.row(rowIndex).nodes().to$().addClass("task-selected");
+      } else {
+        dataTable.row(rowIndex).nodes().to$().removeClass("task-selected");
+      }
+
+      if (isEditClick) {
+        dataTable.row(rowIndex).data(modifiedData).draw();
+      } else {
+        dataTable.row.add(modifiedData).draw();
+      }
+      dataTable.columns.adjust().draw();
+      $("#taskForm").modal("toggle");
+    }
+  });
+
+
+  //data table initialization
+  var rows_selected = [];
+  var isEditClick = false;
+  const dataTable = $("#taskTbl").DataTable({
+    ajax: {
+      url: "assets/js/data/task.json",
+      dataSrc: function (json) {
+        return json.data;
+      },
+    },
+    dom: "rtip",
+    columns: [{
+        data: "status",
+      },
+      {
+        data: "details",
+        render: function (data, type, row) {
+          return (
+            '<h6 class="task-title">' +
+            row.title +
+            '</h6><p class="task-date">' +
+            row.date +
+            '</p><p class="task-details">' +
+            row.details +
+            "</p>"
+          );
+        },
+      },
+      {
+        data: "priority",
+        orderable: false,
+        targets: 0,
+        render: function (data, type, full, meta) {
+          if (data == "High") {
+            return '<div class="col-red" data-toggle="tooltip" title="High"><i class="far fa-arrow-alt-circle-up font-20"></i></i></div>';
+          } else if (data == "Medium") {
+            return '<div class="col-dark-gray" data-toggle="tooltip" title="Medium"><i class="fas fa-ellipsis-h font-20"></i></div>';
+          } else if (data == "Low") {
+            return '<div class="col-green" data-toggle="tooltip" title="Low"><i class="far fa-arrow-alt-circle-down font-20"></i></div>';
+          }
+        },
+      },
+      {
+        data: "action",
+        width: 50,
+        orderable: false,
+        targets: 0,
+        render: function (data, type, full, meta) {
+          return (
+            '<a class="btn-view" data-toggle="tooltip" title="Edit"><i class="far fa-edit m-r-10"></i></a>' +
+            '<a class="btn-delete" data-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a>'
+          );
+        },
+      },
+    ],
+    createdRow: function (row, data, dataIndex) {
+      if (data.status == "1") {
+        $(row).addClass("task-selected");
+      }
+    },
+    columnDefs: [{
+      targets: 0,
+      width: 30,
+      searchable: false,
+      orderable: false,
+      className: "dt-body-center",
+      render: function (data, type, full, meta) {
+        return (
+          '<div class="pretty p-default p-curve p-thick">' +
+          '<input type="checkbox"' +
+          (data == 1 ? "checked" : "") +
+          " />" +
+          '<div class="state p-success-o">' +
+          "<label></label>" +
+          "</div>" +
+          "</div>"
+        );
+      },
+    }, ],
+    order: [1, "asc"],
+  });
+
+  // custom search item
+  $("#searchItem").keyup(function () {
+    dataTable.search($(this).val()).draw();
+  });
+
+  // new task button click
+  $("#addBtn").click(function () {
+    isEditClick = false;
+    $("#taskForm").modal("toggle");
+  });
+
+  // select all checkbox click(not in use)
+  $("#example-select-all").on("click", function () {
+    var rows = dataTable
+      .rows({
+        search: "applied",
+      })
+      .nodes();
+    $('input[type="checkbox"]', rows).prop("checked", this.checked);
+  });
+
+  // checkbox change event
+  $("#taskTbl tbody").on("change", 'input[type="checkbox"]', function () {
+    if (!this.checked) {
+      var el = $("#example-select-all").get(0);
+      if (el && el.checked && "indeterminate" in el) {
+        el.indeterminate = true;
+      }
+    }
+
+    var $row = $(this).closest("tr");
+    var data = dataTable.row($row).data();
+    var rowId = data[0];
+    var index = $.inArray(rowId, rows_selected);
+    if (this.checked && index === -1) {
+      rows_selected.push(rowId);
+    } else if (!this.checked && index !== -1) {
+      rows_selected.splice(index, 1);
+    }
+    if (this.checked) {
+      $row.addClass("task-selected");
+    } else {
+      $row.removeClass("task-selected");
+    }
+  });
+
+  // Handle click on "Delete" button
+  $("#taskTbl tbody").on("click", ".btn-delete", function (e) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this contact!",
+      buttons: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        dataTable.row($(this).parents("tr")).remove().draw();
+      } else {}
+    });
+  });
+
+  //edit button click handler
+  $("#taskTbl").on("click", ".btn-view", function () {
+    isEditClick = true;
+    const rowClicked = dataTable.row($(this).closest("tr"));
+    $.each($("#taskForm .textItemModal"), function () {
+      $(this).val(rowClicked.data()[$(this).attr("data-src")]);
+    });
+    $.each($("#taskForm .textAreaModal"), function () {
+      $(this).val(rowClicked.data()[$(this).attr("data-src")]);
+    });
+    $("input[name=priority][value=" + rowClicked.data().priority + "]").prop(
+      "checked",
+      true
+    );
+
+    if (rowClicked.data().status == "1") {
+      $("#status").prop("checked", true);
+    }
+    $("#taskForm").attr("rowindex", rowClicked.index());
+    $("#taskForm").modal("toggle");
+  });
+
+
+
+
+  // clear form when dialog close
+  $("#taskForm").on("hidden.bs.modal", function () {
+    $(this).find("form").trigger("reset");
+  });
+
+  // javascript code for tooltip
+  $(document).ajaxComplete(function () {
+    // Required for Bootstrap tooltips in DataTables
+    $('[data-toggle="tooltip"]').tooltip({
+      html: true,
+      delay: {
+        show: 100,
+        hide: 0,
+      },
+    });
+  });
+});

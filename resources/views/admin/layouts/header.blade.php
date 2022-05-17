@@ -1,12 +1,12 @@
-      <nav class="navbar navbar-expand-lg main-navbar sticky">
-        <div class="form-inline mr-auto">
+<nav class="navbar navbar-expand-lg main-navbar sticky">
+        <div class="form-inline me-auto">
           <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+            <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
 									collapse-btn"> <i data-feather="menu"></i></a></li>
             <li>
-              <form class="form-inline mr-auto">
-                <div class="search-element">
-                  <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="200">
+              <form class="form-inline me-auto">
+                <div class="search-element d-flex">
+                  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn" type="submit">
                     <i class="fas fa-search"></i>
                   </button>
@@ -19,7 +19,7 @@
           <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
               <i data-feather="maximize"></i>
             </a></li>
-          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-bs-toggle="dropdown"
               class="nav-link nav-link-lg message-toggle"><i data-feather="mail" class="mailAnim"></i>
               <span class="badge headerBadge1">
               </span> </a>
@@ -80,7 +80,7 @@
               </div>
             </div>
           </li>
-          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-bs-toggle="dropdown"
               class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
             </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
@@ -129,7 +129,7 @@
               </div>
             </div>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown"
+          <li class="dropdown"><a href="#" data-bs-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
