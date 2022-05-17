@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
 <!-- Main Content -->
-<div class="main-content">
   <section class="section">
     <ul class="breadcrumb breadcrumb-style ">
       <li class="breadcrumb-item">
@@ -104,5 +103,4 @@
       </div>
     </div>
   </div>
-</div>
 @endsection
