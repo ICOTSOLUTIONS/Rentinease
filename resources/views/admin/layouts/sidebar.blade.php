@@ -6,12 +6,12 @@
     </div>
     <div class="sidebar-user">
       <div class="sidebar-user-picture">
-        <img alt="image" src="assets/img/user.png">
+        <img alt="image" src="{{asset('assets/img/user.png')}}">
       </div>
       <div class="sidebar-user-details">
         <!-- <div class="user-name"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></div> -->
         <div class="user-role mt-2">Administrator</div>
-        <div class="sidebar-userpic-btn">
+        <!-- <div class="sidebar-userpic-btn">
           <a href="profile.html" data-bs-toggle="tooltip" title="Profile">
             <i data-feather="user"></i>
           </a>
@@ -24,19 +24,20 @@
           <a href="auth-login.html" data-bs-toggle="tooltip" title="Log Out">
             <i data-feather="log-out"></i>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Main</li>
-      <li class="dropdown">
+      <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li>
+      <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="monitor"></i><span>Dashboard</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="index-2.html">Dashboard 1</a></li>
           <li><a class="nav-link" href="index2.html">Dashboard 2</a></li>
         </ul>
-      </li>
-      <li class="dropdown">
+      </li> -->
+      <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
@@ -237,7 +238,7 @@
             </ul>
           </li>
         </ul>
-      </li>
+      </li> -->
     </ul>
   </aside>
 </div>

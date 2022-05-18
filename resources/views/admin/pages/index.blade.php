@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <section class="section">
-  <ul class="breadcrumb breadcrumb-style ">
+  <!-- <ul class="breadcrumb breadcrumb-style ">
     <li class="breadcrumb-item">
       <h4 class="page-title m-b-0">Blank</h4>
     </li>
@@ -10,7 +10,7 @@
         <i data-feather="home"></i></a>
     </li>
     <li class="breadcrumb-item">Blank Page</li>
-  </ul>
+  </ul> -->
   <div class="section-body">
     <!-- add content here -->
   </div>

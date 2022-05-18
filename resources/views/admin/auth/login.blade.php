@@ -18,7 +18,7 @@
 <style>
     body {
         /* background-color: #293254; */
-        background-image: url('assets/img/cover-01.jpg');
+        background-image: url('assets/img/bgimg03.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
     }
