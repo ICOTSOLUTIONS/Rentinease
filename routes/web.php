@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::view('/index', 'client.pages/index');
 Route::view('/', 'admin.pages.index');
 Route::view('/login', 'admin.auth.login');
 Route::view('/register', 'admin.auth.register');
