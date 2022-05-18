@@ -1,7 +1,7 @@
 @extends('client.layout.master')
 @section('content')
     <!-- ============================ Hero Banner  Start================================== -->
-    <div class="image-cover hero_banner" style="background:url(assets/img/banner-1.png) no-repeat;" data-overlay="0">
+    <div class="image-cover hero_banner" style="background:url({{ asset('./assetsclient/img/banner-1.png')}}) no-repeat;" data-overlay="0">
         <div class="container">
 
             <h1 class="big-header-capt mb-0">Search Your Next Home</h1>
@@ -205,8 +205,8 @@
                         <a href="list-layout-with-sidebar.html">
                             <div class="_category_elio">
                                 <div class="_category_thumb">
-                                    <img src="assets/img/f-4.png" class="img-fluid hover" alt="" />
-                                    <img src="assets/img/f-44.png" class="img-fluid simple" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-4.png')}}" class="img-fluid hover" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-44.png')}}" class="img-fluid simple" alt="" />
                                 </div>
                                 <div class="_category_caption">
                                     <h5>Commercial</h5>
@@ -223,8 +223,8 @@
                         <a href="list-layout-with-sidebar.html">
                             <div class="_category_elio">
                                 <div class="_category_thumb">
-                                    <img src="assets/img/f-5.png" class="img-fluid hover" alt="" />
-                                    <img src="assets/img/f-55.png" class="img-fluid simple" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-5.png')}}" class="img-fluid hover" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-55.png')}}" class="img-fluid simple" alt="" />
                                 </div>
                                 <div class="_category_caption">
                                     <h5>Home & Villas</h5>
@@ -241,8 +241,8 @@
                         <a href="list-layout-with-sidebar.html">
                             <div class="_category_elio">
                                 <div class="_category_thumb">
-                                    <img src="assets/img/f-6.png" class="img-fluid hover" alt="" />
-                                    <img src="assets/img/f-66.png" class="img-fluid simple" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-6.png')}}" class="img-fluid hover" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-66.png')}}" class="img-fluid simple" alt="" />
                                 </div>
                                 <div class="_category_caption">
                                     <h5>Garages</h5>
@@ -259,8 +259,8 @@
                         <a href="list-layout-with-sidebar.html">
                             <div class="_category_elio">
                                 <div class="_category_thumb">
-                                    <img src="assets/img/f-7.png" class="img-fluid hover" alt="" />
-                                    <img src="assets/img/f-77.png" class="img-fluid simple" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-7.png')}}" class="img-fluid hover" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-77.png')}}" class="img-fluid simple" alt="" />
                                 </div>
                                 <div class="_category_caption">
                                     <h5>Office & Studio</h5>
@@ -277,8 +277,8 @@
                         <a href="list-layout-with-sidebar.html">
                             <div class="_category_elio">
                                 <div class="_category_thumb">
-                                    <img src="assets/img/f-8.png" class="img-fluid hover" alt="" />
-                                    <img src="assets/img/f-88.png" class="img-fluid simple" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-8.png')}}" class="img-fluid hover" alt="" />
+                                    <img src="{{ asset('./assetsclient/img/f-88.png')}}" class="img-fluid simple" alt="" />
                                 </div>
                                 <div class="_category_caption">
                                     <h5>Apartment</h5>
@@ -318,11 +318,11 @@
                             <div class="_exlio_125">For Rent</div>
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-1.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-1.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-2.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-2.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-3.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-3.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
@@ -352,15 +352,15 @@
                         <div class="price-features-wrapper">
                             <div class="list-fx-features">
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>4
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bed.svg')}}" width="13" alt="" /></div>4
                                     Beds
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" />
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bathtub.svg')}}" width="13" alt="" />
                                     </div>2 Bath
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/move.svg')}}" width="13" alt="" /></div>
                                     820 sqft
                                 </div>
                             </div>
@@ -368,7 +368,7 @@
 
                         <div class="listing-detail-footer">
                             <div class="footer-first">
-                                <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />Montreal,
+                                <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
                                     Canada</div>
                             </div>
                             <div class="footer-flex">
@@ -409,11 +409,11 @@
                             <div class="_exlio_125">For Sale</div>
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-4.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-4.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-5.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-5.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-6.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-6.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
@@ -443,15 +443,15 @@
                         <div class="price-features-wrapper">
                             <div class="list-fx-features">
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>4
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bed.svg')}}" width="13" alt="" /></div>4
                                     Beds
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" />
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bathtub.svg')}}" width="13" alt="" />
                                     </div>2 Bath
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/move.svg')}}" width="13" alt="" /></div>
                                     700 sqft
                                 </div>
                             </div>
@@ -459,7 +459,7 @@
 
                         <div class="listing-detail-footer">
                             <div class="footer-first">
-                                <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />Montreal,
+                                <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
                                     Canada</div>
                             </div>
                             <div class="footer-flex">
@@ -500,11 +500,11 @@
                             <div class="_exlio_125">For Rent</div>
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-7.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-7.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-8.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-8.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="assets/img/p-9.png"
+                                    <div><a href="single-property-1.html"><img src="{{ asset('./assetsclient/img/p-9.png')}}"
                                                 class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
@@ -534,15 +534,15 @@
                         <div class="price-features-wrapper">
                             <div class="list-fx-features">
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>3
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bed.svg')}}" width="13" alt="" /></div>3
                                     Beds
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" />
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/bathtub.svg')}}" width="13" alt="" />
                                     </div>2 Bath
                                 </div>
                                 <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>
+                                    <div class="inc-fleat-icon"><img src="{{ asset('./assetsclient/img/move.svg')}}" width="13" alt="" /></div>
                                     800 sqft
                                 </div>
                             </div>
@@ -550,7 +550,7 @@
 
                         <div class="listing-detail-footer">
                             <div class="footer-first">
-                                <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />Montreal,
+                                <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
                                     Canada</div>
                             </div>
                             <div class="footer-flex">
@@ -589,7 +589,7 @@
     <!-- ============================ Properties End ================================== -->
 
     <!-- ============================ Top Agents ================================== -->
-    <section class="image-cover min" style="background:#122947 url(assets/img/pattern.png) no-repeat;">
+    <section class="image-cover min" style="background:#122947 {{ asset('./assetsclient/img/pattern.png')}} no-repeat;">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -614,9 +614,9 @@
 
                                     <div class="fr-grid-thumb">
                                         <a href="agent-page.html">
-                                            <span class="verified"><img src="assets/img/verified.svg"
+                                            <span class="verified"><img src="{{ asset('./assetsclient/img/verified.svg')}}"
                                                     class="verify mx-auto" alt=""></span>
-                                            <img src="assets/img/team-1.jpg" class="img-fluid mx-auto" alt="">
+                                            <img src="{{ asset('./assetsclient/img/team-1.jpg')}}" class="img-fluid mx-auto" alt="">
                                         </a>
                                     </div>
 
@@ -650,9 +650,9 @@
 
                                     <div class="fr-grid-thumb">
                                         <a href="agent-page.html">
-                                            <span class="verified"><img src="assets/img/verified.svg"
+                                            <span class="verified"><img src="{{ asset('./assetsclient/img/verified.svg')}}"
                                                     class="verify mx-auto" alt=""></span>
-                                            <img src="assets/img/team-2.jpg" class="img-fluid mx-auto" alt="">
+                                            <img src="{{ asset('./assetsclient/img/team-2.jpg')}}" class="img-fluid mx-auto" alt="">
                                         </a>
                                     </div>
 
@@ -686,9 +686,9 @@
 
                                     <div class="fr-grid-thumb">
                                         <a href="agent-page.html">
-                                            <span class="verified"><img src="assets/img/verified.svg"
+                                            <span class="verified"><img src="{{ asset('./assetsclient/img/verified.svg')}}"
                                                     class="verify mx-auto" alt=""></span>
-                                            <img src="assets/img/team-3.jpg" class="img-fluid mx-auto" alt="">
+                                            <img src="{{ asset('./assetsclient/img/team-3.jpg')}}" class="img-fluid mx-auto" alt="">
                                         </a>
                                     </div>
 
@@ -722,9 +722,9 @@
 
                                     <div class="fr-grid-thumb">
                                         <a href="agent-page.html">
-                                            <span class="verified"><img src="assets/img/verified.svg"
+                                            <span class="verified"><img src="{{ asset('./assetsclient/img/verified.svg')}}"
                                                     class="verify mx-auto" alt=""></span>
-                                            <img src="assets/img/team-4.jpg" class="img-fluid mx-auto" alt="">
+                                            <img src="{{ asset('./assetsclient/img/team-4.jpg')}}" class="img-fluid mx-auto" alt="">
                                         </a>
                                     </div>
 
@@ -758,9 +758,9 @@
 
                                     <div class="fr-grid-thumb">
                                         <a href="agent-page.html">
-                                            <span class="verified"><img src="assets/img/verified.svg"
+                                            <span class="verified"><img src="{{ asset('./assetsclient/img/verified.svg')}}"
                                                     class="verify mx-auto" alt=""></span>
-                                            <img src="assets/img/team-5.jpg" class="img-fluid mx-auto" alt="">
+                                            <img src="{{ asset('./assetsclient/img/team-5.jpg')}}" class="img-fluid mx-auto" alt="">
                                         </a>
                                     </div>
 
@@ -818,7 +818,7 @@
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                        <div class="img-wrap-background" style="background-image: url(assets/img/city-6.png);"></div>
+                        <div class="img-wrap-background" style="background-image: {{ asset('./assetsclient/img/city-6.png')}}"></div>
                     </a>
                 </div>
 
@@ -831,7 +831,7 @@
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                        <div class="img-wrap-background" style="background-image: url(assets/img/city-7.png);"></div>
+                        <div class="img-wrap-background" style="background-image: {{ asset('./assetsclient/img/city-7.png')}}"></div>
                     </a>
                 </div>
 
@@ -844,7 +844,7 @@
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                        <div class="img-wrap-background" style="background-image: url(assets/img/city-3.png);"></div>
+                        <div class="img-wrap-background" style="background-image: {{ asset('./assetsclient/img/city-3.png')}}"></div>
                     </a>
                 </div>
 
@@ -857,7 +857,7 @@
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                        <div class="img-wrap-background" style="background-image: url(assets/img/city-4.png);"></div>
+                        <div class="img-wrap-background" style="background-image: {{ asset('./assetsclient/img/city-4.png')}}></div>
                     </a>
                 </div>
 
@@ -870,7 +870,7 @@
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                        <div class="img-wrap-background" style="background-image: url(assets/img/city-5.png);"></div>
+                        <div class="img-wrap-background" style="background-image: {{ asset('./assetsclient/img/city-5.png')}}"></div>
                     </a>
                 </div>
 
@@ -904,7 +904,7 @@
                                 <div class="_testimonial_flex">
                                     <div class="_testimonial_flex_first">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/user-1.jpg" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/user-1.jpg')}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="_tsl_flex_capst">
                                             <h5>Susan D. Murphy</h5>
@@ -915,7 +915,7 @@
                                     </div>
                                     <div class="_testimonial_flex_first_last">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/c-1.png" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/c-1.png')}}" class="img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -933,7 +933,7 @@
                                 <div class="_testimonial_flex">
                                     <div class="_testimonial_flex_first">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/user-2.jpg" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/user-2.jpg')}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="_tsl_flex_capst">
                                             <h5>Maxine E. Gagliardi</h5>
@@ -944,7 +944,7 @@
                                     </div>
                                     <div class="_testimonial_flex_first_last">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/c-2.png" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/c-2.png')}}" class="img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -962,7 +962,7 @@
                                 <div class="_testimonial_flex">
                                     <div class="_testimonial_flex_first">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/user-3.jpg" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/user-3.jpg')}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="_tsl_flex_capst">
                                             <h5>Roy M. Cardona</h5>
@@ -973,7 +973,7 @@
                                     </div>
                                     <div class="_testimonial_flex_first_last">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/c-3.png" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/c-3.png')}}" class="img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -991,7 +991,7 @@
                                 <div class="_testimonial_flex">
                                     <div class="_testimonial_flex_first">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/user-4.jpg" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/user-4.jpg')}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="_tsl_flex_capst">
                                             <h5>Dorothy K. Shipton</h5>
@@ -1002,7 +1002,7 @@
                                     </div>
                                     <div class="_testimonial_flex_first_last">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/c-4.png" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/c-4.png')}}" class="img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -1020,7 +1020,7 @@
                                 <div class="_testimonial_flex">
                                     <div class="_testimonial_flex_first">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/user-5.jpg" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/user-5.jpg')}}" class="img-fluid" alt="">
                                         </div>
                                         <div class="_tsl_flex_capst">
                                             <h5>Robert P. McKissack</h5>
@@ -1031,7 +1031,7 @@
                                     </div>
                                     <div class="_testimonial_flex_first_last">
                                         <div class="_tsl_flex_thumb">
-                                            <img src="assets/img/c-5.png" class="img-fluid" alt="">
+                                            <img src="{{ asset('./assetsclient/img/c-5.png')}}" class="img-fluid" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -1072,7 +1072,7 @@
                     <div class="grid_blog_box">
 
                         <div class="gtid_blog_thumb">
-                            <a href="blog-detail.html"><img src="assets/img/b-1.jpg" class="img-fluid" alt="" /></a>
+                            <a href="blog-detail.html"><img src="{{ asset('./assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
                             <div class="gtid_blog_info"><span>12</span>Sep 2021</div>
                         </div>
 
@@ -1085,7 +1085,7 @@
                         <div class="modern_property_footer">
                             <div class="property-author">
                                 <div class="path-img"><a href="agent-page.html" tabindex="-1"><img
-                                            src="assets/img/user-1.jpg" class="img-fluid" alt=""></a></div>
+                                            src="{{ asset('./assetsclient/img/user-1.jpg')}}" class="img-fluid" alt=""></a></div>
                                 <h5><a href="agent-page.html" tabindex="-1">Shaurya Preet</a></h5>
                             </div>
                             <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>202</span>
@@ -1099,7 +1099,7 @@
                     <div class="grid_blog_box">
 
                         <div class="gtid_blog_thumb">
-                            <a href="blog-detail.html"><img src="assets/img/b-5.jpg" class="img-fluid" alt="" /></a>
+                            <a href="blog-detail.html"><img src="{{ asset('./assetsclient/img/b-5.jpg')}}" class="img-fluid" alt="" /></a>
                             <div class="gtid_blog_info"><span>15</span>Aug 2021</div>
                         </div>
 
@@ -1112,7 +1112,7 @@
                         <div class="modern_property_footer">
                             <div class="property-author">
                                 <div class="path-img"><a href="agent-page.html" tabindex="-1"><img
-                                            src="assets/img/user-2.jpg" class="img-fluid" alt=""></a></div>
+                                            src="{{ asset('./assetsclient/img/user-2.jpg')}}" class="img-fluid" alt=""></a></div>
                                 <h5><a href="agent-page.html" tabindex="-1">Nirgam Singh</a></h5>
                             </div>
                             <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>407</span>
@@ -1126,7 +1126,7 @@
                     <div class="grid_blog_box">
 
                         <div class="gtid_blog_thumb">
-                            <a href="blog-detail.html"><img src="assets/img/b-6.jpg" class="img-fluid" alt="" /></a>
+                            <a href="blog-detail.html"><img src="{{ asset('./assetsclient/img/b-6.jpg')}}" class="img-fluid" alt="" /></a>
                             <div class="gtid_blog_info"><span>27</span>Nov 2021</div>
                         </div>
 
@@ -1139,7 +1139,7 @@
                         <div class="modern_property_footer">
                             <div class="property-author">
                                 <div class="path-img"><a href="agent-page.html" tabindex="-1"><img
-                                            src="assets/img/user-3.jpg" class="img-fluid" alt=""></a></div>
+                                            src="{{ asset('./assetsclient/img/user-3.jpg')}}" class="img-fluid" alt=""></a></div>
                                 <h5><a href="agent-page.html" tabindex="-1">Dhananjay Singh</a></h5>
                             </div>
                             <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>410</span>
