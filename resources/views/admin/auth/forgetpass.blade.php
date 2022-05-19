@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <!-- <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <style>
     body {
@@ -36,7 +38,8 @@
     }
 
     .margin-center {
-        margin-left: 35% !important;
+        margin-left: 30% !important;
+        font-family: 'Baloo Bhaijaan 2', cursive !important;
     }
 
     .color2 {
@@ -66,6 +69,19 @@
         color: #fff;
     }
 
+    .dark .card {
+        background: transparent !important;
+        color: #96a2b4;
+        box-shadow: 0 3px 30px rgb(0 0 0 / 20%);
+    }
+
+    .logo {
+        width: 30px;
+        padding-bottom: 5px;
+        /* border-radius: 20%; */
+        /* box-shadow: 0px 5px 5px 0px rgba(44, 44, 44, .2) */
+    }
+
     /* .color2 {
         color: #293254;
     } */
@@ -80,7 +96,10 @@
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4 class="margin-center"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></h4>
+                                <h4 class="margin-center">
+                                    <img class="logo" src="{{asset('/assets/img/logo.png')}}" alt="">
+                                    <span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span>
+                                </h4>
                             </div>
                             <div class="card-body">
                                 <p class="text-light">We will send a link to reset your password</p>
