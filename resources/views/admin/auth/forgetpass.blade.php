@@ -26,7 +26,7 @@
     }
 
     .card {
-        background-color: #293254eb !important;
+        background-color: #293254c2 !important;
     }
 
     .form-group>label {
@@ -70,9 +70,12 @@
     }
 
     .dark .card {
-        background: transparent !important;
-        color: #96a2b4;
-        box-shadow: 0 3px 30px rgb(0 0 0 / 20%);
+        background: rgba(8, 1, 1, 0.2);
+        opacity: none;
+        border: 1px solid;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0px 7px 31px -7px;
     }
 
     .logo {
@@ -85,6 +88,7 @@
     /* .color2 {
         color: #293254;
     } */
+
 </style>
 
 <body>

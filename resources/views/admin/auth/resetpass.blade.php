@@ -16,73 +16,77 @@
 </head>
 <style>
   body {
-    /* background-color: #293254; */
-    background-image: url('assets/img/bgimg02.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-size: 50%; */
+      /* background-color: #293254; */
+      background-image: url('assets/img/bgimg02.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* background-size: 50%; */
   }
 
   .card {
-    background-color: #293254eb !important;
+      background-color: #293254c2 !important;
   }
 
   .form-group>label {
-    color: white;
+      color: white;
   }
 
   .dark .form-group>label {
-    color: white;
+      color: white;
   }
 
   .margin-center {
-    margin-left: 30% !important;
-    font-family: 'Baloo Bhaijaan 2', cursive !important;
+      margin-left: 30% !important;
+      font-family: 'Baloo Bhaijaan 2', cursive !important;
   }
 
   .color2 {
-    color: #05b87c;
+      color: #05b87c;
   }
 
   .theme-black a {
-    color: #6777ef;
+      color: #6777ef;
   }
 
   .theme-black .card.card-primary {
-    border-top: 2px solid #05b87c;
+      border-top: 2px solid #05b87c;
   }
 
   .theme-black .btn-primary {
-    background-color: #05b87c;
-    border-color: transparent !important;
-    color: #fff;
+      background-color: #05b87c;
+      border-color: transparent !important;
+      color: #fff;
   }
 
   .btn.btn-lg {
-    width: 100%;
+      width: 100%;
   }
 
   .theme-black .btn-primary:hover {
-    background-color: #006241 !important;
-    color: #fff;
+      background-color: #006241 !important;
+      color: #fff;
   }
 
   .dark .card {
-    background: transparent !important;
-    color: #96a2b4;
-    box-shadow: 0 3px 30px rgb(0 0 0 / 20%);
+      background: rgba(8, 1, 1, 0.2);
+      opacity: none;
+      border: 1px solid;
+      border-radius: 15px;
+      color: white;
+      box-shadow: 0px 7px 31px -7px;
   }
 
   .logo {
-    width: 30px;
-    padding-bottom: 5px;
-    /* border-radius: 20%; */
-    /* box-shadow: 0px 5px 5px 0px rgba(44, 44, 44, .2) */
+      width: 30px;
+      padding-bottom: 5px;
+      /* border-radius: 20%; */
+      /* box-shadow: 0px 5px 5px 0px rgba(44, 44, 44, .2) */
   }
 
   /* .color2 {
-        color: #293254;
-    } */
+      color: #293254;
+  } */
+
 </style>
 
 <body>

@@ -6,14 +6,14 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login Rentinease</title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-social/bootstrap-social.css') }}">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    <link rel='shortcut icon' type='image/x-icon' href="{{('assets/img/favicon.ico')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ 'assets/img/favicon.ico' }}" />
 </head>
 <style>
     body {
@@ -25,7 +25,7 @@
     }
 
     .card {
-        background-color: #293254eb !important;
+        background-color: #293254c2 !important;
     }
 
     .form-group>label {
@@ -69,9 +69,12 @@
     }
 
     .dark .card {
-        background: transparent !important;
-        color: #96a2b4;
-        box-shadow: 0 3px 30px rgb(0 0 0 / 20%);
+        background: rgba(8, 1, 1, 0.2);
+        opacity: none;
+        border: 1px solid;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0px 7px 31px -7px;
     }
 
     .logo {
@@ -84,6 +87,7 @@
     /* .color2 {
         color: #293254;
     } */
+
 </style>
 
 <body>
@@ -92,18 +96,22 @@
         <section class="section">
             <div class="container mt-5 pt-5">
                 <div class="row">
-                    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div
+                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4 class="margin-center">
-                                <img class="logo" src="{{asset('/assets/img/logo.png')}}" alt="">
-                                    <span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></h4>
+                                    <img class="logo" src="{{ asset('/assets/img/logo.png') }}" alt="">
+                                    <span class="text-light">Rent</span><span class="color2">in</span><span
+                                        class="text-light">ease</span>
+                                </h4>
                             </div>
                             <div class="card-body">
                                 <form method="POST" action="#" class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="email text-light">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                            required autofocus>
                                         <div class="invalid-feedback">
                                             Please fill in your email
                                         </div>
@@ -117,7 +125,8 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                        <input id="password" type="password" class="form-control" name="password"
+                                            tabindex="2" required>
                                         <div class="invalid-feedback">
                                             please fill in your password
                                         </div>
@@ -136,7 +145,7 @@
                                 </form>
 
                                 <!-- <div class="mt-5  text-center text-light">
-                                    Don't have an account? <a href="{{url('/register')}}">Create One</a>
+                                    Don't have an account? <a href="{{ url('/register') }}">Create One</a>
                                 </div> -->
                                 <!-- <div class="text-center mt-4 mb-3">
                                     <div class="text-job text-muted">Login With Social</div>
@@ -162,13 +171,13 @@
         </section>
     </div>
     <!-- General JS Scripts -->
-    <script src="{{asset('assets/js/app.min.js')}}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <!-- JS Libraies -->
     <!-- Page Specific JS File -->
     <!-- Template JS File -->
-    <script src="{{asset('assets/js/scripts.js')}}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
-    <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 
 </html>
