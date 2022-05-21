@@ -1,4 +1,14 @@
-
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjdXN0b20uY3NzIn0= */
 
 /*# sourceMappingURL=custom.css.map */
+.color2 {
+    color: #05b87c;
+}
+
+.theme-black .navbar .form-inline .form-control {
+    background-color: #abbbd5 !important;
+}
+
+.theme-black .navbar .form-inline .btn:hover{
+background-color: #05b87c !important;
+}
