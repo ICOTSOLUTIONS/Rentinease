@@ -795,7 +795,7 @@
     <!-- ============================ Top Agents End ================================== -->
 
     <!-- ============================ Property By Location ================================== -->
-    <section class="min">
+    {{-- <section class="min">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -877,7 +877,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- ============================ Property By Location End ================================== -->
 
     <!-- ============================ Smart Testimonials ================================== -->
