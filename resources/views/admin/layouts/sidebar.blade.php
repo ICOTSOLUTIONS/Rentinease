@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href=""> <img alt="image" src="{{asset('assets/img/logo.png')}}" class="header-logo" /> <span class="logo-name pt-4"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></span>
+      <a href=""> <img alt="image" src="{{asset('assets/img/gilogo.png')}}" class="header-logo" /> <span class="logo-name pt-4"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></span>
       </a>
     </div>
     <div class="sidebar-user">
