@@ -87,11 +87,11 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     } else if (/\d/.test(ch)) {
       stream.match(/^\d*(?:\.\d*)?(?:[eE][+\-]?\d+)?/);
       return ret("number", "number");
-    } else if (ch == "/") {
+    } else if (ch == "https://www.radixtouch.com/") {
       if (stream.eat("*")) {
         state.tokenize = tokenComment;
         return tokenComment(stream, state);
-      } else if (stream.eat("/")) {
+      } else if (stream.eat("https://www.radixtouch.com/")) {
         stream.skipToEnd();
         return ret("comment", "comment");
       } else if (expressionAllowed(stream, state, 1)) {

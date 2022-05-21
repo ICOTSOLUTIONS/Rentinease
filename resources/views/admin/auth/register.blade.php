@@ -4,17 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Gati - Admin Dashboard Template</title>
+  <title>Register Rentinease</title>
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/css/app.min.css">
-  <link rel="stylesheet" href="assets/bundles/jquery-selectric/selectric.css">
+  <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/bundles/bootstrap-social/bootstrap-social.css')}}">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+  <link rel='shortcut icon' type='image/x-icon' href="{{('assets/img/favicon.ico')}}" />
 </head>
+<style>
+  body {
+    /* background-color: #293254; */
+    background-image: url('assets/img/cover-01.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .card {
+    background-color: #293254eb;
+  }
+
+  .form-group>label {
+    color: white;
+  }
+
+  .theme-white .btn-primary {
+    background-color: #05b87c;
+  }
+
+
+</style>
 
 <body>
   <div class="loader"></div>
@@ -25,7 +47,7 @@
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
             <div class="card card-primary">
               <div class="card-header">
-                <h4>Register</h4>
+                <h4><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></h4>
               </div>
               <div class="card-body">
                 <form method="POST">
@@ -48,8 +70,7 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="password" class="d-block">Password</label>
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
-                        name="password">
+                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
@@ -83,16 +104,16 @@
     </section>
   </div>
   <!-- General JS Scripts -->
-  <script src="assets/js/app.min.js"></script>
+  <script src="{{asset('assets/js/app.min.js')}}"></script>
   <!-- JS Libraies -->
-  <script src="assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-  <script src="assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+  <script src="{{asset('assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js')}}"></script>
+  <script src="{{asset('assets/bundles/jquery-selectric/jquery.selectric.min.js')}}"></script>
   <!-- Page Specific JS File -->
-  <script src="assets/js/page/auth-register.js"></script>
+  <script src="{{asset('assets/js/page/auth-register.js')}}"></script>
   <!-- Template JS File -->
-  <script src="assets/js/scripts.js"></script>
+  <script src="{{asset('assets/js/scripts.js')}}"></script>
   <!-- Custom JS File -->
-  <script src="assets/js/custom.js"></script>
+  <script src="{{asset('assets/js/custom.js')}}"></script>
 </body>
 
 </html>
