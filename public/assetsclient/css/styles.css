@@ -306,7 +306,7 @@ html body .db {
     top: -12px;
 }
 .theme-bg{
-	background:#27ae60 !important;
+	background:#05b87c !important;
 }
 .theme-bg-2{
 	background:#ff6922 !important;
@@ -13303,7 +13303,7 @@ footer.skin-dark-footer .footer_widget ul li a, footer.skin-dark-footer, footer.
     font-weight: 600;
 }
 footer.skin-dark-footer .footer_widget ul li a:hover, footer.skin-dark-footer .footer_widget ul li a:focus{
-    color:#ffffff;
+    color:#05b87c;
 }
 .footer-bottom {
     padding:10px 0;
