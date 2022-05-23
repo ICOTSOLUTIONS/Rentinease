@@ -19,7 +19,7 @@
 <style>
     body {
         /* background-color: #293254; */
-        background-image: url('assets/img/bgimg02.jpeg');
+        background-image: url('/assets/img/bgimg02.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         /* background-size: 50%; */
@@ -107,10 +107,20 @@
                             </div>
                             <div class="card-body">
                                 <p class="text-light">We will send a link to reset your password</p>
-                                <form method="POST">
+                                @if (Session::has('message'))
+                                    <div class="alert alert-{{ Session::get('messageType') }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">×</button>
+                                        <strong>{{ Session::get('message') }} </strong>
+                                    </div>
+                                @endif
+                                <form method="POST" action="{{ route('admin.forgot.pass') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                                        <input id="email" type="email" class="form-control" value="{{ old('email') }}" name="email" tabindex="1" required autofocus>
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
