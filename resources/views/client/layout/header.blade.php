@@ -2,8 +2,10 @@
 				<div class="container-fluid">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
-							<a class="nav-brand static-logo" href="#"><img src="{{ asset('./assetsclient/img/logo-light.png')}}" class="logo" alt="" /></a>
-							<a class="nav-brand fixed-logo" href="#"><img src="{{ asset('./assetsclient/img/logo.png')}}" class="logo" alt="" /></a>
+							<!-- <a class="nav-brand static-logo" href="#"><img src="{{ asset('./assetsclient/img/Rentinease.png')}}" class="logo" alt="" /></a> -->
+							<h4 class="text-primary nav-brand static-logo">LO<span class="text-success" >GO</span></h4>
+							<!-- <a class="nav-brand fixed-logo" href="#"><img src="{{ asset('./assetsclient/img/logo.png')}}" class="logo" alt="" /></a> -->
+							<h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success" >GO</span></h4>
 							<div class="nav-toggle"></div>
 							<div class="mobile_nav">
 								<ul>
@@ -69,7 +71,7 @@
 								</li>
 
 								<li><a href="#">Rent<span class="submenu-indicator"></span></a>
-									<ul class="nav-dropdown nav-submenu">
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li class=""><a href="#">User Admin<span class="submenu-indicator"></span></a>
 											<ul class="nav-dropdown nav-submenu">
 												<li><a href="dashboard.html">User Dashboard</a></li>
@@ -89,7 +91,7 @@
 											</ul>
 										</li>
 										<li><a href="compare-property.html">Compare Property</a></li>
-									</ul>
+									</ul> -->
 								</li>
 
 								<li><a href="#">Blog<span class="submenu-indicator"></span></a>
@@ -127,7 +129,7 @@
 									</a>
 								</li>
 								<li class="add-listing">
-									<a href="submit-property.html" class="theme-cl">
+									<a href="#" class="theme-cl">
 										<i class="fas fa-plus-circle mr-1"></i>Add Property
 									</a>
 								</li>

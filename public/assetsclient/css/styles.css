@@ -140,7 +140,7 @@ section{
 	position:relative;
 }
 section.min{
-	padding:80px 0 50px;
+	padding:0px 0 50px;
 	position:relative;
 }
 .light-bg {
@@ -3337,7 +3337,8 @@ ul {
 }
 
 .nav-brand {
-    padding:18px 15px;
+    padding:28px 1px;
+    /* padding:18px 15px; */
     font-size: 24px;
 	margin-right: 1rem;
 	padding-left: 0;
@@ -4853,7 +4854,6 @@ span.like-listing {
     right: 20px;
     bottom: 20px;
     display: table;
-    #2d3248
 }
 .single-top {
     padding: 0 10px;
@@ -7042,11 +7042,11 @@ span.tag_t {
 }
 .btn.btn-theme:hover, .btn.btn-theme:focus {
     background:#27ae60;
-	border:1px solid ##27ae60;
+	border:1px solid #27ae60;
     color:#ffffff;
 }
 .btn.btn-theme-light {
-    color:##27ae60;
+    color:#27ae60;
     background:rgba(39, 174, 96,0.12);
     border-radius: 4px;
 	margin-bottom:5px;
@@ -13297,7 +13297,7 @@ footer.skin-dark-footer h4{
     color: #ffffff;
 }
 footer.skin-dark-footer .footer_widget ul li a, footer.skin-dark-footer, footer.skin-dark-footer a {
-    color: #5e6d88;
+    color: white;
     transition: all ease 0.4s;
     font-size: 14px;
     font-weight: 600;
@@ -15067,4 +15067,25 @@ h1, .h1 {
 	
 }
 
+/* whatsapp */
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:30px;
+    left: 15px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
 
+.my-float{
+	margin-top:16px;
+}
+.set{
+    left: -1px !important;
+}
