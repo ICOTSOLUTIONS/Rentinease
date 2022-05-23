@@ -12,8 +12,32 @@
     <li class="breadcrumb-item">Blank Page</li>
   </ul> -->
   <div class="section-body">
-    <!-- add content here -->
-  </div>
+    <div class="row clearfix">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Pie Chart</h4>
+          </div>
+          <div class="card-body">
+            <div class="recent-report__chart">
+              <div id="chart7"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Radar Chart</h4>
+          </div>
+          <div class="card-body">
+            <div class="recent-report__chart">
+              <div id="chart8"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 <!-- <div class="settingSidebar">
   <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
