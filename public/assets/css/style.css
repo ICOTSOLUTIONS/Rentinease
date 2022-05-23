@@ -11112,7 +11112,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark .card .card-header h4 {
-    color: #96a2b4
+    color: #fff
 }
 
 .dark .card .card-header-form .search-control {
@@ -22858,8 +22858,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark .card {
-    background-color: #353c48;
-    color: #96a2b4
+    background-color: #abbbd5;
+    color: #fff;
 }
 
 .dark .card .card-header {

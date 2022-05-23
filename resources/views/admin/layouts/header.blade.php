@@ -3,7 +3,7 @@
     <ul class="navbar-nav mr-3">
       <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
 									collapse-btn"> <i data-feather="menu"></i></a></li>
-      <li>
+      <!-- <li>
         <form class="form-inline me-auto">
           <div class="search-element d-flex">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -12,7 +12,7 @@
             </button>
           </div>
         </form>
-      </li>
+      </li> -->
     </ul>
   </div>
   <ul class="navbar-nav navbar-right">
