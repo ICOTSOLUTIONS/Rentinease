@@ -80,14 +80,14 @@
     <!-- ============================ Hero Banner End ================================== -->
 
     <!-- ============================ Our Awards Start ================================== -->
-    <section class="p-0">
+    <!-- <section class="p-0">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-11 col-lg-11 col-md-12">
 
                     <div class="_awards_group">
                         <ul class="_awards_lists">
-                            <!-- single list -->
+                            single list
                             <li>
                                 <div class="_awards_list_wrap">
                                     <div class="_awards_list_thumb"><img src="{{ asset('./assetsclient/img/award-1.png')}}" class="img-fluid"
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <!-- single list -->
+                            single list
                             <li>
                                 <div class="_awards_list_wrap">
                                     <div class="_awards_list_thumb"><img src="{{ asset('./assetsclient/img/award-5.png')}}" class="img-fluid"
@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <!-- single list -->
+                            single list
                             <li>
                                 <div class="_awards_list_wrap">
                                     <div class="_awards_list_thumb"><img src="{{ asset('./assetsclient/img/award-2.png')}}" class="img-fluid"
@@ -126,11 +126,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ============================ Our Awards End ================================== -->
 
     <!-- ============================ Property Category Start ================================== -->
-    <section class="min">
+    <!-- <section class="min">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -145,7 +145,7 @@
 
             <div class="row justify-content-center mt-4">
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -163,7 +163,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -199,7 +199,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -217,7 +217,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -235,7 +235,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -253,7 +253,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -271,7 +271,7 @@
                     </div>
                 </div>
 
-                <!-- Single Category -->
+                Single Category
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="_category_box">
                         <a href="list-layout-with-sidebar.html">
@@ -292,14 +292,14 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- ============================ Property Category End ================================== -->
 
     <!-- ============================ Properties Start ================================== -->
     <section class="pt-0 min">
         <div class="container">
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-3">
                 <div class="col-lg-7 col-md-8">
                     <div class="sec-heading center">
                         <h2>Featured Listed Property</h2>
@@ -881,7 +881,7 @@
     <!-- ============================ Property By Location End ================================== -->
 
     <!-- ============================ Smart Testimonials ================================== -->
-    <section class="gray-simple">
+    <!-- <section class="gray-simple">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -898,7 +898,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="item-slide space">
 
-                        <!-- Single Item -->
+                        Single Item
                         <div class="single_items">
                             <div class="_testimonial_wrios">
                                 <div class="_testimonial_flex">
@@ -927,7 +927,7 @@
                             </div>
                         </div>
 
-                        <!-- Single Item -->
+                        Single Item
                         <div class="single_items">
                             <div class="_testimonial_wrios">
                                 <div class="_testimonial_flex">
@@ -956,7 +956,7 @@
                             </div>
                         </div>
 
-                        <!-- Single Item -->
+                        Single Item
                         <div class="single_items">
                             <div class="_testimonial_wrios">
                                 <div class="_testimonial_flex">
@@ -985,7 +985,7 @@
                             </div>
                         </div>
 
-                        <!-- Single Item -->
+                        Single Item
                         <div class="single_items">
                             <div class="_testimonial_wrios">
                                 <div class="_testimonial_flex">
@@ -1014,7 +1014,7 @@
                             </div>
                         </div>
 
-                        <!-- Single Item -->
+                        Single Item
                         <div class="single_items">
                             <div class="_testimonial_wrios">
                                 <div class="_testimonial_flex">
@@ -1048,7 +1048,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- ============================ Smart Testimonials End ================================== -->
 
     <!-- ============================ article Start ================================== -->

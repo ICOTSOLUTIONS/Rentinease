@@ -3337,7 +3337,8 @@ ul {
 }
 
 .nav-brand {
-    padding:18px 15px;
+    padding:28px 1px;
+    /* padding:18px 15px; */
     font-size: 24px;
 	margin-right: 1rem;
 	padding-left: 0;
@@ -4853,7 +4854,6 @@ span.like-listing {
     right: 20px;
     bottom: 20px;
     display: table;
-    #2d3248
 }
 .single-top {
     padding: 0 10px;
@@ -7042,11 +7042,11 @@ span.tag_t {
 }
 .btn.btn-theme:hover, .btn.btn-theme:focus {
     background:#27ae60;
-	border:1px solid ##27ae60;
+	border:1px solid #27ae60;
     color:#ffffff;
 }
 .btn.btn-theme-light {
-    color:##27ae60;
+    color:#27ae60;
     background:rgba(39, 174, 96,0.12);
     border-radius: 4px;
 	margin-bottom:5px;
@@ -13297,7 +13297,7 @@ footer.skin-dark-footer h4{
     color: #ffffff;
 }
 footer.skin-dark-footer .footer_widget ul li a, footer.skin-dark-footer, footer.skin-dark-footer a {
-    color: #5e6d88;
+    color: white;
     transition: all ease 0.4s;
     font-size: 14px;
     font-weight: 600;

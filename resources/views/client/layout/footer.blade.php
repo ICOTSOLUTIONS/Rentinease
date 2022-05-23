@@ -5,7 +5,8 @@
 
 							<div class="col-lg-5 col-md-5">
 								<div class="footer_widget">
-									<img src="{{ asset('./assetsclient/img/logo-light.png')}}" class="img-footer small mb-2" alt="" />
+									<h4 class="text-primary">LO<span class="text-success" >GO</span></h4>
+									<!-- <img src="{{ asset('./assetsclient/img/Rentinease.png')}}" class="img-footer small mb-2" alt="" /> -->
 									<h4 class="extream mb-3">Do You Really want Assistance With<br>Anything?</h4>
 									<!-- <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p> -->
 									<div class="foot-news-last">
