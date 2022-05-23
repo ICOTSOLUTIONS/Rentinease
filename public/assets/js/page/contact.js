@@ -1,1 +1,199 @@
-var _0x4e5d=['data','Please\x20provide\x20valid\x20email','#trashed','click','show','#starred','Are\x20you\x20sure?','Please\x20provide\x20valid\x20number','assets/js/data/contact-freq.json','.contact-item','Please\x20provide\x20address','form','find','#searchItem','assets/js/data/contact.json','img','rtip','toggle','addClass','#addBtn','each','draw','#contactForm','Search\x20contacts','load','removeClass','#myForm','hide','assets/js/data/contact-star.json','.btn-view','modal','dt-body-center','text','.contact-list\x20li','assign','attr','phone','then','url','ajax','log','#contactTbl','#all','rowindex','<input\x20type=\x22checkbox\x22\x20name=\x22id[]\x22\x20value=\x22','row','DataTable','index','<div/>','Once\x20deleted,\x20you\x20will\x20not\x20be\x20able\x20to\x20recover\x20this\x20contact!','ready','remove','<a\x20class=\x22btn-view\x22><i\x20class=\x22far\x20fa-edit\x20m-r-10\x22></i></a>','\x22\x20/>','Please\x20provide\x20name','assets/img/users/user-1.png','name','active','.contact-list\x20a','validate','#contactTbl\x20tbody','#contactForm\x20textarea','hidden.bs.modal','type','keyup','closest','val','assets/js/data/contact-trashed.json','.btn-delete','data-src','search','parents','reset','not','trigger','preventDefault','asc','#contactForm\x20input'];(function(_0x42148a,_0x4e5d9d){var _0x2f3dbc=function(_0x559072){while(--_0x559072){_0x42148a['push'](_0x42148a['shift']());}};_0x2f3dbc(++_0x4e5d9d);}(_0x4e5d,0x75));var _0x2f3d=function(_0x42148a,_0x4e5d9d){_0x42148a=_0x42148a-0x0;var _0x2f3dbc=_0x4e5d[_0x42148a];return _0x2f3dbc;};'use strict';$(document)[_0x2f3d('0xb')](()=>{$(_0x2f3d('0x41'))[_0x2f3d('0x14')]({'rules':{'name':{'required':!![]},'email':{'required':!![],'email':!![]},'phone':{'required':!![],'digits':!![]},'address':{'required':!![]}},'messages':{'title':{'required':_0x2f3d('0xf')},'email':{'required':_0x2f3d('0x28')},'phone':{'required':_0x2f3d('0x2e')},'address':{'required':_0x2f3d('0x31')}},'submitHandler':function(_0x14f003){const _0x3452d3={};_0x3452d3[_0x2f3d('0x36')]=_0x3a3363,$[_0x2f3d('0x3b')]($(_0x2f3d('0x26')),function(){Object[_0x2f3d('0x49')](_0x3452d3,{[$(this)['attr'](_0x2f3d('0x1e'))]:$(this)[_0x2f3d('0x1b')]()});}),$[_0x2f3d('0x3b')]($(_0x2f3d('0x16')),function(){Object['assign'](_0x3452d3,{[$(this)[_0x2f3d('0x4a')](_0x2f3d('0x1e'))]:$(this)[_0x2f3d('0x1b')]()});});if(_0x449b3e){var _0xcea886=$(_0x2f3d('0x3d'))[_0x2f3d('0x4a')](_0x2f3d('0x4'));console[_0x2f3d('0x1')](_0x3452d3),_0x12b0dc[_0x2f3d('0x6')](_0xcea886)[_0x2f3d('0x27')](_0x3452d3)['draw']();}else console[_0x2f3d('0x1')](_0x3452d3),_0x12b0dc['row']['add'](_0x3452d3)[_0x2f3d('0x3c')]();$('#contactForm')['modal'](_0x2f3d('0x38'));}}),$(_0x2f3d('0x13'))['on'](_0x2f3d('0x2a'),function(){return $(_0x2f3d('0x13'))[_0x2f3d('0x40')](_0x2f3d('0x12')),$(this)['addClass'](_0x2f3d('0x12')),$(_0x2f3d('0x30'))[_0x2f3d('0x42')](),$('.'+$(this)[_0x2f3d('0x27')](_0x2f3d('0x18')))[_0x2f3d('0x2b')](0xa),![];});var _0x34fd49=$(_0x2f3d('0x48'))[_0x2f3d('0x2a')](function(){$(this)[_0x2f3d('0x39')](_0x2f3d('0x12')),_0x34fd49[_0x2f3d('0x22')](this)[_0x2f3d('0x40')](_0x2f3d('0x12'));}),_0x3a3363,_0x449b3e=![];const _0x12b0dc=$(_0x2f3d('0x2'))[_0x2f3d('0x7')]({'ajax':{'url':_0x2f3d('0x35'),'dataSrc':function(_0x25089e){return _0x25089e['data'];}},'dom':_0x2f3d('0x37'),'language':{'searchPlaceholder':_0x2f3d('0x3e'),'search':''},'columns':[{'data':_0x2f3d('0x36'),'render':function(_0x28048b,_0xbeb8cf,_0x398764){return'<img\x20class=\x22contact-img\x22\x20src=\x22'+_0x28048b+_0x2f3d('0xe');}},{'data':_0x2f3d('0x11')},{'data':'email'},{'data':_0x2f3d('0x4b')},{'data':'address'},{'data':'action','render':function(_0x52d92a,_0x560437,_0x4171d5,_0x13411f){return _0x2f3d('0xd')+'<a\x20class=\x22btn-delete\x22><i\x20class=\x22far\x20fa-trash-alt\x22></i></a>';}}],'columnDefs':[{'targets':0x0,'searchable':![],'orderable':![],'className':_0x2f3d('0x46'),'render':function(_0x176a51,_0x5d14ca,_0x563d69,_0x2f0fb0){return _0x2f3d('0x5')+$(_0x2f3d('0x9'))[_0x2f3d('0x47')](_0x176a51)['html']()+'\x22>';}}],'order':[0x1,_0x2f3d('0x25')]});$(_0x2f3d('0x34'))[_0x2f3d('0x19')](function(){_0x12b0dc[_0x2f3d('0x1f')]($(this)[_0x2f3d('0x1b')]())[_0x2f3d('0x3c')]();}),$(_0x2f3d('0x3'))[_0x2f3d('0x2a')](function(_0x1fe60d){_0x12b0dc[_0x2f3d('0x0')][_0x2f3d('0x4d')](_0x2f3d('0x35'))[_0x2f3d('0x3f')](),_0x1fe60d[_0x2f3d('0x24')]();}),$(_0x2f3d('0x2c'))[_0x2f3d('0x2a')](function(_0x137772){_0x12b0dc[_0x2f3d('0x0')]['url'](_0x2f3d('0x43'))['load'](),_0x137772['preventDefault']();}),$('#frequently')[_0x2f3d('0x2a')](function(_0x10bdaf){_0x12b0dc[_0x2f3d('0x0')][_0x2f3d('0x4d')](_0x2f3d('0x2f'))[_0x2f3d('0x3f')](),_0x10bdaf[_0x2f3d('0x24')]();}),$(_0x2f3d('0x29'))[_0x2f3d('0x2a')](function(_0x144fb1){_0x12b0dc['ajax'][_0x2f3d('0x4d')](_0x2f3d('0x1c'))[_0x2f3d('0x3f')](),_0x144fb1[_0x2f3d('0x24')]();}),$(_0x2f3d('0x3a'))[_0x2f3d('0x2a')](function(){_0x449b3e=![],_0x3a3363=_0x2f3d('0x10'),$(_0x2f3d('0x3d'))[_0x2f3d('0x45')](_0x2f3d('0x38'));}),$(_0x2f3d('0x15'))['on'](_0x2f3d('0x2a'),_0x2f3d('0x1d'),function(_0x3972c7){swal({'title':_0x2f3d('0x2d'),'text':_0x2f3d('0xa'),'buttons':!![]})[_0x2f3d('0x4c')](_0x1ed25c=>{if(_0x1ed25c)_0x12b0dc['row']($(this)[_0x2f3d('0x20')]('tr'))[_0x2f3d('0xc')]()[_0x2f3d('0x3c')]();else{}});}),$('#contactTbl')['on'](_0x2f3d('0x2a'),_0x2f3d('0x44'),function(){_0x449b3e=!![];const _0x33d15d=_0x12b0dc[_0x2f3d('0x6')]($(this)[_0x2f3d('0x1a')]('tr'));var _0x31e7a9=_0x12b0dc[_0x2f3d('0x6')]($(this)[_0x2f3d('0x1a')]('tr'))[_0x2f3d('0x27')]();_0x3a3363=_0x31e7a9['img'],$['each']($('#contactForm\x20input'),function(){$(this)['val'](_0x33d15d[_0x2f3d('0x27')]()[$(this)[_0x2f3d('0x4a')](_0x2f3d('0x1e'))]);}),$[_0x2f3d('0x3b')]($(_0x2f3d('0x16')),function(){$(this)[_0x2f3d('0x1b')](_0x33d15d[_0x2f3d('0x27')]()[$(this)[_0x2f3d('0x4a')](_0x2f3d('0x1e'))]);}),$('#contactForm')[_0x2f3d('0x4a')](_0x2f3d('0x4'),_0x33d15d[_0x2f3d('0x8')]()),$(_0x2f3d('0x3d'))[_0x2f3d('0x45')](_0x2f3d('0x38'));}),$(_0x2f3d('0x3d'))['on'](_0x2f3d('0x17'),function(){$(this)[_0x2f3d('0x33')](_0x2f3d('0x32'))[_0x2f3d('0x23')](_0x2f3d('0x21'));});});
+/*************** TO DO **********************/
+"use strict";
+$(document).ready(() => {
+
+  $('#myForm').validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true,
+        digits: true
+      },
+      address: {
+        required: true,
+      }
+    },
+    messages: {
+      title: {
+        required: "Please provide name",
+      },
+      email: {
+        required: "Please provide valid email",
+      },
+      phone: {
+        required: "Please provide valid number",
+      },
+      address: {
+        required: "Please provide address",
+      },
+    },
+    submitHandler: function (form) {
+      const modifiedData = {};
+      modifiedData.img = selected_img;
+      $.each($("#contactForm input"), function () {
+        Object.assign(modifiedData, {
+          [$(this).attr("data-src")]: $(this).val(),
+        });
+      });
+      $.each($("#contactForm textarea"), function () {
+        Object.assign(modifiedData, {
+          [$(this).attr("data-src")]: $(this).val(),
+        });
+      });
+
+      if (isEditClick) {
+        var rowIndex = $("#contactForm").attr("rowindex");
+        console.log(modifiedData);
+
+        dataTable.row(rowIndex).data(modifiedData).draw();
+      } else {
+        console.log(modifiedData);
+        dataTable.row.add(modifiedData).draw();
+      }
+
+      $("#contactForm").modal("toggle");
+    }
+  });
+
+
+  $(".contact-list a").on("click", function () {
+    $(".contact-list a").removeClass("active");
+    $(this).addClass("active");
+    $(".contact-item").hide();
+    $("." + $(this).data("type")).show(10);
+
+    return false;
+  });
+  var anchors = $(".contact-list li").click(function () {
+    //savesubcat()
+    $(this).addClass("active");
+    anchors.not(this).removeClass("active");
+  });
+  //data table initialization
+  var selected_img;
+  var isEditClick = false;
+  const dataTable = $("#contactTbl").DataTable({
+    ajax: {
+      url: "assets/js/data/contact.json",
+      dataSrc: function (json) {
+        return json.data;
+      },
+    },
+    dom: "rtip",
+    language: {
+      searchPlaceholder: "Search contacts",
+      search: "",
+    },
+    columns: [{
+        data: "img",
+        render: function (data, type, row) {
+          return '<img class="contact-img" src="' + data + '" />';
+        },
+      },
+      {
+        data: "name",
+      },
+      {
+        data: "email",
+      },
+      {
+        data: "phone",
+      },
+      {
+        data: "address",
+      },
+      {
+        data: "action",
+        render: function (data, type, full, meta) {
+          return (
+            '<a class="btn-view"><i class="far fa-edit m-r-10"></i></a>' +
+            '<a class="btn-delete"><i class="far fa-trash-alt"></i></a>'
+          );
+        },
+      },
+    ],
+    columnDefs: [{
+      targets: 0,
+      searchable: false,
+      orderable: false,
+      className: "dt-body-center",
+      render: function (data, type, full, meta) {
+        return (
+          '<input type="checkbox" name="id[]" value="' +
+          $("<div/>").text(data).html() +
+          '">'
+        );
+      },
+    }, ],
+    order: [1, "asc"],
+  });
+  $("#searchItem").keyup(function () {
+    dataTable.search($(this).val()).draw();
+  });
+  $("#all").click(function (e) {
+    dataTable.ajax.url("assets/js/data/contact.json").load();
+    e.preventDefault();
+  });
+  $("#starred").click(function (e) {
+    dataTable.ajax.url("assets/js/data/contact-star.json").load();
+    e.preventDefault();
+  });
+  $("#frequently").click(function (e) {
+    dataTable.ajax.url("assets/js/data/contact-freq.json").load();
+    e.preventDefault();
+  });
+  $("#trashed").click(function (e) {
+    dataTable.ajax.url("assets/js/data/contact-trashed.json").load();
+    e.preventDefault();
+  });
+
+  $("#addBtn").click(function () {
+    isEditClick = false;
+    selected_img = "assets/img/users/user-1.png";
+    $("#contactForm").modal("toggle");
+  });
+
+  // Handle click on "Delete" button
+  $("#contactTbl tbody").on("click", ".btn-delete", function (e) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this contact!",
+      buttons: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        dataTable.row($(this).parents("tr")).remove().draw();
+      } else {}
+    });
+  });
+  //edit button handler (open up edit form modal)
+  $("#contactTbl").on("click", ".btn-view", function () {
+    isEditClick = true;
+    //get clicked row
+    const rowClicked = dataTable.row($(this).closest("tr"));
+
+    var data_row = dataTable.row($(this).closest("tr")).data();
+    selected_img = data_row.img;
+
+    //populate edit form with row data by corresponding
+    //rowClicked property based on 'data-src' attribute
+    $.each($("#contactForm input"), function () {
+      $(this).val(rowClicked.data()[$(this).attr("data-src")]);
+    });
+    $.each($("#contactForm textarea"), function () {
+      $(this).val(rowClicked.data()[$(this).attr("data-src")]);
+    });
+    //set modal attribute rowindex to corresponding row index
+    $("#contactForm").attr("rowindex", rowClicked.index());
+    //open up edit form modal
+    $("#contactForm").modal("toggle");
+  });
+  $("#contactForm").on("hidden.bs.modal", function () {
+    $(this).find("form").trigger("reset");
+  });
+});
