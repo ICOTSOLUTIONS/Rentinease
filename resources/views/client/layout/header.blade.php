@@ -2,8 +2,10 @@
 				<div class="container-fluid">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
-							<a class="nav-brand static-logo" href="#"><img src="{{ asset('./assetsclient/img/logo-light.png')}}" class="logo" alt="" /></a>
-							<a class="nav-brand fixed-logo" href="#"><img src="{{ asset('./assetsclient/img/logo.png')}}" class="logo" alt="" /></a>
+							<!-- <a class="nav-brand static-logo" href="#"><img src="{{ asset('./assetsclient/img/Rentinease.png')}}" class="logo" alt="" /></a> -->
+							<h4 class="text-primary nav-brand static-logo">LO<span class="text-success" >GO</span></h4>
+							<!-- <a class="nav-brand fixed-logo" href="#"><img src="{{ asset('./assetsclient/img/logo.png')}}" class="logo" alt="" /></a> -->
+							<h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success" >GO</span></h4>
 							<div class="nav-toggle"></div>
 							<div class="mobile_nav">
 								<ul>

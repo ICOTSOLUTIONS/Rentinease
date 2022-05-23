@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-    <link rel='shortcut icon' type='image/x-icon' href="{{ 'assets/img/favicon.ico' }}" />
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/favicon.ico') }}" />
 </head>
 <style>
     body {
         /* background-color: #293254; */
-        background-image: url('assets/img/bgimg02.jpeg');
+        background-image: url('/assets/img/bgimg02.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         /* background-size: 50%; */
@@ -107,20 +107,30 @@
                                 </h4>
                             </div>
                             <div class="card-body">
-                                <form  action="#" class="needs-validation" novalidate="">
+                                @if (Session::has('message'))
+                                <div class="alert alert-{{ Session::get('messageType') }}">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">×</button>
+                                    <strong>{{ Session::get('message') }} </strong>
+                                </div>
+                            @endif
+                                <form method="POST" action="{{ route('admin.login.process') }}" class="needs-validation" novalidate="">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="email text-light">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" tabindex="1"
                                             required autofocus>
                                         <div class="invalid-feedback">
                                             Please fill in your email
                                         </div>
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label text-light">Password</label>
                                             <div class="float-right">
-                                                <a href="auth-forgot-password.html" class="text-small">
+                                                <a href="{{ route('admin.forgot') }}" class="text-small">
                                                     Forgot Password?
                                                 </a>
                                             </div>
@@ -130,6 +140,9 @@
                                         <div class="invalid-feedback">
                                             please fill in your password
                                         </div>
+                                        @error('password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <!-- <div class="form-group">
                                         <div class="custom-control custom-checkbox">

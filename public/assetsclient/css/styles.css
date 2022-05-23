@@ -3337,7 +3337,8 @@ ul {
 }
 
 .nav-brand {
-    padding:18px 15px;
+    padding:28px 1px;
+    /* padding:18px 15px; */
     font-size: 24px;
 	margin-right: 1rem;
 	padding-left: 0;
@@ -13297,7 +13298,7 @@ footer.skin-dark-footer h4{
     color: #ffffff;
 }
 footer.skin-dark-footer .footer_widget ul li a, footer.skin-dark-footer, footer.skin-dark-footer a {
-    color: #5e6d88;
+    color: white;
     transition: all ease 0.4s;
     font-size: 14px;
     font-weight: 600;
