@@ -107,7 +107,7 @@
                             </div>
                             <div class="card-body">
                                 <p class="text-light">We will send a link to reset your password</p>
-                                <form method="POST">
+                                <form >
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>

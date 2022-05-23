@@ -105,7 +105,7 @@
               </div>
               <div class="card-body">
                 <p class="text-light">Enter Your New Password</p>
-                <form method="POST">
+                <form>
                   {{-- <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
