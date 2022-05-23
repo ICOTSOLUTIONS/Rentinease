@@ -71,7 +71,7 @@
 								</li>
 
 								<li><a href="#">Rent<span class="submenu-indicator"></span></a>
-									<ul class="nav-dropdown nav-submenu">
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li class=""><a href="#">User Admin<span class="submenu-indicator"></span></a>
 											<ul class="nav-dropdown nav-submenu">
 												<li><a href="dashboard.html">User Dashboard</a></li>
@@ -91,7 +91,7 @@
 											</ul>
 										</li>
 										<li><a href="compare-property.html">Compare Property</a></li>
-									</ul>
+									</ul> -->
 								</li>
 
 								<li><a href="#">Blog<span class="submenu-indicator"></span></a>
@@ -129,7 +129,7 @@
 									</a>
 								</li>
 								<li class="add-listing">
-									<a href="submit-property.html" class="theme-cl">
+									<a href="#" class="theme-cl">
 										<i class="fas fa-plus-circle mr-1"></i>Add Property
 									</a>
 								</li>
