@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
 // Route::view('/', 'admin.auth.login');
 // Route::view('/forgetpass', 'admin.auth.forgetpass');
 // Route::view('/resetpass', 'admin.auth.resetpass');
-Route::view('/index', 'client.pages/index');
+Route::view('/', 'client.pages/index');
 // Route::view('/', 'admin.pages.index');
 // Route::view('/login', 'admin.auth.login');
 Route::view('/register', 'admin.auth.register');
