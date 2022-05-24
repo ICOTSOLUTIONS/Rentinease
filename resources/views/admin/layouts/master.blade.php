@@ -39,6 +39,11 @@
         background-color: #05b87c;
 
     }
+
+    .dark select.form-control {
+        color: black;
+
+    }
 </style>
 
 <body class="dark">
