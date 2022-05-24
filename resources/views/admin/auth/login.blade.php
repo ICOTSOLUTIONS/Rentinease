@@ -87,7 +87,6 @@
     /* .color2 {
         color: #293254;
     } */
-
 </style>
 
 <body>
@@ -96,34 +95,31 @@
         <section class="section">
             <div class="container mt-5 pt-5">
                 <div class="row">
-                    <div
-                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4 class="margin-center">
                                     <img class="logo" src="{{ asset('/assets/img/logo.png') }}" alt="">
-                                    <span class="text-light">Rent</span><span class="color2">in</span><span
-                                        class="text-light">ease</span>
+                                    <span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span>
                                 </h4>
                             </div>
                             <div class="card-body">
                                 @if (Session::has('message'))
                                 <div class="alert alert-{{ Session::get('messageType') }}">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">×</button>
                                     <strong>{{ Session::get('message') }} </strong>
+                                    <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
-                            @endif
+                                @endif
                                 <form method="POST" action="{{ route('admin.login.process') }}" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email text-light">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" tabindex="1"
-                                            required autofocus>
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" tabindex="1" required autofocus>
                                         <div class="invalid-feedback">
                                             Please fill in your email
                                         </div>
                                         @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
+                                        <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -135,13 +131,12 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <input id="password" type="password" class="form-control" name="password"
-                                            tabindex="2" required>
+                                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                                         <div class="invalid-feedback">
                                             please fill in your password
                                         </div>
                                         @error('password')
-                                            <span class="text-danger">{{ $message }}</span>
+                                        <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <!-- <div class="form-group">

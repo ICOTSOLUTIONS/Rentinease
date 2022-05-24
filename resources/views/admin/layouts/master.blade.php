@@ -8,14 +8,29 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
     <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
     <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
 </head>
+<style>
+    .bgcolor {
+        background-color: #05b87c !important;
+    }
 
-<body>
+    .dark .card {
+        background-color: #293254;
+    }
+
+    .dark {
+        background-color: #05b87c !important;
+    }
+</style>
+
+<body class="dark">
     <div class="loader"></div>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
@@ -23,7 +38,7 @@
             @include('admin.layouts.header')
             @include('admin.layouts.sidebar')
             <!-- Main Content -->
-            <div class="main-content">
+            <div class="main-content bgcolor">
                 @yield('content')
             </div>
 
@@ -36,9 +51,14 @@
     <!-- JS Libraies -->
     <!-- Page Specific JS File -->
     <!-- Template JS File -->
+    <script src="{{ asset('assets/bundles/datatables/datatables.min.js') }}"></script>
+    <!-- <script src="{{ asset('assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script> -->
+    <script src="{{ asset('assets/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/page/datatables.js') }}"></script>
     <script src="{{asset('assets/js/scripts.js')}}"></script>
     <!-- Custom JS File -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    @yield('script')
 </body>
 
 </html>

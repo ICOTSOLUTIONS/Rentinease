@@ -8680,10 +8680,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     background-color: #353c48
 }
 
-.dark-sidebar .main-sidebar .sidebar-brand {
-    background-color: #353c48
-}
-
 .dark-sidebar .main-sidebar .sidebar-brand a {
     color: #fff
 }
@@ -10919,10 +10915,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border-color: #191919 !important
 }
 
-.theme-black .navbar {
-    background-color: #353c48
-}
-
 .theme-black .navbar .form-inline .form-control {
     background-color: #212429 !important;
     border-color: #212429
@@ -11245,9 +11237,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark .form-control {
-    background-color: #353c48;
+    background-color: #05b87c;
     border-color: #979da6;
-    color: #96a2b4
+    color: #293254;
 }
 
 .dark .select2-container.select2-container--focus .select2-selection--multiple {
@@ -11632,7 +11624,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark select.form-control {
-    color: #96a2b4
+    color:#293254
 }
 
 .dark select.form-control:focus {
@@ -20444,12 +20436,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 .dark-sidebar .main-sidebar .sidebar-brand {
     background-color: #293254;
-    box-shadow: 0 4px 2px -2px gray;
+    box-shadow: 0px 2px 6px 2px rgb(27 5 31 / 20%);
 }
 
-.dark-sidebar .main-sidebar .sidebar-brand a {
-    color: #fff
-}
 
 .dark-sidebar .main-sidebar .sidebar-menu li a {
     color: #dadada
@@ -22685,7 +22674,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 .theme-black .navbar {
     background-color: #293254;
-    box-shadow: 0 4px 2px -2px gray;
+    box-shadow: 0px 2px 6px 2px rgb(27 5 31 / 20%);
 }
 
 .theme-black .navbar .form-inline .form-control {
@@ -22877,7 +22866,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark .card .card-header h4 {
-    color: #96a2b4
+    color: #e3eaef;
 }
 
 .dark .card .card-header-form .search-control {
@@ -22937,12 +22926,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark .table th {
-    color: #96a2b4 !important;
+    color: #e3eaef !important;
     border: 1px solid #212429
 }
 
 .dark .table td {
-    color: #96a2b4 !important;
+    color: #e3eaef !important;
     border: 1px solid #212429
 }
 
@@ -23007,12 +22996,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .dark .btn-outline-primary {
     color: #96a2b4;
     border-color: #96a2b4
-}
-
-.dark .form-control {
-    background-color: #abbbd5;
-    border-color: #979da6;
-    color: #96a2b4
 }
 
 .dark .select2-container.select2-container--focus .select2-selection--multiple {
@@ -23389,18 +23372,10 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .dark input.form-control {
-    color: #96a2b4
+    color: black;
 }
 
 .dark input.form-control:focus {
-    border-color: #b9b9b9
-}
-
-.dark select.form-control {
-    color: #96a2b4
-}
-
-.dark select.form-control:focus {
     border-color: #b9b9b9
 }
 
