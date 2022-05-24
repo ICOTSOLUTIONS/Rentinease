@@ -30,7 +30,7 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Main</li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li>
-      <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agency</span></a></li>
+      <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="monitor"></i><span>Agency</span></a></li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agent</span></a></li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Visitor Customer</span></a></li>
       <!-- <li class="dropdown">
