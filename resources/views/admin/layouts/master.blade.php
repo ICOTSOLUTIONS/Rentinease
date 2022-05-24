@@ -28,6 +28,17 @@
     .dark {
         background-color: #05b87c !important;
     }
+
+    .dark .form-control {
+        background-color: #05b87c;
+        border-color: #979da6;
+        color: black;
+    }
+
+    .theme-black .page-item.active .page-link {
+        background-color: #05b87c;
+
+    }
 </style>
 
 <body class="dark">
