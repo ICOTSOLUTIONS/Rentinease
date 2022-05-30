@@ -17,7 +17,15 @@ class AdminLogin
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            return redirect()->route('admin.dashboard');
+            if(auth()->user()->roles->name === 'admin'){
+                return redirect()->route('admin.dashboard');
+            }elseif(auth()->user()->roles->name === 'superadmin'){
+                return redirect()->route('admin.dashboard');
+            }elseif(auth()->user()->roles->name === 'subadmin'){
+                return redirect()->route('admin.dashboard');
+            }else{
+                return $next($request);
+            }
         }else{
             return $next($request);
         }

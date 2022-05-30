@@ -26,7 +26,11 @@ class AuthController extends Controller
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
-        if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
+        if(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>1])){
+            return redirect()->route('admin.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>2])){
+            return redirect()->route('admin.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>3])){
             return redirect()->route('admin.dashboard');
         }else{
             session()->flash('message', 'Invalid Credentials');
@@ -94,7 +98,7 @@ class AuthController extends Controller
              $user->remember_token = null;
              $user->save();
              session()->flash('message', 'Successfully Reset Your Password!');
-            session()->flash('messageType', 'success');
+             session()->flash('messageType', 'success');
             return redirect()->route('admin.login');
          }else{
              session()->flash('message', 'Your Verification link not match');
