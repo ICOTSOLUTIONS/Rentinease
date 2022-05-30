@@ -40,3 +40,5 @@ Route::view('/', 'client.pages/index');
 // Route::view('/login', 'admin.auth.login');
 Route::view('/register', 'admin.auth.register');
 Route::view('/agency', 'admin.pages.agency');
+Route::view('/agent', 'admin.pages.agent');
+Route::view('/vistor', 'admin.pages.vistor');
