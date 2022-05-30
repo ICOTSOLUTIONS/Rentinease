@@ -44,6 +44,14 @@
         color: black;
 
     }
+
+    .btn-hover:hover {
+        background-color: #05b87c;
+    }
+
+    .dark .form-group>label {
+        color: #fff;
+    }
 </style>
 
 <body class="dark">
