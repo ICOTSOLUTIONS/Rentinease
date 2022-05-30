@@ -29,12 +29,12 @@
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Main</li>
-      <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="monitor"></i><span>Agency</span></a></li>
+      <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="award"></i><span>Agency</span></a></li>
       <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li> -->
       <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agent</span></a></li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Visitor Customer</span></a></li> -->
       <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="monitor"></i><span>User</span></a>
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user"></i><span>User</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="/agency">Agency</a></li>
           <li><a class="nav-link" href="/agent">Agent</a></li>
@@ -42,7 +42,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="monitor"></i><span>Finance</span></a>
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="dollar-sign"></i><span>Finance</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="/coins">Coins</a></li>
           <li><a class="nav-link" href="/payments">Payments</a></li>
@@ -50,14 +50,14 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="monitor"></i><span>Admin</span></a>
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="/admin">Admin</a></li>
           <li><a class="nav-link" href="/assistant">Assistant Admin</a></li>
           <li><a class="nav-link" href="/customer">Customer Service</a></li>
         </ul>
       </li>
-      <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="monitor"></i><span>Blog</span></a></li>
+      <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="bold"></i><span>Blog</span></a></li>
       <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>
         <ul class="dropdown-menu">
