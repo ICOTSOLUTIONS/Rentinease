@@ -29,7 +29,11 @@
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Main</li>
+<<<<<<< HEAD
       <li class="nav-link has-dropdown"><a href="/agency"><i data-feather="award"></i><span>Agency</span></a></li>
+=======
+      <li class="nav-link has-dropdown"><a href="/admin/dashboard"><i data-feather="monitor"></i><span>Dashboard</span></a></li>
+>>>>>>> 4cc1ac79443b0e5b99a15c5aac42b6b3facd9bdd
       <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li> -->
       <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agent</span></a></li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Visitor Customer</span></a></li> -->
@@ -38,7 +42,7 @@
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="/agency">Agency</a></li>
           <li><a class="nav-link" href="/agent">Agent</a></li>
-          <li><a class="nav-link" href="/Visitor Customer">Visitor Customer</a></li>
+          <li><a class="nav-link" href="/VisitorCustomer">Visitor Customer</a></li>
         </ul>
       </li>
       <li class="dropdown">

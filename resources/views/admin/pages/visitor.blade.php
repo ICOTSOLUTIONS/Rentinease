@@ -6,8 +6,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
-                        <h4>AGENT</h4>
-                        <a href="{{url('/addagency')}}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                        <h4>VISTOR CUSTOMERS</h4>
+                        <button class="btn btn-success btn-hover">ADD CUSTOMER</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

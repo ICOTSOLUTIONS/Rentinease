@@ -17,7 +17,18 @@ class Admin
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            return $next($request);
+            if(auth()->user()->roles->name === 'admin'){
+                return $next($request);
+            }elseif(auth()->user()->roles->name === 'superadmin'){
+                return $next($request);
+            }elseif(auth()->user()->roles->name === 'subadmin'){
+                return $next($request);
+            }else{
+                auth()->logout();
+                session()->flash('message', 'First LoggedIn');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('admin.login');
+            }
         }else{
             session()->flash('message', 'First LoggedIn');
             session()->flash('messageType', 'danger');

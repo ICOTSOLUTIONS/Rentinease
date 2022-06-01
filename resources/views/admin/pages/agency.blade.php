@@ -5,8 +5,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <h4>Agency</h4>
+                    <div class="card-header text-center justify-content-between">
+                        <h4>AGENCY</h4>
+                        <a href="{{url('/addagency')}}"><button class="btn btn-success btn-hover">ADD AGENCY</button></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

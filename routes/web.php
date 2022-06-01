@@ -42,3 +42,4 @@ Route::view('/register', 'admin.auth.register');
 Route::view('/agency', 'admin.pages.agency');
 Route::view('/agent', 'admin.pages.agent');
 Route::view('/vistor', 'admin.pages.vistor');
+Route::view('/addagency', 'admin.pages.addagency');
