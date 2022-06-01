@@ -131,7 +131,15 @@
           </li> -->
     <li class="dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('assets/img/user.png') }}" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
       <div class="dropdown-menu dropdown-menu-right pullDown">
-        <div class="dropdown-title">Hello {{ auth()->user()->name }}</div>
+        <div class="dropdown-title">Hello 
+        @if(auth()->user()->roles->name === 'admin')
+          {{ auth()->user()->name }}
+          @elseif(auth()->user()->roles->name === 'superadmin')
+          {{ auth()->user()->name }}
+          @elseif(auth()->user()->roles->name === 'subadmin')
+          {{ auth()->user()->name }}
+          @endif
+        </div>
         <a href="#" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
         </a>
