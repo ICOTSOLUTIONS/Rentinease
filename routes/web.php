@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function () {
     });
     Route::middleware('admin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
+        Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
     });
 });
