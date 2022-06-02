@@ -33,6 +33,7 @@ class CreateAgenciesTable extends Migration
             $table->string('street')->nullable();
             $table->string('building')->nullable();
             $table->string('office')->nullable();
+            $table->mediumText('logo')->nullable();
             $table->mediumText('licence')->nullable();
             $table->mediumText('owner_visa')->nullable();
             $table->mediumText('owner_eid')->nullable();

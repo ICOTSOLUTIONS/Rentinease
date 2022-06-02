@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agency;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class AgencyController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,7 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        $agency = Agency::all();
-        return view('admin.pages.agency',['agencies'=>$agency]);
+        //
     }
 
     /**
@@ -26,7 +27,8 @@ class AgencyController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.addagency');
+        $agency = Agency::all();
+        return view('',['agencies'=>$agency]);
     }
 
     /**
@@ -38,13 +40,14 @@ class AgencyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'email' => 'required',
+            'password' => 'required',
             'company_name' => 'required',
             'owner_name' => 'required',
-            'email' => 'required',
             'phone' => 'required',
             'mobile' => 'required',
             'webiste' => 'nullable',
-            'company_type' => 'required',
+            'agent_type' => 'required',
             'licence_no' => 'required',
             'permit_no' => 'required',
             'rera_no' => 'required',
@@ -58,75 +61,78 @@ class AgencyController extends Controller
             'office' => 'required',
             'logo' => 'required',
             'licence' => 'required',
-            'owner_visa' => 'required',
-            'owner_eid' => 'required',
+            'agent_visa' => 'required',
+            'agent_eid' => 'required',
             'rera' => 'required',
             'additional_documents' => 'required',
             'authorized' => 'nullable',
         ]);
-        $agency = new Agency();
-        $agency->company_name = $request->company_name; 
-        $agency->owner_name = $request->owner_name;
-        $agency->email = $request->email;
-        $agency->phone = $request->phone;
-        $agency->mobile = $request->mobile;
-        $agency->webiste = $request->webiste;
-        $agency->company_type = $request->company_type;
-        $agency->licence_no = $request->licence_no;
-        $agency->permit_no = $request->permit_no;
-        $agency->rera_no = $request->rera_no;
-        $agency->establishment_date = $request->establishment_date;
-        $agency->licence_exp_date = $request->licence_exp_date;
-        $agency->access_of_agents = $request->access_of_agents;
-        $agency->country = $request->country;
-        $agency->city = $request->city;
-        $agency->street = $request->street;
-        $agency->building = $request->building;
-        $agency->office = $request->office;
+        $agent = new User();
+        $agent->role_id = 4;
+        if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
+        $agent->email = $request->email;
+        $agent->password = Hash::make($request->password);
+        $agent->company_name = $request->company_name; 
+        $agent->owner_name = $request->owner_name;
+        $agent->phone = $request->phone;
+        $agent->mobile = $request->mobile;
+        $agent->webiste = $request->webiste;
+        $agent->agent_type = $request->agent_type;
+        $agent->licence_no = $request->licence_no;
+        $agent->permit_no = $request->permit_no;
+        $agent->rera_no = $request->rera_no;
+        $agent->establishment_date = $request->establishment_date;
+        $agent->licence_exp_date = $request->licence_exp_date;
+        $agent->coins_of_agents = $request->coins_of_agents;
+        $agent->country = $request->country;
+        $agent->city = $request->city;
+        $agent->street = $request->street;
+        $agent->building = $request->building;
+        $agent->office = $request->office;
         if(!empty($request->logo)){
             $file = $request->logo;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/logo', $fileName);
-            $agency->logo = $fileName;
+            $file->storeAs('agent/logo', $fileName);
+            $agent->logo = $fileName;
         }
         if(!empty($request->licence)){
             $file = $request->licence;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/licence', $fileName);
-            $agency->licence = $fileName;
+            $file->storeAs('agent/licence', $fileName);
+            $agent->licence = $fileName;
         }
-        if(!empty($request->owner_visa)){
-            $file = $request->owner_visa;
+        if(!empty($request->agent_visa)){
+            $file = $request->agent_visa;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/owner-visa', $fileName);
-            $agency->owner_visa = $fileName;
+            $file->storeAs('agent/agent-visa', $fileName);
+            $agent->agent_visa = $fileName;
         }
-        if(!empty($request->owner_eid)){
-            $file = $request->owner_eid;
+        if(!empty($request->agent_eid)){
+            $file = $request->agent_eid;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/owner-eid', $fileName);
-            $agency->owner_eid = $fileName;
+            $file->storeAs('agent/agent-eid', $fileName);
+            $agent->agent_eid = $fileName;
         }
         if(!empty($request->rera)){
             $file = $request->rera;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/rera', $fileName);
-            $agency->rera = $fileName;
+            $file->storeAs('agent/rera', $fileName);
+            $agent->rera = $fileName;
         }
         if(!empty($request->additional_documents)){
             $file = $request->additional_documents;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/additional_documents', $fileName);
-            $agency->additional_documents = $fileName;
+            $file->storeAs('agent/additional_documents', $fileName);
+            $agent->additional_documents = $fileName;
         }
-        if($agency->save()){
-            session()->flash('message', 'Successfully Agency Added!');
+        if($agent->save()){
+            session()->flash('message', 'Successfully Agent Added!');
             session()->flash('messageType', 'success');
-            return redirect()->route('agency.index');
+            return redirect()->route('agent.index');
         }else{
-            session()->flash('message', 'Agency not Added!');
+            session()->flash('message', 'Agent not Added!');
             session()->flash('messageType', 'danger');
-            return redirect()->route('agency.index');
+            return redirect()->route('agent.index');
         }
     }
 
@@ -149,8 +155,12 @@ class AgencyController extends Controller
      */
     public function edit($id)
     {
-        $agency = Agency::where('id',$id)->first();
-        return view('admin.pages.editagency',['agencies'=>$agency]);
+        $agency = Agency::all();
+        $agent = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','agent');
+        })->where('id',$id)->get();
+        return view('',['agencies'=>$agency,'agents'=>$agent]);
     }
 
     /**
@@ -163,13 +173,14 @@ class AgencyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'email' => 'required',
+            'password' => 'required',
             'company_name' => 'required',
             'owner_name' => 'required',
-            'email' => 'required',
             'phone' => 'required',
             'mobile' => 'required',
             'webiste' => 'nullable',
-            'company_type' => 'required',
+            'agent_type' => 'required',
             'licence_no' => 'required',
             'permit_no' => 'required',
             'rera_no' => 'required',
@@ -183,75 +194,78 @@ class AgencyController extends Controller
             'office' => 'required',
             'logo' => 'required',
             'licence' => 'required',
-            'owner_visa' => 'required',
-            'owner_eid' => 'required',
+            'agent_visa' => 'required',
+            'agent_eid' => 'required',
             'rera' => 'required',
             'additional_documents' => 'required',
             'authorized' => 'nullable',
         ]);
-        $agency = Agency::where('id',$id)->first();
-        $agency->company_name = $request->company_name; 
-        $agency->owner_name = $request->owner_name;
-        $agency->email = $request->email;
-        $agency->phone = $request->phone;
-        $agency->mobile = $request->mobile;
-        $agency->webiste = $request->webiste;
-        $agency->company_type = $request->company_type;
-        $agency->licence_no = $request->licence_no;
-        $agency->permit_no = $request->permit_no;
-        $agency->rera_no = $request->rera_no;
-        $agency->establishment_date = $request->establishment_date;
-        $agency->licence_exp_date = $request->licence_exp_date;
-        $agency->access_of_agents = $request->access_of_agents;
-        $agency->country = $request->country;
-        $agency->city = $request->city;
-        $agency->street = $request->street;
-        $agency->building = $request->building;
-        $agency->office = $request->office;
+        $agent =  User::where('id',$id)->first();
+        $agent->role_id = 4;
+        if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
+        $agent->email = $request->email;
+        $agent->password = Hash::make($request->password);
+        $agent->company_name = $request->company_name; 
+        $agent->owner_name = $request->owner_name;
+        $agent->phone = $request->phone;
+        $agent->mobile = $request->mobile;
+        $agent->webiste = $request->webiste;
+        $agent->agent_type = $request->agent_type;
+        $agent->licence_no = $request->licence_no;
+        $agent->permit_no = $request->permit_no;
+        $agent->rera_no = $request->rera_no;
+        $agent->establishment_date = $request->establishment_date;
+        $agent->licence_exp_date = $request->licence_exp_date;
+        $agent->coins_of_agents = $request->coins_of_agents;
+        $agent->country = $request->country;
+        $agent->city = $request->city;
+        $agent->street = $request->street;
+        $agent->building = $request->building;
+        $agent->office = $request->office;
         if(!empty($request->logo)){
             $file = $request->logo;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/logo', $fileName);
-            $agency->logo = $fileName;
+            $file->storeAs('agent/logo', $fileName);
+            $agent->logo = $fileName;
         }
         if(!empty($request->licence)){
             $file = $request->licence;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/licence', $fileName);
-            $agency->licence = $fileName;
+            $file->storeAs('agent/licence', $fileName);
+            $agent->licence = $fileName;
         }
-        if(!empty($request->owner_visa)){
-            $file = $request->owner_visa;
+        if(!empty($request->agent_visa)){
+            $file = $request->agent_visa;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/owner-visa', $fileName);
-            $agency->owner_visa = $fileName;
+            $file->storeAs('agent/agent-visa', $fileName);
+            $agent->agent_visa = $fileName;
         }
-        if(!empty($request->owner_eid)){
-            $file = $request->owner_eid;
+        if(!empty($request->agent_eid)){
+            $file = $request->agent_eid;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/owner-eid', $fileName);
-            $agency->owner_eid = $fileName;
+            $file->storeAs('agent/agent-eid', $fileName);
+            $agent->agent_eid = $fileName;
         }
         if(!empty($request->rera)){
             $file = $request->rera;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/rera', $fileName);
-            $agency->rera = $fileName;
+            $file->storeAs('agent/rera', $fileName);
+            $agent->rera = $fileName;
         }
         if(!empty($request->additional_documents)){
             $file = $request->additional_documents;
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agency/additional_documents', $fileName);
-            $agency->additional_documents = $fileName;
+            $file->storeAs('agent/additional_documents', $fileName);
+            $agent->additional_documents = $fileName;
         }
-        if($agency->save()){
-            session()->flash('message', 'Successfully Agency Updated!');
+        if($agent->save()){
+            session()->flash('message', 'Successfully Agent Updated!');
             session()->flash('messageType', 'success');
-            return redirect()->route('agency.index');
+            return redirect()->route('agent.index');
         }else{
-            session()->flash('message', 'Agency not Updated!');
+            session()->flash('message', 'Agent not Updated!');
             session()->flash('messageType', 'danger');
-            return redirect()->route('agency.index');
+            return redirect()->route('agent.index');
         }
     }
 
@@ -263,17 +277,6 @@ class AgencyController extends Controller
      */
     public function destroy($id)
     {
-        $agency = Agency::where('id',$id)->first();
-        if(!empty($agency)){
-            if($agency->delete()){
-            session()->flash('message', 'Successfully Agency Deleted!');
-            session()->flash('messageType', 'danger');
-            return redirect()->route('agency.index');
-            }
-        }else{
-            session()->flash('message', 'Agency not Deleted!');
-            session()->flash('messageType', 'danger');
-            return redirect()->route('agency.index');
-        }        
+        //
     }
 }
