@@ -36,7 +36,7 @@
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user"></i><span>User</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="/agency">Agency</a></li>
+          <li><a class="nav-link" href="{{ route('agency.index') }}">Agency</a></li>
           <li><a class="nav-link" href="/agent">Agent</a></li>
           <li><a class="nav-link" href="/VisitorCustomer">Visitor Customer</a></li>
         </ul>

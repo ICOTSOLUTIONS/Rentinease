@@ -16,7 +16,7 @@ class AgencyController extends Controller
     public function index()
     {
         $agency = Agency::all();
-        return view('admin.pages.agency',['agencies'=>$agency]);
+        return view('admin.pages.agency.agency',['agencies'=>$agency]);
     }
 
     /**
@@ -26,7 +26,7 @@ class AgencyController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.addagency');
+        return view('admin.pages.agency.addagency');
     }
 
     /**
