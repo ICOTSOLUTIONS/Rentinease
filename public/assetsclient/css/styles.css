@@ -1982,7 +1982,7 @@ a.btn-trans-video i {
 .btn-outline-theme {
     color:#e42d29;
     background-color: transparent;
-    border:2px solid#e42d29;
+    border:2px solid #e42d29;
     -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
@@ -2031,7 +2031,7 @@ a.btn-trans-video i {
 .btn-primary,
 .btn-primary.disabled {
   background:#e42d29;
-  border: 1px solid#e42d29;
+  border: 1px solid #e42d29;
   -webkit-transition: 0.2s ease-in;
   -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; 
@@ -2054,7 +2054,7 @@ a.btn-trans-video i {
 .btn-themecolor.disabled {
   background:#e42d29;
   color: #ffffff;
-  border: 1px solid#e42d29;
+  border: 1px solid #e42d29;
 }
   
 .btn-themecolor:hover,
@@ -2212,7 +2212,7 @@ a.btn-trans-video i {
 .btn-success-gradiant {
   background: #27b737;
   background: -webkit-linear-gradient(legacy-direction(to right), #27b737 0%, #1fd628 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#27b737), to(#1fd628));
+  background: -webkit-gradient (linear, left top, right top, from(#27b737), to(#1fd628));
   background: -webkit-linear-gradient(left, #27b737 0%, #1fd628 100%);
   background: -o-linear-gradient(left, #27b737 0%, #1fd628 100%);
   background: linear-gradient(to right, #27b737 0%, #1fd628 100%);
@@ -2222,7 +2222,7 @@ a.btn-trans-video i {
 .btn-success-gradiant:hover {
     background: #1fd628;
     background: -webkit-linear-gradient(legacy-direction(to right), #1fd628 0%, #27b737 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#1fd628), to(#27b737));
+    background: -webkit-gradient (linear, left top, right top, from(#1fd628), to(#27b737));
     background: -webkit-linear-gradient(left, #1fd628 0%, #27b737 100%);
     background: -o-linear-gradient(left, #1fd628 0%, #27b737 100%);
     background: linear-gradient(to right, #1fd628 0%, #27b737 100%);
@@ -2237,7 +2237,7 @@ a.btn-trans-video i {
 .btn-danger-gradiant {
   background: #f33066;
   background: -webkit-linear-gradient(legacy-direction(to right), #f33066 0%, #ec2828 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#f33066), to(#ec2828));
+  background: -webkit-gradient (linear, left top, right top, from(#f33066), to(#ec2828));
   background: -webkit-linear-gradient(left, #f33066 0%, #ec2828 100%);
   background: -o-linear-gradient(left, #f33066 0%, #ec2828 100%);
   background: linear-gradient(to right, #f33066 0%, #ec2828 100%);
@@ -2247,7 +2247,7 @@ a.btn-trans-video i {
 .btn-danger-gradiant:hover {
     background: #ec2828;
     background: -webkit-linear-gradient(legacy-direction(to right), #ec2828 0%, #f33066 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#ec2828), to(#f33066));
+    background: -webkit-gradient (linear, left top, right top, from(#ec2828), to(#f33066));
     background: -webkit-linear-gradient(left, #ec2828 0%, #f33066 100%);
     background: -o-linear-gradient(left, #ec2828 0%, #f33066 100%);
     background: linear-gradient(to right, #ec2828 0%, #f33066 100%);
@@ -2272,7 +2272,7 @@ a.btn-trans-video i {
 .btn-warning-gradiant:hover {
     background: #f48624;
     background: -webkit-linear-gradient(legacy-direction(to right), #f48624 0%, #ff9b20 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#f48624), to(#ff9b20));
+    background: -webkit-gradient (linear, left top, right top, from(#f48624), to(#ff9b20));
     background: -webkit-linear-gradient(left, #f48624 0%, #ff9b20 100%);
     background: -o-linear-gradient(left, #f48624 0%, #ff9b20 100%);
     background: linear-gradient(to right, #f48624 0%, #ff9b20 100%);
@@ -2287,7 +2287,7 @@ a.btn-trans-video i {
 .btn-info-gradiant, .btn-primary-gradiant {
   background:#e42d29;
   background: -webkit-linear-gradient(legacy-direction(to right),#e42d29 0%,#e42d29 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#e42d29), to(#e42d29));
+  background: -webkit-gradient (linear, left top, right top, from(#e42d29), to(#e42d29));
   background: -webkit-linear-gradient(left,#e42d29 0%,#e42d29 100%);
   background: -o-linear-gradient(left,#e42d29 0%,#e42d29 100%);
   background: linear-gradient(to right,#e42d29 0%,#e42d29 100%);
@@ -2298,7 +2298,7 @@ a.btn-trans-video i {
 .btn-info-gradiant:hover, .btn-primary-gradiant:hover {
     background:#e42d29;
     background: -webkit-linear-gradient(legacy-direction(to right),#e42d29 0%,#e42d29 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#e42d29), to(#e42d29));
+    background: -webkit-gradient (linear, left top, right top, from(#e42d29), to(#e42d29));
     background: -webkit-linear-gradient(left,#e42d29 0%,#e42d29 100%);
     background: -o-linear-gradient(left,#e42d29 0%,#e42d29 100%);
     background: linear-gradient(to right,#e42d29 0%,#e42d29 100%);
@@ -5124,7 +5124,7 @@ span.like-listing {
 	color:#ffffff;
 }
 .btn.search-btn-outline {
-    border:2px solid#e42d29;
+    border:2px solid #e42d29;
 	padding:14px 25px 14px 25px;
 	transition:all ease 0.4s;
     width:100%;
@@ -5456,7 +5456,7 @@ span.like-listing {
 	color:#ffffff;
 }
 .btn.search-btn-outline {
-    border:2px solid#e42d29;
+    border:2px solid #e42d29;
 	padding:14px 25px 14px 25px;
 	transition:all ease 0.4s;
     width:100%;
@@ -12228,7 +12228,7 @@ span.tes_quote {
 }
 
 .range-slider .ui-slider .ui-slider-handle {
-    border: 2px solid#e42d29;
+    border: 2px solid #e42d29;
 }
 
 .range-slider .ui-widget-header {
