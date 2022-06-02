@@ -194,52 +194,6 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Owner EID
-                                            <input type="file" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="float-right">
-                                        <div class="form-group">
-                                            <label>Licence
-                                                <input type="file" class="form-control">
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Owner Visa
-                                            <input type="file" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>RERA
-                                            <input type="file" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Additional Documents
-                                            <input type="file" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Autorised
-                                            <input type="checkbox" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
                                         <label>Access of Agents
                                             <select name="" id="" class="form-control w-178">
                                                 <option value="" selected>Select Agents</option>
@@ -251,15 +205,77 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Custom
+                                            <input type="text" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Autorised
+                                            <input type="checkbox" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>LOGO
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>RERA
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Additional Documents
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Owner EID
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="float-right">
+                                        <div class="form-group">
+                                            <label>Licence
+                                                <input type="file" class="form-control">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Owner Visa
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                </div>
+                                <div class="col-md-3">
                                     <a href=""><button class="btn btn-success w-100">Save</button></a>
                                 </div>
-                                <div class="col-md-14">
-                                </div>
+                                
                             </div>
                         </div>
                     </form>
