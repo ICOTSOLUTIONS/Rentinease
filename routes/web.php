@@ -39,7 +39,12 @@ Route::view('/', 'client.pages/index');
 // Route::view('/', 'admin.pages.index');
 // Route::view('/login', 'admin.auth.login');
 Route::view('/register', 'admin.auth.register');
-Route::view('/agency', 'admin.pages.agency');
-Route::view('/agent', 'admin.pages.agent');
-Route::view('/vistor', 'admin.pages.vistor');
-Route::view('/addagency', 'admin.pages.addagency');
+// agency
+Route::view('/agency', 'admin.pages.agency.agency');
+Route::view('/addagency', 'admin.pages.agency.addagency');
+// agent
+Route::view('/agent', 'admin.pages.agent.agent');
+Route::view('/addagent', 'admin.pages.agent.addagent');
+// visit customer
+Route::view('/visitor', 'admin.pages.visitcustomer.visitor');
+Route::view('/addcustomer', 'admin.pages.visitcustomer.visitor');

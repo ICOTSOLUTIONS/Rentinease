@@ -6,15 +6,16 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Rentinease</title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets/img/favicon.ico')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/favicon.ico') }}" />
 </head>
 <style>
     .bgcolor {
@@ -52,6 +53,7 @@
     .dark .form-group>label {
         color: #fff;
     }
+
 </style>
 
 <body class="dark">
@@ -65,13 +67,17 @@
             <div class="main-content bgcolor">
                 @yield('content')
             </div>
-
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
+                class="float" target="_blank">
+                <i class="fa fa-whatsapp my-float"></i>
+            </a>
         </div>
         @include('admin.layouts.footer')
 
     </div>
     <!-- General JS Scripts -->
-    <script src="{{asset('assets/js/app.min.js')}}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <!-- JS Libraies -->
     <!-- Page Specific JS File -->
     <!-- Template JS File -->
@@ -79,9 +85,9 @@
     <!-- <script src="{{ asset('assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script> -->
     <script src="{{ asset('assets/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('assets/js/page/datatables.js') }}"></script>
-    <script src="{{asset('assets/js/scripts.js')}}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
-    <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('script')
 </body>
 
