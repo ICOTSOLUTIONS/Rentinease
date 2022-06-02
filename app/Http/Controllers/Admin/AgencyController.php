@@ -150,7 +150,7 @@ class AgencyController extends Controller
     public function edit($id)
     {
         $agency = Agency::where('id',$id)->first();
-        return view('admin.pages.editagency',['agencies'=>$agency]);
+        return view('admin.pages.agency.editagency',['agencies'=>$agency]);
     }
 
     /**
