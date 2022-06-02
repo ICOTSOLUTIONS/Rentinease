@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agency;
-use Dotenv\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class AgencyController extends Controller
@@ -66,11 +66,11 @@ class AgencyController extends Controller
             'additional_documents' => 'required',
             'authorized' => 'nullable',
         ]);
-        if(!empty($request->custom)){
-            $validate+= [
-                "custom"=>"required",
-            ];
-        } 
+        // if(!empty($request->custom)){
+        //     $validate = [
+        //         "custom"=>"required",
+        //     ];
+        // } 
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
