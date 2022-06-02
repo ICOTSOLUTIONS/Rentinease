@@ -9,19 +9,26 @@
                         <h4>AGENCY</h4>
                         <a href="{{route('agency.create')}}"><button class="btn btn-success btn-hover">ADD AGENCY</button></a>
                     </div>
+                    @if (Session::has('message'))
+                        <div class="alert alert-{{ Session::get('messageType') }}">
+                            <strong>{{ Session::get('message') }} </strong>
+                            <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped" id="table-1">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">
-                                            #
-                                        </th>
-                                        <th>Task Name</th>
-                                        <!-- <th>Progress</th> -->
-                                        <!-- <th>Members</th> -->
-                                        <th>Due Date</th>
-                                        <th>Status</th>
+                                        <th>#</th>
+                                        <th>Owner Name</th>
+                                        <th>Email</th> 
+                                        <th>Company Name</th> 
+                                        <th>Phone</th>
+                                        <th>Mobile</th>
+                                        <th>Country</th>
+                                        <th>Access of Agents</th>
+                                        <th>Office</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -29,21 +36,28 @@
                                     @if (!empty($agencies))
                                         @foreach ($agencies as $agency)
                                             <tr>
+                                                <td>{{ $loop->iteration}}</td>
+                                                <td>{{ $agency->owner_name }}</td>
+                                                <td>{{ $agency->email }}</td>
+                                                <td>{{ $agency->company_name }}</td>
+                                                <td>{{ $agency->phone }}</td>
+                                                <td>{{ $agency->mobile }}</td>
+                                                <td>{{ $agency->country }}</td>
+                                                <td>{{ $agency->access_of_agents }}</td>
+                                                <td>{{ $agency->office }}</td>
                                                 <td>
-                                                    1
-                                                </td>
-                                                <td>Create a mobile app</td>
-                                                <td>2018-01-20</td>
-                                                <td>
-                                                    <div class="badge badge-success badge-shadow">Completed</div>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn-info text-white">Edit</a>
-                                                    <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-danger text-white">Delete</button>
-                                                    </form>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn-info text-white">Edit</a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                                 </td>
                                             </tr>
                                         @endforeach

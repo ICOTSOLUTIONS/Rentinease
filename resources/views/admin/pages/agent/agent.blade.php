@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>AGENT</h4>
-                        <a href="{{url('/addagency')}}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                        <a href="{{url('/addagent')}}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -47,6 +47,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -71,6 +72,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -94,6 +96,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -119,6 +122,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -142,6 +146,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -166,6 +171,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -189,6 +195,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -214,6 +221,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -237,6 +245,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -261,6 +270,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -284,6 +294,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -309,6 +320,7 @@
                                         <td>
                                             <a href="#" class="btn btn-info text-white">Edit</a>
                                             <a href="#" class="btn btn-danger text-white">Delete</a>
+                                            <a href="#" class="btn btn-success text-white">View</a>
                                         </td>
                                     </tr>
                                 </tbody>

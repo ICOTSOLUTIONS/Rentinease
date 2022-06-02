@@ -25,8 +25,8 @@ class CreateAgenciesTable extends Migration
             $table->string('licence_no')->nullable();
             $table->string('permit_no')->nullable();
             $table->string('rera_no')->nullable();
-            $table->date('establishment_date')->nullable();
-            $table->date('licence_exp_date')->nullable();
+            $table->string('establishment_date')->nullable();
+            $table->string('licence_exp_date')->nullable();
             $table->string('access_of_agents')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
