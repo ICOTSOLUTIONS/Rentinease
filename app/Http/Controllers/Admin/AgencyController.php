@@ -266,9 +266,9 @@ class AgencyController extends Controller
         $agency = Agency::where('id',$id)->first();
         if(!empty($agency)){
             if($agency->delete()){
-            session()->flash('message', 'Successfully Agency Deleted!');
-            session()->flash('messageType', 'danger');
-            return redirect()->route('agency.index');
+                session()->flash('message', 'Successfully Agency Deleted!');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('agency.index');
             }
         }else{
             session()->flash('message', 'Agency not Deleted!');
