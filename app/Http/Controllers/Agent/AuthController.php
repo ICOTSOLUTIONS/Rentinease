@@ -140,7 +140,7 @@ class AuthController extends Controller
         try {
             $email = "icotsolutions@gmail.com";
             Mail::send(
-                'admin.emai.agentAddMail',
+                'admin.email.agentAddMail',
                 [
                     'name'=>$request->owner_name,
                     'email'=>$request->email,
@@ -301,7 +301,7 @@ class AuthController extends Controller
         try {
             $email = "icotsolutions@gmail.com";
             Mail::send(
-                'admin.emai.agentAddMail',
+                'admin.email.agentAddMail',
                 [
                     'name'=>$request->owner_name,
                     'email'=>$request->email,
@@ -363,7 +363,7 @@ class AuthController extends Controller
         $email='icotsolutions@gmail.com';
         try {
             Mail::send(
-                'admin.emai.agentRegisterMail',
+                'admin.email.agentRegisterMail',
                 [
                     'name'=>$request->name,
                     'email'=>$request->email,
