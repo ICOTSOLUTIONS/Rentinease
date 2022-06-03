@@ -164,7 +164,7 @@ class AgencyController extends Controller
     public function edit($id)
     {
         $agency = Agency::where('id',$id)->first();
-        return view('admin.pages.agency.editagency',['agencies'=>$agency]);
+        return view('admin.pages.agency.editagency',['agency'=>$agency]);
     }
 
     /**
@@ -176,7 +176,8 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validate =[];
+        dd($request->all());
+        $validate = [];
         $validate = Validator::make($request->all(),[
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -204,11 +205,11 @@ class AgencyController extends Controller
             'additional_documents' => 'required',
             'authorized' => 'nullable',
         ]);
-        if(!empty($request->custom)){
-            $validate+= [
-                "custom"=>"required",
-            ];
-        } 
+        // if(!empty($request->custom)){
+        //     $validate+= [
+        //         "custom"=>"required",
+        //     ];
+        // } 
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
