@@ -29,6 +29,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
         Route::resource('/agent', \App\Http\Controllers\Admin\AgentController::class)->except('show');
+        Route::post('/agent/register', [\App\Http\Controllers\Admin\AgentController::class,'agentRegister'])->name('agent.register');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
     });
 });
