@@ -29,6 +29,7 @@
                     <div class="card">
                         <form action="{{ route('agency.update',['agency'=>$agency->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="card-header justify-content-center">
                                 <h4>Update Agency</h4>
                             </div>
@@ -46,7 +47,7 @@
                                                 @endif />
                                             </label>
                                             @error('company_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -61,67 +62,83 @@
                                                 @endif />
                                             </label>
                                             @error('owner_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Company Type
-                                                <select name="company_type" id="" class="form-control w-110">
-                                                    <option value="" selected>Select Company</option>
+                                                <select name = "company_type" class="form-control w-110">
+                                                    <option value = "">Select Company</option>
                                                     <option
-                                                    @if(old('company_type') == "RealState")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "RealState") 
-                                                    value="RealState" selected
+                                                    @if(old('company_type') == "realState")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "realState") 
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "realState"
                                                     @endif >RealState</option>
                                                     <option
-                                                    @if(old('company_type') == "Developer")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Developer") 
-                                                    value="Developer" selected
+                                                    @if(old('company_type') == "developer")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "developer") 
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "developer"
                                                     @endif >Developer</option>
                                                     <option
-                                                    @if(old('company_type') == "Brokerage")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Brokerage") 
-                                                    value="Brokerage" selected
+                                                    @if(old('company_type') == "brokerage")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "brokerage") 
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "brokerage"
                                                     @endif >Brokerage</option>
                                                     <option
-                                                    @if(old('company_type') == "Sales&Marketing")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Sales&Marketing") 
-                                                    value="Sales&Marketing" selected
+                                                    @if(old('company_type') == "sales_marketing")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "sales_marketing")
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "sales_marketing"
                                                     @endif >Sales&Marketing</option>
                                                     <option
-                                                    @if(old('company_type') == "Lending")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Lending") 
-                                                    value="Lending" selected
+                                                    @if(old('company_type') == "lending")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "lending") 
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "lending"
                                                     @endif >Lending</option>
                                                     <option
-                                                    @if(old('company_type') == "Property-Management")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Property-Management") 
-                                                    value="Property-Management" selected
+                                                    @if(old('company_type') == "property_management")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "property_management")
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "property_management"
                                                     @endif >Property-Management</option>
                                                     <option
-                                                    @if(old('company_type') == "Owner")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Owner") 
-                                                    value="Owner" selected
+                                                    @if(old('company_type') == "owner")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "owner") 
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "owner"
                                                     @endif >Owner</option>
                                                     <option
-                                                    @if(old('company_type') == "Professional Services")
-                                                        value="{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "Professional Services") 
-                                                    value="Professional Services" selected
+                                                    @if(old('company_type') == "professional_services")
+                                                        value = "{{ old('company_type') }}" selected
+                                                    @elseif($agency->company_type == "professional_services")
+                                                        value = "{{ $agency->company_type }}" selected
+                                                    @else
+                                                        value = "professional_services"
                                                     @endif >Professional Services</option>
                                                 </select>
                                             </label>
                                             @error('company_type')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -136,7 +153,7 @@
                                                 @endif />
                                             </label>
                                             @error('licence_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -153,7 +170,7 @@
                                                 @endif />
                                             </label>
                                             @error('permit_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -168,7 +185,7 @@
                                                 @endif />
                                             </label>
                                             @error('rera_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -183,7 +200,7 @@
                                                 @endif />
                                             </label>
                                             @error('establishment_date')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -198,7 +215,7 @@
                                                 @endif />
                                             </label>
                                             @error('licence_exp_date')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -215,7 +232,7 @@
                                                 @endif />
                                             </label>
                                             @error('country')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -230,7 +247,7 @@
                                                 @endif />
                                             </label>
                                             @error('city')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -262,7 +279,7 @@
                                                 @endif />
                                             </label>
                                             @error('email')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -277,7 +294,7 @@
                                                 @endif />
                                             </label>
                                             @error('phone')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -294,7 +311,7 @@
                                                 @endif />
                                             </label>
                                             @error('mobile')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -309,7 +326,7 @@
                                                 @endif />
                                             </label>
                                             @error('webiste')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -324,7 +341,7 @@
                                                 @endif />
                                             </label>
                                             @error('street')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -339,7 +356,7 @@
                                                 @endif />
                                             </label>
                                             @error('office')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -356,59 +373,66 @@
                                                 @endif />
                                             </label>
                                             @error('building')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Access of Agents
-                                                <select name="access_of_agents" id="access_agent" onclick="customs()" class="form-control w-178">
-                                                    <option value="" selected>Select Agents</option>
+                                                <select name="access_of_agents" id="access_agent" onchange="customs()" class="form-control w-178">
+                                                    <option value="">Select Agents</option>
                                                     <option
-                                                    @if(old('access_of_agents') == '3')
-                                                        value="{{ old('access_of_agents') }}" selected
-                                                    @elseif($agency->access_of_agents == "3") 
-                                                    value="3" selected
+                                                    @if(old('access_of_agents') == '3') 
+                                                        value = "{{ old('access_of_agents') }}" selected
+                                                    @elseif($agency->access_of_agents == "3")
+                                                         value = "{{ $agency->access_of_agents }}" selected
+                                                    @else
+                                                        value="3"
                                                     @endif >Three(3)</option>
                                                     <option
                                                     @if(old('access_of_agents') == "6")
-                                                        value="{{ old('access_of_agents') }}" selected
+                                                        value = "{{ old('access_of_agents') }}" selected
                                                     @elseif($agency->access_of_agents == "6") 
-                                                    value="6" selected
+                                                        value = "{{ $agency->access_of_agents }}" selected
+                                                    @else
+                                                        value="6"
                                                     @endif >Six(6)</option>
                                                     <option
                                                     @if(old('access_of_agents') == "10")
-                                                        value="{{ old('access_of_agents') }}" selected
+                                                        value = "{{ old('access_of_agents') }}" selected
                                                     @elseif($agency->access_of_agents == "10") 
-                                                    value="10" selected
+                                                        value = "{{ $agency->access_of_agents }}" selected
+                                                    @else
+                                                        value="10"
                                                     @endif >Ten(10)</option>
-                                                    
                                                     <option
                                                     @if(old('access_of_agents') == "custom")
-                                                        value="{{ old('access_of_agents') }}" selected
-                                                    @elseif($agency->access_of_agents == "custom") 
-                                                    value="custom" selected
+                                                        value = "{{ old('access_of_agents') }}" selected
+                                                    @elseif($agency->access_of_agents != "3" && $agency->access_of_agents != "6" && $agency->access_of_agents != "10" ) 
+                                                        value = "custom" selected
+                                                    @else
+                                                        value="custom"
                                                     @endif >Custom</option>
                                                 </select>
                                             </label>
-                                            @error('access_of_agents')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
                                         </div>
+                                        @error('access_of_agents')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-3" id="custom">
                                         <div class="form-group">
                                             <label>Custom
-                                                <input type="checkbox"  name="custom" class="form-control"
+                                                <input type="number" name="custom" class="form-control"
                                                 @if(old('custom'))
                                                     value="{{ old('custom') }}"
                                                 @else
-                                                value="{{ $agency->custom }}" 
+                                                    value="{{ $agency->access_of_agents }}" 
                                                 @endif />
                                             </label>
                                             @error('custom')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -423,7 +447,7 @@
                                                 @endif />
                                             </label>
                                             @error('authorized')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -432,45 +456,30 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>LOGO
-                                                <input type="file" name="logo" class="form-control"
-                                                @if(old('logo'))
-                                                    value="{{ old('logo') }}"
-                                                @else
-                                                value="{{ $agency->logo }}" 
-                                                @endif />
+                                                <input type="file" name="logo" class="form-control" value="{{ $agency->logo }}"/>
                                             </label>
                                             @error('logo')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>RERA
-                                                <input type="file" name="rera" class="form-control"
-                                                @if(old('rera'))
-                                                    value="{{ old('rera') }}"
-                                                @else
-                                                value="{{ $agency->rera }}" 
-                                                @endif />
+                                                <input type="file" name="rera" class="form-control" value="{{ $agency->rera }}"/>
                                             </label>
                                             @error('rera')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Additional Documents
-                                                <input type="file" name="additional_documents" class="form-control"
-                                                @if(old('additional_documents'))
-                                                    value="{{ old('additional_documents') }}"
-                                                @else
-                                                value="{{ $agency->additional_documents }}" 
-                                                @endif />
+                                                <input type="file" name="additional_documents" class="form-control" value="{{ $agency->additional_documents }}"/>
                                             </label>
                                             @error('additional_documents')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -479,15 +488,10 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Owner EID
-                                                <input type="file" name="owner_eid" class="form-control"
-                                                @if(old('owner_eid'))
-                                                    value="{{ old('owner_eid') }}"
-                                                @else
-                                                value="{{ $agency->owner_eid }}" 
-                                                @endif />
+                                                <input type="file" name="owner_eid" class="form-control" value="{{ $agency->owner_eid }}"/>
                                             </label>
                                             @error('owner_eid')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -495,15 +499,10 @@
                                         <div class="float-right">
                                             <div class="form-group">
                                                 <label>Licence
-                                                    <input type="file" name="licence" class="form-control"
-                                                    @if(old('licence'))
-                                                    value="{{ old('licence') }}"
-                                                @else
-                                                value="{{ $agency->licence }}" 
-                                                @endif />
+                                                    <input type="file" name="licence" class="form-control" value="{{ $agency->licence }}"/>
                                                 </label>
                                                 @error('licence')
-                                                    <span class="text-danger">{{ $message }}</span>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -511,15 +510,10 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Owner Visa
-                                                <input type="file" name="owner_visa" class="form-control"
-                                                @if(old('owner_visa'))
-                                                    value="{{ old('owner_visa') }}"
-                                                @else
-                                                value="{{ $agency->owner_visa }}" 
-                                                @endif />
+                                                <input type="file" name="owner_visa" class="form-control" value="{{ $agency->owner_visa }}"/>
                                             </label>
                                             @error('owner_visa')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -542,7 +536,7 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $('#custom').hide();
+            customs();
         });
         function customs() {
             var custom = $('#access_agent').val();

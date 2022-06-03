@@ -41,7 +41,7 @@
                                                 <input type="text" name="company_name" value="{{ old('company_name') }}" class="form-control">
                                             </label>
                                             @error('company_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                                 <input type="text" name="owner_name" value="{{ old('owner_name') }}" class="form-control">
                                             </label>
                                             @error('owner_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -60,18 +60,18 @@
                                             <label>Company Type
                                                 <select name="company_type" id="" class="form-control w-110">
                                                     <option value="">Select Company</option>
-                                                    <option value="RealState" @if (old('company_type') == 'RealState') selected @endif>RealState</option>
-                                                    <option value="Developer" @if (old('company_type') == 'Developer') selected @endif>Developer</option>
-                                                    <option value="Brokerage" @if (old('company_type') == 'Brokerage') selected @endif>Brokerage</option>
-                                                    <option value="Sales&Marketing" @if (old('company_type') == 'Sales&Marketing') selected @endif>Sales&Marketing</option>
-                                                    <option value="Lending" @if (old('company_type') == 'Lending') selected @endif>Lending</option>
-                                                    <option value="Property-Management" @if (old('company_type') == 'Property-Management') selected @endif>Property-Management</option>
-                                                    <option value="Owner" @if (old('company_type') == 'Owner') selected @endif>Owner</option>
-                                                    <option value="Professional Services" @if (old('company_type') == 'Professional Services') selected @endif>Professional Services</option>
+                                                    <option value="realstate" @if (old('company_type') == 'RealState') selected @endif>RealState</option>
+                                                    <option value="developer" @if (old('company_type') == 'Developer') selected @endif>Developer</option>
+                                                    <option value="brokerage" @if (old('company_type') == 'Brokerage') selected @endif>Brokerage</option>
+                                                    <option value="sales_marketing" @if (old('company_type') == 'Sales&Marketing') selected @endif>Sales&Marketing</option>
+                                                    <option value="lending" @if (old('company_type') == 'Lending') selected @endif>Lending</option>
+                                                    <option value="property_management" @if (old('company_type') == 'Property-Management') selected @endif>Property-Management</option>
+                                                    <option value="owner" @if (old('company_type') == 'Owner') selected @endif>Owner</option>
+                                                    <option value="professional_services" @if (old('company_type') == 'Professional Services') selected @endif>Professional Services</option>
                                                 </select>
                                             </label>
                                             @error('company_type')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                                 <input type="text" name="licence_no" value="{{ old('licence_no') }}" class="form-control">
                                             </label>
                                             @error('licence_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
                                                 <input type="text" name="permit_no" value="{{ old('permit_no') }}" class="form-control">
                                             </label>
                                             @error('permit_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                                 <input type="text" name="rera_no" value="{{ old('rera_no') }}" class="form-control">
                                             </label>
                                             @error('rera_no')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                                 <input type="text" name="establishment_date" value="{{ old('establishment_date') }}" class="form-control">
                                             </label>
                                             @error('establishment_date')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                                 <input type="text" name="licence_exp_date" value="{{ old('licence_exp_date') }}" class="form-control">
                                             </label>
                                             @error('licence_exp_date')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@
                                                 <input type="text" name="country" value="{{ old('country') }}" class="form-control">
                                             </label>
                                             @error('country')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                                 <input type="text" name="city" value="{{ old('city') }}" class="form-control">
                                             </label>
                                             @error('city')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
                                                 <input type="email" name="email" value="{{ old('email') }}" class="form-control">
                                             </label>
                                             @error('email')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@
                                                 <input type="text" name="phone" value="{{ old('phone') }}" class="form-control">
                                             </label>
                                             @error('phone')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -194,7 +194,7 @@
                                                 <input type="text" name="mobile" value="{{ old('mobile') }}" class="form-control">
                                             </label>
                                             @error('mobile')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@
                                                 <input type="text" name="webiste" value="{{ old('webiste') }}" class="form-control">
                                             </label>
                                             @error('webiste')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -214,7 +214,7 @@
                                                 <input type="text" name="street" value="{{ old('street') }}" class="form-control">
                                             </label>
                                             @error('street')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@
                                                 <input type="text" name="office" value="{{ old('office') }}" class="form-control">
                                             </label>
                                             @error('office')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -236,7 +236,7 @@
                                                 <input type="text" name="building" value="{{ old('building') }}" class="form-control">
                                             </label>
                                             @error('building')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -252,17 +252,17 @@
                                                 </select>
                                             </label>
                                             @error('access_of_agents')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-3" id="custom">
                                         <div class="form-group">
                                             <label>Custom
-                                                <input type="checkbox"  name="custom" value="{{ old('custom') }}" class="form-control">
+                                                <input type="number"  name="custom" value="{{ old('custom') }}" class="form-control">
                                             </label>
                                             @error('custom')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -272,7 +272,7 @@
                                                 <input type="checkbox" name="authorized" value="{{ old('authorized') }}" class="form-control">
                                             </label>
                                             @error('authorized')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@
                                                 <input type="file" name="logo" value="{{ old('logo') }}" class="form-control">
                                             </label>
                                             @error('logo')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                                 <input type="file" name="rera" value="{{ old('rera') }}" class="form-control">
                                             </label>
                                             @error('rera')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -304,7 +304,7 @@
                                                 <input type="file" name="additional_documents" value="{{ old('additional_documents') }}" class="form-control">
                                             </label>
                                             @error('additional_documents')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -316,7 +316,7 @@
                                                 <input type="file" name="owner_eid" value="{{ old('owner_eid') }}" class="form-control">
                                             </label>
                                             @error('owner_eid')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@
                                                     <input type="file" name="licence" value="{{ old('licence') }}" class="form-control">
                                                 </label>
                                                 @error('licence')
-                                                    <span class="text-danger">{{ $message }}</span>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -338,7 +338,7 @@
                                                 <input type="file" name="owner_visa" value="{{ old('owner_visa') }}" class="form-control">
                                             </label>
                                             @error('owner_visa')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -361,7 +361,7 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $('#custom').hide();
+            customs();
         });
         function customs() {
             var custom = $('#access_agent').val();

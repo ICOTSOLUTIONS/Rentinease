@@ -38,8 +38,7 @@ class AgencyController extends Controller
      */
     public function store(Request $request)
     {
-        $validate =[];
-        $validate = Validator::make($request->all(),[
+        $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
             'email' => 'required|email',
@@ -65,15 +64,20 @@ class AgencyController extends Controller
             'rera' => 'required',
             'additional_documents' => 'required',
             'authorized' => 'nullable',
-        ]);
-        // if(!empty($request->custom)){
-        //     $validate = [
-        //         "custom"=>"required",
-        //     ];
-        // } 
+        ];
+        if($request->access_of_agents == "custom"){
+            $rules += [
+                "custom"=>"required",
+            ];
+        } 
+        $customMessage = [
+            'additional_documents.required' => 'The Additional field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
+
         $agency = new Agency();
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
@@ -176,9 +180,8 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
-        $validate = [];
-        $validate = Validator::make($request->all(),[
+        // dd($request->all());
+        $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
             'email' => 'required|email',
@@ -197,19 +200,24 @@ class AgencyController extends Controller
             'street' => 'required',
             'building' => 'required',
             'office' => 'required',
-            'logo' => 'required',
-            'licence' => 'required',
-            'owner_visa' => 'required',
-            'owner_eid' => 'required',
-            'rera' => 'required',
-            'additional_documents' => 'required',
+            'logo' => 'nullable',
+            'licence' => 'nullable',
+            'owner_visa' => 'nullable',
+            'owner_eid' => 'nullable',
+            'rera' => 'nullable',
+            'additional_documents' => 'nullable',
             'authorized' => 'nullable',
-        ]);
-        // if(!empty($request->custom)){
-        //     $validate+= [
-        //         "custom"=>"required",
-        //     ];
-        // } 
+        ];
+        if($request->access_of_agents == "custom"){
+            $rules+= [
+                "custom"=>"required",
+            ];
+        } 
+        $customMessage = [
+            'additional_documents.required' => 'The Additional field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
+
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
