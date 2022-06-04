@@ -38,6 +38,7 @@ class AgencyController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -104,37 +105,37 @@ class AgencyController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/logo', $fileName);
+            $file->storeAs('agency/logo', $fileName,'public');
             $agency->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/licence', $fileName);
+            $file->storeAs('agency/licence', $fileName,'public');
             $agency->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('owner_visa')){
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-visa', $fileName);
+            $file->storeAs('agency/owner-visa', $fileName,'public');
             $agency->owner_visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-eid', $fileName);
+            $file->storeAs('agency/owner-eid', $fileName,'public');
             $agency->owner_eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/rera', $fileName);
+            $file->storeAs('agency/rera', $fileName,'public');
             $agency->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/additional_documents', $fileName);
+            $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
@@ -180,7 +181,7 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+        // dd('umer');
         $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -247,37 +248,37 @@ class AgencyController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/logo', $fileName);
+            $file->storeAs('agency/logo', $fileName,'public');
             $agency->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/licence', $fileName);
+            $file->storeAs('agency/licence', $fileName,'public');
             $agency->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('owner_visa')){
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-visa', $fileName);
+            $file->storeAs('agency/owner-visa', $fileName,'public');
             $agency->owner_visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-eid', $fileName);
+            $file->storeAs('agency/owner-eid', $fileName,'public');
             $agency->owner_eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/rera', $fileName);
+            $file->storeAs('agency/rera', $fileName,'public');
             $agency->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/additional_documents', $fileName);
+            $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){

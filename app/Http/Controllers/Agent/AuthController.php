@@ -104,37 +104,37 @@ class AuthController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/logo', $fileName);
+            $file->storeAs('agent/logo', $fileName,'public');
             $agent->logo = $fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/licence', $fileName);
+            $file->storeAs('agent/licence', $fileName,'public');
             $agent->licence = $fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/agent-visa', $fileName);
+            $file->storeAs('agent/agent-visa', $fileName,'public');
             $agent->agent_visa = $fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/agent-eid', $fileName);
+            $file->storeAs('agent/agent-eid', $fileName,'public');
             $agent->agent_eid = $fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/rera', $fileName);
+            $file->storeAs('agent/rera', $fileName,'public');
             $agent->rera = $fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/additional_documents', $fileName);
+            $file->storeAs('agent/additional_documents', $fileName,'public');
             $agent->additional_documents = $fileName;
         }
         try {
@@ -265,37 +265,37 @@ class AuthController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/logo', $fileName);
+            $file->storeAs('agent/logo', $fileName,'public');
             $agent->logo = $fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/licence', $fileName);
+            $file->storeAs('agent/licence', $fileName,'public');
             $agent->licence = $fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/agent-visa', $fileName);
+            $file->storeAs('agent/agent-visa', $fileName,'public');
             $agent->agent_visa = $fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/agent-eid', $fileName);
+            $file->storeAs('agent/agent-eid', $fileName,'public');
             $agent->agent_eid = $fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/rera', $fileName);
+            $file->storeAs('agent/rera', $fileName,'public');
             $agent->rera = $fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'.'.rand().'.'.$file->getClientOriginalExtention();
-            $file->storeAs('agent/additional_documents', $fileName);
+            $file->storeAs('agent/additional_documents', $fileName,'public');
             $agent->additional_documents = $fileName;
         }
         try {
