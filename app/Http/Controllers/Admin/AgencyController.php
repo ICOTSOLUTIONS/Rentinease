@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agency;
-use Dotenv\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class AgencyController extends Controller
@@ -38,8 +38,8 @@ class AgencyController extends Controller
      */
     public function store(Request $request)
     {
-        $validate =[];
-        $validate = Validator::make($request->all(),[
+        // dd($request->all());
+        $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
             'email' => 'required|email',
@@ -65,15 +65,20 @@ class AgencyController extends Controller
             'rera' => 'required',
             'additional_documents' => 'required',
             'authorized' => 'nullable',
-        ]);
-        if(!empty($request->custom)){
-            $validate+= [
+        ];
+        if($request->access_of_agents == "custom"){
+            $rules += [
                 "custom"=>"required",
             ];
         } 
+        $customMessage = [
+            'additional_documents.required' => 'The Additional field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
+
         $agency = new Agency();
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
@@ -100,37 +105,37 @@ class AgencyController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/logo', $fileName);
+            $file->storeAs('agency/logo', $fileName,'public');
             $agency->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/licence', $fileName);
+            $file->storeAs('agency/licence', $fileName,'public');
             $agency->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('owner_visa')){
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-visa', $fileName);
+            $file->storeAs('agency/owner-visa', $fileName,'public');
             $agency->owner_visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-eid', $fileName);
+            $file->storeAs('agency/owner-eid', $fileName,'public');
             $agency->owner_eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/rera', $fileName);
+            $file->storeAs('agency/rera', $fileName,'public');
             $agency->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/additional_documents', $fileName);
+            $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
@@ -164,7 +169,7 @@ class AgencyController extends Controller
     public function edit($id)
     {
         $agency = Agency::where('id',$id)->first();
-        return view('admin.pages.agency.editagency',['agencies'=>$agency]);
+        return view('admin.pages.agency.editagency',['agency'=>$agency]);
     }
 
     /**
@@ -176,8 +181,8 @@ class AgencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validate =[];
-        $validate = Validator::make($request->all(),[
+        // dd('umer');
+        $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
             'email' => 'required|email',
@@ -196,19 +201,24 @@ class AgencyController extends Controller
             'street' => 'required',
             'building' => 'required',
             'office' => 'required',
-            'logo' => 'required',
-            'licence' => 'required',
-            'owner_visa' => 'required',
-            'owner_eid' => 'required',
-            'rera' => 'required',
-            'additional_documents' => 'required',
+            'logo' => 'nullable',
+            'licence' => 'nullable',
+            'owner_visa' => 'nullable',
+            'owner_eid' => 'nullable',
+            'rera' => 'nullable',
+            'additional_documents' => 'nullable',
             'authorized' => 'nullable',
-        ]);
-        if(!empty($request->custom)){
-            $validate+= [
+        ];
+        if($request->access_of_agents == "custom"){
+            $rules+= [
                 "custom"=>"required",
             ];
         } 
+        $customMessage = [
+            'additional_documents.required' => 'The Additional field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
+
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
@@ -238,37 +248,37 @@ class AgencyController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/logo', $fileName);
+            $file->storeAs('agency/logo', $fileName,'public');
             $agency->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/licence', $fileName);
+            $file->storeAs('agency/licence', $fileName,'public');
             $agency->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('owner_visa')){
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-visa', $fileName);
+            $file->storeAs('agency/owner-visa', $fileName,'public');
             $agency->owner_visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/owner-eid', $fileName);
+            $file->storeAs('agency/owner-eid', $fileName,'public');
             $agency->owner_eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/rera', $fileName);
+            $file->storeAs('agency/rera', $fileName,'public');
             $agency->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agency/additional_documents', $fileName);
+            $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
