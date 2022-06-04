@@ -32,7 +32,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <h6 class="text-success">Enter Your Agency Details</h6>
+                                <h6 class="text-success">Enter Your Agent Details</h6>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Company Name
@@ -49,16 +49,11 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Company Type
+                                        <label>Agent Type
                                             <select name="" id="" class="form-control w-110">
-                                                <option value="" selected>Select Company</option>
-                                                <option value="">RealState</option>
-                                                <option value="">Developer</option>
-                                                <option value="">Brokerage</option>
-                                                <option value="">Sales&Marketing</option>
-                                                <option value="">Lending</option>
-                                                <option value="">Property-Management</option>
-                                                <option value="">Owner</option>
+                                                <option value="" selected>Select Agent</option>
+                                                <option value="">Broker</option>
+                                                <option value="">Sales & Marketing</option>
                                                 <option value="">Professional Services</option>
                                             </select>
                                         </label>
@@ -194,7 +189,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Owner EID
+                                        <label>Agent EID
                                             <input type="file" class="form-control">
                                         </label>
                                     </div>
@@ -210,7 +205,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Owner Visa
+                                        <label>Agent Visa
                                             <input type="file" class="form-control">
                                         </label>
                                     </div>
@@ -233,16 +228,27 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Autorised
-                                            <input type="checkbox" class="form-control">
+                                        <label>Agent Photo
+                                            <input type="file" class="form-control">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Access of Agents
+                                        <label>Logo
+                                            <input type="file" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label> Agencies
                                             <select name="" id="" class="form-control w-178">
-                                                <option value="" selected>Select Agents</option>
+                                                <option value="" selected>Select Agencies</option>
                                                 <option value="">Three(3)</option>
                                                 <option value="">Six (6)</option>
                                                 <option value="">Ten (10)</option>
@@ -251,14 +257,36 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Password
+                                            <input type="text" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Coins
+                                            <input type="text" class="form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group justify-content-center">
+                                        <label class="">Autorised
+                                            <br>
+                                            <input type="checkbox" class="">
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                 </div>
-                                <div class="col-md-2">
-                                    <a href=""><button class="btn btn-success w-100">Save</button></a>
+                                <div class="col-md-4 text-center">
+                                    <a href=""><button class="btn btn-success w-75">Save</button></a>
                                 </div>
-                                <div class="col-md-14">
+                                <div class="col-md-4">
                                 </div>
                             </div>
                         </div>

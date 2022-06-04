@@ -28,61 +28,21 @@
                 <div class="card">
                     <form>
                         <div class="card-header justify-content-center">
-                            <h4>Add Customer</h4>
+                            <h4>Add Visitor Customer</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <h6 class="text-success">Enter Your Customer Details</h6>
+                                <h6 class="text-success">Enter Your Visitor Customer Details</h6>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Company Name
+                                        <label>First Name
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Owner Name
-                                            <input type="text" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Company Type
-                                            <select name="" id="" class="form-control w-110">
-                                                <option value="" selected>Select Company</option>
-                                                <option value="">RealState</option>
-                                                <option value="">Developer</option>
-                                                <option value="">Brokerage</option>
-                                                <option value="">Sales&Marketing</option>
-                                                <option value="">Lending</option>
-                                                <option value="">Property-Management</option>
-                                                <option value="">Owner</option>
-                                                <option value="">Professional Services</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Licence no
-                                            <input type="text" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Permit no
-                                            <input type="text" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Permit no
+                                        <label>Last Name
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
@@ -96,7 +56,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Establishment Date:
+                                        <label>Country
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
@@ -105,45 +65,34 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Licence Expire Date:
+                                        <label>City
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Country
+                                        <label>Street
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
-
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>City
+                                        <label>Building
                                             <input type="text" class="form-control">
                                         </label>
                                     </div>
-
                                 </div>
-
-                                <!-- <div class="col-md-3">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>City
-                                            <select name="" id="" class="form-control ">
-                                                <option value="" selected>Select City</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                                <option value="">lorem ipsum</option>
-                                            </select>
+                                        <label>Office
+                                            <input type="text" class="form-control">
                                         </label>
                                     </div>
-                                </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Email
@@ -151,9 +100,6 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Phone
@@ -175,26 +121,11 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Street
-                                            <input type="text" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Office
-                                            <input type="text" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Owner EID
+                                        <label>Agent EID
                                             <input type="file" class="form-control">
                                         </label>
                                     </div>
@@ -202,26 +133,10 @@
                                 <div class="col-md-3">
                                     <div class="float-right">
                                         <div class="form-group">
-                                            <label>Licence
+                                            <label>Rera
                                                 <input type="file" class="form-control">
                                             </label>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Owner Visa
-                                            <input type="file" class="form-control">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>RERA
-                                            <input type="file" class="form-control">
-                                        </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -233,21 +148,16 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Autorised
-                                            <input type="checkbox" class="form-control">
+                                        <label>Profile Logo
+                                            <input type="file" class="form-control">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Access of Agents
-                                            <select name="" id="" class="form-control w-178">
-                                                <option value="" selected>Select Agents</option>
-                                                <option value="">Three(3)</option>
-                                                <option value="">Six (6)</option>
-                                                <option value="">Ten (10)</option>
-                                                <option value="">Custom</option>
-                                            </select>
+                                    <div class="form-group justify-content-center">
+                                        <label class="">Autorised
+                                            <br>
+                                            <input type="checkbox" class="">
                                         </label>
                                     </div>
                                 </div>
@@ -255,10 +165,10 @@
                             <div class="row">
                                 <div class="col-md-4">
                                 </div>
-                                <div class="col-md-2">
-                                    <a href=""><button class="btn btn-success w-100">Save</button></a>
+                                <div class="col-md-4 text-center">
+                                    <a href=""><button class="btn btn-success w-75">Save</button></a>
                                 </div>
-                                <div class="col-md-14">
+                                <div class="col-md-4">
                                 </div>
                             </div>
                         </div>

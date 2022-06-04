@@ -49,4 +49,4 @@ Route::view('/agent', 'admin.pages.agent.agent');
 Route::view('/addagent', 'admin.pages.agent.addagent');
 // visit customer
 Route::view('/visitor', 'admin.pages.visitcustomer.visitor');
-Route::view('/addcustomer', 'admin.pages.visitcustomer.visitor');
+Route::view('/addcustomer', 'admin.pages.visitcustomer.addcustomer');
