@@ -28,9 +28,10 @@ Route::prefix('admin')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
-        Route::resource('/agent', \App\Http\Controllers\Admin\AgentController::class)->except('show');
-        Route::post('/agent/register', [\App\Http\Controllers\Admin\AgentController::class,'agentRegister'])->name('agent.register');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
+        Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class,'agentRegister'])->name('agent.register');
+        Route::resource('/agent', \App\Http\Controllers\Agent\AgentController::class)->except('show');
+        Route::resource('/customer', \App\Http\Controllers\Customer\CustomerController::class)->except('show');
     });
 });
 
@@ -46,8 +47,8 @@ Route::view('/register', 'admin.auth.register');
 // Route::view('/agency', 'admin.pages.agency.agency');
 // Route::view('/addagency', 'admin.pages.agency.addagency');
 // agent
-Route::view('/agent', 'admin.pages.agent.agent');
-Route::view('/addagent', 'admin.pages.agent.addagent');
+// Route::view('/agent', 'admin.pages.agent.agent');
+// Route::view('/addagent', 'admin.pages.agent.addagent');
 // visit customer
 Route::view('/visitor', 'admin.pages.visitcustomer.visitor');
 Route::view('/addcustomer', 'admin.pages.visitcustomer.addcustomer');

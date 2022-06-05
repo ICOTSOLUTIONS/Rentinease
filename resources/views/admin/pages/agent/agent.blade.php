@@ -1,342 +1,79 @@
 @extends('admin.layouts.master')
 @section('content')
-<section class="section">
-    <div class="section-body mt-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header text-center justify-content-between">
-                        <h4>AGENT</h4>
-                        <a href="{{url('/addagent')}}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped" id="table-1">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            #
-                                        </th>
-                                        <th>Task Name</th>
-                                        <!-- <th>Progress</th> -->
-                                        <!-- <th>Members</th> -->
-                                        <th>Due Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>Create a mobile app</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-40">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-20</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>Redesign homepage</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar width-per-60"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- </td> -->
-                                        <td>2018-04-10</td>
-                                        <td>
-                                            <div class="badge badge-info badge-shadow">Todo</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>Backup database</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-warning width-per-70"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-29</td>
-                                        <td>
-                                            <div class="badge badge-warning badge-shadow">In Progress</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            4
-                                        </td>
-                                        <td>Input data</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-90"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-16</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>Create a mobile app</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-40">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-20</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            6
-                                        </td>
-                                        <td>Redesign homepage</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar width-per-60"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- </td> -->
-                                        <td>2018-04-10</td>
-                                        <td>
-                                            <div class="badge badge-info badge-shadow">Todo</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            7
-                                        </td>
-                                        <td>Backup database</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-warning width-per-70"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-29</td>
-                                        <td>
-                                            <div class="badge badge-warning badge-shadow">In Progress</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            8
-                                        </td>
-                                        <td>Input data</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-90"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-16</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            9
-                                        </td>
-                                        <td>Create a mobile app</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-40">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-20</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            10
-                                        </td>
-                                        <td>Redesign homepage</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar width-per-60"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- </td> -->
-                                        <td>2018-04-10</td>
-                                        <td>
-                                            <div class="badge badge-info badge-shadow">Todo</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            11
-                                        </td>
-                                        <td>Backup database</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-warning width-per-70"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-29</td>
-                                        <td>
-                                            <div class="badge badge-warning badge-shadow">In Progress</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            12
-                                        </td>
-                                        <td>Input data</td>
-                                        <!-- <td class="align-middle">
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success width-per-90"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                            <img alt="image" src="assets/img/users/user-4.png" width="35"> -->
-                                        <!-- <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                        </td> -->
-                                        <td>2018-01-16</td>
-                                        <td>
-                                            <div class="badge badge-success badge-shadow">Completed</div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-info text-white">Edit</a>
-                                            <a href="#" class="btn btn-danger text-white">Delete</a>
-                                            <a href="#" class="btn btn-success text-white">View</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+    <section class="section">
+        <div class="section-body mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header text-center justify-content-between">
+                            <h4>AGENT</h4>
+                            <a href="{{ route('agent.create') }}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                        </div>
+                        @if (Session::has('message'))
+                            <div class="alert alert-{{ Session::get('messageType') }}">
+                                <strong>{{ Session::get('message') }} </strong>
+                                <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Owner Name</th>
+                                            <th>Email</th> 
+                                            <th>Company Name</th> 
+                                            <th>Phone</th>
+                                            <th>Mobile</th>
+                                            <th>Country</th>
+                                            <th>Coins of Agents</th>
+                                            <th>Office</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($agents as $agent)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $agent->owner_name }}</td>
+                                                <td>{{ $agent->email }}</td>
+                                                <td>{{ $agent->company_name }}</td>
+                                                <td>{{ $agent->phone }}</td>
+                                                <td>{{ $agent->mobile }}</td>
+                                                <td>{{ $agent->country }}</td>
+                                                <td>{{ $agent->coins_of_agents }}</td>
+                                                <td>{{ $agent->office }}</td>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a href="{{ route('agent.edit',['agent'=>$agent->id]) }}" class="btn btn-info text-white">Edit</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <form action="{{ route('agent.destroy',['agent'=>$agent->id]) }}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
 <!-- @section('script')
-<script>
-    $(document).ready(function() {
-        $('#dbtable').DataTable();
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#dbtable').DataTable();
+        });
+    </script>
 @endsection -->

@@ -200,9 +200,9 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Website:(Optional)
-                                            <input type="text" name="webiste" value="{{ old('webiste') }}" class="form-control">
+                                            <input type="text" name="website" value="{{ old('website') }}" class="form-control">
                                         </label>
-                                        @error('webiste')
+                                        @error('website')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

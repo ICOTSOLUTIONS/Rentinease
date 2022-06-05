@@ -37,8 +37,8 @@
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user"></i><span>User</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{route('agency.index')}}">Agency</a></li>
-          <li><a class="nav-link" href="{{url('/agent')}}">Agent</a></li>
-          <li><a class="nav-link" href="{{url('/visitor')}}">Visitor Customer</a></li>
+          <li><a class="nav-link" href="{{route('agent.index')}}">Agent</a></li>
+          <li><a class="nav-link" href="{{route('customer.index')}}">Visitor Customer</a></li>
         </ul>
       </li>
       <li class="dropdown">

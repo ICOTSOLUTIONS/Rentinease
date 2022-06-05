@@ -133,11 +133,11 @@
       <div class="dropdown-menu dropdown-menu-right pullDown">
         <div class="dropdown-title">Hello 
         @if(auth()->user()->roles->name === 'admin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @elseif(auth()->user()->roles->name === 'superadmin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @elseif(auth()->user()->roles->name === 'subadmin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @endif
         </div>
         <a href="#" class="dropdown-item has-icon"> <i class="far

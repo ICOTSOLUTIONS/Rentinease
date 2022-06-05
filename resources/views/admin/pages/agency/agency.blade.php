@@ -49,15 +49,15 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn-info text-white">Edit</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-danger text-white">Delete</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                                 </td>
                                             </tr>
                                         @endforeach
