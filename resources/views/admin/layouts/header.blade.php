@@ -140,7 +140,7 @@
           {{ auth()->user()->fname }}
           @endif
         </div>
-        <a href="#" class="dropdown-item has-icon"> <i class="far
+        <a href="{{ route('admins.edit',['id'=>auth()->user()->id]) }}" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
         </a>
         <!-- <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>

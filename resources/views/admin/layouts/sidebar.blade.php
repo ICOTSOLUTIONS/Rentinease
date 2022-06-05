@@ -49,14 +49,16 @@
           <li><a class="nav-link" href="{{url('/audit')}}">Audit</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{url('/admin')}}">Admin</a></li>
-          <li><a class="nav-link" href="{{url('/assistant')}}">Assistant Admin</a></li>
-          <li><a class="nav-link" href="{{url('/customer')}}">Customer Service</a></li>
-        </ul>
-      </li>
+      @if (auth()->user()->roles->name != "subadmin")
+        <li class="dropdown">
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="{{route('admin.admin')}}">Admin</a></li>
+            <li><a class="nav-link" href="{{route('admin.superadmin')}}">Assistant Admin</a></li>
+            <li><a class="nav-link" href="{{route('admin.subadmin')}}">Customer Service</a></li>
+          </ul>
+        </li>
+      @endif
       <li class="nav-link has-dropdown"><a href="{{url('/agency')}}"><i data-feather="bold"></i><span>Blog</span></a></li>
       <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>

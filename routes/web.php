@@ -25,14 +25,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/reset-password/{token}', [\App\Http\Controllers\Admin\AuthController::class, 'reset'])->name('admin.reset');
         Route::post('/reset-password-process', [\App\Http\Controllers\Admin\AuthController::class, 'resetPassword'])->name('admin.reset.pass');
     });
-    Route::middleware('admin')->group(function () {
+    Route::middleware('allAdmin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
-        Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
+        Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
         Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class,'agentRegister'])->name('agent.register');
         Route::resource('/agent', \App\Http\Controllers\Agent\AgentController::class)->except('show');
         Route::resource('/customer', \App\Http\Controllers\Customer\CustomerController::class)->except('show');
     });
+});
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', [\App\Http\Controllers\Admin\AuthController::class, 'admin'])->name('admin.admin');
+    Route::get('/superadmin', [\App\Http\Controllers\Admin\AuthController::class, 'superadmin'])->name('admin.superadmin');
+    Route::get('/subadmin', [\App\Http\Controllers\Admin\AuthController::class, 'subadmin'])->name('admin.subadmin');
+    Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'edit'])->name('admins.edit');
+    Route::post('/update', [\App\Http\Controllers\Admin\AuthController::class, 'update'])->name('admins.update');
+    Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
 });
 
 // Route::view('/admin', 'admin.pages.index');
