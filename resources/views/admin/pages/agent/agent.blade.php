@@ -42,7 +42,7 @@
                                                 <td>{{ $agent->phone }}</td>
                                                 <td>{{ $agent->mobile }}</td>
                                                 <td>{{ $agent->country }}</td>
-                                                <td>{{ $agent->coins_of_agents }}</td>
+                                                <td>{{ $agent->coins }}</td>
                                                 <td>{{ $agent->office }}</td>
                                                 <td>
                                                     <div class="row">

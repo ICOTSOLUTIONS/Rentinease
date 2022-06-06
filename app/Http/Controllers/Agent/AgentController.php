@@ -64,12 +64,12 @@ class AgentController extends Controller
             'street' => 'required',
             'building' => 'required',
             'office' => 'required',
-            'logo' => 'nullable',
-            'licence' => 'nullable',
-            'agent_visa' => 'nullable',
-            'agent_eid' => 'nullable',
-            'rera' => 'nullable',
-            'additional_documents' => 'nullable',
+            'logo' => 'required',
+            'licence' => 'required',
+            'agent_visa' => 'required',
+            'agent_eid' => 'required',
+            'rera' => 'required',
+            'additional_documents' => 'required',
             'authorized' => 'nullable',
         ];
         $customMessage = [
