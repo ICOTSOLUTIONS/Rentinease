@@ -14,8 +14,7 @@
                     @if (Session::has('message'))
                             <div class="alert alert-{{ Session::get('messageType') }}">
                                 <strong>{{ Session::get('message') }} </strong>
-                                    <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
-                                @endif
+                                <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
                     <div class="card-body">
