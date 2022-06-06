@@ -133,14 +133,14 @@
       <div class="dropdown-menu dropdown-menu-right pullDown">
         <div class="dropdown-title">Hello 
         @if(auth()->user()->roles->name === 'admin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @elseif(auth()->user()->roles->name === 'superadmin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @elseif(auth()->user()->roles->name === 'subadmin')
-          {{ auth()->user()->name }}
+          {{ auth()->user()->fname }}
           @endif
         </div>
-        <a href="#" class="dropdown-item has-icon"> <i class="far
+        <a href="{{ route('admins.edit',['id'=>auth()->user()->id]) }}" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
         </a>
         <!-- <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Admin
+class AllAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,6 +18,10 @@ class Admin
     {
         if(auth()->check()){
             if(auth()->user()->roles->name === 'admin'){
+                return $next($request);
+            }elseif(auth()->user()->roles->name === 'superadmin'){
+                return $next($request);
+            }elseif(auth()->user()->roles->name === 'subadmin'){
                 return $next($request);
             }else{
                 auth()->logout();

@@ -45,7 +45,7 @@ class AgencyController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'mobile' => 'required',
-            'webiste' => 'nullable',
+            'website' => 'nullable',
             'company_type' => 'required',
             'licence_no' => 'required',
             'permit_no' => 'required',
@@ -72,7 +72,30 @@ class AgencyController extends Controller
             ];
         } 
         $customMessage = [
-            'additional_documents.required' => 'The Additional field is required', 
+            'email.required' => 'The Email field is required', 
+            'company_name.required' => 'The Company Name field is required', 
+            'owner_name.required' => 'The Owner Name field is required', 
+            'phone.required' => 'The Phone field is required', 
+            'mobile.required' => 'The Mobile field is required', 
+            'company_type.required' => 'The Company Type field is required', 
+            'licence_no.required' => 'The Licence no. field is required', 
+            'permit_no.required' => 'The Permit no. field is required', 
+            'rera_no.required' => 'The Rera no. field is required', 
+            'establishment_date.required' => 'The Establishment Date field is required', 
+            'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
+            'access_of_agents.required' => 'The Access of Agents field is required', 
+            'country.required' => 'The Country field is required', 
+            'city.required' => 'The City field is required', 
+            'street.required' => 'The Street field is required', 
+            'building.required' => 'The Building field is required', 
+            'office.required' => 'The Office field is required', 
+            'logo.required' => 'The Agent Photo field is required', 
+            'licence.required' => 'The Licence field is required', 
+            'owner_visa.required' => 'The Agent Visa field is required', 
+            'owner_eid.required' => 'The Agent EID field is required', 
+            'rera.required' => 'The Rera field is required', 
+            'additional_documents.required' => 'The Additional Documents field is required', 
+            'custom.required' => 'The Custom field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
@@ -85,8 +108,8 @@ class AgencyController extends Controller
         $agency->email = $request->email;
         $agency->phone = $request->phone;
         $agency->mobile = $request->mobile;
-        $agency->webiste = $request->webiste;
-        $agency->company_type = $request->company_type;
+        $agency->website = $request->website;
+        $agency->type = $request->company_type;
         $agency->licence_no = $request->licence_no;
         $agency->permit_no = $request->permit_no;
         $agency->rera_no = $request->rera_no;
@@ -118,13 +141,13 @@ class AgencyController extends Controller
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agency/owner-visa', $fileName,'public');
-            $agency->owner_visa = 'owner-visa/'.$fileName;
+            $agency->visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agency/owner-eid', $fileName,'public');
-            $agency->owner_eid = 'owner-eid/'.$fileName;
+            $agency->eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
@@ -188,7 +211,7 @@ class AgencyController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'mobile' => 'required',
-            'webiste' => 'nullable',
+            'website' => 'nullable',
             'company_type' => 'required',
             'licence_no' => 'required',
             'permit_no' => 'required',
@@ -215,7 +238,30 @@ class AgencyController extends Controller
             ];
         } 
         $customMessage = [
-            'additional_documents.required' => 'The Additional field is required', 
+            'email.required' => 'The Email field is required', 
+            'company_name.required' => 'The Company Name field is required', 
+            'owner_name.required' => 'The Owner Name field is required', 
+            'phone.required' => 'The Phone field is required', 
+            'mobile.required' => 'The Mobile field is required', 
+            'company_type.required' => 'The Company Type field is required', 
+            'licence_no.required' => 'The Licence no. field is required', 
+            'permit_no.required' => 'The Permit no. field is required', 
+            'rera_no.required' => 'The Rera no. field is required', 
+            'establishment_date.required' => 'The Establishment Date field is required', 
+            'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
+            'access_of_agents.required' => 'The Access of Agents field is required', 
+            'country.required' => 'The Country field is required', 
+            'city.required' => 'The City field is required', 
+            'street.required' => 'The Street field is required', 
+            'building.required' => 'The Building field is required', 
+            'office.required' => 'The Office field is required', 
+            'custom.required' => 'The Custom field is required', 
+            // 'logo.required' => 'The Agent Photo field is required', 
+            // 'licence.required' => 'The Licence field is required', 
+            // 'ownervisa.required' => 'The Agent Visa field is required', 
+            // 'ownereid.required' => 'The Agent EID field is required', 
+            // 'rera.required' => 'The Rera field is required', 
+            // 'additional_documents.required' => 'The Additional Documents field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
 
@@ -228,8 +274,8 @@ class AgencyController extends Controller
         $agency->email = $request->email;
         $agency->phone = $request->phone;
         $agency->mobile = $request->mobile;
-        $agency->webiste = $request->webiste;
-        $agency->company_type = $request->company_type;
+        $agency->website = $request->website;
+        $agency->type = $request->company_type;
         $agency->licence_no = $request->licence_no;
         $agency->permit_no = $request->permit_no;
         $agency->rera_no = $request->rera_no;
@@ -261,13 +307,13 @@ class AgencyController extends Controller
             $file = $request->file('owner_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agency/owner-visa', $fileName,'public');
-            $agency->owner_visa = 'owner-visa/'.$fileName;
+            $agency->visa = 'owner-visa/'.$fileName;
         }
         if($request->hasFile('owner_eid')){
             $file = $request->file('owner_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agency/owner-eid', $fileName,'public');
-            $agency->owner_eid = 'owner-eid/'.$fileName;
+            $agency->eid = 'owner-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');

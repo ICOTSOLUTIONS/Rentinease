@@ -74,64 +74,64 @@
                                                     <option
                                                     @if(old('company_type') == "realState")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "realState") 
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "realState") 
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "realState"
                                                     @endif >RealState</option>
                                                     <option
                                                     @if(old('company_type') == "developer")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "developer") 
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "developer") 
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "developer"
                                                     @endif >Developer</option>
                                                     <option
                                                     @if(old('company_type') == "brokerage")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "brokerage") 
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "brokerage") 
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "brokerage"
                                                     @endif >Brokerage</option>
                                                     <option
                                                     @if(old('company_type') == "sales_marketing")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "sales_marketing")
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "sales_marketing")
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "sales_marketing"
                                                     @endif >Sales&Marketing</option>
                                                     <option
                                                     @if(old('company_type') == "lending")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "lending") 
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "lending") 
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "lending"
                                                     @endif >Lending</option>
                                                     <option
                                                     @if(old('company_type') == "property_management")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "property_management")
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "property_management")
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "property_management"
                                                     @endif >Property-Management</option>
                                                     <option
                                                     @if(old('company_type') == "owner")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "owner") 
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "owner") 
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "owner"
                                                     @endif >Owner</option>
                                                     <option
                                                     @if(old('company_type') == "professional_services")
                                                         value = "{{ old('company_type') }}" selected
-                                                    @elseif($agency->company_type == "professional_services")
-                                                        value = "{{ $agency->company_type }}" selected
+                                                    @elseif($agency->type == "professional_services")
+                                                        value = "{{ $agency->type }}" selected
                                                     @else
                                                         value = "professional_services"
                                                     @endif >Professional Services</option>
@@ -318,14 +318,14 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Website:(Optional)
-                                                <input type="text" name="webiste" class="form-control"
-                                                @if(old('webiste'))
-                                                    value="{{ old('webiste') }}"
+                                                <input type="text" name="website" class="form-control"
+                                                @if(old('website'))
+                                                    value="{{ old('website') }}"
                                                 @else
-                                                value="{{ $agency->webiste }}" 
+                                                value="{{ $agency->website }}" 
                                                 @endif />
                                             </label>
-                                            @error('webiste')
+                                            @error('website')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -488,7 +488,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Owner EID
-                                                <input type="file" name="owner_eid" class="form-control" value="{{ $agency->owner_eid }}"/>
+                                                <input type="file" name="owner_eid" class="form-control" value="{{ $agency->eid }}"/>
                                             </label>
                                             @error('owner_eid')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -510,7 +510,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Owner Visa
-                                                <input type="file" name="owner_visa" class="form-control" value="{{ $agency->owner_visa }}"/>
+                                                <input type="file" name="owner_visa" class="form-control" value="{{ $agency->visa }}"/>
                                             </label>
                                             @error('owner_visa')
                                                 <div class="text-danger">{{ $message }}</div>

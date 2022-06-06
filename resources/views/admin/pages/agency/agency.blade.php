@@ -45,19 +45,18 @@
                                         <td>{{ $agency->country }}</td>
                                         <td>{{ $agency->access_of_agents }}</td>
                                         <td>{{ $agency->office }}</td>
-                                        <td class="d-inline-flex pt-3" style="height: 50px;">
-                                            <div class="col-md-4">
-                                                <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn text-white w-100 "><i data-feather="edit" class="text-info "></i></a>
-                                            </div>
-                                                <div class="col-md-4">
-                                                <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn text-white w-100 "><i data-feather="eye" class="text-info "></i></a>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button type="submit" class="btn bt text-white w-100"><i data-feather="trash-2" class="text-danger"></i></button>
-                                                </form>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('agency.edit',['agency'=>$agency->id]) }}" class="btn btn-info text-white">Edit</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <form action="{{ route('agency.destroy',['agency'=>$agency->id]) }}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>

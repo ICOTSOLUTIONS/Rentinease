@@ -20,8 +20,8 @@ class CreateAgenciesTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
-            $table->longText('webiste')->nullable();
-            $table->string('company_type')->nullable();
+            $table->longText('website')->nullable();
+            $table->string('type')->nullable();
             $table->string('licence_no')->nullable();
             $table->string('permit_no')->nullable();
             $table->string('rera_no')->nullable();
@@ -35,8 +35,8 @@ class CreateAgenciesTable extends Migration
             $table->string('office')->nullable();
             $table->mediumText('logo')->nullable();
             $table->mediumText('licence')->nullable();
-            $table->mediumText('owner_visa')->nullable();
-            $table->mediumText('owner_eid')->nullable();
+            $table->mediumText('visa')->nullable();
+            $table->mediumText('eid')->nullable();
             $table->mediumText('rera')->nullable();
             $table->mediumText('additional_documents')->nullable();
             $table->string('authorized')->nullable();
