@@ -7,7 +7,9 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>VISITOR CUSTOMERS</h4>
-                        <a href="{{route('customer.create')}}"><button class="btn btn-success btn-hover">ADD CUSTOMER </button></a>
+                        @if(auth()->user()->roles->name != 'subadmin')
+                            <a href="{{route('customer.create')}}"><button class="btn btn-success btn-hover">ADD CUSTOMER </button></a>
+                        @endif
                     </div>
                     @if (Session::has('message'))
                             <div class="alert alert-{{ Session::get('messageType') }}">
@@ -28,7 +30,9 @@
                                         <th>Mobile</th>
                                         <th>Country</th>
                                         <th>Office</th>
+                                    @if(auth()->user()->roles->name != 'subadmin')
                                         <th>Action</th>
+                                    @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,6 +46,7 @@
                                             <td>{{ $customer->mobile }}</td>
                                             <td>{{ $customer->country }}</td>
                                             <td>{{ $customer->office }}</td>
+                                        @if(auth()->user()->roles->name != 'subadmin')
                                             <td>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -56,6 +61,7 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                        @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

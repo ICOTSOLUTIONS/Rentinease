@@ -7,12 +7,15 @@
                     <div class="card">
                         <div class="card-header text-center justify-content-between">
                             <h4>AGENT</h4>
-                            <a href="{{ route('agent.create') }}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                            @if(auth()->user()->roles->name != 'subadmin')
+                                <a href="{{ route('agent.create') }}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                            @endif
                         </div>
                         @if (Session::has('message'))
                             <div class="alert alert-{{ Session::get('messageType') }}">
                                 <strong>{{ Session::get('message') }} </strong>
-                                <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                            
                             </div>
                         @endif
                         <div class="card-body">
@@ -29,7 +32,9 @@
                                             <th>Country</th>
                                             <th>Coins of Agents</th>
                                             <th>Office</th>
+                                        @if(auth()->user()->roles->name != 'subadmin')
                                             <th>Action</th>
+                                        @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -44,6 +49,7 @@
                                                 <td>{{ $agent->country }}</td>
                                                 <td>{{ $agent->coins }}</td>
                                                 <td>{{ $agent->office }}</td>
+                                            @if(auth()->user()->roles->name != 'subadmin')
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -58,6 +64,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                            @endif
                                             </tr>
                                         @endforeach
                                     </tbody>
