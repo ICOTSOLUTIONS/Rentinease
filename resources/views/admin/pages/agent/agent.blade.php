@@ -7,14 +7,14 @@
                     <div class="card">
                         <div class="card-header text-center justify-content-between">
                             <h4>AGENT</h4>
-                            <a href="{{ route('agent.create') }}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                            @if(auth()->user()->roles->name != 'subadmin')
+                                <a href="{{ route('agent.create') }}"><button class="btn btn-success btn-hover">ADD AGENT</button></a>
+                            @endif
                         </div>
                         @if (Session::has('message'))
                             <div class="alert alert-{{ Session::get('messageType') }}">
                                 <strong>{{ Session::get('message') }} </strong>
-                                @if(auth()->user()->roles->name != 'subadmin')
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
-                                @endif
                             
                             </div>
                         @endif
