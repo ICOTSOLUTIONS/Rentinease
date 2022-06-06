@@ -68,6 +68,11 @@
                                     <a href="#" class="btn search-btn"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="input-with-icon">
+                                    <a href="#">More Options</a>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -1121,19 +1126,19 @@
                         <span class="mod-close" data-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
                         <div class="edlio_152">
                             <ul class="nav nav-pills tabs_system center" id="pills-tab" role="tablist">
-                              <li class="nav-item">
-                                <a class="nav-link active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false"><i class="fas fa-user-plus mr-2"></i>Register</a>
-                              </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false"><i class="fas fa-user-plus mr-2"></i>Register</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                                 <div class="login-form">
                                     <form>
-                                    
+
                                         <div class="form-group">
                                             <label>User Name</label>
                                             <div class="input-with-icon">
@@ -1141,7 +1146,7 @@
                                                 <i class="ti-user"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div class="input-with-icon">
@@ -1149,30 +1154,30 @@
                                                 <i class="ti-unlock"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <div class="eltio_ol9">
                                                 <div class="eltio_k1">
                                                     <input id="dd" class="checkbox-custom" name="dd" type="checkbox">
                                                     <label for="dd" class="checkbox-custom-label">Remember Me</label>
-                                                </div>	
+                                                </div>
                                                 <div class="eltio_k2">
                                                     <a href="#">Lost Your Password?</a>
-                                                </div>	
+                                                </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-md full-width pop-login">Login</button>
                                         </div>
-                                    
+
                                     </form>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
                                 <div class="login-form">
                                     <form>
-                                    
+
                                         <div class="form-group">
                                             <label>Full Name</label>
                                             <div class="input-with-icon">
@@ -1180,7 +1185,7 @@
                                                 <i class="ti-user"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label>Email ID</label>
                                             <div class="input-with-icon">
@@ -1188,7 +1193,7 @@
                                                 <i class="ti-user"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div class="input-with-icon">
@@ -1196,20 +1201,20 @@
                                                 <i class="ti-unlock"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <div class="eltio_ol9">
                                                 <div class="eltio_k1">
                                                     <input id="dds" class="checkbox-custom" name="dds" type="checkbox">
                                                     <label for="dds" class="checkbox-custom-label">By using the website, you accept the terms and conditions</label>
-                                                </div>	
+                                                </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-md full-width pop-login">Register</button>
                                         </div>
-                                    
+
                                     </form>
                                 </div>
                             </div>
