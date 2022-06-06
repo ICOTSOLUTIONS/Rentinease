@@ -64,12 +64,12 @@ class AgentController extends Controller
             'street' => 'required',
             'building' => 'required',
             'office' => 'required',
-            'logo' => 'nullable',
-            'licence' => 'nullable',
-            'agent_visa' => 'nullable',
-            'agent_eid' => 'nullable',
-            'rera' => 'nullable',
-            'additional_documents' => 'nullable',
+            'logo' => 'required',
+            'licence' => 'required',
+            'agent_visa' => 'required',
+            'agent_eid' => 'required',
+            'rera' => 'required',
+            'additional_documents' => 'required',
             'authorized' => 'nullable',
         ];
         $customMessage = [
@@ -186,7 +186,7 @@ class AgentController extends Controller
                 return redirect()->route('agent.index');
             }
         } catch (\Throwable $th) {
-            dd($th);
+            // dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
             return redirect()->route('agent.index');
