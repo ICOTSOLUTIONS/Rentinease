@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
-                        <h4>VISiTOR CUSTOMERS</h4>
+                        <h4>VISITOR CUSTOMERS</h4>
                         <a href="{{route('customer.create')}}"><button class="btn btn-success btn-hover">ADD CUSTOMER </button></a>
                     </div>
                     @if (Session::has('message'))

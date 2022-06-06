@@ -59,7 +59,7 @@
           </ul>
         </li>
       @endif
-      <li class="nav-link has-dropdown"><a href="{{url('/agency')}}"><i data-feather="bold"></i><span>Blog</span></a></li>
+      <li class="nav-link has-dropdown"><a href="{{url('/blog')}}"><i data-feather="bold"></i><span>Blog</span></a></li>
       <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>
         <ul class="dropdown-menu">

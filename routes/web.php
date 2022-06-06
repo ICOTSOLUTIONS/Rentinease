@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
-        Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class,'agentRegister'])->name('agent.register');
+        Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
         Route::resource('/agent', \App\Http\Controllers\Agent\AgentController::class)->except('show');
         Route::resource('/customer', \App\Http\Controllers\Customer\CustomerController::class)->except('show');
     });
@@ -60,3 +60,4 @@ Route::view('/register', 'admin.auth.register');
 // visit customer
 Route::view('/visitor', 'admin.pages.visitcustomer.visitor');
 Route::view('/addcustomer', 'admin.pages.visitcustomer.addcustomer');
+Route::view('/blog', 'admin.pages.blog.blog');
