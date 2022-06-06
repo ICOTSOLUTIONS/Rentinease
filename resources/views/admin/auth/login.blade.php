@@ -46,7 +46,7 @@
     }
 
     .theme-black a {
-        color: #6777ef;
+        color: #e1e1e3;
     }
 
     .theme-black .card.card-primary {
@@ -87,6 +87,28 @@
     /* .color2 {
         color: #293254;
     } */
+    .input-icons i {
+        position: absolute;
+    }
+
+    .input-icons {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        /* padding-bottom: 10px; */
+        /* min-width: 40px; */
+        margin-top: -33px;
+        margin-right: 0.4rem;
+        color: black;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -131,7 +153,11 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                        <div class="input-icons">
+                                            <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                            <i class="icon float-right" data-feather="eye"></i>
+                                            <!-- <i class="icon float-right" data-feather="eye-off"></i> -->
+                                        </div>
                                         <div class="invalid-feedback">
                                             please fill in your password
                                         </div>
