@@ -12,7 +12,9 @@
                     @if (Session::has('message'))
                         <div class="alert alert-{{ Session::get('messageType') }}">
                             <strong>{{ Session::get('message') }} </strong>
-                            <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                            @if(auth()->user()->roles->name != 'subadmin')
+                                <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                            @endif
                         </div>
                     @endif
                     <div class="card-body">
@@ -29,7 +31,9 @@
                                         <th>Country</th>
                                         <th>Access of Agents</th>
                                         <th>Office</th>
+                                    @if(auth()->user()->roles->name != 'subadmin')
                                         <th>Action</th>
+                                    @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +49,7 @@
                                                 <td>{{ $agency->country }}</td>
                                                 <td>{{ $agency->access_of_agents }}</td>
                                                 <td>{{ $agency->office }}</td>
+                                            @if(auth()->user()->roles->name != 'subadmin')
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -59,6 +64,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                            @endif
                                             </tr>
                                         @endforeach
                                     @endif
