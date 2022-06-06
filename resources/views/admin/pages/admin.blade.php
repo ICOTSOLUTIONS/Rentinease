@@ -4,7 +4,7 @@
     <div class="section-body mt-4">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card design">
                     <div class="card-header text-center justify-content-between">
                         <h4>Admin</h4>
                     </div>

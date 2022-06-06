@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <!-- Custom style CSS -->
@@ -54,6 +53,12 @@
         color: #fff;
     }
 
+    .design {
+        box-shadow: 0px 7px 31px -7px;
+        border-radius: 15px;
+        background: rgb(41 50 84);
+        border: 1px solid;
+    }
 </style>
 
 <body class="dark">
@@ -68,8 +73,7 @@
                 @yield('content')
             </div>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-            <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
-                class="float" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
                 <i class="fa fa-whatsapp my-float"></i>
             </a>
         </div>

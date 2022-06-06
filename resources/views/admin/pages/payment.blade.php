@@ -4,10 +4,10 @@
     <div class="section-body mt-4">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card design">
                     <div class="card-header text-center justify-content-between">
-                        <h4>AGENCY</h4>
-                        <button class="btn btn-success btn-hover">ADD AGENCY</button>
+                        <h4>Payment</h4>
+                        <button class="btn btn-success btn-hover">ADD PAYMENT</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

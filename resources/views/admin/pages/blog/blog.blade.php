@@ -23,7 +23,7 @@
                                         <th>Country</th>
                                         <th>Office</th>
                                         <th>Action</th>
-                                    </tr>
+                                    </tr>   
                                 </thead>
                                 <tbody>
                                     <tr>
