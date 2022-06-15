@@ -7,6 +7,7 @@
                 <div class="card design">
                     <div class="card-header text-center justify-content-between">
                         <h4>Admin</h4>
+                        <a href="{{url('/addadmin')}}"><button class="btn btn-success btn-hover">ADD Admin</button></a>
                     </div>
                     @if (Session::has('message'))
                         <div class="alert alert-{{ Session::get('messageType') }}">

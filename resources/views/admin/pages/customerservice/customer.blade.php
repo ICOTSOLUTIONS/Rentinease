@@ -7,12 +7,13 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>Customer Service</h4>
+                        <a href="{{url('/addcustomer')}}"><button class="btn btn-success btn-hover">ADD CustomerAdmin</button></a>
                     </div>
                     @if (Session::has('message'))
-                        <div class="alert alert-{{ Session::get('messageType') }}">
-                            <strong>{{ Session::get('message') }} </strong>
-                            <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    <div class="alert alert-{{ Session::get('messageType') }}">
+                        <strong>{{ Session::get('message') }} </strong>
+                        <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     @endif
                     <div class="card-body">
                         <div class="table-responsive">

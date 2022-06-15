@@ -43,7 +43,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
 });
 
-// Route::view('/admin', 'admin.pages.index');
+Route::view('/addadmin', 'admin.pages.admin.addadmin');
+Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
 // Route::view('/', 'admin.auth.login');
 // Route::view('/forgetpass', 'admin.auth.forgetpass');
 // Route::view('/resetpass', 'admin.auth.resetpass');
