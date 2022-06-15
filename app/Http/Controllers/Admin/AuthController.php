@@ -112,11 +112,6 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('admin.login');
     }
-    public function admin()
-    {
-        $admin = User::where('role_id',1)->get();
-        return view('admin.pages.admin',['admins'=>$admin]);
-    }
     public function superadmin()
     {
         $superadmin = User::where('role_id',2)->get();

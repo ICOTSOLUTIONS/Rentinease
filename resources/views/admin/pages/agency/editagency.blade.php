@@ -379,6 +379,30 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
+                                            <label>Packages
+                                                <select name="package" id="package" class="form-control w-178">
+                                                    <option value="">Select Packages</option>
+                                                    @forelse ($packages as $package)
+                                                        @if (old('package') == $package->id)
+                                                            <option value="{{ $package->id }}" selected>
+                                                                {{ $package->name }}
+                                                            </option>
+                                                        @else
+                                                            <option value="{{ $package->id }}" selected>{{ $package->name }}
+                                                            </option>
+                                                        @endif
+                                                    @empty
+                                                        <option value="">No Packages</option>
+                                                    @endforelse
+                                                </select>
+                                            </label>
+                                            @error('package')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-md-3">
+                                        <div class="form-group">
                                             <label>Access of Agents
                                                 <select name="access_of_agents" id="access_agent" onchange="customs()" class="form-control w-178">
                                                     <option value="">Select Agents</option>
@@ -450,7 +474,7 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
@@ -535,16 +559,16 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function(){
-            customs();
-        });
-        function customs() {
-            var custom = $('#access_agent').val();
-            if(custom == "custom"){
-                $('#custom').show();
-            }else{
-                $('#custom').hide();
-            }
-        }
+        // $(document).ready(function(){
+        //     customs();
+        // });
+        // function customs() {
+        //     var custom = $('#access_agent').val();
+        //     if(custom == "custom"){
+        //         $('#custom').show();
+        //     }else{
+        //         $('#custom').hide();
+        //     }
+        // }
     </script>
 @endsection

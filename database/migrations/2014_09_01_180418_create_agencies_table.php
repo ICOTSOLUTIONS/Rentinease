@@ -15,6 +15,7 @@ class CreateAgenciesTable extends Migration
     {
         Schema::create('agencies', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('package_id')->nullable();
             $table->string('company_name')->nullable();
             $table->string('owner_name')->nullable();
             $table->string('email')->unique()->nullable();
@@ -27,7 +28,7 @@ class CreateAgenciesTable extends Migration
             $table->string('rera_no')->nullable();
             $table->string('establishment_date')->nullable();
             $table->string('licence_exp_date')->nullable();
-            $table->string('access_of_agents')->nullable();
+            // $table->string('access_of_agents')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('street')->nullable();
@@ -39,8 +40,9 @@ class CreateAgenciesTable extends Migration
             $table->mediumText('eid')->nullable();
             $table->mediumText('rera')->nullable();
             $table->mediumText('additional_documents')->nullable();
-            $table->string('authorized')->nullable();
+            // $table->string('authorized')->nullable();
             $table->timestamps();
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
         });
     }
 

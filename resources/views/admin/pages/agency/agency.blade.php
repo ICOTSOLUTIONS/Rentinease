@@ -29,7 +29,8 @@
                                         <th>Phone</th>
                                         <th>Mobile</th>
                                         <th>Country</th>
-                                        <th>Access of Agents</th>
+                                        <th>Package</th>
+                                        {{-- <th>Access of Agents</th> --}}
                                         <th>Office</th>
                                     @if(auth()->user()->roles->name != 'subadmin')
                                         <th>Action</th>
@@ -47,7 +48,14 @@
                                                 <td>{{ $agency->phone }}</td>
                                                 <td>{{ $agency->mobile }}</td>
                                                 <td>{{ $agency->country }}</td>
-                                                <td>{{ $agency->access_of_agents }}</td>
+                                                <td>
+                                                    @forelse ($agency->packages as $package )
+                                                        {{ $package->name }}    
+                                                    @empty
+                                                        No Package
+                                                    @endforelse
+                                                    </td>
+                                                {{-- <td>{{ $agency->access_of_agents }}</td> --}}
                                                 <td>{{ $agency->office }}</td>
                                             @if(auth()->user()->roles->name != 'subadmin')
                                                 <td>

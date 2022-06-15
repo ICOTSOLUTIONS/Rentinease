@@ -18,6 +18,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = User::where('role_id',5)->orderBy('id','DESC')->get();
+        
         return view('admin.pages.visitcustomer.visitor',['customers'=>$customer]);
     }
 

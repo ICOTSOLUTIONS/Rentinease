@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class,'role_id','id');
     }
+
+    public function packages()
+    {
+        return $this->hasMany(Package::class,'id','package_id');
+    }
 }

@@ -23,6 +23,8 @@ class AdminLogin
                 return redirect()->route('admin.dashboard');
             }elseif(auth()->user()->roles->name === 'subadmin'){
                 return redirect()->route('admin.dashboard');
+            }elseif(auth()->user()->roles->name === 'blogger'){
+                return redirect()->route('admin.dashboard');
             }else{
                 return $next($request);
             }

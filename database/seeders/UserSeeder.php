@@ -36,6 +36,10 @@ class UserSeeder extends Seeder
         $role->name = 'customer';
         $role->save();
 
+        $role = new Role();
+        $role->name = 'blogger';
+        $role->save();
+
         $user = new User();
         $user->role_id = 1;
         $user->fname = 'admin';
@@ -43,19 +47,19 @@ class UserSeeder extends Seeder
         $user->password = Hash::make(12345678);
         $user->save();
 
-        $user = new User();
-        $user->role_id = 2;
-        $user->fname = 'superadmin';
-        $user->email = 'superadmin@gmail.com';
-        $user->password = Hash::make(12345678);
-        $user->save();
+        // $user = new User();
+        // $user->role_id = 2;
+        // $user->fname = 'superadmin';
+        // $user->email = 'superadmin@gmail.com';
+        // $user->password = Hash::make(12345678);
+        // $user->save();
 
-        $user = new User();
-        $user->role_id = 3;
-        $user->fname = 'subadmin';
-        $user->email = 'subadmin@gmail.com';
-        $user->password = Hash::make(12345678);
-        $user->save();
+        // $user = new User();
+        // $user->role_id = 3;
+        // $user->fname = 'subadmin';
+        // $user->email = 'subadmin@gmail.com';
+        // $user->password = Hash::make(12345678);
+        // $user->save();
 
         // $user = new User();
         // $user->role_id = 4;

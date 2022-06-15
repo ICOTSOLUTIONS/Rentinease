@@ -35,12 +35,15 @@ Route::prefix('admin')->group(function () {
     });
 });
 Route::middleware('admin')->group(function () {
-    Route::get('/admin', [\App\Http\Controllers\Admin\AuthController::class, 'admin'])->name('admin.admin');
-    Route::get('/superadmin', [\App\Http\Controllers\Admin\AuthController::class, 'superadmin'])->name('admin.superadmin');
-    Route::get('/subadmin', [\App\Http\Controllers\Admin\AuthController::class, 'subadmin'])->name('admin.subadmin');
-    Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'edit'])->name('admins.edit');
-    Route::post('/update', [\App\Http\Controllers\Admin\AuthController::class, 'update'])->name('admins.update');
-    Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
+    Route::resource('/admin', \App\Http\Controllers\Admin\AdminController::class)->except('show');
+    Route::resource('/assistant', \App\Http\Controllers\Admin\AssistantController::class)->except('show');
+    Route::resource('/customerservice', \App\Http\Controllers\Admin\CustomerServiceController::class)->except('show');
+    // Route::get('/admin', [\App\Http\Controllers\Admin\AuthController::class, 'admin'])->name('admin.admin');
+    // Route::get('/superadmin', [\App\Http\Controllers\Admin\AuthController::class, 'superadmin'])->name('admin.superadmin');
+    // Route::get('/subadmin', [\App\Http\Controllers\Admin\AuthController::class, 'subadmin'])->name('admin.subadmin');
+    // Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'edit'])->name('admins.edit');
+    // Route::post('/update', [\App\Http\Controllers\Admin\AuthController::class, 'update'])->name('admins.update');
+    // Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
 });
 
 // Route::view('/admin', 'admin.pages.index');
