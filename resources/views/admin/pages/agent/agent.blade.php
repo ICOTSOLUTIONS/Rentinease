@@ -4,7 +4,7 @@
         <div class="section-body mt-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="card design">
+                    <div class="card">
                         <div class="card-header text-center justify-content-between">
                             <h4>AGENT</h4>
                             @if(auth()->user()->roles->name != 'subadmin')
@@ -30,7 +30,8 @@
                                             <th>Phone</th>
                                             <th>Mobile</th>
                                             <th>Country</th>
-                                            <th>Coins of Agents</th>
+                                            <th>Package</th>
+                                            {{-- <th>Coins of Agents</th> --}}
                                             <th>Office</th>
                                         @if(auth()->user()->roles->name != 'subadmin')
                                             <th>Action</th>
@@ -47,7 +48,14 @@
                                                 <td>{{ $agent->phone }}</td>
                                                 <td>{{ $agent->mobile }}</td>
                                                 <td>{{ $agent->country }}</td>
-                                                <td>{{ $agent->coins }}</td>
+                                                <td>
+                                                @forelse ($agent->packages as $package )
+                                                    {{ $package->name }}    
+                                                @empty
+                                                    No Package
+                                                @endforelse
+                                                </td>
+                                                {{-- <td>{{ $agent->coins }}</td> --}}
                                                 <td>{{ $agent->office }}</td>
                                             @if(auth()->user()->roles->name != 'subadmin')
                                                 <td>

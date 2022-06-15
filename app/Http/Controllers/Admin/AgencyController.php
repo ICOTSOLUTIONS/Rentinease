@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agency;
+use App\Models\Package;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        $agency = Agency::orderBy('id','DESC')->get();
+        $agency = Agency::with('packages')->orderBy('id','DESC')->get();
         return view('admin.pages.agency.agency',['agencies'=>$agency]);
     }
 
@@ -27,7 +28,8 @@ class AgencyController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.agency.addagency');
+        $package = Package::all();
+        return view('admin.pages.agency.addagency',['packages'=>$package]);
     }
 
     /**
@@ -52,7 +54,8 @@ class AgencyController extends Controller
             'rera_no' => 'required',
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
-            'access_of_agents' => 'required',
+            // 'access_of_agents' => 'required',
+            'package' => 'required',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -66,11 +69,11 @@ class AgencyController extends Controller
             'additional_documents' => 'required',
             'authorized' => 'nullable',
         ];
-        if($request->access_of_agents == "custom"){
-            $rules += [
-                "custom"=>"required",
-            ];
-        } 
+        // if($request->access_of_agents == "custom"){
+        //     $rules += [
+        //         "custom"=>"required",
+        //     ];
+        // } 
         $customMessage = [
             'email.required' => 'The Email field is required', 
             'company_name.required' => 'The Company Name field is required', 
@@ -83,7 +86,8 @@ class AgencyController extends Controller
             'rera_no.required' => 'The Rera no. field is required', 
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            'access_of_agents.required' => 'The Access of Agents field is required', 
+            'package.required' => 'The Package field is required', 
+            // 'access_of_agents.required' => 'The Access of Agents field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
             'street.required' => 'The Street field is required', 
@@ -115,11 +119,12 @@ class AgencyController extends Controller
         $agency->rera_no = $request->rera_no;
         $agency->establishment_date = $request->establishment_date;
         $agency->licence_exp_date = $request->licence_exp_date;
-        if($request->access_of_agents == "custom"){
-            $agency->access_of_agents = $request->custom;
-        }else{
-            $agency->access_of_agents = $request->access_of_agents;
-        }
+        // if($request->package){
+        //     $agency->access_of_agents = $request->custom;
+        // }else{
+        //     $agency->access_of_agents = $request->access_of_agents;
+        // }
+        $agency->package_id = $request->package;
         $agency->country = $request->country;
         $agency->city = $request->city;
         $agency->street = $request->street;
@@ -192,7 +197,8 @@ class AgencyController extends Controller
     public function edit($id)
     {
         $agency = Agency::where('id',$id)->first();
-        return view('admin.pages.agency.editagency',['agency'=>$agency]);
+        $package = Package::all();
+        return view('admin.pages.agency.editagency',['agency'=>$agency,'packages'=>$package]);
     }
 
     /**
@@ -218,7 +224,8 @@ class AgencyController extends Controller
             'rera_no' => 'required',
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
-            'access_of_agents' => 'required',
+            'package' => 'required',
+            // 'access_of_agents' => 'required',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -232,11 +239,11 @@ class AgencyController extends Controller
             'additional_documents' => 'nullable',
             'authorized' => 'nullable',
         ];
-        if($request->access_of_agents == "custom"){
-            $rules+= [
-                "custom"=>"required",
-            ];
-        } 
+        // if($request->access_of_agents == "custom"){
+        //     $rules+= [
+        //         "custom"=>"required",
+        //     ];
+        // } 
         $customMessage = [
             'email.required' => 'The Email field is required', 
             'company_name.required' => 'The Company Name field is required', 
@@ -249,7 +256,8 @@ class AgencyController extends Controller
             'rera_no.required' => 'The Rera no. field is required', 
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            'access_of_agents.required' => 'The Access of Agents field is required', 
+            'package.required' => 'The Package field is required', 
+            // 'access_of_agents.required' => 'The Access of Agents field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
             'street.required' => 'The Street field is required', 
@@ -281,11 +289,12 @@ class AgencyController extends Controller
         $agency->rera_no = $request->rera_no;
         $agency->establishment_date = $request->establishment_date;
         $agency->licence_exp_date = $request->licence_exp_date;
-        if($request->access_of_agents == "custom"){
-            $agency->access_of_agents = $request->custom;
-        }else{
-            $agency->access_of_agents = $request->access_of_agents;
-        }
+        // if($request->access_of_agents == "custom"){
+        //     $agency->access_of_agents = $request->custom;
+        // }else{
+        //     $agency->access_of_agents = $request->access_of_agents;
+        // }
+        $agency->package_id = $request->package;
         $agency->country = $request->country;
         $agency->city = $request->city;
         $agency->street = $request->street;

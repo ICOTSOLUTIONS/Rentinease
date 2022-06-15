@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agency extends Model
+class Package extends Model
 {
     use HasFactory;
-
-    public function packages()
-    {
-        return $this->hasMany(Package::class,'id','package_id');
-    }
+   
 }

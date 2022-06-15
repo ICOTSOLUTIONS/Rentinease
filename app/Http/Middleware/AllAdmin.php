@@ -23,6 +23,8 @@ class AllAdmin
                 return $next($request);
             }elseif(auth()->user()->roles->name === 'subadmin'){
                 return $next($request);
+            }elseif(auth()->user()->roles->name === 'blogger'){
+                return $next($request);
             }else{
                 auth()->logout();
                 session()->flash('message', 'First LoggedIn');
