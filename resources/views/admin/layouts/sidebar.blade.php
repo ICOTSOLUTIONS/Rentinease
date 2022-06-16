@@ -1,17 +1,19 @@
 <div class="main-sidebar sidebar-style-2">
-  <aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
-      <a href=""> <img alt="image" src="{{ asset('assets/img/logo.png') }}" class="header-logo" /> <span class="logo-name pt-4"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></span>
-      </a>
-    </div>
-    <div class="sidebar-user">
-      <div class="sidebar-user-picture">
-        <img alt="image" src="{{ asset('assets/img/user.png') }}">
-      </div>
-      <div class="sidebar-user-details">
-        <!-- <div class="user-name"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></div> -->
-        <div class="user-role mt-2">Administrator</div>
-        <!-- <div class="sidebar-userpic-btn">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href=""> <img alt="image" src="{{ asset('assets/img/logo.png') }}" class="header-logo" /> <span
+                    class="logo-name pt-4"><span class="text-light">Rent</span><span
+                        class="color2">in</span><span class="text-light">ease</span></span>
+            </a>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+                <img alt="image" src="{{ asset('assets/img/user.png') }}">
+            </div>
+            <div class="sidebar-user-details">
+                <!-- <div class="user-name"><span class="text-light">Rent</span><span class="color2">in</span><span class="text-light">ease</span></div> -->
+                <div class="user-role mt-2">Administrator</div>
+                <!-- <div class="sidebar-userpic-btn">
           <a href="profile.html" data-bs-toggle="tooltip" title="Profile">
             <i data-feather="user"></i>
           </a>
@@ -25,42 +27,54 @@
             <i data-feather="log-out"></i>
           </a>
         </div> -->
-      </div>
-    </div>
-    <ul class="sidebar-menu">
-      <li class="menu-header">Main</li>
-      <li class="nav-link has-dropdown"><a href="{{url('/admin/dashboard')}}"><i data-feather="monitor"></i><span>Dashboard</span></a></li>
-      <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li> -->
-      <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agent</span></a></li>
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            @if (auth()->user()->roles->name != 'blogger')
+                <li class="nav-link has-dropdown"><a href="{{ route('admin.dashboard') }}"><i
+                            data-feather="monitor"></i><span>Dashboard</span></a></li>
+                <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Dashboard</span></a></li> -->
+                <!-- <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Agent</span></a></li>
       <li class="nav-link has-dropdown"><a href=""><i data-feather="monitor"></i><span>Visitor Customer</span></a></li> -->
-      <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user"></i><span>User</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{route('agency.index')}}">Agency</a></li>
-          <li><a class="nav-link" href="{{route('agent.index')}}">Agent</a></li>
-          <li><a class="nav-link" href="{{route('customer.index')}}">Visitor Customer</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="dollar-sign"></i><span>Finance</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{url('/coins')}}">Coins</a></li>
-          <li><a class="nav-link" href="{{url('/payments')}}">Payments</a></li>
-          <li><a class="nav-link" href="{{url('/audit')}}">Audit</a></li>
-        </ul>
-      </li>
-      @if (auth()->user()->roles->name == "admin")
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{route('admin.index')}}">Admin</a></li>
-            <li><a class="nav-link" href="{{route('assistant.index')}}">Assistant Admin</a></li>
-            <li><a class="nav-link" href="{{route('customerservice.index')}}">Customer Service</a></li>
-          </ul>
-        </li>
-      @endif
-      <li class="nav-link has-dropdown"><a href="{{url('/blog')}}"><i data-feather="bold"></i><span>Blog</span></a></li>
-      <!-- <li class="dropdown">
+                <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                            data-feather="user"></i><span>User</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link" href="{{ route('agency.index') }}">Agency</a></li>
+                        <li><a class="nav-link" href="{{ route('agent.index') }}">Agent</a></li>
+                        <li><a class="nav-link" href="{{ route('customer.index') }}">Visitor Customer</a></li>
+                    </ul>
+                </li>
+                @if (auth()->user()->roles->name == 'admin')
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="dollar-sign"></i><span>Finance</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ url('/coins') }}">Coins</a></li>
+                            <li><a class="nav-link" href="{{ url('/payments') }}">Payments</a></li>
+                            <li><a class="nav-link" href="{{ url('/audit') }}">Audit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="user-check"></i><span>Admin</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ route('admin.index') }}">Admin</a></li>
+                            <li><a class="nav-link" href="{{ route('assistant.index') }}">Assistant Admin</a>
+                            </li>
+                            <li><a class="nav-link" href="{{ route('customerservice.index') }}">Customer
+                                    Service</a></li>
+                            <li><a class="nav-link" href="{{ route('blogger.index') }}">Blogger</a></li>
+                        </ul>
+                    </li>
+                @endif
+            @endif
+            @if (auth()->user()->roles->name == 'admin' || auth()->user()->roles->name == 'blogger')
+                <li class="nav-link has-dropdown"><a href="{{ url('/blog') }}"><i
+                            data-feather="bold"></i><span>Blog</span></a></li>
+            @endif
+            <!-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
@@ -262,6 +276,6 @@
           </li>
         </ul>
       </li> -->
-    </ul>
-  </aside>
+        </ul>
+    </aside>
 </div>
