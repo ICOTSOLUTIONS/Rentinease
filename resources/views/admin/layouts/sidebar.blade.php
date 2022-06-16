@@ -49,7 +49,7 @@
           <li><a class="nav-link" href="{{url('/audit')}}">Audit</a></li>
         </ul>
       </li>
-      @if (auth()->user()->roles->name != "subadmin")
+      @if (auth()->user()->roles->name == "admin")
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
           <ul class="dropdown-menu">

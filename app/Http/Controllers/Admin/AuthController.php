@@ -112,35 +112,4 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('admin.login');
     }
-    public function subadmin()
-    {
-        $subadmin = User::where('role_id',3)->get();
-        return view('admin.pages.customer',['subadmins'=>$subadmin]);
-    }
-
-    public function edit($id)
-    {
-        $admin = User::where('id',$id)->first();
-        return view('admin.pages.adminUpdate',['admin'=>$admin]);
-    }
-    public function update(Request $request, $id)
-    {
-        $admin = User::where('id',$id)->first();
-        return view('admin.pages.adminUpdate',['admin'=>$admin]);
-    }
-    public function delete($id)
-    {
-        $admin = User::where('id',$id)->first();
-        if(!empty($admin)){
-            if($admin->delete()){
-                session()->flash('message', 'Successfully Deleted!');
-                session()->flash('messageType', 'danger');
-                return back();
-            }
-        }else{
-            session()->flash('message', 'Not Deleted!');
-            session()->flash('messageType', 'danger');
-            return back();
-        }   
-    }
 }
