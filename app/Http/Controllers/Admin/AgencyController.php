@@ -7,6 +7,7 @@ use App\Models\Agency;
 use App\Models\Package;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AgencyController extends Controller
 {
@@ -44,7 +45,7 @@ class AgencyController extends Controller
         $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'phone' => 'required',
             'mobile' => 'required',
             'website' => 'nullable',
@@ -76,6 +77,7 @@ class AgencyController extends Controller
         // } 
         $customMessage = [
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'company_name.required' => 'The Company Name field is required', 
             'owner_name.required' => 'The Owner Name field is required', 
             'phone.required' => 'The Phone field is required', 
@@ -167,9 +169,22 @@ class AgencyController extends Controller
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
-            session()->flash('message', 'Successfully Agency Added!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('agency.index');
+            try {
+                Mail::send('admin.email.agencyaddmail', 
+                    [ 'agency' => $agency],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Add Agency');
+                });
+                session()->flash('message', 'Successfully Agency Added!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('agency.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('agency.index');
+            }
         }else{
             session()->flash('message', 'Agency not Added!');
             session()->flash('messageType', 'danger');
@@ -214,7 +229,7 @@ class AgencyController extends Controller
         $rules = [
             'company_name' => 'required',
             'owner_name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,' . $id,
             'phone' => 'required',
             'mobile' => 'required',
             'website' => 'nullable',
@@ -246,6 +261,7 @@ class AgencyController extends Controller
         // } 
         $customMessage = [
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'company_name.required' => 'The Company Name field is required', 
             'owner_name.required' => 'The Owner Name field is required', 
             'phone.required' => 'The Phone field is required', 
@@ -337,9 +353,22 @@ class AgencyController extends Controller
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
-            session()->flash('message', 'Successfully Agency Updated!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('agency.index');
+            try {
+                Mail::send('admin.email.agencyupdatemail', 
+                    [ 'agency' => $agency],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Update Agency');
+                });
+                session()->flash('message', 'Successfully Agency Updated!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('agency.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('agency.index');
+            }
         }else{
             session()->flash('message', 'Agency not Updated!');
             session()->flash('messageType', 'danger');

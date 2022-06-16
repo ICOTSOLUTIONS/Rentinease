@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AssistantController extends Controller
@@ -16,8 +17,8 @@ class AssistantController extends Controller
      */
     public function index()
     {
-        $superadmin = User::where('role_id',2)->get();
-        return view('admin.pages.assistant.assistantadmin',['superadmins'=>$superadmin]);
+        $assistant = User::where('role_id',2)->get();
+        return view('admin.pages.assistant.assistantadmin',['assistants'=>$assistant]);
     }
 
     /**
@@ -39,12 +40,14 @@ class AssistantController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'fname' => 'required|email',
-            'lname' => 'required|email',
-            'email' => 'required|email',
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'email.unique' => 'The Email field is unique', 
             'phone' => 'required',
             'password' => 'required',
             'designation' => 'required',
+            'logo' => 'nullable',
         ];
         $customMessage = [
             'fname.required' => 'The First Name field is required', 
@@ -67,12 +70,31 @@ class AssistantController extends Controller
         $assistant->phone = $request->phone;
         $assistant->password = $request->password;
         $assistant->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('assistant/logo', $fileName,'public');
+            $assistant->logo = 'logo/'.$fileName;
+        }
         if($assistant->save()){
-            session()->flash('message', 'Successfully Assistant Added!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('assistant.index');
+            try {
+                Mail::send('admin.email.assistantaddemail', 
+                    [ 'assistant' => $assistant],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Add Assistant');
+                });
+                session()->flash('message', 'Successfully Assistant Added!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('assistant.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('assistant.index');
+            }
         }else{
-            session()->flash('message', 'Assistant not Added!');
+            session()->flash('message', 'Assistant not added');
             session()->flash('messageType', 'danger');
             return redirect()->route('assistant.index');
         }
@@ -97,8 +119,11 @@ class AssistantController extends Controller
      */
     public function edit($id)
     {
-        $assistant = User::where('id',$id)->first();
-        return view('admin.pages.assistant.editassistantadmin',['assistants'=>$assistant]);
+        $assistant = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','superadmin');
+        })->where('id',$id)->first();
+        return view('admin.pages.assistant.editassistantadmin',['assistant'=>$assistant]);
     }
 
     /**
@@ -111,19 +136,21 @@ class AssistantController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'fname' => 'required|email',
-            'lname' => 'required|email',
-            'email' => 'required|email',
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
             'phone' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
             'designation' => 'required',
+            'logo' => 'nullable',
         ];
         $customMessage = [
             'fname.required' => 'The First Name field is required', 
             'lname.required' => 'The Last Name field is required', 
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'phone.required' => 'The Phone field is required', 
-            'password.required' => 'The Password field is required', 
+            // 'password.required' => 'The Password field is required', 
             'designation.required' => 'The Designation field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
@@ -131,20 +158,33 @@ class AssistantController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $assistant = User::findOrFail($id);
+        $assistant = User::where('id',$id)->first();
         $assistant->role_id = 2; 
         $assistant->fname = $request->fname; 
         $assistant->lname = $request->lname;
         $assistant->email = $request->email;
         $assistant->phone = $request->phone;
-        $assistant->password = $request->password;
+        // $assistant->password = $request->password;
         $assistant->designation = $request->designation;
         if($assistant->save()){
-            session()->flash('message', 'Successfully Assistant Updated!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('assistant.index');
+            try {
+                Mail::send('admin.email.assistantupdateemail', 
+                    ['assistant' => $assistant],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Update Assistant');
+                });
+                session()->flash('message', 'Successfully Assistant Updated!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('assistant.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('assistant.index');
+            }
         }else{
-            session()->flash('message', 'Assistant not Updated!');
+            session()->flash('message', 'Assistant not Updated');
             session()->flash('messageType', 'danger');
             return redirect()->route('assistant.index');
         }

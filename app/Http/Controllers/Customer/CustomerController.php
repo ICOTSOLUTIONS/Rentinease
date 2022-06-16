@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
@@ -44,7 +45,7 @@ class CustomerController extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'password' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'phone' => 'required',
             'mobile' => 'required',
             'website' => 'nullable',
@@ -65,6 +66,7 @@ class CustomerController extends Controller
             'lname.required' => 'The Last Name field is required', 
             'password.required' => 'The Password field is required', 
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'phone.required' => 'The Phone field is required', 
             'mobile.required' => 'The Mobile field is required', 
             'rera_no.required' => 'The Rera no. field is required', 
@@ -123,9 +125,22 @@ class CustomerController extends Controller
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
         if($customer->save()){
-            session()->flash('message', 'Successfully Customer Added!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('customer.index');
+            try {
+                Mail::send('admin.email.customeraddmail', 
+                    [ 'visitor' => $customer],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Add Customer Visitor');
+                });
+                session()->flash('message', 'Successfully Customer Added!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('customer.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('customer.index');
+            }
         }else{
             session()->flash('message', 'Customer not Added!');
             session()->flash('messageType', 'danger');
@@ -171,7 +186,7 @@ class CustomerController extends Controller
         $rules = [
             'fname' => 'required',
             'lname' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,'. $id,
             'phone' => 'required',
             'mobile' => 'required',
             'website' => 'nullable',
@@ -191,6 +206,7 @@ class CustomerController extends Controller
             'fname.required' => 'The Fisrt Name field is required', 
             'lname.required' => 'The Last Name field is required', 
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'phone.required' => 'The Phone field is required', 
             'mobile.required' => 'The Mobile field is required', 
             'rera_no.required' => 'The Rera no. field is required', 
@@ -248,9 +264,22 @@ class CustomerController extends Controller
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
         if($customer->save()){
-            session()->flash('message', 'Successfully Customer Updated!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('customer.index');
+            try {
+                Mail::send('admin.email.customerupdatemail', 
+                    [ 'visitor' => $customer],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Update Customer Visitor');
+                });
+                session()->flash('message', 'Successfully Customer Updated!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('customer.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('customer.index');
+            }
         }else{
             session()->flash('message', 'Customer not Updated!');
             session()->flash('messageType', 'danger');

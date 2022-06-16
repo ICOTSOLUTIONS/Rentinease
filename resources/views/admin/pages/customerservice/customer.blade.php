@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>Customer Service</h4>
-                        <a href="{{url('/addcustomer')}}"><button class="btn btn-success btn-hover">ADD CustomerAdmin</button></a>
+                        <a href="{{route('customerservice.create')}}"><button class="btn btn-success btn-hover">ADD CUSTOMERS SERVICE</button></a>
                     </div>
                     @if (Session::has('message'))
                     <div class="alert alert-{{ Session::get('messageType') }}">
@@ -20,26 +20,53 @@
                             <table class="table table-striped" id="table-1">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">
+                                        <th>
                                             #
                                         </th>
-                                        <th>Name</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
                                         <th>Email</th>
+                                        <th>Contact Number</th>
+                                        <th>Designation</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($subadmins as $sub)
+                                    @forelse ($customerservices as $customerservice)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sub->fname }}</td>
-                                        <td>{{ $sub->email }}</td>
+                                        <td>{{ $customerservice->fname }}</td>
+                                        <td>{{ $customerservice->lname }}</td>
+                                        <td>{{ $customerservice->email }}</td>
+                                        <td>{{ $customerservice->phone }}</td>
+                                        <td>{{ $customerservice->designation }}</td>
                                         <td>
-                                            <a href="{{ route('admins.edit',['id'=>$sub->id]) }}" class="btn btn-info text-white">Edit</a>
-                                            <a href="{{ route('admins.delete',['id'=>$sub->id]) }}" class="btn btn-info text-white">Delete</a>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('customerservice.edit', ['customerservice' => $customerservice->id]) }}"
+                                                        class="btn btn-info text-white">Edit</a>
+                                                </div>
+                                                @if ($customerservice->id != 1 && $customerservice->fname != 'superadmin')
+                                                    <div class="col-md-6">
+                                                        <form
+                                                            action="{{ route('customerservice.destroy', ['customerservice' => $customerservice->id]) }}"
+                                                            method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-danger text-white">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                @endif
+
+                                            </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="7">No data!</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

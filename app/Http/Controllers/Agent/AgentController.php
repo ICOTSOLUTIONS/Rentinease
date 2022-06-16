@@ -46,7 +46,7 @@ class AgentController extends Controller
     {
         // dd($request->all());
         $rules =[
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -76,6 +76,7 @@ class AgentController extends Controller
         ];
         $customMessage = [
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'password.required' => 'The Password field is required',
             'company_name.required' => 'The Company Name field is required', 
             'owner_name.required' => 'The Owner Name field is required', 
@@ -237,7 +238,7 @@ class AgentController extends Controller
     {
         // dd($request->all());
         $rules = [
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,'. $id,
             // 'password' => 'required',
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -267,6 +268,7 @@ class AgentController extends Controller
         ];
         $customMessage = [
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'company_name.required' => 'The Company Name field is required', 
             'owner_name.required' => 'The Owner Name field is required', 
             'phone.required' => 'The Phone field is required', 

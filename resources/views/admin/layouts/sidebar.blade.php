@@ -53,9 +53,9 @@
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Admin</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{route('admin.admin')}}">Admin</a></li>
-            <li><a class="nav-link" href="{{route('admin.superadmin')}}">Assistant Admin</a></li>
-            <li><a class="nav-link" href="{{route('admin.subadmin')}}">Customer Service</a></li>
+            <li><a class="nav-link" href="{{route('admin.index')}}">Admin</a></li>
+            <li><a class="nav-link" href="{{route('assistant.index')}}">Assistant Admin</a></li>
+            <li><a class="nav-link" href="{{route('customerservice.index')}}">Customer Service</a></li>
           </ul>
         </li>
       @endif

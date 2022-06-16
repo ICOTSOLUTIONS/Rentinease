@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -39,17 +40,19 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'fname' => 'required|email',
-            'lname' => 'required|email',
-            'email' => 'required|email',
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email',
             'phone' => 'required',
             'password' => 'required',
             'designation' => 'required',
+            'logo' => 'nullable',
         ];
         $customMessage = [
             'fname.required' => 'The First Name field is required', 
             'lname.required' => 'The Last Name field is required', 
             'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
             'phone.required' => 'The Phone field is required', 
             'password.required' => 'The Password field is required', 
             'designation.required' => 'The Designation field is required', 
@@ -67,12 +70,31 @@ class AdminController extends Controller
         $admin->phone = $request->phone;
         $admin->password = $request->password;
         $admin->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('admin/logo', $fileName,'public');
+            $admin->logo = 'logo/'.$fileName;
+        }
         if($admin->save()){
-            session()->flash('message', 'Successfully Admin Added!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('admin.index');
+            try {
+                Mail::send('admin.email.adminaddmail', 
+                    [ 'admin' => $admin],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Add Admin');
+                });
+                session()->flash('message', 'Successfully Admin Added!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('admin.index');
+            } catch (\Throwable $th) {
+                // return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('admin.index');
+            }
         }else{
-            session()->flash('message', 'Admin not Added!');
+            session()->flash('message', 'Admin not added');
             session()->flash('messageType', 'danger');
             return redirect()->route('admin.index');
         }
@@ -97,8 +119,11 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = User::where('id',$id)->first();
-        return view('admin.pages.admin.editadmin',['admins'=>$admin]);
+        $admin = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','admin');
+        })->where('id',$id)->first();
+        return view('admin.pages.admin.editadmin',['admin'=>$admin]);
     }
 
     /**
@@ -111,19 +136,21 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'fname' => 'required|email',
-            'lname' => 'required|email',
-            'email' => 'required|email',
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
             'phone' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
             'designation' => 'required',
+            'logo' => 'nullable',
         ];
         $customMessage = [
             'fname.required' => 'The First Name field is required', 
             'lname.required' => 'The Last Name field is required', 
-            'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
+            'email.requicred' => 'The Email field is required', 
             'phone.required' => 'The Phone field is required', 
-            'password.required' => 'The Password field is required', 
+            // 'password.required' => 'The Password field is required', 
             'designation.required' => 'The Designation field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
@@ -131,20 +158,33 @@ class AdminController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $admin = User::findOrFail($id);
+        $admin = User::where('id',$id)->first();
         $admin->role_id = 1; 
         $admin->fname = $request->fname; 
         $admin->lname = $request->lname;
         $admin->email = $request->email;
         $admin->phone = $request->phone;
-        $admin->password = $request->password;
+        // $admin->password = $request->password;
         $admin->designation = $request->designation;
         if($admin->save()){
-            session()->flash('message', 'Successfully Admin Updated!');
-            session()->flash('messageType', 'success');
-            return redirect()->route('admin.index');
+            try {
+                Mail::send('admin.email.adminupdateemail', 
+                    ['admin' => $admin],
+                     function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Update Admin');
+                });
+                session()->flash('message', 'Successfully Admin Updated!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('admin.index');
+            } catch (\Throwable $th) {
+                return $th;
+                session()->flash('message', 'Mail not sent');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('admin.index');
+            }
         }else{
-            session()->flash('message', 'Admin not Updated!');
+            session()->flash('message', 'Admin not Updated');
             session()->flash('messageType', 'danger');
             return redirect()->route('admin.index');
         }

@@ -46,6 +46,7 @@ class CreateUsersTable extends Migration
             $table->mediumText('rera')->nullable();
             $table->mediumText('additional_documents')->nullable();
             $table->string('authorized')->nullable();
+            $table->string('designation')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
