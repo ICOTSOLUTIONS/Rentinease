@@ -39,6 +39,7 @@ Route::middleware('admin')->group(function () {
     Route::resource('/admin', \App\Http\Controllers\Admin\AdminController::class)->except('show');
     Route::resource('/assistant', \App\Http\Controllers\Admin\AssistantController::class)->except('show');
     Route::resource('/customerservice', \App\Http\Controllers\Admin\CustomerServiceController::class)->except('show');
+    Route::resource('/blogger', \App\Http\Controllers\Admin\BloggerController::class)->except('show');
     // Route::get('/admin', [\App\Http\Controllers\Admin\AuthController::class, 'admin'])->name('admin.admin');
     // Route::get('/superadmin', [\App\Http\Controllers\Admin\AuthController::class, 'superadmin'])->name('admin.superadmin');
     // Route::get('/subadmin', [\App\Http\Controllers\Admin\AuthController::class, 'subadmin'])->name('admin.subadmin');

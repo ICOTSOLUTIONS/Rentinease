@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-header text-center justify-content-between">
                             <h4>Admin</h4>
-                            @if (auth()->user()->roles->name != 'subadmin' && auth()->user()->roles->name != 'superadmin')
+                            @if (auth()->user()->roles->name == 'admin')
                                 <a href="{{ route('admin.create') }}"><button class="btn btn-success btn-hover">ADD
                                         ADMIN</button></a>
                             @endif
