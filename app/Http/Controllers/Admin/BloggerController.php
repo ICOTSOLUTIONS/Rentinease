@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -68,7 +69,7 @@ class BloggerController extends Controller
         $blogger->lname = $request->lname;
         $blogger->email = $request->email;
         $blogger->phone = $request->phone;
-        $blogger->password = $request->password;
+        $blogger->password = Hash::make($request->password);
         $blogger->designation = $request->designation;
         if($request->hasFile('logo')){
             $file = $request->file('logo');

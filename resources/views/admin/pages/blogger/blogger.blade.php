@@ -6,10 +6,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header text-center justify-content-between">
-                            <h4>Admin</h4>
+                            <h4>Blogger</h4>
                             @if (auth()->user()->roles->name == 'admin')
                                 <a href="{{ route('blogger.create') }}"><button class="btn btn-success btn-hover">ADD
-                                        ADMIN</button></a>
+                                    Blogger</button></a>
                             @endif
                         </div>
                         @if (Session::has('message'))

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -68,7 +69,7 @@ class CustomerServiceController extends Controller
         $customerservice->lname = $request->lname;
         $customerservice->email = $request->email;
         $customerservice->phone = $request->phone;
-        $customerservice->password = $request->password;
+        $customerservice->password = Hash::make($request->password);
         $customerservice->designation = $request->designation;
         if($request->hasFile('logo')){
             $file = $request->file('logo');

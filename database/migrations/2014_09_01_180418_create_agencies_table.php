@@ -19,6 +19,7 @@ class CreateAgenciesTable extends Migration
             $table->string('company_name')->nullable();
             $table->string('owner_name')->nullable();
             $table->string('email')->unique()->nullable();
+            $table->string('password');
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->longText('website')->nullable();

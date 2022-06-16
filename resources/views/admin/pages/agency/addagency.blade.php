@@ -268,6 +268,16 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
+                                            <label>Password
+                                                <input type="password" name="password" class="form-control">
+                                            </label>
+                                            @error('password')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
                                             <label>Packages
                                                 <select name="package" id="package" class="form-control w-178">
                                                     <option value="">Select Packages</option>

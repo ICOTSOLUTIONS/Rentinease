@@ -41,7 +41,7 @@
                                                 <input type="text" name="fname" class="form-control"
                                                     @if (old('fname')) value="{{ old('fname') }}"
                                                 @else
-                                                value="{{ $admin->fname }}" @endif />
+                                                value="{{ $blogger->fname }}" @endif />
                                             </label>
                                             @error('fname')
                                                 <div class="text-danger">{{ $message }}</div>

@@ -7,6 +7,7 @@ use App\Models\Agency;
 use App\Models\Package;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class AgencyController extends Controller
@@ -47,6 +48,7 @@ class AgencyController extends Controller
             'owner_name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required',
+            'password' => 'required',
             'mobile' => 'required',
             'website' => 'nullable',
             'company_type' => 'required',
@@ -78,6 +80,7 @@ class AgencyController extends Controller
         $customMessage = [
             'email.required' => 'The Email field is required', 
             'email.unique' => 'The Email field is unique', 
+            'password.required' => 'The Password field is required', 
             'company_name.required' => 'The Company Name field is required', 
             'owner_name.required' => 'The Owner Name field is required', 
             'phone.required' => 'The Phone field is required', 
@@ -112,6 +115,7 @@ class AgencyController extends Controller
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
         $agency->email = $request->email;
+        $agency->password = Hash::make($request->password);
         $agency->phone = $request->phone;
         $agency->mobile = $request->mobile;
         $agency->website = $request->website;
