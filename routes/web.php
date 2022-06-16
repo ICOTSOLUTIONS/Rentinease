@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function () {
     });
     Route::middleware('allAdmin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('admin.profile');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
         Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
