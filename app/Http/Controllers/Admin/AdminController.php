@@ -109,7 +109,11 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $admin = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','admin');
+        })->where('id',$id)->first();
+        return view('admin.pages.admin.viewadmin',['admin'=>$admin]);
     }
 
     /**

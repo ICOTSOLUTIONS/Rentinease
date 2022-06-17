@@ -109,7 +109,11 @@ class BloggerController extends Controller
      */
     public function show($id)
     {
-        //
+        $blogger = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','blogger');
+        })->where('id',$id)->first();
+        return view('admin.pages.blogger.bloggerview',['blogger'=>$blogger]);
     }
 
     /**

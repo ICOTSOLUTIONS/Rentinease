@@ -156,7 +156,11 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','customer');
+        })->where('id',$id)->first();
+        return view('admin.pages.visitcustomer.viewcustomer',['customer'=>$customer]);
     }
 
     /**

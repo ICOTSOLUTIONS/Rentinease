@@ -207,7 +207,12 @@ class AgentController extends Controller
      */
     public function show($id)
     {
-        //
+        $package = Package::all();
+        $agent = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','agent');
+        })->where('id',$id)->first();
+        return view('admin.pages.agent.viewagent',['packages'=>$package,'agent'=>$agent]);
     }
 
     /**

@@ -204,7 +204,9 @@ class AgencyController extends Controller
      */
     public function show($id)
     {
-        //
+        $agency = Agency::where('id',$id)->first();
+        $package = Package::all();
+        return view('admin.pages.agency.viewagency',['agency'=>$agency,'packages'=>$package]);
     }
 
     /**

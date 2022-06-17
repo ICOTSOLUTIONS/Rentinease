@@ -109,7 +109,11 @@ class CustomerServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $customerservice = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','subadmin');
+        })->where('id',$id)->first();
+        return view('admin.pages.customerservice.viewcustomerservice',['customerservice'=>$customerservice]);
     }
 
     /**
