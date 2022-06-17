@@ -29,17 +29,18 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Admin\AuthController::class, 'dashboard'])->name('admin.dashboard');
         Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('admin.profile');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
-        Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class)->except('show');
+        Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class);
         Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
-        Route::resource('/agent', \App\Http\Controllers\Agent\AgentController::class)->except('show');
-        Route::resource('/customer', \App\Http\Controllers\Customer\CustomerController::class)->except('show');
+        Route::resource('/agent', \App\Http\Controllers\Agent\AgentController::class);
+        Route::resource('/customer', \App\Http\Controllers\Customer\CustomerController::class);
+        Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class)->except('show');
     });
 });
 Route::middleware('admin')->group(function () {
-    Route::resource('/admin', \App\Http\Controllers\Admin\AdminController::class)->except('show');
-    Route::resource('/assistant', \App\Http\Controllers\Admin\AssistantController::class)->except('show');
-    Route::resource('/customerservice', \App\Http\Controllers\Admin\CustomerServiceController::class)->except('show');
-    Route::resource('/blogger', \App\Http\Controllers\Admin\BloggerController::class)->except('show');
+    Route::resource('/admin', \App\Http\Controllers\Admin\AdminController::class);
+    Route::resource('/assistant', \App\Http\Controllers\Admin\AssistantController::class);
+    Route::resource('/customerservice', \App\Http\Controllers\Admin\CustomerServiceController::class);
+    Route::resource('/blogger', \App\Http\Controllers\Admin\BloggerController::class);
     // Route::get('/admin', [\App\Http\Controllers\Admin\AuthController::class, 'admin'])->name('admin.admin');
     // Route::get('/superadmin', [\App\Http\Controllers\Admin\AuthController::class, 'superadmin'])->name('admin.superadmin');
     // Route::get('/subadmin', [\App\Http\Controllers\Admin\AuthController::class, 'subadmin'])->name('admin.subadmin');
