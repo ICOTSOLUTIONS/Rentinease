@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -183,6 +185,13 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agent Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new agent on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Agent Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agent.index');
@@ -379,6 +388,13 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agent Update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently upadted a agent on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Agent Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agent.index');

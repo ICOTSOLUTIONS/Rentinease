@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -125,6 +127,13 @@ class CustomerController extends Controller
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
         if($customer->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Customer Add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently upadted a new customer on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.customeraddmail', 
                     [ 'visitor' => $customer],
@@ -268,6 +277,13 @@ class CustomerController extends Controller
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
         if($customer->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Customer Update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently upadted a customer on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.customerupdatemail', 
                     [ 'visitor' => $customer],

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -173,6 +175,13 @@ class AgencyController extends Controller
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Agency Add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.agencyaddmail', 
                     [ 'agency' => $agency],
@@ -359,6 +368,13 @@ class AgencyController extends Controller
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
         if($agency->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Agency Update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.agencyupdatemail', 
                     [ 'agency' => $agency],

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -78,6 +80,13 @@ class AssistantController extends Controller
             $assistant->logo = 'logo/'.$fileName;
         }
         if($assistant->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Agency add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.assistantaddemail', 
                     [ 'assistant' => $assistant],
@@ -172,6 +181,13 @@ class AssistantController extends Controller
         // $assistant->password = $request->password;
         $assistant->designation = $request->designation;
         if($assistant->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Agency update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.assistantupdateemail', 
                     ['assistant' => $assistant],

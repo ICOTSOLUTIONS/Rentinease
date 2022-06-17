@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -78,6 +80,13 @@ class BloggerController extends Controller
             $blogger->logo = 'logo/'.$fileName;
         }
         if($blogger->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Blogger Add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently Added a new blogger on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.bloggeraddmail', 
                     [ 'blogger' => $blogger],
@@ -172,6 +181,13 @@ class BloggerController extends Controller
         // $blogger->password = $request->password;
         $blogger->designation = $request->designation;
         if($blogger->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Blogger Update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently updated a blogger on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.bloggerupdatemail', 
                     ['blogger' => $blogger],

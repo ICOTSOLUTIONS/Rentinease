@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\Package;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -58,11 +60,18 @@ class PackageController extends Controller
         $package->coins = $request->coins;
         $package->access_of_agents = $request->access_of_agents;
         if($package->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Package Add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently added a new package on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
                 session()->flash('message', 'Successfully Package Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('package.index');
         }else{
-            session()->flash('message', 'Package not added');
+            session()->flash('message', 'Package not Added');
             session()->flash('messageType', 'danger');
             return redirect()->route('package.index');
         }
@@ -119,11 +128,18 @@ class PackageController extends Controller
         $package->coins = $request->coins;
         $package->access_of_agents = $request->access_of_agents;
         if($package->save()){
-                session()->flash('message', 'Successfully Package Added!');
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Package Update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently upadted a package on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
+                session()->flash('message', 'Successfully Package Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('package.index');
         }else{
-            session()->flash('message', 'Package not added');
+            session()->flash('message', 'Package not Updated');
             session()->flash('messageType', 'danger');
             return redirect()->route('package.index');
         }

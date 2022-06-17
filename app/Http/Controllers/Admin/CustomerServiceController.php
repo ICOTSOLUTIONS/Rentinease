@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -78,6 +80,13 @@ class CustomerServiceController extends Controller
             $customerservice->logo = 'logo/'.$fileName;
         }
         if($customerservice->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Customer Service Add';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently added a new customer service on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.customerseraddmail', 
                     [ 'customerservice' => $customerservice],
@@ -172,6 +181,13 @@ class CustomerServiceController extends Controller
         // $customerservice->password = $request->password;
         $customerservice->designation = $request->designation;
         if($customerservice->save()){
+            $log = new ActivityLog();
+            $log->user_id = auth()->user()->id;
+            $log->title = 'Customer Service Update';
+            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+            ' recently updated a customer service on the date of '.Carbon::now()->format('d-m-Y').
+            ' at the time of '.Carbon::now()->format('h:i:s A');
+            $log->save();
             try {
                 Mail::send('admin.email.customerserupdatemail', 
                     ['customerservice' => $customerservice],
