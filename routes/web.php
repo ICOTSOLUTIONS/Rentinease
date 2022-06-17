@@ -68,3 +68,6 @@ Route::view('/register', 'admin.auth.register');
 Route::view('/visitor', 'admin.pages.visitcustomer.visitor');
 Route::view('/addcustomer', 'admin.pages.visitcustomer.addcustomer');
 Route::view('/blog', 'admin.pages.blog.blog');
+Route::view('/coin', 'admin.pages.finance.coin');
+Route::view('/audit', 'admin.pages.finance.audit');
+Route::view('/payment', 'admin.pages.finance.payment');
