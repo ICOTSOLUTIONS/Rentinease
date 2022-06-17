@@ -71,7 +71,7 @@
                 @endif
             @endif
             @if (auth()->user()->roles->name == 'admin' || auth()->user()->roles->name == 'blogger')
-                <li class="nav-link has-dropdown"><a href="{{ url('/blog') }}"><i
+                <li class="nav-link has-dropdown"><a href="{{ route('blog.index') }}"><i
                             data-feather="bold"></i><span>Blog</span></a></li>
             @endif
             <!-- <li class="dropdown">
