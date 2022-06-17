@@ -51,8 +51,8 @@
                         <a href="#" class="menu-toggle nav-link has-dropdown"><i
                                 data-feather="dollar-sign"></i><span>Finance</span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="{{ url('/coins') }}">Coins</a></li>
-                            <li><a class="nav-link" href="{{ url('/payments') }}">Payments</a></li>
+                            <li><a class="nav-link" href="{{ url('/coin') }}">Coins</a></li>
+                            <li><a class="nav-link" href="{{ url('/payment') }}">Payments</a></li>
                             <li><a class="nav-link" href="{{ url('/audit') }}">Audit</a></li>
                         </ul>
                     </li>
