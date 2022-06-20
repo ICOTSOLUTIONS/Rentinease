@@ -32,6 +32,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class);
         Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
         Route::resource('/agent', \App\Http\Controllers\Admin\AgentController::class);
+        Route::resource('/package', \App\Http\Controllers\Admin\PackageController::class);
         Route::resource('/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class)->except('show');
     });
