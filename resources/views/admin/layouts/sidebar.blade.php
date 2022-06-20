@@ -71,6 +71,8 @@
                 @endif
                 <li class="nav-link has-dropdown"><a href="{{ route('package.index') }}"><i
                   data-feather="bold"></i><span>Package</span></a></li>
+                  <li class="nav-link has-dropdown"><a href="{{ route('activity.index') }}"><i
+                    data-feather="bold"></i><span>Activity Logs</span></a></li>
             @endif
             @if (auth()->user()->roles->name == 'admin' || auth()->user()->roles->name == 'blogger')
                 <li class="nav-link has-dropdown"><a href="{{ route('blog.index') }}"><i

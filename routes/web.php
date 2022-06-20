@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/package', \App\Http\Controllers\Admin\PackageController::class);
         Route::resource('/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class)->except('show');
+        Route::get('/activity', [\App\Http\Controllers\Admin\ActivityController::class,'index'])->name('activity.index');
     });
 });
 Route::middleware('admin')->group(function () {
