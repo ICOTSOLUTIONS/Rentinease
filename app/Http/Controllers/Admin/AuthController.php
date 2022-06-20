@@ -32,6 +32,8 @@ class AuthController extends Controller
             return redirect()->route('admin.dashboard');
         }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>3])){
             return redirect()->route('admin.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>6])){
+            return redirect()->route('admin.dashboard');
         }else{
             session()->flash('message', 'Invalid Credentials');
             session()->flash('messageType', 'danger');
@@ -72,7 +74,7 @@ class AuthController extends Controller
             session()->flash('messageType', 'success');
             return redirect()->route('admin.login');
         } catch (\Throwable $th) {
-            return $th;
+            // return $th;
             session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->back();
