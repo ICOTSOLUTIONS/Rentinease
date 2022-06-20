@@ -40,6 +40,10 @@ class UserSeeder extends Seeder
         $role->name = 'blogger';
         $role->save();
 
+        $role = new Role();
+        $role->name = 'agency';
+        $role->save();
+
         $user = new User();
         $user->role_id = 1;
         $user->fname = 'admin';

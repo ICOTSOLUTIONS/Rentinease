@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('agency_id')->nullable();
-            $table->unsignedBigInteger('package_id')->nullable();
+            // $table->unsignedBigInteger('package_id')->nullable();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
             $table->string('email')->unique();
@@ -31,8 +31,8 @@ class CreateUsersTable extends Migration
             $table->string('licence_no')->nullable();
             $table->string('permit_no')->nullable();
             $table->string('rera_no')->nullable();
-            $table->date('establishment_date')->nullable();
-            $table->date('licence_exp_date')->nullable();
+            $table->string('establishment_date')->nullable();
+            $table->string('licence_exp_date')->nullable();
             // $table->string('coins')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
@@ -52,7 +52,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
-            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
+            // $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
         });
     }
 

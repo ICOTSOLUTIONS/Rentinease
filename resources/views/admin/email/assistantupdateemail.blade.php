@@ -1,3 +1,3 @@
-<p>First Name: {{ $assistant->fname??"" }}</p>
-<p>Last Name: {{ $assistant->lname??"" }}</p>
-<p>Email: {{ $assistant->email??"" }}</p>
+<p>First Name: {{ $fname??"" }}</p>
+<p>Last Name: {{ $lname??"" }}</p>
+<p>Email: {{ $email??"" }}</p>

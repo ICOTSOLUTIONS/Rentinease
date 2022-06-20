@@ -79,32 +79,37 @@ class AdminController extends Controller
             $file->storeAs('admin/logo', $fileName,'public');
             $admin->logo = 'logo/'.$fileName;
         }
-        if($admin->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Admin Add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently added a new admin on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.adminaddmail', 
-                    [ 'admin' => $admin],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Add Admin');
-                });
+        try {
+            Mail::send('admin.email.adminaddmail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Admin');
+            });
+            if($admin->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Admin Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new admin on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Admin Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('admin.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Admin not added');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('admin.index');
             }
-        }else{
-            session()->flash('message', 'Admin not added');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('admin.index');
         }
@@ -180,6 +185,17 @@ class AdminController extends Controller
         $admin->phone = $request->phone;
         // $admin->password = $request->password;
         $admin->designation = $request->designation;
+        try {
+            Mail::send('admin.email.adminupdateemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Admin');
+            });
             if($admin->save()){
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
@@ -188,24 +204,17 @@ class AdminController extends Controller
                 ' recently updated a admin on the date of '.Carbon::now()->format('d-m-Y').
                 ' at the time of '.Carbon::now()->format('h:i:s A');
                 $log->save();
-            try {
-                Mail::send('admin.email.adminupdateemail', 
-                    ['admin' => $admin],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Admin');
-                });
                 session()->flash('message', 'Successfully Admin Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('admin.index');
-            } catch (\Throwable $th) {
-                return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Admin not Updated');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('admin.index');
             }
-        }else{
-            session()->flash('message', 'Admin not Updated');
+        } catch (\Throwable $th) {
+            return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('admin.index');
         }

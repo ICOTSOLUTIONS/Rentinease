@@ -79,34 +79,39 @@ class CustomerServiceController extends Controller
             $file->storeAs('customerservice/logo', $fileName,'public');
             $customerservice->logo = 'logo/'.$fileName;
         }
-        if($customerservice->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Customer Service Add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently added a new customer service on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.customerseraddmail', 
-                    [ 'customerservice' => $customerservice],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Add Customer Service');
-                });
+        try {
+            Mail::send('admin.email.customerseraddmail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Customer Service');
+            });
+            if($customerservice->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Customer Service Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new customer service on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Customer Service Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('customerservice.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Customer Service not added');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('customerservice.index');
+                return redirect()->route('assistant.index');
             }
-        }else{
-            session()->flash('message', 'Customer Service not added');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
-            return redirect()->route('assistant.index');
+            return redirect()->route('customerservice.index');
         }
     }
 
@@ -180,32 +185,36 @@ class CustomerServiceController extends Controller
         $customerservice->phone = $request->phone;
         // $customerservice->password = $request->password;
         $customerservice->designation = $request->designation;
-        if($customerservice->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Customer Service Update';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently updated a customer service on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.customerserupdatemail', 
-                    ['customerservice' => $customerservice],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Customer Service');
-                });
+        try {
+            Mail::send('admin.email.customerserupdatemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Customer Service');
+            });
+            if($customerservice->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Customer Service Update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently updated a customer service on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Customer Service Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('customerservice.index');
-            } catch (\Throwable $th) {
-                return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Customer Service not Updated');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('customerservice.index');
             }
-        }else{
-            session()->flash('message', 'Customer Service not Updated');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('customerservice.index');
         }

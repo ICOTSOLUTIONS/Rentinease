@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use App\Models\User;
+use App\Models\UserPackageCoins;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        $agency = Agency::with('packages')->orderBy('id','DESC')->get();
+        $agency = User::where('role_id',7)->orderBy('id','DESC')->get();
         return view('admin.pages.agency.agency',['agencies'=>$agency]);
     }
 
@@ -112,8 +114,8 @@ class AgencyController extends Controller
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
-
-        $agency = new Agency();
+        $agency = new User();
+        $agency->role_id = 7;
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
         $agency->email = $request->email;
@@ -132,7 +134,7 @@ class AgencyController extends Controller
         // }else{
         //     $agency->access_of_agents = $request->access_of_agents;
         // }
-        $agency->package_id = $request->package;
+        // $agency->package_id = $request->package;
         $agency->country = $request->country;
         $agency->city = $request->city;
         $agency->street = $request->street;
@@ -174,32 +176,45 @@ class AgencyController extends Controller
             $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
-        if($agency->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Agency Add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.agencyaddmail', 
-                    [ 'agency' => $agency],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Add Agency');
-                });
+        try {
+            Mail::send('admin.email.agencyaddmail', 
+            [
+                // 'fname' => $request->fname,
+                // 'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Agency');
+            });
+            if($agency->save()){
+                $user_pack_coins = new UserPackageCoins();
+                $user_pack_coins->user_id = $agency->id; 
+                if(!empty($request->package)) $coins = Package::find($request->package);
+                if(!empty($coins)){
+                $user_pack_coins->package_id = $request->package; 
+                $user_pack_coins->remain_coins = $coins->coins; 
+            }
+                $user_pack_coins->save();
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Agency Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agency.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Agency not Added!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('agency.index');
             }
-        }else{
-            session()->flash('message', 'Agency not Added!');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('agency.index');
         }
@@ -213,7 +228,7 @@ class AgencyController extends Controller
      */
     public function show($id)
     {
-        $agency = Agency::where('id',$id)->first();
+        $agency = User::where('id',$id)->first();
         $package = Package::all();
         return view('admin.pages.agency.viewagency',['agency'=>$agency,'packages'=>$package]);
     }
@@ -226,7 +241,7 @@ class AgencyController extends Controller
      */
     public function edit($id)
     {
-        $agency = Agency::where('id',$id)->first();
+        $agency = User::where('id',$id)->first();
         $package = Package::all();
         return view('admin.pages.agency.editagency',['agency'=>$agency,'packages'=>$package]);
     }
@@ -307,7 +322,7 @@ class AgencyController extends Controller
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
-        $agency = Agency::where('id',$id)->first();
+        $agency = User::where('id',$id)->first();
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
         $agency->email = $request->email;
@@ -325,7 +340,7 @@ class AgencyController extends Controller
         // }else{
         //     $agency->access_of_agents = $request->access_of_agents;
         // }
-        $agency->package_id = $request->package;
+        // $agency->package_id = $request->package;
         $agency->country = $request->country;
         $agency->city = $request->city;
         $agency->street = $request->street;
@@ -367,32 +382,37 @@ class AgencyController extends Controller
             $file->storeAs('agency/additional_documents', $fileName,'public');
             $agency->additional_documents = 'additional_documents/'.$fileName;
         }
-        if($agency->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Agency Update';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.agencyupdatemail', 
-                    [ 'agency' => $agency],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Agency');
-                });
+        try {
+            Mail::send('admin.email.agencyupdatemail', 
+            [
+                // 'fname' => $request->fname,
+                // 'lname' => $request->lname,
+                'email' => $request->email,
+                // 'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Agency');
+            });
+            if($agency->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency Update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Agency Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agency.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Agency not Updated!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('agency.index');
             }
-        }else{
-            session()->flash('message', 'Agency not Updated!');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('agency.index');
         }
@@ -406,7 +426,7 @@ class AgencyController extends Controller
      */
     public function destroy($id)
     {
-        $agency = Agency::where('id',$id)->first();
+        $agency = User::where('id',$id)->first();
         if(!empty($agency)){
             if($agency->delete()){
                 session()->flash('message', 'Successfully Agency Deleted!');

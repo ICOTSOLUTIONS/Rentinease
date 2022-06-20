@@ -1,4 +1,4 @@
-<p>First Name: {{ $blogger->fname??"" }}</p>
-<p>Last Name: {{ $blogger->lname??"" }}</p>
-<p>Email: {{ $blogger->email??"" }}</p>
-<p>Password: {{ $blogger->password??"" }}</p>
+<p>First Name: {{ $fname??"" }}</p>
+<p>Last Name: {{ $lname??"" }}</p>
+<p>Email: {{ $email??"" }}</p>
+<p>Password: {{ $password??"" }}</p>

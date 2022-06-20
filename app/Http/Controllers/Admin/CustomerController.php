@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Customer;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-
 class CustomerController extends Controller
 {
     /**
@@ -126,32 +125,37 @@ class CustomerController extends Controller
             $file->storeAs('customer/additional_documents', $fileName,'public');
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
-        if($customer->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Customer Add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently upadted a new customer on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.customeraddmail', 
-                    [ 'visitor' => $customer],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Add Customer Visitor');
-                });
+        try {
+            Mail::send('admin.email.customeraddmail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Customer Visitor');
+            });
+            if($customer->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Customer Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently upadted a new customer on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Customer Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('customer.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Customer not Added!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('customer.index');
             }
-        }else{
-            session()->flash('message', 'Customer not Added!');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('customer.index');
         }
@@ -276,32 +280,36 @@ class CustomerController extends Controller
             $file->storeAs('customer/additional_documents', $fileName,'public');
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
-        if($customer->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Customer Update';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently upadted a customer on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.customerupdatemail', 
-                    [ 'visitor' => $customer],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Customer Visitor');
-                });
+        try {
+            Mail::send('admin.email.customerupdatemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Customer Visitor');
+            });
+            if($customer->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Customer Update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently upadted a customer on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Customer Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('customer.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Customer not Updated!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('customer.index');
             }
-        }else{
-            session()->flash('message', 'Customer not Updated!');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('customer.index');
         }

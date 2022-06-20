@@ -1,3 +1,3 @@
-<p>First Name: {{ $visitor->fname??"" }}</p>
-<p>Last Name: {{ $visitor->lname??"" }}</p>
-<p>Email: {{ $visitor->email??"" }}</p>
+<p>First Name: {{ $fname??"" }}</p>
+<p>Last Name: {{ $lname??"" }}</p>
+<p>Email: {{ $email??"" }}</p>
