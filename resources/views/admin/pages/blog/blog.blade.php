@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>BLOG</h4>
-                        <a href="{{url('/blogadd')}}"><button class="btn btn-success btn-hover">ADD BLOG</button></a>
+                        <a href="{{route('blog.create')}}"><button class="btn btn-success btn-hover">ADD BLOG</button></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -15,40 +15,41 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
-                                        <th>Fisrt Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Mobile</th>
-                                        <th>Country</th>
-                                        <th>Office</th>
-                                        <th>Action</th>
+                                        <th>Title</th>
+                                        <th>Header</th>
+                                        <th>Image</th>
+                                        <th>Text</th>
                                     </tr>   
                                 </thead>
                                 <tbody>
+                                    @forelse ($blogs as $blog)
                                     <tr>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>hello world</td>
-                                        <td>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <a href="" class="btn btn-info text-white">Edit</a>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form action="" method="POST">
-
-                                                        <button type="submit" class="btn btn-danger text-white">Delete</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        <td>{{ $blog->title }}</td>
+                                        <td>{{ $blog->header }}</td>
+                                        <td>{{ $blog->image }}</td>
+                                        <td>{{ $blog->text }}</td>
+                                        @if(auth()->user()->roles->name != 'subadmin')
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a href="{{ route('blog.edit',['blog'=>$blog->id]) }}" class="btn btn-info text-white">Edit</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <form action="{{ route('blog.destroy',['blog'=>$blog->id]) }}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            @endif
                                     </tr>
+                                    @empty
+                                        <tr>
+                                            <td>No data</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
