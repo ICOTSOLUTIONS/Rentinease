@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header text-center justify-content-between">
                         <h4>BLOG</h4>
-                        <a href=""><button class="btn btn-success btn-hover">ADD BLOG</button></a>
+                        <a href="{{url('/blogadd')}}"><button class="btn btn-success btn-hover">ADD BLOG</button></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
