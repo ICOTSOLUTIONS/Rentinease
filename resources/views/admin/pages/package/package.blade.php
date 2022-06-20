@@ -30,7 +30,9 @@
                                             <th>Name</th>
                                             <th>Coins</th>
                                             <th>Access of Agents</th>
-                                            <th>Action</th>
+                                            @if (auth()->user()->roles->name != 'subadmin')
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,24 +42,26 @@
                                                 <td>{{ $package->name }}</td>
                                                 <td>{{ $package->coins }}</td>
                                                 <td>{{ $package->access_of_agents }}</td>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <a href="{{ route('package.edit', ['package' => $package->id]) }}"
-                                                                class="btn btn-info text-white">Edit</a>
+                                                @if (auth()->user()->roles->name != 'subadmin')
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <a href="{{ route('package.edit', ['package' => $package->id]) }}"
+                                                                    class="btn btn-info text-white">Edit</a>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <form
+                                                                    action="{{ route('package.destroy', ['package' => $package->id]) }}"
+                                                                    method="POST">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger text-white">Delete</button>
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <form
-                                                                action="{{ route('package.destroy', ['package' => $package->id]) }}"
-                                                                method="POST">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <button type="submit"
-                                                                    class="btn btn-danger text-white">Delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
+                                                @endif
                                             </tr>
                                         @empty
                                             <tr>
