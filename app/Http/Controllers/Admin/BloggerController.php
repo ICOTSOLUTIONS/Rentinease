@@ -79,32 +79,37 @@ class BloggerController extends Controller
             $file->storeAs('blogger/logo', $fileName,'public');
             $blogger->logo = 'logo/'.$fileName;
         }
-        if($blogger->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Blogger Add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently Added a new blogger on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
+        try {
                 Mail::send('admin.email.bloggeraddmail', 
-                    [ 'blogger' => $blogger],
+                [
+                    'fname' => $request->fname,
+                    'lname' => $request->lname,
+                    'email' => $request->email,
+                    'password' => $request->password
+                ],
                      function($message) use($request){
                     $message->to($request->email);
                     $message->subject('Add Blogger');
                 });
+            if($blogger->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Blogger Add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently Added a new blogger on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Blogger Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('blogger.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Blogger not added');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('blogger.index');
             }
-        }else{
-            session()->flash('message', 'Blogger not added');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('blogger.index');
         }
@@ -180,32 +185,36 @@ class BloggerController extends Controller
         $blogger->phone = $request->phone;
         // $blogger->password = $request->password;
         $blogger->designation = $request->designation;
-        if($blogger->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Blogger Update';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently updated a blogger on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.bloggerupdatemail', 
-                    ['blogger' => $blogger],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Blogger');
-                });
+        try {
+            Mail::send('admin.email.bloggerupdatemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Blogger');
+            });
+            if($blogger->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Blogger Update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently updated a blogger on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Blogger Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('blogger.index');
-            } catch (\Throwable $th) {
-                return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Blogger not Updated');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('blogger.index');
             }
-        }else{
-            session()->flash('message', 'Blogger not Updated');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('blogger.index');
         }

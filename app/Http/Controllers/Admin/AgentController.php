@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Agent;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
 use App\Models\User;
+use App\Models\UserPackageCoins;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -111,7 +112,7 @@ class AgentController extends Controller
         }
         $agent = new User();
         $agent->role_id = 4;
-        if(!empty($request->package)) $agent->package_id = $request->package;
+        // if(!empty($request->package)) $agent->package_id = $request->package;
         // if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
         $agent->email = $request->email;
         $agent->password = Hash::make($request->password);
@@ -170,21 +171,29 @@ class AgentController extends Controller
             $agent->additional_documents = $fileName;
         }
         try {
-            $email = "icotsolutions@gmail.com";
+            // $email = "icotsolutions@gmail.com";
             Mail::send(
                 'admin.email.agentAddMail',
                 [
-                    'name'=>$request->owner_name,
+                    // 'name'=>$request->owner_name,
                     'email'=>$request->email,
                     'password'=>$request->password,
                 ],
-                function($message) use ($email){
+                function($message) use ($request){
                     $message->from(env('MAIL_USERNAME'));
-                    $message->to($email);
+                    $message->to($request->email);
                     $message->subject('Agent Credentials');
                 }
             );
             if($agent->save()){
+                $user_pack_coins = new UserPackageCoins();
+                $user_pack_coins->user_id = $agent->id; 
+                if(!empty($request->package)) $coins = Package::find($request->package);
+                if(!empty($coins)){
+                    $user_pack_coins->package_id = $request->package; 
+                    $user_pack_coins->remain_coins = $coins->coins; 
+                }
+                $user_pack_coins->save();
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Add';
@@ -373,17 +382,17 @@ class AgentController extends Controller
             $agent->additional_documents = $fileName;
         }
         try {
-            $email = "icotsolutions@gmail.com";
+            // $email = "icotsolutions@gmail.com";
             Mail::send(
                 'admin.email.agentUpdateMail',
                 [
-                    'name'=>$request->owner_name,
+                    // 'name'=>$request->owner_name,
                     'email'=>$request->email,
                     'password'=>$request->password,
                 ],
-                function($message) use ($email){
+                function($message) use ($request){
                     $message->from(env('MAIL_USERNAME'));
-                    $message->to($email);
+                    $message->to($request->email);
                     $message->subject('Agent Credentials');
                 }
             );

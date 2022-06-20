@@ -2,8 +2,8 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href=""> <img alt="image" src="{{ asset('assets/img/logo.png') }}" class="header-logo" /> <span
-                    class="logo-name pt-4"><span class="text-light">Rent</span><span
-                        class="color2">in</span><span class="text-light">ease</span></span>
+                    class="logo-name pt-4"><span class="text-light">Rent</span><span class="color2">in</span><span
+                        class="text-light">ease</span></span>
             </a>
         </div>
         <div class="sidebar-user">
@@ -69,6 +69,10 @@
                         </ul>
                     </li>
                 @endif
+                <li class="nav-link has-dropdown"><a href="{{ route('package.index') }}"><i
+                  data-feather="bold"></i><span>Package</span></a></li>
+                  <li class="nav-link has-dropdown"><a href="{{ route('activity.index') }}"><i
+                    data-feather="bold"></i><span>Activity Logs</span></a></li>
             @endif
             @if (auth()->user()->roles->name == 'admin' || auth()->user()->roles->name == 'blogger')
                 <li class="nav-link has-dropdown"><a href="{{ route('blog.index') }}"><i

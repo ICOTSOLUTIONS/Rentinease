@@ -79,32 +79,37 @@ class AssistantController extends Controller
             $file->storeAs('assistant/logo', $fileName,'public');
             $assistant->logo = 'logo/'.$fileName;
         }
-        if($assistant->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Agency add';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.assistantaddemail', 
-                    [ 'assistant' => $assistant],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Add Assistant');
-                });
+        try {
+            Mail::send('admin.email.assistantaddemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Assistant');
+            });
+            if($assistant->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Assistant Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('assistant.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Assistant not added');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('assistant.index');
             }
-        }else{
-            session()->flash('message', 'Assistant not added');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('assistant.index');
         }
@@ -180,32 +185,36 @@ class AssistantController extends Controller
         $assistant->phone = $request->phone;
         // $assistant->password = $request->password;
         $assistant->designation = $request->designation;
-        if($assistant->save()){
-            $log = new ActivityLog();
-            $log->user_id = auth()->user()->id;
-            $log->title = 'Agency update';
-            $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
-            ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
-            ' at the time of '.Carbon::now()->format('h:i:s A');
-            $log->save();
-            try {
-                Mail::send('admin.email.assistantupdateemail', 
-                    ['assistant' => $assistant],
-                     function($message) use($request){
-                    $message->to($request->email);
-                    $message->subject('Update Assistant');
-                });
+        try {
+            Mail::send('admin.email.assistantupdateemail', 
+                [
+                    'fname' => $request->fname,
+                    'lname' => $request->lname,
+                    'email' => $request->email,
+                ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Assistant');
+            });
+            if($assistant->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
                 session()->flash('message', 'Successfully Assistant Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('assistant.index');
-            } catch (\Throwable $th) {
-                // return $th;
-                session()->flash('message', 'Mail not sent');
+            }else{
+                session()->flash('message', 'Assistant not Updated');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('assistant.index');
             }
-        }else{
-            session()->flash('message', 'Assistant not Updated');
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('assistant.index');
         }
