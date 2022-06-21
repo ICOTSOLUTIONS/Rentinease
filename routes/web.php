@@ -74,3 +74,4 @@ Route::view('/coin', 'admin.pages.finance.coin');
 Route::view('/audit', 'admin.pages.finance.audit');
 Route::view('/payment', 'admin.pages.finance.payment');
 // Route::view('/blogadd', 'admin.pages.blog.blogadd');
+Route::view('/viewadmin', 'admin.pages.admin.viewadmin');
