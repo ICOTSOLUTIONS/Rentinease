@@ -39,7 +39,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card design">
-                        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="card-header justify-content-center">
                                 <h4>Add Blog</h4>
                             </div>
@@ -50,21 +51,33 @@
                                             <input type="text" name="title" value="{{ old('title') }}"
                                                 class="form-control">
                                         </label>
+                                        @error('title')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="">Header
                                             <input type="text" name="header" value="{{ old('header') }}"
                                                 class="form-control">
                                         </label>
+                                        @error('header')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="">Picture
                                             <input type="file" name="image" class="form-control">
                                         </label>
+                                        @error('image')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-12">
-                                        <textarea name="text" id="summernote">{! old('text') !}</textarea>
+                                        <textarea name="text" id="summernote">@if(old('text')){!! old('text') !!}@endif</textarea>
                                     </div>
+                                    @error('text')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-md-3">

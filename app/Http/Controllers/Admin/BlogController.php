@@ -60,7 +60,7 @@ class BlogController extends Controller
         $blog = new Blog();
         $blog->user_id = auth()->user()->id; 
         $blog->title = $request->title; 
-        $blog->header = $request->header;
+        $blog->heading = $request->header;
         $blog->text = $request->text;
         if($request->hasFile('image')){
             $file = $request->file('image');
@@ -121,13 +121,13 @@ class BlogController extends Controller
         $rules = [
             'title' => 'required',
             'header' => 'required',
-            'image' => 'required|file',
+            'image' => 'nullable|file',
             'text' => 'required',
         ];
         $customMessage = [
             'title.required' => 'The Title field is required', 
             'header.required' => 'The Header field is required', 
-            'image.required' => 'The Image field is required', 
+            // 'image.required' => 'The Image field is required', 
             'text.required' => 'The Text field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
@@ -138,7 +138,7 @@ class BlogController extends Controller
         $blog = Blog::where('id',$id)->first();
         $blog->user_id = auth()->user()->id; 
         $blog->title = $request->title; 
-        $blog->header = $request->header;
+        $blog->heading = $request->header;
         $blog->text = $request->text;
         if($request->hasFile('image')){
             $file = $request->file('image');
@@ -154,11 +154,11 @@ class BlogController extends Controller
             ' recently updated a blog on the date of '.Carbon::now()->format('d-m-Y').
             ' at the time of '.Carbon::now()->format('h:i:s A');
             $log->save();
-                session()->flash('message', 'Successfully Blog Added!');
+                session()->flash('message', 'Successfully Blog Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('blog.index');
         }else{
-            session()->flash('message', 'Blog not added');
+            session()->flash('message', 'Blog not Updated');
             session()->flash('messageType', 'danger');
             return redirect()->route('blog.index');
         }
