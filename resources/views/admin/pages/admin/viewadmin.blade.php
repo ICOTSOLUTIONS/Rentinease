@@ -13,7 +13,7 @@
                 <div class="col-md-4">
                     <div class="card design">
                         <div class="card-header justify-content-center">
-                            <h4 class>Profile Details</h4>
+                            <h4 class>Profile Details</h4>   
                         </div>
                         <div class="text-center p-3">
                             <img src="{{asset('assets/img/bgimg.jpeg')}}" alt="img" class="width">
