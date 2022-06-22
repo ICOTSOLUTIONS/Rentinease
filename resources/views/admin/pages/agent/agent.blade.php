@@ -60,10 +60,13 @@
                                             @if(auth()->user()->roles->name != 'subadmin')
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <a href="{{ route('agent.edit',['agent'=>$agent->id]) }}" class="btn btn-info text-white">Edit</a>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
+                                                            <a href="{{ route('agent.show',['agent'=>$agent->id]) }}" class="btn btn-info text-white">View</a>
+                                                        </div>
+                                                        <div class="col-md-4">
                                                             <form action="{{ route('agent.destroy',['agent'=>$agent->id]) }}" method="POST">
                                                                 @method('DELETE')
                                                                 @csrf

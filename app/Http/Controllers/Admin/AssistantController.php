@@ -185,6 +185,12 @@ class AssistantController extends Controller
         $assistant->phone = $request->phone;
         // $assistant->password = $request->password;
         $assistant->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('assistant/logo', $fileName,'public');
+            $assistant->logo = 'logo/'.$fileName;
+        }
         try {
             Mail::send('admin.email.assistantupdateemail', 
                 [

@@ -185,6 +185,12 @@ class CustomerServiceController extends Controller
         $customerservice->phone = $request->phone;
         // $customerservice->password = $request->password;
         $customerservice->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('customerservice/logo', $fileName,'public');
+            $customerservice->logo = 'logo/'.$fileName;
+        }
         try {
             Mail::send('admin.email.customerserupdatemail', 
             [

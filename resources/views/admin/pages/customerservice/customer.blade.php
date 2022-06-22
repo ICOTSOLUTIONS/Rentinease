@@ -50,7 +50,10 @@
                                                             <a href="{{ route('customerservice.edit', ['customerservice' => $customerservice->id]) }}"
                                                                 class="btn btn-info text-white">Edit</a>
                                                         </div>
-                                                        @if ($customerservice->id != 1 && $customerservice->fname != 'superadmin')
+                                                        <div class="col-md-4">
+                                                            <a href="{{ route('customerservice.show',['customerservice'=>$customerservice->id]) }}" class="btn btn-info text-white">View</a>
+                                                        </div>
+                                                        {{-- @if ($customerservice->id != 1 && $customerservice->fname != 'superadmin') --}}
                                                             <div class="col-md-6">
                                                                 <form
                                                                     action="{{ route('customerservice.destroy', ['customerservice' => $customerservice->id]) }}"
@@ -61,7 +64,7 @@
                                                                         class="btn btn-danger text-white">Delete</button>
                                                                 </form>
                                                             </div>
-                                                        @endif
+                                                        {{-- @endif --}}
 
                                                     </div>
                                                 </td>

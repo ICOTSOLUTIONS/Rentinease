@@ -46,12 +46,15 @@
                                                 <td>{{ $assistant->designation }}</td>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <a href="{{ route('assistant.edit', ['assistant' => $assistant->id]) }}"
                                                                 class="btn btn-info text-white">Edit</a>
                                                         </div>
-                                                        @if ($assistant->id != 1 && $assistant->fname != 'superadmin')
-                                                            <div class="col-md-6">
+                                                        <div class="col-md-4">
+                                                            <a href="{{ route('assistant.show',['assistant'=>$assistant->id]) }}" class="btn btn-info text-white">View</a>
+                                                        </div>
+                                                        {{-- @if ($assistant->id != 1 && $assistant->fname != 'superadmin') --}}
+                                                            <div class="col-md-4">
                                                                 <form
                                                                     action="{{ route('assistant.destroy', ['assistant' => $assistant->id]) }}"
                                                                     method="POST">
@@ -61,7 +64,7 @@
                                                                         class="btn btn-danger text-white">Delete</button>
                                                                 </form>
                                                             </div>
-                                                        @endif
+                                                        {{-- @endif --}}
 
                                                     </div>
                                                 </td>

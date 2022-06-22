@@ -16,16 +16,20 @@
                             <h4>Profile Details</h4>
                         </div>
                         <div class="text-center p-3">
-                            <img src="{{asset('assets/img/bgimg.jpeg')}}" alt="img" class="width">
+                            @if(!empty($admin->logo))
+                                <img src="{{ asset('storage/admin/'.$admin->logo) }}" alt="img" class="width">
+                            @else
+                                <img src="{{ asset('assets/img/users/user.jpeg') }}" alt="img" class="width">
+                            @endif
                         </div>
                         <div class="card-footer p-3 ">
                             <div class="row mt-4">
                                 <h5>Personal Details</h5>
-                                <div class="col-md-3"><label for="">lorem</label></div>
-                                <div class="col-md-3"><label for="">lorem</label></div>
-                                <div class="col-md-3"><label for="">lorem</label></div>
+                                <div class="col-md-3"><label for="">{{ $admin->fname }}</label></div>
+                                <div class="col-md-3"><label for="">{{ $admin->lname }}</label></div>
+                                {{-- <div class="col-md-3"><label for="">{{ $admin->email }}</label></div> --}}
 
-                                <div class="col-md-3"><label for="">lorem</label></div>
+                                <div class="col-md-3"><label for="">{{ $admin->phone }}</label></div>
                             </div>
                         </div>
                     </div>

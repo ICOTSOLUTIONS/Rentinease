@@ -185,6 +185,12 @@ class AdminController extends Controller
         $admin->phone = $request->phone;
         // $admin->password = $request->password;
         $admin->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('admin/logo', $fileName,'public');
+            $admin->logo = 'logo/'.$fileName;
+        }
         try {
             Mail::send('admin.email.adminupdateemail', 
             [
