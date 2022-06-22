@@ -125,6 +125,7 @@ class CustomerController extends Controller
             $file->storeAs('customer/additional_documents', $fileName,'public');
             $customer->additional_documents = 'additional_documents/'.$fileName;
         }
+        // dd($request->all());
         try {
             Mail::send('admin.email.customeraddmail', 
             [
@@ -154,7 +155,7 @@ class CustomerController extends Controller
                 return redirect()->route('customer.index');
             }
         } catch (\Throwable $th) {
-            // return $th;
+            return $th;
             session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('customer.index');

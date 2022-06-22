@@ -185,6 +185,12 @@ class BloggerController extends Controller
         $blogger->phone = $request->phone;
         // $blogger->password = $request->password;
         $blogger->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('blogger/logo', $fileName,'public');
+            $blogger->logo = 'logo/'.$fileName;
+        }
         try {
             Mail::send('admin.email.bloggerupdatemail', 
             [

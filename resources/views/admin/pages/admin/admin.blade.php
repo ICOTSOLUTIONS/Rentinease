@@ -49,7 +49,7 @@
                                                     <a href="{{ route('admin.edit', ['admin' => $admin->id]) }}" class="btn btn-info text-white">Edit</a>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="{{ url('/viewadmin') }}" class="btn btn-info text-white">View</a>
+                                                    <a href="{{ route('admin.show',['admin'=>$admin->id]) }}" class="btn btn-info text-white">View</a>
                                                 </div>
                                                 @if ($admin->id != 1 && $admin->fname != 'admin')
                                                 <div class="col-md-4">

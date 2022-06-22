@@ -49,10 +49,13 @@
                                         @if(auth()->user()->roles->name != 'subadmin')
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <a href="{{ route('customer.edit',['customer'=>$customer->id]) }}" class="btn btn-info text-white">Edit</a>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
+                                                        <a href="{{ route('customer.show',['customer'=>$customer->id]) }}" class="btn btn-info text-white">View</a>
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <form action="{{ route('customer.destroy',['customer'=>$customer->id]) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf

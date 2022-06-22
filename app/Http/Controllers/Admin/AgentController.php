@@ -138,37 +138,37 @@ class AgentController extends Controller
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/logo', $fileName,'public');
-            $agent->logo = $fileName;
+            $agent->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/licence', $fileName,'public');
-            $agent->licence = $fileName;
+            $agent->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/agent-visa', $fileName,'public');
-            $agent->visa = $fileName;
+            $agent->visa = 'agent-visa/'.$fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/agent-eid', $fileName,'public');
-            $agent->eid = $fileName;
+            $agent->eid = 'agent-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/rera', $fileName,'public');
-            $agent->rera = $fileName;
+            $agent->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/additional_documents', $fileName,'public');
-            $agent->additional_documents = $fileName;
+            $agent->additional_documents = 'additional_documents/'.$fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";
@@ -349,37 +349,37 @@ class AgentController extends Controller
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/logo', $fileName,'public');
-            $agent->logo = $fileName;
+            $agent->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/licence', $fileName,'public');
-            $agent->licence = $fileName;
+            $agent->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/agent-visa', $fileName,'public');
-            $agent->visa = $fileName;
+            $agent->visa = 'agent-visa/'.$fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/agent-eid', $fileName,'public');
-            $agent->eid = $fileName;
+            $agent->eid = 'agent-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/rera', $fileName,'public');
-            $agent->rera = $fileName;
+            $agent->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
             $file->storeAs('agent/additional_documents', $fileName,'public');
-            $agent->additional_documents = $fileName;
+            $agent->additional_documents = 'additional_documents/'.$fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";

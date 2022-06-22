@@ -46,11 +46,14 @@
                                                 <td>{{ $blogger->designation }}</td>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <a href="{{ route('blogger.edit', ['blogger' => $blogger->id]) }}"
                                                                 class="btn btn-info text-white">Edit</a>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
+                                                            <a href="{{ route('blogger.show',['blogger'=>$blogger->id]) }}" class="btn btn-info text-white">View</a>
+                                                        </div>
+                                                        <div class="col-md-4">
                                                             <form
                                                                 action="{{ route('blogger.destroy', ['blogger' => $blogger->id]) }}"
                                                                 method="POST">
