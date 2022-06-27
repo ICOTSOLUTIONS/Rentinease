@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackagesTable extends Migration
+class CreateCoinDeductionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('coin_deductions', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('coins')->nullable();
-            $table->string('duration')->nullable();
+            $table->string('coins_deduct')->nullable();
             $table->mediumText('description')->nullable();
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('coin_deductions');
     }
 }

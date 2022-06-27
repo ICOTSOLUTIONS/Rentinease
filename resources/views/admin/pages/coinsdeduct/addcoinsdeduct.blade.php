@@ -26,15 +26,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card design">
-                        <form action="{{ route('package.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('coinsdeduct.store') }}" method="POST">
                             @csrf
                             <div class="card-header justify-content-center">
-                                <h4>Add Package</h4>
+                                <h4>Add Coins Deduction</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <h6 class="text-success">Enter Your Package Details</h6>
-                                    <div class="col-md-3">
+                                    <h6 class="text-success">Enter Your Coins Deduction Details</h6>
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Name
                                                 <input type="text" name="name" value="{{ old('name') }}"
@@ -45,7 +45,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Coins
                                                 <input type="text" name="coins" value="{{ old('coins') }}"
@@ -56,7 +56,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Duration
                                                 <input type="text" name="duration" value="{{ old('duration') }}"
@@ -66,8 +66,8 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    </div> --}}
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Description
                                                 <input type="text" name="desc" value="{{ old('desc') }}"

@@ -26,52 +26,61 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card design">
-                        <form action="{{ route('package.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('coinsdeduct.update',['coinsdeduct'=>$coins_deduct->id]) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="card-header justify-content-center">
-                                <h4>Add Package</h4>
+                                <h4>Update Coins Deduction</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <h6 class="text-success">Enter Your Package Details</h6>
-                                    <div class="col-md-3">
+                                    <h6 class="text-success">Enter Your Coins Deduction Details</h6>
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Name
-                                                <input type="text" name="name" value="{{ old('name') }}"
-                                                    class="form-control">
+                                                <input type="text" name="name" class="form-control"
+                                                    @if (old('name')) value="{{ old('name') }}"
+                                                @else
+                                                value="{{ $coins_deduct->name }}" @endif />
                                             </label>
                                             @error('name')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Coins
-                                                <input type="text" name="coins" value="{{ old('coins') }}"
-                                                    class="form-control">
+                                                <input type="text" name="coins" class="form-control"
+                                                    @if (old('coins')) value="{{ old('coins') }}"
+                                                @else
+                                                value="{{ $coins_deduct->coins_deduct }}" @endif />
                                             </label>
                                             @error('coins')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Duration
-                                                <input type="text" name="duration" value="{{ old('duration') }}"
-                                                    class="form-control">
+                                                <input type="text" name="duration" class="form-control"
+                                                    @if (old('duration')) value="{{ old('duration') }}"
+                                                @else
+                                                value="{{ $coins_deduct->duration }}" @endif />
                                             </label>
                                             @error('duration')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    </div> --}}
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Description
-                                                <input type="text" name="desc" value="{{ old('desc') }}"
-                                                    class="form-control">
+                                                <input type="text" name="desc" class="form-control"
+                                                    @if (old('desc')) value="{{ old('desc') }}"
+                                                @else
+                                                value="{{ $coins_deduct->description }}" @endif />
                                             </label>
                                             @error('desc')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -80,7 +89,7 @@
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-md-3">
-                                            <button type="submit" class="btn btn-success w-100">Save</button>
+                                            <button type="submit" class="btn btn-success w-100">Update</button>
                                         </div>
                                     </div>
                                 </div>

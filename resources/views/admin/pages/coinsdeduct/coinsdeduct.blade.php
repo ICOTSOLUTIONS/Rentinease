@@ -6,10 +6,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header text-center justify-content-between">
-                            <h4>Package</h4>
+                            <h4>Coins Deduction</h4>
                             @if (auth()->user()->roles->name != 'subadmin')
-                                <a href="{{ route('package.create') }}"><button class="btn btn-success btn-hover">ADD
-                                        Package</button></a>
+                                <a href="{{ route('coinsdeduct.create') }}"><button class="btn btn-success btn-hover">ADD
+                                    Coins Deduction</button></a>
                             @endif
                         </div>
                         @if (Session::has('message'))
@@ -29,7 +29,7 @@
                                             </th>
                                             <th>Name</th>
                                             <th>Coins</th>
-                                            <th>Duration</th>
+                                            {{-- <th>Duration</th> --}}
                                             <th>Description</th>
                                             @if (auth()->user()->roles->name != 'subadmin')
                                                 <th>Action</th>
@@ -37,23 +37,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($packages as $package)
+                                        @forelse ($coins_deducts as $coins_deduct)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $package->name }}</td>
-                                                <td>{{ $package->coins }}</td>
-                                                <td>{{ $package->duration }}</td>
-                                                <td>{{ $package->description }}</td>
+                                                <td>{{ $coins_deduct->name }}</td>
+                                                <td>{{ $coins_deduct->coins_deduct }}</td>
+                                                {{-- <td>{{ $coins_deduct->duration }}</td> --}}
+                                                <td>{{ $coins_deduct->description }}</td>
                                                 @if (auth()->user()->roles->name != 'subadmin')
                                                     <td>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <a href="{{ route('package.edit', ['package' => $package->id]) }}"
+                                                                <a href="{{ route('coinsdeduct.edit', ['coinsdeduct' => $coins_deduct->id]) }}"
                                                                     class="btn btn-info text-white">Edit</a>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <form
-                                                                    action="{{ route('package.destroy', ['package' => $package->id]) }}"
+                                                                    action="{{ route('coinsdeduct.destroy', ['coinsdeduct' => $coins_deduct->id]) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf

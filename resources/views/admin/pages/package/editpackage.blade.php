@@ -35,7 +35,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <h6 class="text-success">Enter Your Package Details</h6>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Name
                                                 <input type="text" name="name" class="form-control"
@@ -48,7 +48,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Coins
                                                 <input type="text" name="coins" class="form-control"
@@ -61,15 +61,28 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Access of Agents
-                                                <input type="text" name="access_of_agents" class="form-control"
-                                                    @if (old('access_of_agents')) value="{{ old('access_of_agents') }}"
+                                            <label>Duration
+                                                <input type="text" name="duration" class="form-control"
+                                                    @if (old('duration')) value="{{ old('duration') }}"
                                                 @else
-                                                value="{{ $package->access_of_agents }}" @endif />
+                                                value="{{ $package->duration }}" @endif />
                                             </label>
-                                            @error('access_of_agents')
+                                            @error('duration')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Description
+                                                <input type="text" name="desc" class="form-control"
+                                                    @if (old('desc')) value="{{ old('desc') }}"
+                                                @else
+                                                value="{{ $package->description }}" @endif />
+                                            </label>
+                                            @error('desc')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

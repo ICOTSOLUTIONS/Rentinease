@@ -33,6 +33,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
         Route::resource('/agent', \App\Http\Controllers\Admin\AgentController::class);
         Route::resource('/package', \App\Http\Controllers\Admin\PackageController::class);
+        Route::resource('/coinsdeduct', \App\Http\Controllers\Admin\CoinsDeductionController::class)->except('show');
         Route::resource('/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class)->except('show');
         Route::get('/activity', [\App\Http\Controllers\Admin\ActivityController::class,'index'])->name('activity.index');
