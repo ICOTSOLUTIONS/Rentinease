@@ -76,3 +76,14 @@ Route::view('/audit', 'admin.pages.finance.audit');
 Route::view('/payment', 'admin.pages.finance.payment');
 // Route::view('/blogadd', 'admin.pages.blog.blogadd');
 // Route::view('/viewadmin', 'admin.pages.admin.viewadmin');
+
+//agency panel
+Route::view('/agencyindex', 'agency.pages.index');
+
+
+
+
+
+// client side
+Route::view('/agencyportal', 'client.pages.agencyportal');
+Route::view('/agentportal', 'client.pages.agentportal');
