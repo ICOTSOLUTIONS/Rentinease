@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Agency;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
-use App\Models\Agency;
-use App\Models\Package;
-use App\Models\Payment;
 use App\Models\User;
-use App\Models\UserPackageCoins;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -24,8 +20,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agent = User::with('packages')->where('role_id',4)->orderBy('id','DESC')->get();
-        return view('admin.pages.agent.agent',['agents'=>$agent]);
+        $agent = User::where('role_id',4)->where('agency_id',auth()->user()->id)->orderBy('id','DESC')->get();
+        return view('agency.pages.agent.agent',['agents'=>$agent]);
     }
 
     /**
@@ -36,8 +32,8 @@ class AgentController extends Controller
     public function create()
     {
         // $agency = Agency::all();
-        $package = Package::all();
-        return view('admin.pages.agent.addagent',['packages'=>$package]);
+        // $package = Package::all();
+        return view('agency.pages.agent.addagent');
     }
 
     /**
@@ -64,7 +60,7 @@ class AgentController extends Controller
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
             // 'coins_of_agents' => 'required',
-            'package' => 'required',
+            // 'package' => 'required',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -93,7 +89,7 @@ class AgentController extends Controller
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
             // 'coins_of_agents.required' => 'The Coins of Agents field is required', 
-            'package.required' => 'The Package field is required', 
+            // 'package.required' => 'The Package field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
             'street.required' => 'The Street field is required', 
@@ -114,7 +110,7 @@ class AgentController extends Controller
         $agent = new User();
         $agent->role_id = 4;
         // if(!empty($request->package)) $agent->package_id = $request->package;
-        // if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
+        $agent->agency_id = auth()->user()->id;
         $agent->email = $request->email;
         $agent->password = Hash::make($request->password);
         $agent->company_name = $request->company_name; 
@@ -138,43 +134,43 @@ class AgentController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/logo', $fileName,'public');
+            $file->storeAs('agencyAgents/logo', $fileName,'public');
             $agent->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/licence', $fileName,'public');
+            $file->storeAs('agencyAgents/licence', $fileName,'public');
             $agent->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/agent-visa', $fileName,'public');
+            $file->storeAs('agencyAgents/agent-visa', $fileName,'public');
             $agent->visa = 'agent-visa/'.$fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/agent-eid', $fileName,'public');
+            $file->storeAs('agencyAgents/agent-eid', $fileName,'public');
             $agent->eid = 'agent-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/rera', $fileName,'public');
+            $file->storeAs('agencyAgents/rera', $fileName,'public');
             $agent->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/additional_documents', $fileName,'public');
+            $file->storeAs('agencyAgents/additional_documents', $fileName,'public');
             $agent->additional_documents = 'additional_documents/'.$fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";
             Mail::send(
-                'admin.email.agentAddMail',
+                'agency.email.agentAddMail',
                 [
                     // 'name'=>$request->owner_name,
                     'email'=>$request->email,
@@ -187,39 +183,26 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
-                $user_pack_coins = new UserPackageCoins();
-                $user_pack_coins->user_id = $agent->id; 
-                if(!empty($request->package)) $coins = Package::find($request->package);
-                if(!empty($coins)){
-                    $user_pack_coins->package_id = $request->package; 
-                    $user_pack_coins->remain_coins = $coins->coins; 
-                }
-                $user_pack_coins->save();
-                $payment = new Payment();
-                $payment->user_id = $agent->id;
-                $payment->package_id = $request->package;
-                $payment->date = Carbon::now();
-                $payment->save();
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Add';
-                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                $log->logs = auth()->user()->owner_name.' '.auth()->user()->company_name.
                 ' recently added a new agent on the date of '.Carbon::now()->format('d-m-Y').
                 ' at the time of '.Carbon::now()->format('h:i:s A');
                 $log->save();
                 session()->flash('message', 'Successfully Agent Added!');
                 session()->flash('messageType', 'success');
-                return redirect()->route('agent.index');
+                return redirect()->route('agencyAgents.index');
             }else{
                 session()->flash('message', 'Agent not Added!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agent.index');
+                return redirect()->route('agencyAgents.index');
             }
         } catch (\Throwable $th) {
             // dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
-            return redirect()->route('agent.index');
+            return redirect()->route('agencyAgents.index');
         }
     }
 
@@ -231,12 +214,12 @@ class AgentController extends Controller
      */
     public function show($id)
     {
-        $package = Package::all();
+        // $package = Package::all();
         $agent = User::whereHas('roles',function ($q)
         {
             $q->where('name','agent');
         })->where('id',$id)->first();
-        return view('admin.pages.agent.viewagent',['packages'=>$package,'agent'=>$agent]);
+        return view('agency.pages.agent.viewagent',['agent'=>$agent]);
     }
 
     /**
@@ -248,12 +231,12 @@ class AgentController extends Controller
     public function edit($id)
     {
         // $agency = Agency::all();
-        $package = Package::all();
+        // $package = Package::all();
         $agent = User::whereHas('roles',function ($q)
         {
             $q->where('name','agent');
         })->where('id',$id)->first();
-        return view('admin.pages.agent.editagent',['packages'=>$package,'agent'=>$agent]);
+        return view('agency.pages.agent.editagent',['agent'=>$agent]);
     }
 
     /**
@@ -281,7 +264,7 @@ class AgentController extends Controller
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
             // 'coins_of_agents' => 'required',
-            'package' => 'required',
+            // 'package' => 'required',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -308,7 +291,7 @@ class AgentController extends Controller
             'rera_no.required' => 'The Rera no. field is required', 
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            'package.required' => 'The Package field is required', 
+            // 'package.required' => 'The Package field is required', 
             // 'coins_of_agents.required' => 'The Coins of Agents field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
@@ -354,43 +337,43 @@ class AgentController extends Controller
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/logo', $fileName,'public');
+            $file->storeAs('agencyAgents/logo', $fileName,'public');
             $agent->logo = 'logo/'.$fileName;
         }
         if($request->hasFile('licence')){
             $file = $request->file('licence');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/licence', $fileName,'public');
+            $file->storeAs('agencyAgents/licence', $fileName,'public');
             $agent->licence = 'licence/'.$fileName;
         }
         if($request->hasFile('agent_visa')){
             $file = $request->file('agent_visa');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/agent-visa', $fileName,'public');
+            $file->storeAs('agencyAgents/agent-visa', $fileName,'public');
             $agent->visa = 'agent-visa/'.$fileName;
         }
         if($request->hasFile('agent_eid')){
             $file = $request->file('agent_eid');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/agent-eid', $fileName,'public');
+            $file->storeAs('agencyAgents/agent-eid', $fileName,'public');
             $agent->eid = 'agent-eid/'.$fileName;
         }
         if($request->hasFile('rera')){
             $file = $request->file('rera');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/rera', $fileName,'public');
+            $file->storeAs('agencyAgents/rera', $fileName,'public');
             $agent->rera = 'rera/'.$fileName;
         }
         if($request->hasFile('additional_documents')){
             $file = $request->file('additional_documents');
             $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agent/additional_documents', $fileName,'public');
+            $file->storeAs('agencyAgents/additional_documents', $fileName,'public');
             $agent->additional_documents = 'additional_documents/'.$fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";
             Mail::send(
-                'admin.email.agentUpdateMail',
+                'agency.email.agentUpdateMail',
                 [
                     // 'name'=>$request->owner_name,
                     'email'=>$request->email,
@@ -403,44 +386,25 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
-                $user_pack_coins = UserPackageCoins::where('user_id',$agent->id)->where('package_id',$request->package)->first();
-                if(empty($user_pack_coins)){
-                    $user_pack_coins = new UserPackageCoins();
-                    $user_pack_coins->user_id = $agent->id; 
-                    if(!empty($request->package)) $coins = Package::find($request->package);
-                    if(!empty($coins)){
-                        $user_pack_coins->package_id = $request->package; 
-                        $user_pack_coins->remain_coins = $coins->coins; 
-                    }
-                    $user_pack_coins->save();
-                }
-                $payment = Payment::where('user_id',$agent->id)->where('package_id',$request->package)->first();
-                if(empty($payment)){
-                    $payment = new UserPackageCoins();
-                    $payment->user_id = $agent->id;
-                    $payment->package_id = $request->package;
-                    $payment->date = Carbon::now();
-                    $payment->save();
-                } 
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Update';
-                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                $log->logs = auth()->user()->owner_name.' '.auth()->user()->company_name.
                 ' recently upadted a agent on the date of '.Carbon::now()->format('d-m-Y').
                 ' at the time of '.Carbon::now()->format('h:i:s A');
                 $log->save();
                 session()->flash('message', 'Successfully Agent Updated!');
                 session()->flash('messageType', 'success');
-                return redirect()->route('agent.index');
+                return redirect()->route('agencyAgents.index');
             }else{
                 session()->flash('message', 'Agent not Updated!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agent.index');
+                return redirect()->route('agencyAgents.index');
             }
         } catch (\Throwable $th) {
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
-            return redirect()->route('agent.index');
+            return redirect()->route('agencyAgents.index');
         }
     }
 
@@ -457,12 +421,13 @@ class AgentController extends Controller
             if($agent->delete()){
                 session()->flash('message', 'Successfully Agent Deleted!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agent.index');
+                return redirect()->route('agencyAgents.index');
             }
         }else{
             session()->flash('message', 'Agent not Deleted!');
             session()->flash('messageType', 'danger');
-            return redirect()->route('agent.index');
+            return redirect()->route('agencyAgents.index');
         }   
     }
 }
+

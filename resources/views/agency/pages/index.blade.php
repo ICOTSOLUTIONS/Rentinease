@@ -2,7 +2,7 @@
 @section('content')
 <div class="main-content">
     <section class="section">
-        <ul class="breadcrumb breadcrumb-style ">
+        {{-- <ul class="breadcrumb breadcrumb-style ">
             <li class="breadcrumb-item">
                 <h4 class="page-title m-b-0">Data Tables</h4>
             </li>
@@ -12,7 +12,7 @@
             </li>
             <li class="breadcrumb-item">Tables</li>
             <li class="breadcrumb-item">Data Tables</li>
-        </ul>
+        </ul> --}}
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
