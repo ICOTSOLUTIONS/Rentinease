@@ -199,7 +199,7 @@ class AgentController extends Controller
                 return redirect()->route('agencyAgents.index');
             }
         } catch (\Throwable $th) {
-            // dd($th);
+            dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
             return redirect()->route('agencyAgents.index');
