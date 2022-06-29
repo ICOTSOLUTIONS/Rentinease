@@ -1,6 +1,13 @@
 @extends('client.layout.master')
 @section('content')
+<style>
+    .btn.btn-theme:hover {
+        background: #026e31;
+        border: 1px solid #27ae60;
+        color: #ffffff;
+    }
 
+</style>
 <!-- ============================ Page Title Start================================== -->
 <div class="page-title" style="background:#f4f4f4 url(assetsclient/img/slider-3.jpg);" data-overlay="5">
     <div class="ht-80"></div>
@@ -56,50 +63,65 @@
 <section class="gray-simple">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-9 col-md-10 col-sm-12 flex-wrap justify-content-center text-center">
+            <div class="col-lg-6 col-md-6 col-sm-12 flex-wrap justify-content-center text-center">
                 <div class="property_block_wrap">
 
                     <div class="property_block_wrap_header">
-                        <h4 class="property_block_title">Agent Form</h4>
+                        <h3 class="property_block_title">Agent Form</h3>
                     </div>
-
                     <div class="block-body">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label class="float-left text-dark">Name</label>
                                     <input type="text" class="form-control simple">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>Email</label>
+                                    <label class="float-left text-dark">Email</label>
                                     <input type="email" class="form-control simple">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label class="float-left text-dark">Password</label>
+                                    <input type="password" class="form-control simple">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label class="float-left text-dark">Confirm Password</label>
+                                    <input type="password" class="form-control simple">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="email" class="form-control simple">
+                                    <label class="float-left text-dark">Phone Number</label>
+                                    <input type="text" class="form-control simple">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>Subject</label>
-                                    <input type="text" class="form-control simple">
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <label>Message</label>
-                                    <textarea class="form-control simple"></textarea>
+                                    <label class="float-left text-dark">Country</label>
+                                    <select name="" id="" class='form-control'>
+                                        <option value="" default>Dubai</option>
+                                        <option value="">lorem</option>
+                                        <option value="">lorem</option>
+                                        <option value="">lorem</option>
+                                        <option value="">lorem</option>
+                                        <option value="">lorem</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <button class="btn btn-theme" type="submit">Submit Request</button>
+                        <div class="col-md-12 form-group mt-2">
+                            <button class="btn btn-theme w-100" type="submit">Register</button>
                         </div>
                     </div>
 
