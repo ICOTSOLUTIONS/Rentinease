@@ -31,8 +31,10 @@
         <ul class="sidebar-menu">
             <!-- <li class="menu-header">Main</li> -->
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                <a href="{{ route('agency.dashboard') }}" class="nav-link"><i
                         data-feather="monitor"></i><span>Dashboard</span></a>
+                <a href="{{ route('agencyAgents.index') }}" class="nav-link"><i
+                        data-feather="monitor"></i><span>Agent</span></a>
                 <!-- <ul class="dropdown-menu">
                     <li><a class="nav-link" href="index-2.html">Dashboard 1</a></li>
                     <li><a class="nav-link" href="index2.html">Dashboard 2</a></li>

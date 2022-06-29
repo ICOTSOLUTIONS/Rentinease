@@ -52,6 +52,22 @@ Route::middleware('admin')->group(function () {
     // Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
 });
 
+Route::prefix('agency')->group(function () {
+    Route::middleware('agencyLogin')->group(function () {
+        Route::get('/login', [\App\Http\Controllers\Agency\AuthController::class, 'login'])->name('agency.login');
+        Route::post('/login-process', [\App\Http\Controllers\Agency\AuthController::class, 'loginProcess'])->name('agency.login.process');
+        Route::get('/forgot-password', [\App\Http\Controllers\Agency\AuthController::class, 'forgot'])->name('agency.forgot');
+        Route::post('/forgot-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'forgotPassword'])->name('agency.forgot.pass');
+        Route::get('/reset-password/{token}', [\App\Http\Controllers\Agency\AuthController::class, 'reset'])->name('agency.reset');
+        Route::post('/reset-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'resetPassword'])->name('agency.reset.pass');
+    });
+    Route::middleware('agency')->group(function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Agency\AuthController::class, 'dashboard'])->name('agency.dashboard');
+        Route::get('/profile/{id}', [\App\Http\Controllers\Agency\AuthController::class, 'profile'])->name('agency.profile');
+        Route::get('/logout', [\App\Http\Controllers\Agency\AuthController::class, 'logout'])->name('agency.logout');
+        Route::resource('/agencyAgents', \App\Http\Controllers\Agency\AgentController::class);
+    });
+});
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
 // Route::view('/', 'admin.auth.login');

@@ -10,7 +10,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped" id="table-1">
+                                <table class="table table-striped" id="dbtable">
                                     <thead>
                                         <tr>
                                             <th>
@@ -42,10 +42,10 @@
         </div>
     </section>
 @endsection
-<!-- @section('script')
+ @section('script')
     <script>
         $(document).ready(function() {
             $('#dbtable').DataTable();
         });
     </script>
-@endsection -->
+@endsection 
