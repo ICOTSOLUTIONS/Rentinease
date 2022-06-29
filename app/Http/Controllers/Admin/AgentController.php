@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\UserPackageCoins;
 use Carbon\Carbon;
@@ -194,6 +195,11 @@ class AgentController extends Controller
                     $user_pack_coins->remain_coins = $coins->coins; 
                 }
                 $user_pack_coins->save();
+                $payment = new Payment();
+                $payment->user_id = $agent->id;
+                $payment->package_id = $request->package;
+                $payment->date = Carbon::now();
+                $payment->save();
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Add';
@@ -397,6 +403,25 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
+                $user_pack_coins = UserPackageCoins::where('user_id',$agent->id)->where('package_id',$request->package)->first();
+                if(empty($user_pack_coins)){
+                    $user_pack_coins = new UserPackageCoins();
+                    $user_pack_coins->user_id = $agent->id; 
+                    if(!empty($request->package)) $coins = Package::find($request->package);
+                    if(!empty($coins)){
+                        $user_pack_coins->package_id = $request->package; 
+                        $user_pack_coins->remain_coins = $coins->coins; 
+                    }
+                    $user_pack_coins->save();
+                }
+                $payment = Payment::where('user_id',$agent->id)->where('package_id',$request->package)->first();
+                if(empty($payment)){
+                    $payment = new UserPackageCoins();
+                    $payment->user_id = $agent->id;
+                    $payment->package_id = $request->package;
+                    $payment->date = Carbon::now();
+                    $payment->save();
+                } 
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Update';

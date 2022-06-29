@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\UserPackageCoins;
 use Carbon\Carbon;
@@ -197,6 +198,11 @@ class AgencyController extends Controller
                 $user_pack_coins->remain_coins = $coins->coins; 
             }
                 $user_pack_coins->save();
+                $payment = new Payment();
+                $payment->user_id = $agency->id;
+                $payment->package_id = $request->package;
+                $payment->date = Carbon::now();
+                $payment->save();
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agency Add';
@@ -395,6 +401,25 @@ class AgencyController extends Controller
                 $message->subject('Update Agency');
             });
             if($agency->save()){
+                $user_pack_coins = UserPackageCoins::where('user_id',$agency->id)->where('package_id',$request->package)->first();
+                if(empty($user_pack_coins)){
+                    $user_pack_coins = new UserPackageCoins();
+                    $user_pack_coins->user_id = $agency->id; 
+                    if(!empty($request->package)) $coins = Package::find($request->package);
+                    if(!empty($coins)){
+                        $user_pack_coins->package_id = $request->package; 
+                        $user_pack_coins->remain_coins = $coins->coins; 
+                    }
+                    $user_pack_coins->save();
+                }
+                $payment = Payment::where('user_id',$agency->id)->where('package_id',$request->package)->first();
+                if(empty($payment)){
+                    $payment = new UserPackageCoins();
+                    $payment->user_id = $agency->id;
+                    $payment->package_id = $request->package;
+                    $payment->date = Carbon::now();
+                    $payment->save();
+                } 
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agency Update';
