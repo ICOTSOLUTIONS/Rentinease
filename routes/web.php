@@ -96,6 +96,8 @@ Route::view('/payment', 'admin.pages.finance.payment');
 //agency panel
 Route::view('/agencyindex', 'agency.pages.index');
 
+Route::view('/resetpass', 'agency.auth.resetpass');
+
 
 
 

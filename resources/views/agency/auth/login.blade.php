@@ -18,16 +18,8 @@
         href="{{ asset('assetagency/img/favicon.ico') }}" /> -->
 </head>
 <style>
-    body {
-        background-color: #293254;
-        /* background-image: url('/assets/img/bgimg02.jpeg');
-        background-repeat: no-repeat;
-        background-size: cover; */
-        /* background-size: 50%; */
-    }
-
     .card {
-        background: rgba(8, 1, 1, 0.2);
+        background: rgb(8 1 1 / 66%);
         opacity: none;
         border: 1px solid;
         border-radius: 15px;
@@ -35,9 +27,21 @@
         box-shadow: 0px 7px 31px -7px;
     }
 
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0.9;
+    }
+
 </style>
 
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="{{ asset('assetagency/video/01.mp4') }}" type="video/mp4">
+    </video>
     <div class="loader"></div>
     <div id="app">
         <section class="section">
@@ -46,8 +50,8 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary">
-                            <div class="card-header">
-                                <h4>Login</h4>
+                            <div class="card-header justify-content-center">
+                                <h2 class="text-success fw-bolder">Login</h2>
                             </div>
                             <div class="card-body">
                                 @if(Session::has('message'))
@@ -61,7 +65,7 @@
                                     class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="email text-light">Email</label>
+                                        <label for="email" class="text-success fs-3">Email</label>
                                         <input id="email" type="email" class="form-control" name="email"
                                             value="{{ old('email') }}" tabindex="1" required
                                             autofocus>
@@ -74,10 +78,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="d-block">
-                                            <label for="password" class="control-label text-dark">Password</label>
+                                            <label for="password"
+                                                class="control-label text-success fs-3">Password</label>
                                             <div class="float-right">
                                                 <a href="{{ route('agency.forgot') }}"
-                                                    class="text-small">
+                                                    class="text-small text-light">
                                                     Forgot Password?
                                                 </a>
                                             </div>
