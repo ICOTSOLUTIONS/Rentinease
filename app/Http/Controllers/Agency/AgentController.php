@@ -192,17 +192,17 @@ class AgentController extends Controller
                 $log->save();
                 session()->flash('message', 'Successfully Agent Added!');
                 session()->flash('messageType', 'success');
-                return redirect()->route('agencyAgents.index');
+                return redirect()->route('agency.agent.index');
             }else{
                 session()->flash('message', 'Agent not Added!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agencyAgents.index');
+                return redirect()->route('agency.agent.index');
             }
         } catch (\Throwable $th) {
             dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
-            return redirect()->route('agencyAgents.index');
+            return redirect()->route('agency.agent.index');
         }
     }
 
@@ -395,16 +395,16 @@ class AgentController extends Controller
                 $log->save();
                 session()->flash('message', 'Successfully Agent Updated!');
                 session()->flash('messageType', 'success');
-                return redirect()->route('agencyAgents.index');
+                return redirect()->route('agency.agent.index');
             }else{
                 session()->flash('message', 'Agent not Updated!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agencyAgents.index');
+                return redirect()->route('agency.agent.index');
             }
         } catch (\Throwable $th) {
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
-            return redirect()->route('agencyAgents.index');
+            return redirect()->route('agency.agent.index');
         }
     }
 
@@ -421,12 +421,12 @@ class AgentController extends Controller
             if($agent->delete()){
                 session()->flash('message', 'Successfully Agent Deleted!');
                 session()->flash('messageType', 'danger');
-                return redirect()->route('agencyAgents.index');
+                return redirect()->route('agency.agent.index');
             }
         }else{
             session()->flash('message', 'Agent not Deleted!');
             session()->flash('messageType', 'danger');
-            return redirect()->route('agencyAgents.index');
+            return redirect()->route('agency.agent.index');
         }   
     }
 }
