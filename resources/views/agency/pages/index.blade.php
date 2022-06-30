@@ -49,7 +49,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-20</td>
                                             <td>
@@ -68,9 +70,15 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-3.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-04-10</td>
                                             <td>
@@ -89,8 +97,12 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-29</td>
                                             <td>
@@ -109,10 +121,18 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-16</td>
                                             <td>
@@ -132,7 +152,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-20</td>
                                             <td>
@@ -151,9 +173,15 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-3.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-04-10</td>
                                             <td>
@@ -172,8 +200,12 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-29</td>
                                             <td>
@@ -192,10 +224,18 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-16</td>
                                             <td>
@@ -215,7 +255,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-20</td>
                                             <td>
@@ -234,9 +276,15 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-3.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-04-10</td>
                                             <td>
@@ -255,8 +303,12 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-29</td>
                                             <td>
@@ -275,10 +327,18 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-2.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-5.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-4.png') }}"
+                                                    width="35">
+                                                <img alt="image"
+                                                    src="{{ asset('assetagency/img/users/user-1.png') }}"
+                                                    width="35">
                                             </td>
                                             <td>2018-01-16</td>
                                             <td>
@@ -337,7 +397,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-5.png') }}" width="35">
                                             </td>
                                             <td>2018-01-20</td>
                                             <td>
@@ -360,9 +420,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-3.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-1.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-3.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-4.png') }}" width="35">
                                             </td>
                                             <td>2018-04-10</td>
                                             <td>
@@ -385,8 +445,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-1.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-2.png') }}" width="35">
                                             </td>
                                             <td>2018-01-29</td>
                                             <td>
@@ -409,10 +469,10 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <img alt="image" src="assets/img/users/user-2.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-5.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-4.png" width="35">
-                                                <img alt="image" src="assets/img/users/user-1.png" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-2.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-5.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-4.png') }}" width="35">
+                                                <img alt="image" src="{{ asset('assetagency/img/users/user-1.png') }}" width="35">
                                             </td>
                                             <td>2018-01-16</td>
                                             <td>

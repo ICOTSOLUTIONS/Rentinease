@@ -10,6 +10,7 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('./assetsclient/css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('./assetsclient/css/custom.css') }}" rel="stylesheet">
 
 </head>
 

@@ -31,11 +31,11 @@
                             <form action="{{ route('agent.agency.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-header justify-content-center">
-                                    <h4>Add Agent</h4>
+                                    <h4 class="text-success">Enter Your Agent Details</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <h6 class="text-success">Enter Your Agent Details</h6>
+                                        <!-- <h6 class="text-success">Enter Your Agent Details</h6> -->
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Company Name
@@ -64,11 +64,9 @@
                                                     <select name="agent_type" id="" class="form-control w-110">
                                                         <option value="">Select Agent</option>
                                                         <option value="brokerage"
-                                                            @if (old('company_type') == 'Brokerage') selected @endif>Brokerage
-                                                        </option>
+                                                            @if (old('company_type') == 'Brokerage') selected @endif>Brokerage</option>
                                                         <option value="sales_marketing"
-                                                            @if (old('company_type') == 'Sales&Marketing') selected @endif>
-                                                            Sales&Marketing
+                                                            @if (old('company_type') == 'Sales&Marketing') selected @endif>Sales&Marketing
                                                         </option>
                                                         <option value="professional_services"
                                                             @if (old('company_type') == 'Professional Services') selected @endif>Professional
@@ -162,22 +160,22 @@
                                             </div>
                                         </div>
                                         <!-- <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                <label>City
-                                                                    <select name="" id="" class="form-control ">
-                                                                        <option value="" selected>Select City</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                        <option value="">lorem ipsum</option>
-                                                                    </select>
-                                                                </label>
-                                                            </div>
-                                                        </div> -->
+                                                                        <div class="form-group">
+                                                                            <label>City
+                                                                                <select name="" id="" class="form-control ">
+                                                                                    <option value="" selected>Select City</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                    <option value="">lorem ipsum</option>
+                                                                                </select>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div> -->
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Email
@@ -253,28 +251,29 @@
                                         <label> Agencies
                                             <select name="agency_id" id="" class="form-control w-178">
                                                 <option value="" selected>Select Agencies</option>
-                                                @foreach ($agencies as $agency)
-                                                <option value="{{ $agency->id }}" 
-                                                    @if (old('agency_id') == $agency->id)
-                                                        value="{{ $agency->id }}" selected                                                    
-                                                    @endif>{{ $agency->owner_name }}</option>
-                                                    
-                                                @endforeach
-                                            </select>
-                                        </label>
-                                    </div>
-                                </div> 
+                                    @foreach ($agencies as $agency)
+                                                <option value="{{ $agency->id }}"
+                                    @if (old('agency_id') == $agency->id)
+                                        value="{{ $agency->id }}" selected
+                                    @endif>{{ $agency->owner_name }}</option>
 
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Coins
-                                            <input type="text" name="coins_of_agents" value="{{ old('coins_of_agents') }}" class="form-control">
-                                        </label>
-                                        @error('coins_of_agents')
+                                    @endforeach
+                                    </select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Coins
+                                        <input type="text" name="coins_of_agents"
+                                            value="{{ old('coins_of_agents') }}" class="form-control">
+                                    </label>
+                                    @error('coins_of_agents')
                                         <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div> --}}
+                                    @enderror
+                                </div>
+                            </div> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Password
@@ -290,24 +289,24 @@
                                             <label>Packages
                                                 <select name="package" id="package" class="form-control w-178">
                                                     <option value="">Select Packages</option>
-                                                    @forelse ($packages as $package)
-                                                        @if (old('package'))
+                                    @forelse($packages as $package)
+                                    @if (old('package'))
                                                             <option value="{{ $package->id }}" selected>
-                                                                {{ $package->name }}</option>
-                                                        @else
-                                                            <option value="{{ $package->id }}">{{ $package->name }}
-                                                            </option>
-                                                        @endif
-                                                    @empty
-                                                        <option value="">No Packages</option>
-                                                    @endforelse
-                                                </select>
-                                            </label>
-                                            @error('package')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div> --}}
+                            {{ $package->name }}</option>
+                        @else
+                            <option value="{{ $package->id }}">{{ $package->name }}
+                            </option>
+                            @endif
+                        @empty
+                            <option value="">No Packages</option>
+                            @endforelse
+                            </select>
+                            </label>
+                            @error('package')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                    </div>
+                </div> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Building
@@ -400,10 +399,8 @@
 
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-9">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button type="submit" class="btn btn-success w-100">Save</button>
+                                        <div class="col-md-12 justify-content-center offset-md-4">
+                                            <button type="submit" class="btn btn-success w-100 col-md-4">Save</button>
                                         </div>
                                     </div>
                                 </div>

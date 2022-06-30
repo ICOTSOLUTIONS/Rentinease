@@ -1,17 +1,19 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index-2.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
-                    class="logo-name">Gati</span>
+            <a href="#">
+                <!-- <img alt="image" src="{{ asset('assetagency/img/logo.png') }}"
+                    class="header-logo" /> -->
+                <span class="logo-name">Agency</span>
             </a>
         </div>
         <div class="sidebar-user">
             <div class="sidebar-user-picture">
-                <img alt="image" src="assets/img/user.png">
+                <img alt="image" src="{{ asset('assets/img/user.png') }}">
             </div>
-            <div class="sidebar-user-details">
+            <div class="sidebar-user-details mt-4">
                 <!-- <div class="user-name">Olivia Thomas</div> -->
-                <div class="user-role">Administrator</div>
+                <!-- <div class="user-role">Administrator</div> -->
                 <!-- <div class="sidebar-userpic-btn">
                     <a href="profile.html" data-toggle="tooltip" title="Profile">
                         <i data-feather="user"></i>
