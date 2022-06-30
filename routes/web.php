@@ -65,7 +65,9 @@ Route::prefix('agency')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Agency\AuthController::class, 'dashboard'])->name('agency.dashboard');
         Route::get('/profile/{id}', [\App\Http\Controllers\Agency\AuthController::class, 'profile'])->name('agency.profile');
         Route::get('/logout', [\App\Http\Controllers\Agency\AuthController::class, 'logout'])->name('agency.logout');
-        Route::resource('/agencyAgents', \App\Http\Controllers\Agency\AgentController::class);
+        Route::resource('/agency', \App\Http\Controllers\Agency\AgentController::class, [
+            'as' => 'agent'
+        ]);
     });
 });
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');

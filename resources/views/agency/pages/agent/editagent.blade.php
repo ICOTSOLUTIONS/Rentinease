@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form action="{{ route('agencyAgents.update', ['agencyAgents' => $agent->id]) }}" method="POST"
+                        <form action="{{ route('agent.agency.update', ['agent.agency' => $agent->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

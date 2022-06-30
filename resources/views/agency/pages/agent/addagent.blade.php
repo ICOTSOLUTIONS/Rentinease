@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form action="{{ route('agencyAgents.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('agent.agency.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-header justify-content-center">
                                     <h4>Add Agent</h4>
