@@ -194,9 +194,9 @@ class AgencyController extends Controller
                 $user_pack_coins->user_id = $agency->id; 
                 if(!empty($request->package)) $coins = Package::find($request->package);
                 if(!empty($coins)){
-                $user_pack_coins->package_id = $request->package; 
-                $user_pack_coins->remain_coins = $coins->coins; 
-            }
+                    $user_pack_coins->package_id = $request->package; 
+                    $user_pack_coins->remain_coins = $coins->coins; 
+                }
                 $user_pack_coins->save();
                 $payment = new Payment();
                 $payment->user_id = $agency->id;

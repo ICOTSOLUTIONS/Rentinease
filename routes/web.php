@@ -66,7 +66,7 @@ Route::prefix('agency')->group(function () {
         Route::get('/profile/{id}', [\App\Http\Controllers\Agency\AuthController::class, 'profile'])->name('agency.profile');
         Route::get('/logout', [\App\Http\Controllers\Agency\AuthController::class, 'logout'])->name('agency.logout');
         Route::get('/payment', [\App\Http\Controllers\Agency\PaymentController::class, 'index'])->name('payment.index');
-        Route::get('/success', [\App\Http\Controllers\Agency\PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/success/{id?}', [\App\Http\Controllers\Agency\PaymentController::class, 'success'])->name('payment.success');
         Route::get('/cancel', [\App\Http\Controllers\Agency\PaymentController::class, 'cancel'])->name('payment.cancel');
         Route::get('/stripe-payment/{id}', [\App\Http\Controllers\Agency\PaymentController::class, 'payment'])->name('payment.stripe');
         Route::resource('/agent', \App\Http\Controllers\Agency\AgentController::class, [
