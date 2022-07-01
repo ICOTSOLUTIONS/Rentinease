@@ -39,10 +39,16 @@ class PaymentController extends Controller
             $exist_package->package_id = $id;
             $exist_package->date = Carbon::now();
             $exist_package->save();
+
+            session()->flash('message', 'Successfully Package Buy!');
+            session()->flash('messageType', 'success');
+            return redirect()->route('payment.index');
+        }else{
+            session()->flash('message', 'Package data not saved!');
+            session()->flash('messageType', 'danger');
+            return redirect()->route('payment.index');
         }
-        session()->flash('message', 'Successfully Package Buy!');
-        session()->flash('messageType', 'success');
-        return redirect()->route('payment.index');
+        
     }
 
     public function cancel()
