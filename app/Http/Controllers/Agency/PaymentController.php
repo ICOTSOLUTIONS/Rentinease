@@ -68,7 +68,7 @@ class PaymentController extends Controller
             $remain_coins = UserPackageCoins::where('user_id',auth()->user()->id)
             ->where('package_id',$id)->first();
             if(!empty($exist_package) && !empty($remain_coins)){
-                $today_date = Carbon::now()->format('d-m-y');
+                $today_date = Carbon::now()->format('d-m-Y');
                 if($package->duration_period == 'year') $exp_date = $exist_package->date->addYear($package->duration_time)->format('d-m-Y');
                 if($package->duration_period == 'month') $exp_date = $exist_package->date->addMonths($package->duration_time)->format('d-m-Y');
                 if($package->duration_period == 'week') $exp_date = $exist_package->date->addDays($package->duration_time * 7)->format('d-m-Y');
@@ -136,11 +136,10 @@ class PaymentController extends Controller
                     return redirect($checkout_session->url);
                 }
             }else{
-                $today_date = Carbon::now()->format('d-m-y');
+                $today_date = Carbon::now()->format('d-m-Y');
                 if($package->duration_period == 'year') $exp_date = $exist_user->date->addYear($package->duration_time)->format('d-m-Y');
                 if($package->duration_period == 'month') $exp_date = $exist_user->date->addMonths($package->duration_time)->format('d-m-Y');
                 if($package->duration_period == 'week') $exp_date = $exist_user->date->addDays($package->duration_time * 7)->format('d-m-Y');
-                dd($exp_date);
                 if($exp_date > $today_date ){
                     if($remain_coins_user->remain_coins > 0){
                         session()->flash('message', 'You already Buy packages!');
