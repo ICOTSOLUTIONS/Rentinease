@@ -59,6 +59,7 @@ class PaymentController extends Controller
     }
     public function payment($id)
     {
+        $package = Package::where('id',$id)->first();
         $exist_user = Payment::where('user_id',auth()->user()->id)->first();
         $remain_coins_user = UserPackageCoins::where('user_id',auth()->user()->id)->first();
         if(!empty($exist_user)){
@@ -68,14 +69,16 @@ class PaymentController extends Controller
             ->where('package_id',$id)->first();
             if(!empty($exist_package) && !empty($remain_coins)){
                 $today_date = Carbon::now()->format('d-m-y');
-                $exp_date = $exist_package->date->addYears(1)->format('d-m-Y');
+                if($package->duration_period == 'year') $exp_date = $exist_package->date->addYear($package->duration_time)->format('d-m-Y');
+                if($package->duration_period == 'month') $exp_date = $exist_package->date->addMonths($package->duration_time)->format('d-m-Y');
+                if($package->duration_period == 'week') $exp_date = $exist_package->date->addDays($package->duration_time * 7)->format('d-m-Y');
                 if($exp_date > $today_date ){
                     if($remain_coins->remain_coins > 0){
                         session()->flash('message', 'You already Buy packages!');
                         session()->flash('messageType', 'danger');
                         return redirect()->route('payment.index');
                     }else{
-                        $package = Package::where('id',$id)->first();
+                        // $package = Package::where('id',$id)->first();
                         $YOUR_DOMAIN = request()->getSchemeAndHttpHost();
                         $price = $package->coins;
                         $curr = 'USD';
@@ -104,7 +107,7 @@ class PaymentController extends Controller
                         return redirect($checkout_session->url);
                     }
                 }else{
-                    $package = Package::where('id',$id)->first();
+                    // $package = Package::where('id',$id)->first();
                     $YOUR_DOMAIN = request()->getSchemeAndHttpHost();
                     $price = $package->coins;
                     $curr = 'USD';
@@ -134,14 +137,17 @@ class PaymentController extends Controller
                 }
             }else{
                 $today_date = Carbon::now()->format('d-m-y');
-                $exp_date = $exist_user->date->addYears(1)->format('d-m-Y');
+                if($package->duration_period == 'year') $exp_date = $exist_user->date->addYear($package->duration_time)->format('d-m-Y');
+                if($package->duration_period == 'month') $exp_date = $exist_user->date->addMonths($package->duration_time)->format('d-m-Y');
+                if($package->duration_period == 'week') $exp_date = $exist_user->date->addDays($package->duration_time * 7)->format('d-m-Y');
+                dd($exp_date);
                 if($exp_date > $today_date ){
                     if($remain_coins_user->remain_coins > 0){
                         session()->flash('message', 'You already Buy packages!');
                         session()->flash('messageType', 'danger');
                         return redirect()->route('payment.index');
                     }else{
-                        $package = Package::where('id',$id)->first();
+                        // $package = Package::where('id',$id)->first();
                         $YOUR_DOMAIN = request()->getSchemeAndHttpHost();
                         $price = $package->coins;
                         $curr = 'USD';
@@ -170,7 +176,7 @@ class PaymentController extends Controller
                         return redirect($checkout_session->url);
                     }
                 }else{
-                    $package = Package::where('id',$id)->first();
+                    // $package = Package::where('id',$id)->first();
                     $YOUR_DOMAIN = request()->getSchemeAndHttpHost();
                     $price = $package->coins;
                     $curr = 'USD';
@@ -200,7 +206,7 @@ class PaymentController extends Controller
                 }
             }
         }else{
-            $package = Package::where('id',$id)->first();
+            // $package = Package::where('id',$id)->first();
             $YOUR_DOMAIN = request()->getSchemeAndHttpHost();
             $price = $package->coins;
             $curr = 'USD';

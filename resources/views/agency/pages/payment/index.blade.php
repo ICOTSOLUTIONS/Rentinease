@@ -24,7 +24,8 @@
                                                 </th>
                                                 <th>Name</th>
                                                 <th>Coins</th>
-                                                <th>Duration</th>
+                                                <th>Duration Time</th>
+                                                <th>Duration Period</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
@@ -35,7 +36,8 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $package->name }}</td>
                                                     <td>{{ $package->coins }}</td>
-                                                    <td>{{ $package->duration }}</td>
+                                                    <td>{{ $package->duration_time }}</td>
+                                                    <td>{{ $package->duration_period }}</td>
                                                     <td>{{ $package->description }}</td>
                                                     <td>
                                                         <div class="row">
