@@ -58,11 +58,26 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Duration
-                                                <input type="text" name="duration" value="{{ old('duration') }}"
+                                            <label>Duration Time
+                                                <input type="number" name="duration_time" value="{{ old('duration_time') }}"
                                                     class="form-control">
                                             </label>
-                                            @error('duration')
+                                            @error('duration_time')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Duration Period
+                                                <select name="duration_period" class="form-control">
+                                                    <option value="">Select Duration Period</option>
+                                                    <option @if (old('duration_period') == 'year') selected @endif>Year</option>
+                                                    <option @if (old('duration_period') == 'month') selected @endif>Month</option>
+                                                    <option @if (old('duration_period') == 'week') selected @endif>Week</option>
+                                                </select>
+                                            </label>
+                                            @error('duration_period')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

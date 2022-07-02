@@ -63,13 +63,49 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Duration
-                                                <input type="text" name="duration" class="form-control"
-                                                    @if (old('duration')) value="{{ old('duration') }}"
+                                            <label>Duration Time
+                                                <input type="number" name="duration_time" class="form-control"
+                                                    @if (old('duration_time')) value="{{ old('duration_time') }}"
                                                 @else
-                                                value="{{ $package->duration }}" @endif />
+                                                value="{{ $package->duration_time }}" @endif />
                                             </label>
-                                            @error('duration')
+                                            @error('duration_time')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Duration Period
+                                                <select name="duration_period" class="form-control">
+                                                    <option value="">Select Duration Period</option>
+                                                    <option
+                                                    @if(old('duration_period') == "year")
+                                                        value = "{{ old('duration_period') }}" selected
+                                                    @elseif($package->duration_period == "year") 
+                                                        value = "{{ $package->duration_period }}" selected
+                                                    @else
+                                                        value = "year"
+                                                    @endif >Year</option>
+                                                    <option
+                                                    @if(old('duration_period') == "month")
+                                                        value = "{{ old('duration_period') }}" selected
+                                                    @elseif($package->duration_period == "month") 
+                                                        value = "{{ $package->duration_period }}" selected
+                                                    @else
+                                                        value = "month"
+                                                    @endif >Month</option>
+                                                    <option
+                                                    @if(old('duration_period') == "week")
+                                                        value = "{{ old('duration_period') }}" selected
+                                                    @elseif($package->duration_period == "week") 
+                                                        value = "{{ $package->duration_period }}" selected
+                                                    @else
+                                                        value = "week"
+                                                    @endif >Week</option>
+                                                </select>
+                                            </label>
+                                            @error('duration_period')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

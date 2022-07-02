@@ -17,7 +17,8 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('coins')->nullable();
-            $table->string('duration')->nullable();
+            $table->string('duration_time')->nullable();
+            $table->string('duration_period')->nullable();
             $table->mediumText('description')->nullable();
             $table->timestamps();
         });

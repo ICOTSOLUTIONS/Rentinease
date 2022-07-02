@@ -43,13 +43,15 @@ class PackageController extends Controller
         $rules = [
             'name' => 'required',
             'coins' => 'required',
-            'duration' => 'required',
+            'duration_time' => 'required',
+            'duration_period' => 'required',
             'desc' => 'required',
         ];
         $customMessage = [
             'name.required' => 'The Name field is required', 
             'coins.required' => 'The Coins field is required', 
-            'duration.required' => 'The Duration field is required', 
+            'duration_time.required' => 'The Duration Time field is required', 
+            'duration_period.required' => 'The Duration Period field is required', 
             'desc.required' => 'The Description field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
@@ -60,7 +62,8 @@ class PackageController extends Controller
         $package = new Package();
         $package->name = $request->name; 
         $package->coins = $request->coins;
-        $package->duration = $request->duration;
+        $package->duration_time = $request->duration_time;
+        $package->duration_period = $request->duration_period;
         $package->description = $request->desc;
         if($package->save()){
             $log = new ActivityLog();
@@ -115,13 +118,15 @@ class PackageController extends Controller
         $rules = [
             'name' => 'required',
             'coins' => 'required',
-            'duration' => 'required',
+            'duration_time' => 'required',
+            'duration_period' => 'required',
             'desc' => 'required',
         ];
         $customMessage = [
             'name.required' => 'The Name field is required', 
             'coins.required' => 'The Coins field is required', 
-            'duration.required' => 'The Duration field is required', 
+            'duration_time.required' => 'The Duration Time field is required', 
+            'duration_period.required' => 'The Duration Period field is required', 
             'desc.required' => 'The Description field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
@@ -131,7 +136,8 @@ class PackageController extends Controller
         $package = Package::where('id',$id)->first();
         $package->name = $request->name; 
         $package->coins = $request->coins;
-        $package->duration = $request->duration;
+        $package->duration_time = $request->duration_time;
+        $package->duration_period = $request->duration_period;
         $package->description = $request->desc;
         if($package->save()){
             $log = new ActivityLog();
