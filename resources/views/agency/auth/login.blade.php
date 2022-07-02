@@ -7,8 +7,7 @@
     <title>Login Rentinease</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/app.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assetagency/bundles/bootstrap-social/bootstrap-social.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetagency/bundles/bootstrap-social/bootstrap-social.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assetagency/css/components.css') }}">
@@ -18,6 +17,12 @@
         href="{{ asset('assetagency/img/favicon.ico') }}" /> -->
 </head>
 <style>
+    body {
+        background-image: url("{{asset('assetagency/img/login/02.jpg')}}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
     .card {
         background: rgb(8 1 1 / 66%);
         opacity: none;
@@ -27,6 +32,7 @@
         box-shadow: 0px 7px 31px -7px;
     }
 
+    /* 
     #myVideo {
         position: fixed;
         right: 0;
@@ -34,55 +40,47 @@
         width: 100%;
         height: auto;
         opacity: 0.9;
-    }
-
+    } */
 </style>
 
 <body>
-    <video autoplay muted loop id="myVideo">
+    <!-- <video autoplay muted loop id="myVideo">
         <source src="{{ asset('assetagency/video/01.mp4') }}" type="video/mp4">
-    </video>
+    </video> -->
     <div class="loader"></div>
     <div id="app">
         <section class="section">
             <div class="container mt-5 pt-5">
                 <div class="row">
-                    <div
-                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary">
                             <div class="card-header justify-content-center">
                                 <h2 class="text-success fw-bolder">Login</h2>
                             </div>
                             <div class="card-body">
                                 @if(Session::has('message'))
-                                    <div class="alert alert-{{ Session::get('messageType') }}">
-                                        <strong>{{ Session::get('message') }} </strong>
-                                        <button type="button" class="btn-close float-right" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
+                                <div class="alert alert-{{ Session::get('messageType') }}">
+                                    <strong>{{ Session::get('message') }} </strong>
+                                    <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
                                 @endif
-                                <form method="POST" action="{{ route('agency.login.process') }}"
-                                    class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('agency.login.process') }}" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email" class="text-success fs-3">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email"
-                                            value="{{ old('email') }}" tabindex="1" required
-                                            autofocus>
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" tabindex="1" required autofocus>
                                         <div class="invalid-feedback">
                                             Please fill in your email
                                         </div>
                                         @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
+                                        <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <div class="d-block">
-                                            <label for="password"
-                                                class="control-label text-success fs-3">Password</label>
+                                            <label for="password" class="control-label text-success fs-3">Password</label>
                                             <div class="float-right">
-                                                <a href="{{ route('agency.forgot') }}"
-                                                    class="text-small text-light">
+                                                <a href="{{ route('agency.forgot') }}" class="text-small text-light">
                                                     Forgot Password?
                                                 </a>
                                             </div>
@@ -95,8 +93,7 @@
                                         </div> --}}
                                         <div class="form-group">
                                             <div class="input-icons input-group" id="show_hide_password">
-                                                <input class="form-control" type="password" id="password"
-                                                    name="password" tabindex="2" required>
+                                                <input class="form-control" type="password" id="password" name="password" tabindex="2" required>
                                                 <a href="">
                                                     <div class="input-group-text" style="background-color: #c7cfd5">
                                                         <i class="fa fa-eye-slash text-center" aria-hidden="true"></i>
@@ -108,7 +105,7 @@
                                             please fill in your password
                                         </div>
                                         @error('password')
-                                            <span class="text-danger">{{ $message }}</span>
+                                        <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <!-- <div class="form-group">
@@ -159,8 +156,8 @@
     <!-- Custom JS File -->
     <script src="{{ asset('assetagency/js/custom.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            $("#show_hide_password a").on('click', function (event) {
+        $(document).ready(function() {
+            $("#show_hide_password a").on('click', function(event) {
                 event.preventDefault();
                 if ($('#show_hide_password input').attr("type") == "text") {
                     $('#show_hide_password input').attr('type', 'password');
@@ -173,7 +170,6 @@
                 }
             });
         });
-
     </script>
 </body>
 

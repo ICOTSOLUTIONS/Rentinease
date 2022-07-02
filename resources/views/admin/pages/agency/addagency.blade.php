@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card design">
                         <form action="{{ route('agency.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header justify-content-center">

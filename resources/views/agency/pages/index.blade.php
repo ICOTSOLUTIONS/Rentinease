@@ -16,7 +16,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card design">
                         <div class="card-header">
                             <h4>Basic DataTables</h4>
                         </div>
