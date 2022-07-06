@@ -35,20 +35,32 @@
                             <div class="card-body">
                                 <div class="row">
                                     <h6 class="text-success">Enter Your Coins Deduction Details</h6>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Name
-                                                <input type="text" name="name" class="form-control"
-                                                    @if (old('name')) value="{{ old('name') }}"
-                                                @else
-                                                value="{{ $coins_deduct->name }}" @endif />
+                                            <label>Listning Type
+                                                <select name="package" id="package" class="form-control w-178">
+                                                    <option value="">Select Listning Type</option>
+                                                    @forelse ($packages as $package)
+                                                        @if (old('package') == $package->id)
+                                                            <option value="{{ $package->id }}" selected>
+                                                                {{ $package->name }}
+                                                            </option>
+                                                        @else
+                                                            <option value="{{ $package->id }}" selected>
+                                                                {{ $package->name }}
+                                                            </option>
+                                                        @endif
+                                                    @empty
+                                                        <option value="">No Packages</option>
+                                                    @endforelse
+                                                </select>
                                             </label>
-                                            @error('name')
+                                            @error('package')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Coins
                                                 <input type="text" name="coins" class="form-control"
@@ -57,32 +69,6 @@
                                                 value="{{ $coins_deduct->coins_deduct }}" @endif />
                                             </label>
                                             @error('coins')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    {{-- <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Duration
-                                                <input type="text" name="duration" class="form-control"
-                                                    @if (old('duration')) value="{{ old('duration') }}"
-                                                @else
-                                                value="{{ $coins_deduct->duration }}" @endif />
-                                            </label>
-                                            @error('duration')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div> --}}
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Description
-                                                <input type="text" name="desc" class="form-control"
-                                                    @if (old('desc')) value="{{ old('desc') }}"
-                                                @else
-                                                value="{{ $coins_deduct->description }}" @endif />
-                                            </label>
-                                            @error('desc')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
