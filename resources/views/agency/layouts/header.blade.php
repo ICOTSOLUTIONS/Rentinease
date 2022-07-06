@@ -2,7 +2,8 @@
     <div class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <i data-feather="menu"></i></a></li>
+									collapse-btn"> <i
+                        data-feather="menu"></i></a></li>
             <!-- <li>
                 <form class="form-inline mr-auto">
                     <div class="search-element">
@@ -138,14 +139,25 @@
                 <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title">Hello
-                    @if(auth()->user()->roles->name === 'agency')
+                    @if (auth()->user()->roles->name === 'agency')
+                        {{ auth()->user()->owner_name }}
+                    @elseif(auth()->user()->roles->name === 'agent')
                         {{ auth()->user()->owner_name }}
                     @endif
                 </div>
-                <a href="{{ route('agency.profile', ['id' => auth()->user()->id]) }}"
-                    class="dropdown-item has-icon"> <i class="far
+                @if (auth()->user()->roles->name === 'agency')
+                    <a href="{{ route('agency.profile', ['id' => auth()->user()->id]) }}"
+                        class="dropdown-item has-icon"> <i class="far
                     fa-user"></i> Profile
-                </a>
+                    </a>
+                @endif
+                @if (auth()->user()->roles->name === 'agent')
+                    <a href="{{ route('agent.profile', ['id' => auth()->user()->id]) }}"
+                        class="dropdown-item has-icon"> <i class="far
+                    fa-user"></i> Profile
+                    </a>
+                @endif
+
                 <!-- <a href="" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
                     Activities
                 </a>
@@ -153,10 +165,19 @@
                     Settings
                 </a> -->
                 <div class="dropdown-divider"></div>
-                <a href="{{ route('agency.logout') }}" class="dropdown-item has-icon text-danger"> <i
-                        class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                @if (auth()->user()->roles->name === 'agency')
+                    <a href="{{ route('agency.logout') }}" class="dropdown-item has-icon text-danger"> <i
+                            class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                @endif
+                @if (auth()->user()->roles->name === 'agent')
+                    <a href="{{ route('agent.logout') }}" class="dropdown-item has-icon text-danger"> <i
+                            class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                @endif
+
             </div>
         </li>
     </ul>

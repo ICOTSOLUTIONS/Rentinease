@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Agency
+class Agent
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class Agency
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if(auth()->user()->roles->name === 'agency'){
+            if(auth()->user()->roles->name === 'agent'){
                 return $next($request);
             }else{
                 auth()->logout();
