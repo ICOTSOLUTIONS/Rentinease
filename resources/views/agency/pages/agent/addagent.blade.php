@@ -12,13 +12,27 @@
         }
 
         .w-110 {
-            width: 110%;
+            width: 105% !important;
 
         }
 
         .w-178 {
-            width: 145%;
+            width: 170% !important;
 
+        }
+
+        .date {
+            width: 125%;
+
+        }
+
+        .input-group input {
+            width: 140px !important;
+        }
+
+        .dark .input-group-text {
+            background-color: #c9c9c9;
+            color: #040404;
         }
     </style>
     <div class="main-content">
@@ -35,7 +49,6 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <!-- <h6 class="text-success">Enter Your Agent Details</h6> -->
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Company Name
@@ -64,9 +77,11 @@
                                                     <select name="agent_type" id="" class="form-control w-110">
                                                         <option value="">Select Agent</option>
                                                         <option value="brokerage"
-                                                            @if (old('company_type') == 'Brokerage') selected @endif>Brokerage</option>
+                                                            @if (old('company_type') == 'Brokerage') selected @endif>Brokerage
+                                                        </option>
                                                         <option value="sales_marketing"
-                                                            @if (old('company_type') == 'Sales&Marketing') selected @endif>Sales&Marketing
+                                                            @if (old('company_type') == 'Sales&Marketing') selected @endif>
+                                                            Sales&Marketing
                                                         </option>
                                                         <option value="professional_services"
                                                             @if (old('company_type') == 'Professional Services') selected @endif>Professional
@@ -89,8 +104,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Permit no
@@ -117,7 +130,8 @@
                                             <div class="form-group">
                                                 <label>Establishment Date:
                                                     <input type="date" name="establishment_date"
-                                                        value="{{ old('establishment_date') }}" class="form-control">
+                                                        value="{{ old('establishment_date') }}"
+                                                        class="form-control date">
                                                 </label>
                                                 @error('establishment_date')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -128,20 +142,18 @@
                                             <div class="form-group">
                                                 <label>Licence Expire Date:
                                                     <input type="date" name="licence_exp_date"
-                                                        value="{{ old('licence_exp_date') }}" class="form-control">
+                                                        value="{{ old('licence_exp_date') }}" class="form-control date">
                                                 </label>
                                                 @error('licence_exp_date')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Country
-                                                    <input type="text" name="country" value="{{ old('country') }}"
-                                                        class="form-control">
+                                                    <input type="text" name="country" value="UAE" class="form-control"
+                                                        readonly>
                                                 </label>
                                                 @error('country')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -151,31 +163,26 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>City
-                                                    <input type="text" name="city" value="{{ old('city') }}"
-                                                        class="form-control">
+                                                    {{-- <input type="text" name="city" value="{{ old('city') }}"
+                                                        class="form-control"> --}}
+                                                    <select name="city" class="form-control w-178">
+                                                        <option value="">Select City</option>
+                                                        <option value="Dubai"
+                                                            @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                        <option value="Sharjah"
+                                                            @if (old('city') == 'Sharjah') selected @endif>Sharjah
+                                                        </option>
+                                                        {{-- <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option> --}}
+                                                    </select>
                                                 </label>
                                                 @error('city')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-3">
-                                                                        <div class="form-group">
-                                                                            <label>City
-                                                                                <select name="" id="" class="form-control ">
-                                                                                    <option value="" selected>Select City</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                    <option value="">lorem ipsum</option>
-                                                                                </select>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div> -->
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Email
@@ -188,28 +195,30 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Phone
-                                                    <input type="text" name="phone" value="{{ old('phone') }}"
+                                            <label>Phone
+                                                <div class="input-group form-group">
+                                                    <span class="input-group-text" id="addon-wrapping">+971</span>
+                                                    <input type="hidden" name="p_code" value="+971">
+                                                    <input type="number" name="phone" value="{{ old('phone') }}"
                                                         class="form-control">
-                                                </label>
-                                                @error('phone')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                                </div>
+                                            </label>
+                                            @error('phone')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> --}}
                                         <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Mobile
-                                                    <input type="text" name="mobile" value="{{ old('mobile') }}"
+                                            <label>Mobile
+                                                <div class="input-group form-group">
+                                                    <span class="input-group-text" id="addon-wrapping">+971</span>
+                                                    <input type="hidden" name="m_code" value="+971">
+                                                    <input type="number" name="mobile" value="{{ old('mobile') }}"
                                                         class="form-control">
-                                                </label>
-                                                @error('mobile')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                                </div>
+                                            </label>
+                                            @error('mobile')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -244,36 +253,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> 
-                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label> Agencies
-                                            <select name="agency_id" id="" class="form-control w-178">
-                                                <option value="" selected>Select Agencies</option>
-                                    @foreach ($agencies as $agency)
-                                                <option value="{{ $agency->id }}"
-                                    @if (old('agency_id') == $agency->id)
-                                        value="{{ $agency->id }}" selected
-                                    @endif>{{ $agency->owner_name }}</option>
-
-                                    @endforeach
-                                    </select>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Coins
-                                        <input type="text" name="coins_of_agents"
-                                            value="{{ old('coins_of_agents') }}" class="form-control">
-                                    </label>
-                                    @error('coins_of_agents')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Password
@@ -284,29 +263,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        {{-- <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Packages
-                                                <select name="package" id="package" class="form-control w-178">
-                                                    <option value="">Select Packages</option>
-                                    @forelse($packages as $package)
-                                    @if (old('package'))
-                                                            <option value="{{ $package->id }}" selected>
-                            {{ $package->name }}</option>
-                        @else
-                            <option value="{{ $package->id }}">{{ $package->name }}
-                            </option>
-                            @endif
-                        @empty
-                            <option value="">No Packages</option>
-                            @endforelse
-                            </select>
-                            </label>
-                            @error('package')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                    </div>
-                </div> --}}
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Building
@@ -326,8 +282,8 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> --}}
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Agent EID
@@ -361,8 +317,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        {{-- </div>
-                            <div class="row"> --}}
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>RERA
@@ -396,7 +350,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 justify-content-center offset-md-4">

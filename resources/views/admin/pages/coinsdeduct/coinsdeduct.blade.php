@@ -29,8 +29,6 @@
                                             </th>
                                             <th>Name</th>
                                             <th>Coins</th>
-                                            {{-- <th>Duration</th> --}}
-                                            <th>Description</th>
                                             @if (auth()->user()->roles->name != 'subadmin')
                                                 <th>Action</th>
                                             @endif
@@ -40,10 +38,8 @@
                                         @forelse ($coins_deducts as $coins_deduct)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $coins_deduct->name }}</td>
+                                                <td>{{ $coins_deduct->packages->name??'' }}</td>
                                                 <td>{{ $coins_deduct->coins_deduct }}</td>
-                                                {{-- <td>{{ $coins_deduct->duration }}</td> --}}
-                                                <td>{{ $coins_deduct->description }}</td>
                                                 @if (auth()->user()->roles->name != 'subadmin')
                                                     <td>
                                                         <div class="row">

@@ -42,8 +42,8 @@
                                             <td>{{ $customer->fname }}</td>
                                             <td>{{ $customer->lname }}</td>
                                             <td>{{ $customer->email }}</td>
-                                            <td>{{ $customer->phone }}</td>
-                                            <td>{{ $customer->mobile }}</td>
+                                            <td>{{ $customer->phone_code }} {{ $customer->phone }}</td>
+                                            <td>{{ $customer->mobile_code }} {{ $customer->mobile }}</td>
                                             <td>{{ $customer->country }}</td>
                                             <td>{{ $customer->office }}</td>
                                         @if(auth()->user()->roles->name != 'subadmin')

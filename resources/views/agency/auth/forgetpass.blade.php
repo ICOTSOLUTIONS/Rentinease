@@ -64,7 +64,7 @@
                                     <strong>{{ Session::get('message') }} </strong>
                                 </div>
                                 @endif
-                                <form method="POST" action="{{ route('agency.forgot.pass') }}">
+                                <form method="POST" action="{{ route('forgot.pass') }}">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">Email</label>

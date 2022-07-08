@@ -64,7 +64,7 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 @endif
-                                <form method="POST" action="{{ route('agency.login.process') }}" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email" class="text-success fs-3">Email</label>
@@ -80,7 +80,7 @@
                                         <div class="d-block">
                                             <label for="password" class="control-label text-success fs-3">Password</label>
                                             <div class="float-right">
-                                                <a href="{{ route('agency.forgot') }}" class="text-small text-light">
+                                                <a href="{{ route('forgot') }}" class="text-small text-light">
                                                     Forgot Password?
                                                 </a>
                                             </div>

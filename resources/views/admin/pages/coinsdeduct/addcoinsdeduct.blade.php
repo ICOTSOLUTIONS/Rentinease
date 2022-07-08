@@ -34,46 +34,36 @@
                             <div class="card-body">
                                 <div class="row">
                                     <h6 class="text-success">Enter Your Coins Deduction Details</h6>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Name
-                                                <input type="text" name="name" value="{{ old('name') }}"
-                                                    class="form-control">
+                                            <label>Listining Type
+                                                <select name="package" id="package" class="form-control w-178">
+                                                    <option value="">Select Packages</option>
+                                                    @forelse ($packages as $package)
+                                                        @if (old('package'))
+                                                            <option value="{{ $package->id }}" selected>
+                                                                {{ $package->name }}</option>
+                                                        @else
+                                                            <option value="{{ $package->id }}">{{ $package->name }}
+                                                            </option>
+                                                        @endif
+                                                    @empty
+                                                        <option value="">No Packages</option>
+                                                    @endforelse
+                                                </select>
                                             </label>
-                                            @error('name')
+                                            @error('package')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Coins
                                                 <input type="text" name="coins" value="{{ old('coins') }}"
                                                     class="form-control">
                                             </label>
                                             @error('coins')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    {{-- <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Duration
-                                                <input type="text" name="duration" value="{{ old('duration') }}"
-                                                    class="form-control">
-                                            </label>
-                                            @error('duration')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div> --}}
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Description
-                                                <input type="text" name="desc" value="{{ old('desc') }}"
-                                                    class="form-control">
-                                            </label>
-                                            @error('desc')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

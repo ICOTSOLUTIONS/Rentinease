@@ -43,8 +43,8 @@
                                                     <td>{{ $agent->owner_name }}</td>
                                                     <td>{{ $agent->email }}</td>
                                                     <td>{{ $agent->company_name }}</td>
-                                                    <td>{{ $agent->phone }}</td>
-                                                    <td>{{ $agent->mobile }}</td>
+                                                    <td>{{ $agent->phone_code }} {{ $agent->phone }}</td>
+                                                    <td>{{ $agent->mobile_code }} {{ $agent->mobile }}</td>
                                                     <td>{{ $agent->country }}</td>
                                                     <td>{{ $agent->office }}</td>
                                                     <td>

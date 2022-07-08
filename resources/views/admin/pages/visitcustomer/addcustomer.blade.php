@@ -12,15 +12,18 @@
         }
 
         .w-110 {
-            width: 110%;
+            width: 205%;
 
         }
 
-        .w-178 {
-            width: 178%;
-
+        .input-group input {
+            width: 139px !important;
         }
 
+        .dark .input-group-text {
+            background-color: #c9c9c9;
+            color: #040404;
+        }
     </style>
     <section>
         <div class="container">
@@ -71,21 +74,30 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Country
-                                                <input type="text" class="form-control" name="country"
-                                                    value="{{ old('country') }}">
+                                                <input type="text" class="form-control" name="country" value="UAE"
+                                                    readonly>
                                             </label>
                                             @error('country')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>City
-                                                <input type="text" class="form-control" name="city"
-                                                    value="{{ old('city') }}">
+                                                {{-- <input type="text" class="form-control" name="city"
+                                                    value="{{ old('city') }}"> --}}
+                                                <select name="city" class="form-control w-110">
+                                                    <option value="">Select City</option>
+                                                    <option value="Dubai"
+                                                        @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                    <option value="Sharjah"
+                                                        @if (old('city') == 'Sharjah') selected @endif>Sharjah</option>
+                                                    {{-- <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
+                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option> --}}
+                                                </select>
                                             </label>
                                             @error('city')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -125,8 +137,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Email
@@ -149,30 +159,31 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Phone
-                                                <input type="text" class="form-control" name="phone"
-                                                    value="{{ old('phone') }}">
-                                            </label>
-                                            @error('phone')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
+                                        <label>Phone
+                                            <div class="input-group form-group">
+                                                <span class="input-group-text" id="addon-wrapping">+971</span>
+                                                <input type="hidden" name="p_code" value="+971">
+                                                <input type="number" name="phone" value="{{ old('phone') }}"
+                                                    class="form-control">
+                                            </div>
+                                        </label>
+                                        @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Mobile
-                                                <input type="text" class="form-control" name="mobile"
-                                                    value="{{ old('mobile') }}">
-                                            </label>
-                                            @error('mobile')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
+                                        <label>Mobile
+                                            <div class="input-group form-group">
+                                                <span class="input-group-text" id="addon-wrapping">+971</span>
+                                                <input type="hidden" name="m_code" value="+971">
+                                                <input type="number" name="mobile" value="{{ old('mobile') }}"
+                                                    class="form-control">
+                                            </div>
+                                        </label>
+                                        @error('mobile')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
-
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Website:(Optional)
@@ -184,6 +195,19 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group justify-content-center">
+                                            <label class="">Autorised
+                                                <br>
+                                                <input type="checkbox" class="" name="authorised">
+                                            </label>
+                                            @error('authorised')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Agent EID
@@ -216,8 +240,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Profile Logo
@@ -228,19 +250,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group justify-content-center">
-                                            <label class="">Autorised
-                                                <br>
-                                                <input type="checkbox" class="" name="authorised">
-                                            </label>
-                                            @error('authorised')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                    
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-9">
                                     </div>
