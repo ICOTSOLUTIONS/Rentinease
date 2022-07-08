@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\CoinDeduction;
+use App\Models\Package;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,7 @@ class CoinsDeductionController extends Controller
      */
     public function index()
     {
-        $coins_deduct = CoinDeduction::all();
+        $coins_deduct = CoinDeduction::with('packages')->get();
         return view('admin.pages.coinsdeduct.coinsdeduct',['coins_deducts'=>$coins_deduct]);
     }
 
@@ -29,7 +30,8 @@ class CoinsDeductionController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.coinsdeduct.addcoinsdeduct');
+        $package = Package::all();
+        return view('admin.pages.coinsdeduct.addcoinsdeduct',['packages'=>$package]);
     }
 
     /**
@@ -41,16 +43,12 @@ class CoinsDeductionController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name' => 'required',
+            'package' => 'required',
             'coins' => 'required',
-            // 'duration' => 'required',
-            'desc' => 'required',
         ];
         $customMessage = [
-            'name.required' => 'The Name field is required', 
+            'package.required' => 'The Listining Type field is required', 
             'coins.required' => 'The Coins field is required', 
-            // 'duration.required' => 'The Duration field is required', 
-            'desc.required' => 'The Description field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
@@ -58,10 +56,8 @@ class CoinsDeductionController extends Controller
         }
 
         $coins_deduct = new CoinDeduction();
-        $coins_deduct->name = $request->name; 
+        $coins_deduct->package_id = $request->package; 
         $coins_deduct->coins_deduct = $request->coins;
-        // $coins_deduct->duration = $request->duration;
-        $coins_deduct->description = $request->desc;
         if($coins_deduct->save()){
             $log = new ActivityLog();
             $log->user_id = auth()->user()->id;
@@ -100,7 +96,8 @@ class CoinsDeductionController extends Controller
     public function edit($id)
     {
         $coins_deduct = CoinDeduction::where('id',$id)->first();
-        return view('admin.pages.coinsdeduct.editcoinsdeduct',['coins_deduct'=>$coins_deduct]);
+        $package = Package::all();
+        return view('admin.pages.coinsdeduct.editcoinsdeduct',['coins_deduct'=>$coins_deduct,'packages'=>$package]);
     }
 
     /**
@@ -113,16 +110,12 @@ class CoinsDeductionController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'name' => 'required',
+            'package' => 'required',
             'coins' => 'required',
-            // 'duration' => 'required',
-            'desc' => 'required',
         ];
         $customMessage = [
-            'name.required' => 'The Name field is required', 
+            'package.required' => 'The Listining Type field is required', 
             'coins.required' => 'The Coins field is required', 
-            // 'duration.required' => 'The Duration field is required', 
-            'desc.required' => 'The Description field is required', 
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
@@ -130,10 +123,8 @@ class CoinsDeductionController extends Controller
         }
 
         $coins_deduct =  CoinDeduction::where('id',$id)->first();
-        $coins_deduct->name = $request->name; 
+        $coins_deduct->package_id = $request->package; 
         $coins_deduct->coins_deduct = $request->coins;
-        // $coins_deduct->duration = $request->duration;
-        $coins_deduct->description = $request->desc;
         if($coins_deduct->save()){
             $log = new ActivityLog();
             $log->user_id = auth()->user()->id;

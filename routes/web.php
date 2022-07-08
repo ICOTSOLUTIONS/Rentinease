@@ -52,28 +52,39 @@ Route::middleware('admin')->group(function () {
     // Route::get('/delete/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'delete'])->name('admins.delete');
 });
 
-Route::prefix('agency')->group(function () {
-    Route::middleware('agencyLogin')->group(function () {
-        Route::get('/login', [\App\Http\Controllers\Agency\AuthController::class, 'login'])->name('agency.login');
-        Route::post('/login-process', [\App\Http\Controllers\Agency\AuthController::class, 'loginProcess'])->name('agency.login.process');
-        Route::get('/forgot-password', [\App\Http\Controllers\Agency\AuthController::class, 'forgot'])->name('agency.forgot');
-        Route::post('/forgot-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'forgotPassword'])->name('agency.forgot.pass');
-        Route::get('/reset-password/{token}', [\App\Http\Controllers\Agency\AuthController::class, 'reset'])->name('agency.reset');
-        Route::post('/reset-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'resetPassword'])->name('agency.reset.pass');
-    });
-    Route::middleware('agency')->group(function () {
-        Route::get('/dashboard', [\App\Http\Controllers\Agency\AuthController::class, 'dashboard'])->name('agency.dashboard');
-        Route::get('/profile/{id}', [\App\Http\Controllers\Agency\AuthController::class, 'profile'])->name('agency.profile');
-        Route::get('/logout', [\App\Http\Controllers\Agency\AuthController::class, 'logout'])->name('agency.logout');
-        Route::get('/payment', [\App\Http\Controllers\Agency\PaymentController::class, 'index'])->name('payment.index');
-        Route::get('/success/{id?}', [\App\Http\Controllers\Agency\PaymentController::class, 'success'])->name('payment.success');
-        Route::get('/cancel', [\App\Http\Controllers\Agency\PaymentController::class, 'cancel'])->name('payment.cancel');
-        Route::get('/stripe-payment/{id}', [\App\Http\Controllers\Agency\PaymentController::class, 'payment'])->name('payment.stripe');
-        Route::resource('/agent', \App\Http\Controllers\Agency\AgentController::class, [
-            'as' => 'agency'
-        ]);
-    });
+Route::middleware('agencyLogin')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\Agency\AuthController::class, 'login'])->name('login');
+    Route::post('/login-process', [\App\Http\Controllers\Agency\AuthController::class, 'loginProcess'])->name('login.process');
+    Route::get('/forgot-password', [\App\Http\Controllers\Agency\AuthController::class, 'forgot'])->name('forgot');
+    Route::post('/forgot-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'forgotPassword'])->name('forgot.pass');
+    Route::get('/reset-password/{token}', [\App\Http\Controllers\Agency\AuthController::class, 'reset'])->name('reset');
+    Route::post('/reset-password-process', [\App\Http\Controllers\Agency\AuthController::class, 'resetPassword'])->name('reset.pass');
 });
+
+Route::middleware('agency')->group(function () {
+    Route::get('/agency/dashboard', [\App\Http\Controllers\Agency\AuthController::class, 'dashboard'])->name('agency.dashboard');
+    Route::get('/agency/profile/{id}', [\App\Http\Controllers\Agency\AuthController::class, 'profile'])->name('agency.profile');
+    Route::get('/agency/logout', [\App\Http\Controllers\Agency\AuthController::class, 'logout'])->name('agency.logout');
+    Route::get('/agency/payment', [\App\Http\Controllers\Agency\PaymentController::class, 'index'])->name('payment.index');
+    Route::get('/agency/success/{id?}', [\App\Http\Controllers\Agency\PaymentController::class, 'success'])->name('payment.success');
+    Route::get('/agency/cancel', [\App\Http\Controllers\Agency\PaymentController::class, 'cancel'])->name('payment.cancel');
+    Route::get('/agency/stripe-payment/{id}', [\App\Http\Controllers\Agency\PaymentController::class, 'payment'])->name('payment.stripe');
+    Route::resource('/agent', \App\Http\Controllers\Agency\AgentController::class, [
+        'as' => 'agency'
+    ]);
+});
+    
+Route::middleware('agent')->group(function () {
+    Route::get('/agents/dashboard', [\App\Http\Controllers\Agent\AuthController::class, 'dashboard'])->name('agent.dashboard');
+    Route::get('/agents/profile/{id}', [\App\Http\Controllers\Agent\AuthController::class, 'profile'])->name('agent.profile');
+    Route::get('/agents/logout', [\App\Http\Controllers\Agent\AuthController::class, 'logout'])->name('agent.logout');
+    Route::get('/agents/payment', [\App\Http\Controllers\Agent\PaymentController::class, 'index'])->name('agent.payment.index');
+    Route::get('/agents/success/{id?}', [\App\Http\Controllers\Agent\PaymentController::class, 'success'])->name('agent.payment.success');
+    Route::get('/agents/cancel', [\App\Http\Controllers\Agent\PaymentController::class, 'cancel'])->name('agent.payment.cancel');
+    Route::get('/agents/stripe-payment/{id}', [\App\Http\Controllers\Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
+    Route::resource('/posting', \App\Http\Controllers\Agent\PostingController::class);
+});
+    
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
 // Route::view('/', 'admin.auth.login');
@@ -100,9 +111,9 @@ Route::view('/payment', 'admin.pages.finance.payment');
 // Route::view('/viewadmin', 'admin.pages.admin.viewadmin');
 
 //agency panel
-Route::view('/agencyindex', 'agency.pages.index');
+// Route::view('/agencyindex', 'agency.pages.index');
 
-Route::view('/resetpass', 'agency.auth.resetpass');
+// Route::view('/resetpass', 'agency.auth.resetpass');
 
 
 

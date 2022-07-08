@@ -28,6 +28,8 @@ class AuthController extends Controller
         }
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>7])){
             return redirect()->route('agency.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>4])){
+            return redirect()->route('agent.dashboard');
         }else{
             session()->flash('message', 'Invalid Credentials');
             session()->flash('messageType', 'danger');
@@ -66,7 +68,7 @@ class AuthController extends Controller
             });
             session()->flash('message', 'We have e-mailed your password reset link!');
             session()->flash('messageType', 'success');
-            return redirect()->route('agency.login');
+            return redirect()->route('login');
         } catch (\Throwable $th) {
             // return $th;
             session()->flash('message', 'Mail not sent');
@@ -95,7 +97,7 @@ class AuthController extends Controller
              $user->save();
              session()->flash('message', 'Successfully Reset Your Password!');
              session()->flash('messageType', 'success');
-            return redirect()->route('agency.login');
+            return redirect()->route('login');
          }else{
              session()->flash('message', 'Your Verification link not match');
              session()->flash('messageType', 'danger');
@@ -106,7 +108,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('agency.login');
+        return redirect()->route('login');
     }
 
     public function profile($id)

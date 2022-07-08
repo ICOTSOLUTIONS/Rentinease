@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use App\Models\PackageLog;
 use App\Models\Payment;
 use App\Models\User;
 use App\Models\UserPackageCoins;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class AgencyController extends Controller
 {
@@ -24,7 +26,7 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        $agency = User::where('role_id',7)->orderBy('id','DESC')->get();
+        $agency = User::with('payments','payments.packages')->where('role_id',7)->orderBy('id','DESC')->get();
         return view('admin.pages.agency.agency',['agencies'=>$agency]);
     }
 
@@ -117,12 +119,15 @@ class AgencyController extends Controller
         }
         $agency = new User();
         $agency->role_id = 7;
+        $agency->unique_code = Str::random(10);
         $agency->company_name = $request->company_name; 
         $agency->owner_name = $request->owner_name;
         $agency->email = $request->email;
         $agency->password = Hash::make($request->password);
         $agency->phone = $request->phone;
+        $agency->phone_code = $request->p_code;
         $agency->mobile = $request->mobile;
+        $agency->mobile_code = $request->m_code;
         $agency->website = $request->website;
         $agency->type = $request->company_type;
         $agency->licence_no = $request->licence_no;
@@ -210,6 +215,13 @@ class AgencyController extends Controller
                 ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
                 ' at the time of '.Carbon::now()->format('h:i:s A');
                 $log->save();
+                
+                $package_logs = new PackageLog();
+                $package_logs->payment_id = $payment->id; 
+                $package_logs->user_package_coin_id = $user_pack_coins->id; 
+                $package_logs->date = Carbon::now();
+                $package_logs->save();
+                
                 session()->flash('message', 'Successfully Agency Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agency.index');
@@ -219,7 +231,7 @@ class AgencyController extends Controller
                 return redirect()->route('agency.index');
             }
         } catch (\Throwable $th) {
-            // return $th;
+            return $th;
             session()->flash('message', 'Mail not sent');
             session()->flash('messageType', 'danger');
             return redirect()->route('agency.index');
@@ -275,7 +287,7 @@ class AgencyController extends Controller
             'rera_no' => 'required',
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
-            'package' => 'required',
+            // 'package' => 'required',
             // 'access_of_agents' => 'required',
             'country' => 'required',
             'city' => 'required',
@@ -308,7 +320,7 @@ class AgencyController extends Controller
             'rera_no.required' => 'The Rera no. field is required', 
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            'package.required' => 'The Package field is required', 
+            // 'package.required' => 'The Package field is required', 
             // 'access_of_agents.required' => 'The Access of Agents field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
@@ -401,25 +413,26 @@ class AgencyController extends Controller
                 $message->subject('Update Agency');
             });
             if($agency->save()){
-                $user_pack_coins = UserPackageCoins::where('user_id',$agency->id)->where('package_id',$request->package)->first();
-                if(empty($user_pack_coins)){
-                    $user_pack_coins = new UserPackageCoins();
-                    $user_pack_coins->user_id = $agency->id; 
-                    if(!empty($request->package)) $coins = Package::find($request->package);
-                    if(!empty($coins)){
-                        $user_pack_coins->package_id = $request->package; 
-                        $user_pack_coins->remain_coins = $coins->coins; 
-                    }
-                    $user_pack_coins->save();
-                }
-                $payment = Payment::where('user_id',$agency->id)->where('package_id',$request->package)->first();
-                if(empty($payment)){
-                    $payment = new UserPackageCoins();
-                    $payment->user_id = $agency->id;
-                    $payment->package_id = $request->package;
-                    $payment->date = Carbon::now();
-                    $payment->save();
-                } 
+                // $user_pack_coins = UserPackageCoins::where('user_id',$agency->id)->where('package_id',$request->package)->first();
+                // if(empty($user_pack_coins)){
+                //     $user_pack_coins = new UserPackageCoins();
+                //     $user_pack_coins->user_id = $agency->id; 
+                //     if(!empty($request->package)) $coins = Package::find($request->package);
+                //     if(!empty($coins)){
+                //         $user_pack_coins->package_id = $request->package; 
+                //         $user_pack_coins->remain_coins = $coins->coins; 
+                //     }
+                //     $user_pack_coins->save();
+                // }
+                // $payment = Payment::where('user_id',$agency->id)->where('package_id',$request->package)->first();
+                // if(empty($payment)){
+                //     $payment = new UserPackageCoins();
+                //     $payment->user_id = $agency->id;
+                //     $payment->package_id = $request->package;
+                //     $payment->date = Carbon::now();
+                //     $payment->save();
+                // }
+
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agency Update';

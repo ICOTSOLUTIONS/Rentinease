@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\Package;
+use App\Models\PackageLog;
 use App\Models\Payment;
 use App\Models\User;
 use App\Models\UserPackageCoins;
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Str;
 class AgentController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agent = User::with('packages')->where('role_id',4)->orderBy('id','DESC')->get();
+        $agent = User::with('payments','payments.packages')->where('role_id',4)->orderBy('id','DESC')->get();
         return view('admin.pages.agent.agent',['agents'=>$agent]);
     }
 
@@ -113,6 +114,7 @@ class AgentController extends Controller
         }
         $agent = new User();
         $agent->role_id = 4;
+        $agent->unique_code = Str::random(10);
         // if(!empty($request->package)) $agent->package_id = $request->package;
         // if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
         $agent->email = $request->email;
@@ -120,7 +122,9 @@ class AgentController extends Controller
         $agent->company_name = $request->company_name; 
         $agent->owner_name = $request->owner_name;
         $agent->phone = $request->phone;
+        $agent->phone_code = $request->p_code;
         $agent->mobile = $request->mobile;
+        $agent->mobile_code = $request->m_code;
         $agent->website = $request->website;
         $agent->type = $request->agent_type;
         $agent->licence_no = $request->licence_no;
@@ -207,6 +211,11 @@ class AgentController extends Controller
                 ' recently added a new agent on the date of '.Carbon::now()->format('d-m-Y').
                 ' at the time of '.Carbon::now()->format('h:i:s A');
                 $log->save();
+                $package_logs = new PackageLog();
+                $package_logs->payment_id = $payment->id; 
+                $package_logs->user_package_coin_id = $user_pack_coins->id; 
+                $package_logs->date = Carbon::now();
+                $package_logs->save();
                 session()->flash('message', 'Successfully Agent Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agent.index');
@@ -281,7 +290,7 @@ class AgentController extends Controller
             'establishment_date' => 'required',
             'licence_exp_date' => 'required',
             // 'coins_of_agents' => 'required',
-            'package' => 'required',
+            // 'package' => 'required',
             'country' => 'required',
             'city' => 'required',
             'street' => 'required',
@@ -308,7 +317,7 @@ class AgentController extends Controller
             'rera_no.required' => 'The Rera no. field is required', 
             'establishment_date.required' => 'The Establishment Date field is required', 
             'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            'package.required' => 'The Package field is required', 
+            // 'package.required' => 'The Package field is required', 
             // 'coins_of_agents.required' => 'The Coins of Agents field is required', 
             'country.required' => 'The Country field is required', 
             'city.required' => 'The City field is required', 
@@ -403,25 +412,25 @@ class AgentController extends Controller
                 }
             );
             if($agent->save()){
-                $user_pack_coins = UserPackageCoins::where('user_id',$agent->id)->where('package_id',$request->package)->first();
-                if(empty($user_pack_coins)){
-                    $user_pack_coins = new UserPackageCoins();
-                    $user_pack_coins->user_id = $agent->id; 
-                    if(!empty($request->package)) $coins = Package::find($request->package);
-                    if(!empty($coins)){
-                        $user_pack_coins->package_id = $request->package; 
-                        $user_pack_coins->remain_coins = $coins->coins; 
-                    }
-                    $user_pack_coins->save();
-                }
-                $payment = Payment::where('user_id',$agent->id)->where('package_id',$request->package)->first();
-                if(empty($payment)){
-                    $payment = new UserPackageCoins();
-                    $payment->user_id = $agent->id;
-                    $payment->package_id = $request->package;
-                    $payment->date = Carbon::now();
-                    $payment->save();
-                } 
+                // $user_pack_coins = UserPackageCoins::where('user_id',$agent->id)->where('package_id',$request->package)->first();
+                // if(empty($user_pack_coins)){
+                //     $user_pack_coins = new UserPackageCoins();
+                //     $user_pack_coins->user_id = $agent->id; 
+                //     if(!empty($request->package)) $coins = Package::find($request->package);
+                //     if(!empty($coins)){
+                //         $user_pack_coins->package_id = $request->package; 
+                //         $user_pack_coins->remain_coins = $coins->coins; 
+                //     }
+                //     $user_pack_coins->save();
+                // }
+                // $payment = Payment::where('user_id',$agent->id)->where('package_id',$request->package)->first();
+                // if(empty($payment)){
+                //     $payment = new UserPackageCoins();
+                //     $payment->user_id = $agent->id;
+                //     $payment->package_id = $request->package;
+                //     $payment->date = Carbon::now();
+                //     $payment->save();
+                // } 
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Update';

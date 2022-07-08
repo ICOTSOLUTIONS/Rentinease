@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 class CustomerController extends Controller
 {
     /**
@@ -88,12 +89,15 @@ class CustomerController extends Controller
 
         $customer = new User();
         $customer->role_id = 5; 
+        $customer->unique_code = Str::random(10); 
         $customer->fname = $request->fname; 
         $customer->lname = $request->lname;
         $customer->password = Hash::make($request->password);
         $customer->email = $request->email;
         $customer->phone = $request->phone;
+        $customer->phone_code = $request->p_code;
         $customer->mobile = $request->mobile;
+        $customer->mobile_code = $request->m_code;
         $customer->website = $request->website;
         $customer->rera_no = $request->rera_no;
         $customer->country = $request->country;

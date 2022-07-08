@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Agency;
+namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
 use App\Models\Package;
@@ -15,9 +15,8 @@ class PaymentController extends Controller
     public function index()
     {
         $package = Package::all();
-        return view('agency.pages.payment.index',['packages'=>$package]);
+        return view('agency.agentpages.payment.index',['packages'=>$package]);
     }
-
     public function success($id = null)
     {
         if(!empty($id)){
@@ -49,20 +48,19 @@ class PaymentController extends Controller
             $package_logs->save();
             session()->flash('message', 'Successfully Package Buy!');
             session()->flash('messageType', 'success');
-            return redirect()->route('payment.index');
+            return redirect()->route('agent.payment.index');
         }else{
             session()->flash('message', 'Package data not saved!');
             session()->flash('messageType', 'danger');
-            return redirect()->route('payment.index');
+            return redirect()->route('agent.payment.index');
         }
         
     }
-
     public function cancel()
     {
         session()->flash('message', 'Package not Buy!');
         session()->flash('messageType', 'danger');
-        return redirect()->route('payment.index');
+        return redirect()->route('agent.payment.index');
     }
     public function payment($id)
     {
@@ -108,8 +106,8 @@ class PaymentController extends Controller
                             'quantity' => 1,
                             ]],
                             'mode' => 'payment',
-                            'success_url' => $YOUR_DOMAIN . '/agency/success/'.$id,
-                            'cancel_url' => $YOUR_DOMAIN . '/agency/cancel',
+                            'success_url' => $YOUR_DOMAIN . '/agents/success/'.$id,
+                            'cancel_url' => $YOUR_DOMAIN . '/agents/cancel',
                         ]);
                         return redirect($checkout_session->url);
                     // }
@@ -137,8 +135,8 @@ class PaymentController extends Controller
                 //         'quantity' => 1,
                 //         ]],
                 //         'mode' => 'payment',
-                //         'success_url' => $YOUR_DOMAIN . '/agency/success/'.$id,
-                //         'cancel_url' => $YOUR_DOMAIN . '/agency/cancel',
+                //         'success_url' => $YOUR_DOMAIN . '/agents/success/'.$id,
+                //         'cancel_url' => $YOUR_DOMAIN . '/agents/cancel',
                 //     ]);
                 //     return redirect($checkout_session->url);
                 // }
@@ -176,8 +174,8 @@ class PaymentController extends Controller
                             'quantity' => 1,
                             ]],
                             'mode' => 'payment',
-                            'success_url' => $YOUR_DOMAIN . '/agency/success/'.$id,
-                            'cancel_url' => $YOUR_DOMAIN . '/agency/cancel',
+                            'success_url' => $YOUR_DOMAIN . '/agents/success/'.$id,
+                            'cancel_url' => $YOUR_DOMAIN . '/agents/cancel',
                         ]);
                         return redirect($checkout_session->url);
                     }
@@ -205,8 +203,8 @@ class PaymentController extends Controller
                         'quantity' => 1,
                         ]],
                         'mode' => 'payment',
-                        'success_url' => $YOUR_DOMAIN . '/agency/success/'.$id,
-                        'cancel_url' => $YOUR_DOMAIN . '/agency/cancel',
+                        'success_url' => $YOUR_DOMAIN . '/agents/success/'.$id,
+                        'cancel_url' => $YOUR_DOMAIN . '/agents/cancel',
                     ]);
                     return redirect($checkout_session->url);
                 }
@@ -235,8 +233,8 @@ class PaymentController extends Controller
                 'quantity' => 1,
                 ]],
                 'mode' => 'payment',
-                'success_url' => $YOUR_DOMAIN . '/agency/success/'.$id,
-                'cancel_url' => $YOUR_DOMAIN . '/agency/cancel',
+                'success_url' => $YOUR_DOMAIN . '/agents/success/'.$id,
+                'cancel_url' => $YOUR_DOMAIN . '/agents/cancel',
             ]);
             return redirect($checkout_session->url);
         }

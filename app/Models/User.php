@@ -48,8 +48,8 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class,'role_id','id');
     }
 
-    public function packages()
+    public function payments()
     {
-        return $this->hasMany(Package::class,'id','package_id');
+        return $this->hasMany(Payment::class,'user_id','id');
     }
 }

@@ -15,9 +15,10 @@ class CreateCoinDeductionsTable extends Migration
     {
         Schema::create('coin_deductions', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->unsignedBigInteger('package_id')->nullable();
             $table->string('coins_deduct')->nullable();
-            $table->mediumText('description')->nullable();
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
+            // $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Str;
 class AgentController extends Controller
 {
     /**
@@ -109,6 +109,7 @@ class AgentController extends Controller
         }
         $agent = new User();
         $agent->role_id = 4;
+        $agent->unique_code = Str::random(10);
         // if(!empty($request->package)) $agent->package_id = $request->package;
         $agent->agency_id = auth()->user()->id;
         $agent->email = $request->email;
@@ -116,7 +117,9 @@ class AgentController extends Controller
         $agent->company_name = $request->company_name; 
         $agent->owner_name = $request->owner_name;
         $agent->phone = $request->phone;
+        $agent->phone_code = $request->p_code;
         $agent->mobile = $request->mobile;
+        $agent->mobile_code = $request->m_code;
         $agent->website = $request->website;
         $agent->type = $request->agent_type;
         $agent->licence_no = $request->licence_no;

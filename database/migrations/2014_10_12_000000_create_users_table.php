@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('agency_id')->nullable();
             // $table->unsignedBigInteger('package_id')->nullable();
+            $table->string('unique_code')->nullable();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
             $table->string('email')->unique();
@@ -26,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('owner_name')->nullable();
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
+            $table->string('phone_code')->nullable();
+            $table->string('mobile_code')->nullable();
             $table->longText('website')->nullable();
             $table->string('type')->nullable();
             $table->string('licence_no')->nullable();

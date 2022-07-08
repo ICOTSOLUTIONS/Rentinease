@@ -19,6 +19,8 @@ class AgencyLogin
         if(auth()->check()){
             if(auth()->user()->roles->name === 'agency'){
                 return redirect()->route('agency.dashboard');
+            }elseif(auth()->user()->roles->name === 'agent'){
+                return redirect()->route('agent.dashboard');
             }else{
                 return $next($request);
             }
