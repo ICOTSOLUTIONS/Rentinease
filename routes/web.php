@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/coinsdeduct', \App\Http\Controllers\Admin\CoinsDeductionController::class)->except('show');
         Route::resource('/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::resource('/blog', \App\Http\Controllers\Admin\BlogController::class)->except('show');
-        Route::get('/activity', [\App\Http\Controllers\Admin\ActivityController::class,'index'])->name('activity.index');
+        Route::get('/activity', [\App\Http\Controllers\Admin\ActivityController::class, 'index'])->name('activity.index');
     });
 });
 Route::middleware('admin')->group(function () {
@@ -73,7 +73,7 @@ Route::middleware('agency')->group(function () {
         'as' => 'agency'
     ]);
 });
-    
+
 Route::middleware('agent')->group(function () {
     Route::get('/agents/dashboard', [\App\Http\Controllers\Agent\AuthController::class, 'dashboard'])->name('agent.dashboard');
     Route::get('/agents/profile/{id}', [\App\Http\Controllers\Agent\AuthController::class, 'profile'])->name('agent.profile');
@@ -84,7 +84,7 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/stripe-payment/{id}', [\App\Http\Controllers\Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
     Route::resource('/posting', \App\Http\Controllers\Agent\PostingController::class);
 });
-    
+
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
 // Route::view('/', 'admin.auth.login');
@@ -120,5 +120,11 @@ Route::view('/payment', 'admin.pages.finance.payment');
 
 
 // client side
-Route::view('/agencyportal', 'client.pages.agencyportal');
-Route::view('/agentportal', 'client.pages.agentportal');
+//agency
+Route::view('/agencyportal', 'client.pages.agency.agencyportal');
+//agent
+Route::view('/agentportal', 'client.pages.agent.agentportal');
+// buy
+Route::view('/buy', 'client.pages.buy.buy');
+// rent
+Route::view('/rent', 'client.pages.rent.rent');

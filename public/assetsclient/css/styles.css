@@ -1,5 +1,5 @@
 /*
-* Theme Name: RentUP - Real Estate HTML Template
+* Theme Name: Rentinease - Real Estate
 * Author: Themezhub
 * Version: 1.0
 * Last Change: 10 Aug 2021
@@ -1021,9 +1021,9 @@ div[data-overlay] p {
 }
 
 .spinner-border-sm {
-    width: $spinner-width-sm;
-    height: $spinner-height-sm;
-    border-width: $spinner-border-width-sm;
+    width: spinner-width-sm;
+    height: spinner-height-sm;
+    border-width: spinner-border-width-sm;
 }
 .sr-only {
     position: absolute;
@@ -4843,7 +4843,7 @@ span.expiration {
 
     /*------ transparent --------*/
     .header.header-transparent {
-        background: transparent;
+        background: #0000004f;
         position: absolute;
         top: 0;
         left: 0;
@@ -6128,6 +6128,7 @@ h1.big-header-capt {
     margin: 0 auto 5px;
     text-align: center;
     justify-content: center;
+    background: #0000004f;
 }
 .simple_tab_search .nav-tabs .nav-link {
     background: transparent;

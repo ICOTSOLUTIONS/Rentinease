@@ -1,27 +1,26 @@
 			<div class="header header-transparent change-logo">
-			    <div class="container-fluid">
-			        <nav id="navigation" class="navigation navigation-landscape">
-			            <div class="nav-header">
-			                <!-- <a class="nav-brand static-logo" href="#">
+				<div class="container-fluid">
+					<nav id="navigation" class="navigation navigation-landscape">
+						<div class="nav-header">
+							<!-- <a class="nav-brand static-logo" href="#">
 								<img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="logo" alt="" /></a> -->
-			                <h4 class="text-primary nav-brand static-logo">LO<span class="text-success">GO</span></h4>
-			                <!-- <a class="nav-brand fixed-logo" href="#"> 
+							<h4 class="text-primary nav-brand static-logo">LO<span class="text-success">GO</span></h4>
+							<!-- <a class="nav-brand fixed-logo" href="#"> 
 								<img src="{{ asset('./assetsclient/img/logo.png') }}" class="logo" alt="" /></a> -->
-			                <h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success">GO</span></h4>
-			                <div class="nav-toggle"></div>
-			                <div class="mobile_nav">
-			                    <ul>
-			                        <li class="_my_prt_list"><a href="#"><span>2</span>My List</a></li>
-			                        <li><a href="#" data-toggle="modal" data-target="#login"><i
-			                                    class="fas fa-user-circle fa-lg"></i></a></li>
-			                    </ul>
-			                </div>
-			            </div>
-			            <div class="nav-menus-wrapper" style="transition-property: none;">
-			                <ul class="nav-menu">
+							<h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success">GO</span></h4>
+							<div class="nav-toggle"></div>
+							<div class="mobile_nav">
+								<ul>
+									<li class="_my_prt_list"><a href="#"><span>2</span>My List</a></li>
+									<li><a href="#" data-toggle="modal" data-target="#login"><i class="fas fa-user-circle fa-lg"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="nav-menus-wrapper" style="transition-property: none;">
+							<ul class="nav-menu">
 
-			                    <li class="active"><a href="#">Home<span class="submenu-indicator"></span></a>
-			                        <!-- <ul class="nav-dropdown nav-submenu">
+								<li class="active"><a href="{{('/')}}">Home<span class="submenu-indicator"></span></a>
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li><a href="index.html">Home 1</a></li>
 										<li><a href="home-2.html">Home 2</a></li>
 										<li><a href="home-3.html">Home 3</a></li>
@@ -31,10 +30,10 @@
 										<li><a href="home-7.html">Home 7</a></li>
 										<li><a href="map.html">Map Home</a></li>
 									</ul> -->
-			                    </li>
+								</li>
 
-			                    <li><a href="#">Buy<span class="submenu-indicator"></span></a>
-			                        <!-- <ul class="nav-dropdown nav-submenu">
+								<li><a href="{{('/buy')}}">Buy<span class="submenu-indicator"></span></a>
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li><a href="#">Listing Grid<span class="submenu-indicator"></span></a>
 											<ul class="nav-dropdown nav-submenu">
 												<li><a href="grid-layout-with-sidebar.html">Grid Style 1</a></li>
@@ -71,10 +70,10 @@
 											</ul>
 										</li>
 									</ul> -->
-			                    </li>
+								</li>
 
-			                    <li><a href="#">Rent<span class="submenu-indicator"></span></a>
-			                        <!-- <ul class="nav-dropdown nav-submenu">
+								<li><a href="{{('/rent')}}">Rent<span class="submenu-indicator"></span></a>
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li class=""><a href="#">User Admin<span class="submenu-indicator"></span></a>
 											<ul class="nav-dropdown nav-submenu">
 												<li><a href="dashboard.html">User Dashboard</a></li>
@@ -95,10 +94,10 @@
 										</li>
 										<li><a href="compare-property.html">Compare Property</a></li>
 									</ul> -->
-			                    </li>
+								</li>
 
-			                    <li><a href="#">Blog<span class="submenu-indicator"></span></a>
-			                        <!-- <ul class="nav-dropdown nav-submenu">
+								<li><a href="#">Blog<span class="submenu-indicator"></span></a>
+									<!-- <ul class="nav-dropdown nav-submenu">
 										<li><a href="blog.html">Blog Style</a></li>
 										<li><a href="about-us.html">About Us</a></li>
 										<li><a href="pricing.html">Pricing</a></li>
@@ -109,41 +108,38 @@
 										<li><a href="privacy.html">Privacy Policy</a></li>
 										<li><a href="faq.html">FAQs</a></li>
 									</ul> -->
-			                    </li>
-			                    <li><a href="#">Find an Agency<span class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="#">Floor Plans<span class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="#">Index<span class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="#">New Projects<span class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="{{ asset('/agencyportal') }}">Agency Portal<span
-			                                class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="{{ asset('/agentportal') }}">Agent Portal<span
-			                                class="submenu-indicator"></span></a>
-			                    </li>
-			                    <li><a href="#">Events<span class="submenu-indicator"></span></a>
-			                    </li>
-			                </ul>
+								</li>
+								<li><a href="#">Find an Agency<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="#">Floor Plans<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="#">Index<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="#">New Projects<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="{{ asset('/agencyportal') }}">Agency Portal<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="{{ asset('/agentportal') }}">Agent Portal<span class="submenu-indicator"></span></a>
+								</li>
+								<li><a href="#">Events<span class="submenu-indicator"></span></a>
+								</li>
+							</ul>
 
-			                <ul class="nav-menu nav-menu-social align-to-right">
-
-			                    <li>
-			                        <a href="#" class="alio_green" data-toggle="modal" data-target="#login">
-			                            <i class="fas fa-sign-in-alt mr-1"></i><span class="dn-lg">Sign In</span>
-			                        </a>
-			                    </li>
-			                    <li class="add-listing">
-			                        <a href="#" class="theme-cl">
-			                            <i class="fas fa-plus-circle mr-1"></i>Add Property
-			                        </a>
-			                    </li>
-			                </ul>
-			            </div>
-			        </nav>
-			    </div>
+							<ul class="nav-menu nav-menu-social align-to-right">
+								<li>
+									<a href="#" class="alio_green" data-toggle="modal" data-target="#login">
+										<i class="fas fa-sign-in-alt mr-1"></i><span class="dn-lg">Sign In</span>
+									</a>
+								</li>
+								<li class="add-listing">
+									<a href="#" class="theme-cl">
+										<i class="fas fa-plus-circle mr-1"></i>Become a Member
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
 			</div>
 			<!-- End Navigation -->
 			<div class="clearfix"></div>

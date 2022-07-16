@@ -13,6 +13,38 @@
     <link href="{{ asset('./assetsclient/css/custom.css') }}" rel="stylesheet">
 
 </head>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #05b87c;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #293254;
+    }
+
+    .bgloginimg {
+        background-image:url("{{ asset('./assetsclient/img/log.jpg')}}") !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .bannarimg {
+        background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .imgcover {
+
+        background-image: url("{{asset('./assetsclient/img/pattern.png')}}") !important;
+    }
+</style>
 
 <body class="yellow-skin">
 
@@ -29,8 +61,7 @@
         @include('client.layout.header')
         @yield('content')
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
-            class="float" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
             <i class="fa fa-whatsapp my-float"></i>
         </a>
         @include('client.layout.footer')

@@ -7,10 +7,8 @@
     <title>Gati - Admin Dashboard Template</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/app.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assetagency/bundles/datatables/datatables.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetagency/bundles/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assetagency/css/components.css') }}">
@@ -18,6 +16,23 @@
     <link rel="stylesheet" href="{{ asset('assetagency/css/custom.css') }}">
     <!-- <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' /> -->
 </head>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #05b87c;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #293254;
+    }
+</style>
 
 <body>
     <div class="loader"></div>
@@ -35,8 +50,7 @@
     <script src="{{ asset('assetagency/js/app.min.js') }}"></script>
     <!-- JS Libraies -->
     <script src="{{ asset('assetagency/bundles/datatables/datatables.min.js') }}"></script>
-    <script
-        src="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}">
+    <script src="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}">
     </script>
     <script src="{{ asset('assetagency/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Page Specific JS File -->

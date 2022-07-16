@@ -1,82 +1,590 @@
 @extends('client.layout.master')
 @section('content')
 <!-- ============================ Hero Banner  Start================================== -->
-<div class="image-cover hero_banner" style="background:url({{ asset('./assetsclient/img/banner-1.png')}}) no-repeat;" data-overlay="0">
+<div class="image-cover hero_banner bannarimg" data-overlay="0">
     <div class="container">
 
         <h1 class="big-header-capt mb-0">Search Your Next Home</h1>
         <p class="text-center mb-4">Find new & featured property located in your local city.</p>
         <!-- Type -->
-        <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-11 col-md-12">
-                <div class="full_search_box nexio_search lightanic_search hero_search-radius modern">
-                    <div class="search_hero_wrapping">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="simple_tab_search center">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="rent-tab" data-toggle="tab" href="#rent" role="tab" aria-controls="rent" aria-selected="false">Rent</a>
+                        </li>
+                    </ul>
 
-                        <div class="row">
-                            <div class="col-lg-4 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                    <label>City/Street</label>
-                                    <div class="input-with-icon">
-                                        <select id="location" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="1">New York City</option>
-                                            <option value="2">Honolulu, Hawaii</option>
-                                            <option value="3">California</option>
-                                            <option value="4">New Orleans</option>
-                                            <option value="5">Washington</option>
-                                            <option value="6">Charleston</option>
-                                        </select>
+                    <div class="tab-content" id="myTabContent">
+
+                        <!-- Tab for Buy -->
+                        <div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+                            <div class="full_search_box nexio_search lightanic_search hero_search-radius modern">
+                                <div class="search_hero_wrapping">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-3 col-sm-12 d-md-none d-lg-block">
+                                            <div class="form-group">
+                                                <label>Price Range</label>
+                                                <input type="text" class="form-control search_input b-0" placeholder="ex. Neighborhood" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>City/Street</label>
+                                                <div class="input-with-icon">
+                                                    <select id="location" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">New York City</option>
+                                                        <option value="2">Honolulu, Hawaii</option>
+                                                        <option value="3">California</option>
+                                                        <option value="4">New Orleans</option>
+                                                        <option value="5">Washington</option>
+                                                        <option value="6">Charleston</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Property Type</label>
+                                                <div class="input-with-icon">
+                                                    <select id="ptypes" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">All categories</option>
+                                                        <option value="2">Apartment</option>
+                                                        <option value="3">Villas</option>
+                                                        <option value="4">Commercial</option>
+                                                        <option value="5">Offices</option>
+                                                        <option value="6">Garage</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group none">
+                                                <a class="collapsed ad-search" data-toggle="collapse" data-parent="#search" data-target="#advance-search" href="javascript:void(0);" aria-expanded="false" aria-controls="advance-search"><i class="fa fa-sliders-h mr-2"></i>Advance Filter</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12 small-padd">
+                                            <div class="form-group none">
+                                                <a href="#" class="btn search-btn">Search Property</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                    <label>Property Type</label>
-                                    <div class="input-with-icon">
-                                        <select id="ptypes" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="1">All categories</option>
-                                            <option value="2">Apartment</option>
-                                            <option value="3">Villas</option>
-                                            <option value="4">Commercial</option>
-                                            <option value="5">Offices</option>
-                                            <option value="6">Garage</option>
-                                        </select>
+                                    <!-- Collapse Advance Search Form -->
+                                    <div class="collapse" id="advance-search" aria-expanded="false" role="banner">
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bedrooms" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bathrooms" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="min sqft" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="max sqft" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                <h6 class="text-dark">Advance Price</h6>
+                                                <div class="rg-slider">
+                                                    <input type="text" class="js-range-slider" name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                                <h4 class="text-dark">Amenities & Features</h4>
+                                                <ul class="no-ul-list third-row">
+                                                    <li>
+                                                        <input id="a-1" class="checkbox-custom" name="a-1" type="checkbox">
+                                                        <label for="a-1" class="checkbox-custom-label">Air Condition</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-2" class="checkbox-custom" name="a-2" type="checkbox">
+                                                        <label for="a-2" class="checkbox-custom-label">Bedding</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-3" class="checkbox-custom" name="a-3" type="checkbox">
+                                                        <label for="a-3" class="checkbox-custom-label">Heating</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-4" class="checkbox-custom" name="a-4" type="checkbox">
+                                                        <label for="a-4" class="checkbox-custom-label">Internet</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-5" class="checkbox-custom" name="a-5" type="checkbox">
+                                                        <label for="a-5" class="checkbox-custom-label">Microwave</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-6" class="checkbox-custom" name="a-6" type="checkbox">
+                                                        <label for="a-6" class="checkbox-custom-label">Smoking Allow</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-7" class="checkbox-custom" name="a-7" type="checkbox">
+                                                        <label for="a-7" class="checkbox-custom-label">Terrace</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-8" class="checkbox-custom" name="a-8" type="checkbox">
+                                                        <label for="a-8" class="checkbox-custom-label">Balcony</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-9" class="checkbox-custom" name="a-9" type="checkbox">
+                                                        <label for="a-9" class="checkbox-custom-label">Icon</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-10" class="checkbox-custom" name="a-10" type="checkbox">
+                                                        <label for="a-10" class="checkbox-custom-label">Wi-Fi</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-11" class="checkbox-custom" name="a-11" type="checkbox">
+                                                        <label for="a-11" class="checkbox-custom-label">Beach</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-12" class="checkbox-custom" name="a-12" type="checkbox">
+                                                        <label for="a-12" class="checkbox-custom-label">Parking</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="form-group none">
-                                    <label>Price Range</label>
-                                    <div class="input-with-icon">
-                                        <select id="price" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="1">From 40,000 To 10m</option>
-                                            <option value="2">From 60,000 To 20m</option>
-                                            <option value="3">From 70,000 To 30m</option>
-                                            <option value="3">From 80,000 To 40m</option>
-                                            <option value="3">From 90,000 To 50m</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-1 col-md-2 col-sm-12 small-padd">
-                                <div class="form-group none">
-                                    <a href="#" class="btn search-btn"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-with-icon">
-                                    <a href="#">More Options</a>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Tab for Sell -->
+                        <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
+                            <div class="full_search_box nexio_search lightanic_search hero_search-radius modern">
+                                <div class="search_hero_wrapping">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-3 col-sm-12 d-md-none d-lg-block">
+                                            <div class="form-group">
+                                                <label>Price Range</label>
+                                                <input type="text" class="form-control search_input b-0" placeholder="ex. Neighborhood" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>City/Street</label>
+                                                <div class="input-with-icon">
+                                                    <select id="lot-1" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">New York City</option>
+                                                        <option value="2">Honolulu, Hawaii</option>
+                                                        <option value="3">California</option>
+                                                        <option value="4">New Orleans</option>
+                                                        <option value="5">Washington</option>
+                                                        <option value="6">Charleston</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Property Type</label>
+                                                <div class="input-with-icon">
+                                                    <select id="ptype-1" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">All categories</option>
+                                                        <option value="2">Apartment</option>
+                                                        <option value="3">Villas</option>
+                                                        <option value="4">Commercial</option>
+                                                        <option value="5">Offices</option>
+                                                        <option value="6">Garage</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group none">
+                                                <a class="collapsed ad-search" data-toggle="collapse" data-parent="#search1" data-target="#advance-search-1" href="javascript:void(0);" aria-expanded="false" aria-controls="advance-search"><i class="fa fa-sliders-h mr-2"></i>Advance Filter</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12 small-padd">
+                                            <div class="form-group none">
+                                                <a href="#" class="btn search-btn">Search Property</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collapse Advance Search Form -->
+                                    <div class="collapse" id="advance-search-1" aria-expanded="false" role="banner">
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bedrooms1" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bathrooms1" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="min sqft" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="max sqft" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                <h6 class="text-dark">Advance Price</h6>
+                                                <div class="rg-slider">
+                                                    <input type="text" class="js-range-slider" name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                                <h4 class="text-dark">Amenities & Features</h4>
+                                                <ul class="no-ul-list third-row">
+                                                    <li>
+                                                        <input id="a-1a" class="checkbox-custom" name="a-1a" type="checkbox">
+                                                        <label for="a-1a" class="checkbox-custom-label">Air Condition</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-2b" class="checkbox-custom" name="a-2b" type="checkbox">
+                                                        <label for="a-2b" class="checkbox-custom-label">Bedding</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-3c" class="checkbox-custom" name="a-3c" type="checkbox">
+                                                        <label for="a-3c" class="checkbox-custom-label">Heating</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-4d" class="checkbox-custom" name="a-4d" type="checkbox">
+                                                        <label for="a-4d" class="checkbox-custom-label">Internet</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-5e" class="checkbox-custom" name="a-5e" type="checkbox">
+                                                        <label for="a-5e" class="checkbox-custom-label">Microwave</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-6f" class="checkbox-custom" name="a-6f" type="checkbox">
+                                                        <label for="a-6f" class="checkbox-custom-label">Smoking Allow</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-7g" class="checkbox-custom" name="a-7g" type="checkbox">
+                                                        <label for="a-7g" class="checkbox-custom-label">Terrace</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-8h" class="checkbox-custom" name="a-8h" type="checkbox">
+                                                        <label for="a-8h" class="checkbox-custom-label">Balcony</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-9i" class="checkbox-custom" name="a-9i" type="checkbox">
+                                                        <label for="a-9i" class="checkbox-custom-label">Icon</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-10j" class="checkbox-custom" name="a-10j" type="checkbox">
+                                                        <label for="a-10j" class="checkbox-custom-label">Wi-Fi</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-11k" class="checkbox-custom" name="a-11k" type="checkbox">
+                                                        <label for="a-11k" class="checkbox-custom-label">Beach</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-12l" class="checkbox-custom" name="a-12l" type="checkbox">
+                                                        <label for="a-12l" class="checkbox-custom-label">Parking</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Tab for Rent -->
+                        <div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab">
+                            <div class="full_search_box nexio_search lightanic_search hero_search-radius modern">
+                                <div class="search_hero_wrapping">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-3 col-sm-12 d-md-none d-lg-block">
+                                            <div class="form-group">
+                                                <label>Price Range</label>
+                                                <input type="text" class="form-control search_input b-0" placeholder="ex. Neighborhood" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>City/Street</label>
+                                                <div class="input-with-icon">
+                                                    <select id="lot-2" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">New York City</option>
+                                                        <option value="2">Honolulu, Hawaii</option>
+                                                        <option value="3">California</option>
+                                                        <option value="4">New Orleans</option>
+                                                        <option value="5">Washington</option>
+                                                        <option value="6">Charleston</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Property Type</label>
+                                                <div class="input-with-icon">
+                                                    <select id="ptype-2" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">All categories</option>
+                                                        <option value="2">Apartment</option>
+                                                        <option value="3">Villas</option>
+                                                        <option value="4">Commercial</option>
+                                                        <option value="5">Offices</option>
+                                                        <option value="6">Garage</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12">
+                                            <div class="form-group none">
+                                                <a class="collapsed ad-search" data-toggle="collapse" data-parent="#search" data-target="#advance-search-2" href="javascript:void(0);" aria-expanded="false" aria-controls="advance-search"><i class="fa fa-sliders-h mr-2"></i>Advance Filter</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-3 col-sm-12 small-padd">
+                                            <div class="form-group none">
+                                                <a href="#" class="btn search-btn">Search Property</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collapse Advance Search Form -->
+                                    <div class="collapse" id="advance-search-2" aria-expanded="false" role="banner">
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bedrooms2" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none style-auto">
+                                                    <select id="bathrooms2" class="form-control">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="min sqft" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="form-group none">
+                                                    <input type="text" class="form-control" placeholder="max sqft" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                <h6 class="text-dark">Advance Price</h6>
+                                                <div class="rg-slider">
+                                                    <input type="text" class="js-range-slider" name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /row -->
+
+                                        <!-- row -->
+                                        <div class="row">
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                                <h4 class="text-dark">Amenities & Features</h4>
+                                                <ul class="no-ul-list third-row">
+                                                    <li>
+                                                        <input id="a-a1" class="checkbox-custom" name="a-a1" type="checkbox">
+                                                        <label for="a-a1" class="checkbox-custom-label">Air Condition</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-b2" class="checkbox-custom" name="a-b2" type="checkbox">
+                                                        <label for="a-b2" class="checkbox-custom-label">Bedding</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-c3" class="checkbox-custom" name="a-c3" type="checkbox">
+                                                        <label for="a-c3" class="checkbox-custom-label">Heating</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-d4" class="checkbox-custom" name="a-d4" type="checkbox">
+                                                        <label for="a-d4" class="checkbox-custom-label">Internet</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-e5" class="checkbox-custom" name="a-e5" type="checkbox">
+                                                        <label for="a-e5" class="checkbox-custom-label">Microwave</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-f6" class="checkbox-custom" name="a-f6" type="checkbox">
+                                                        <label for="a-f6" class="checkbox-custom-label">Smoking Allow</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-g7" class="checkbox-custom" name="a-g7" type="checkbox">
+                                                        <label for="a-g7" class="checkbox-custom-label">Terrace</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-h8" class="checkbox-custom" name="a-h8" type="checkbox">
+                                                        <label for="a-h8" class="checkbox-custom-label">Balcony</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-i9" class="checkbox-custom" name="a-i9" type="checkbox">
+                                                        <label for="a-i9" class="checkbox-custom-label">Icon</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-j10" class="checkbox-custom" name="a-j10" type="checkbox">
+                                                        <label for="a-j10" class="checkbox-custom-label">Wi-Fi</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-k11" class="checkbox-custom" name="a-k11" type="checkbox">
+                                                        <label for="a-k11" class="checkbox-custom-label">Beach</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="a-l12" class="checkbox-custom" name="a-l12" type="checkbox">
+                                                        <label for="a-l12" class="checkbox-custom-label">Parking</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <!-- /row -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
+
 
             </div>
         </div>
@@ -566,13 +1074,13 @@
 <!-- ============================ Properties End ================================== -->
 
 <!-- ============================ Top Agents ================================== -->
-<section class="image-cover min" style="background:#122947 {{ asset('./assetsclient/img/pattern.png')}} no-repeat;">
+<section class="image-cover min imgcover">
     <div class="container">
 
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-8">
                 <div class="sec-heading center light">
-                    <h2>Our Featured Agents</h2>
+                    <h2 class="text-dark">Our Featured Agents</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                 </div>
@@ -1121,7 +1629,7 @@
         <div class="modal-content overli" id="registermodal">
             <div class="modal-body p-0">
                 <div class="resp_log_wrap">
-                    <div class="resp_log_thumb" style="background: url{{ asset('./assetsclient/img/log.jpg')}}" no-repeat;></div>
+                    <div class="resp_log_thumb bgloginimg"></div>
                     <div class="resp_log_caption">
                         <span class="mod-close" data-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
                         <div class="edlio_152">
@@ -1162,7 +1670,7 @@
                                                     <label for="dd" class="checkbox-custom-label">Remember Me</label>
                                                 </div>
                                                 <div class="eltio_k2">
-                                                    <a href="#">Lost Your Password?</a>
+                                                    <a href="#">Forget Password?</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1206,7 +1714,7 @@
                                             <div class="eltio_ol9">
                                                 <div class="eltio_k1">
                                                     <input id="dds" class="checkbox-custom" name="dds" type="checkbox">
-                                                    <label for="dds" class="checkbox-custom-label">By using the website, you accept the terms and conditions</label>
+                                                    <label for="dds" class="checkbox-custom-label">You accept the terms and conditions</label>
                                                 </div>
                                             </div>
                                         </div>
