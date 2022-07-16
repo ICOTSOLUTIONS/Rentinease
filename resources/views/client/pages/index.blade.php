@@ -14,9 +14,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" id="rent-tab" data-toggle="tab" href="#rent" role="tab" aria-controls="rent" aria-selected="false">Rent</a>
                         </li>
@@ -210,7 +210,7 @@
                         </div>
 
                         <!-- Tab for Sell -->
-                        <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
+                        <!-- <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
                             <div class="full_search_box nexio_search lightanic_search hero_search-radius modern">
                                 <div class="search_hero_wrapping">
 
@@ -270,130 +270,130 @@
                                         </div>
                                     </div>
 
-                                    <!-- Collapse Advance Search Form -->
-                                    <div class="collapse" id="advance-search-1" aria-expanded="false" role="banner">
+                                    Collapse Advance Search Form commit this
+                        <div class="collapse" id="advance-search-1" aria-expanded="false" role="banner">
 
-                                        <!-- row -->
-                                        <div class="row">
+                         row commit this
+                            <div class="row">
 
-                                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <div class="form-group none style-auto">
-                                                    <select id="bedrooms1" class="form-control">
-                                                        <option value="">&nbsp;</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <div class="form-group none style-auto">
-                                                    <select id="bathrooms1" class="form-control">
-                                                        <option value="">&nbsp;</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <div class="form-group none">
-                                                    <input type="text" class="form-control" placeholder="min sqft" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <div class="form-group none">
-                                                    <input type="text" class="form-control" placeholder="max sqft" />
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- /row -->
-
-                                        <!-- row -->
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                <h6 class="text-dark">Advance Price</h6>
-                                                <div class="rg-slider">
-                                                    <input type="text" class="js-range-slider" name="my_range" value="" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /row -->
-
-                                        <!-- row -->
-                                        <div class="row">
-
-                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                                                <h4 class="text-dark">Amenities & Features</h4>
-                                                <ul class="no-ul-list third-row">
-                                                    <li>
-                                                        <input id="a-1a" class="checkbox-custom" name="a-1a" type="checkbox">
-                                                        <label for="a-1a" class="checkbox-custom-label">Air Condition</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-2b" class="checkbox-custom" name="a-2b" type="checkbox">
-                                                        <label for="a-2b" class="checkbox-custom-label">Bedding</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-3c" class="checkbox-custom" name="a-3c" type="checkbox">
-                                                        <label for="a-3c" class="checkbox-custom-label">Heating</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-4d" class="checkbox-custom" name="a-4d" type="checkbox">
-                                                        <label for="a-4d" class="checkbox-custom-label">Internet</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-5e" class="checkbox-custom" name="a-5e" type="checkbox">
-                                                        <label for="a-5e" class="checkbox-custom-label">Microwave</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-6f" class="checkbox-custom" name="a-6f" type="checkbox">
-                                                        <label for="a-6f" class="checkbox-custom-label">Smoking Allow</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-7g" class="checkbox-custom" name="a-7g" type="checkbox">
-                                                        <label for="a-7g" class="checkbox-custom-label">Terrace</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-8h" class="checkbox-custom" name="a-8h" type="checkbox">
-                                                        <label for="a-8h" class="checkbox-custom-label">Balcony</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-9i" class="checkbox-custom" name="a-9i" type="checkbox">
-                                                        <label for="a-9i" class="checkbox-custom-label">Icon</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-10j" class="checkbox-custom" name="a-10j" type="checkbox">
-                                                        <label for="a-10j" class="checkbox-custom-label">Wi-Fi</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-11k" class="checkbox-custom" name="a-11k" type="checkbox">
-                                                        <label for="a-11k" class="checkbox-custom-label">Beach</label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="a-12l" class="checkbox-custom" name="a-12l" type="checkbox">
-                                                        <label for="a-12l" class="checkbox-custom-label">Parking</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                        <!-- /row -->
-
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="form-group none style-auto">
+                                        <select id="bedrooms1" class="form-control">
+                                            <option value="">&nbsp;</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
                                     </div>
+                                </div>
 
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="form-group none style-auto">
+                                        <select id="bathrooms1" class="form-control">
+                                            <option value="">&nbsp;</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="form-group none">
+                                        <input type="text" class="form-control" placeholder="min sqft" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="form-group none">
+                                        <input type="text" class="form-control" placeholder="max sqft" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            /row commit this line 
+
+                            row commit this line 
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                    <h6 class="text-dark">Advance Price</h6>
+                                    <div class="rg-slider">
+                                        <input type="text" class="js-range-slider" name="my_range" value="" />
+                                    </div>
                                 </div>
                             </div>
+                            /row commit this line 
 
-                        </div>
+                            row commit this line 
+                            <div class="row">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                                    <h4 class="text-dark">Amenities & Features</h4>
+                                    <ul class="no-ul-list third-row">
+                                        <li>
+                                            <input id="a-1a" class="checkbox-custom" name="a-1a" type="checkbox">
+                                            <label for="a-1a" class="checkbox-custom-label">Air Condition</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-2b" class="checkbox-custom" name="a-2b" type="checkbox">
+                                            <label for="a-2b" class="checkbox-custom-label">Bedding</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-3c" class="checkbox-custom" name="a-3c" type="checkbox">
+                                            <label for="a-3c" class="checkbox-custom-label">Heating</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-4d" class="checkbox-custom" name="a-4d" type="checkbox">
+                                            <label for="a-4d" class="checkbox-custom-label">Internet</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-5e" class="checkbox-custom" name="a-5e" type="checkbox">
+                                            <label for="a-5e" class="checkbox-custom-label">Microwave</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-6f" class="checkbox-custom" name="a-6f" type="checkbox">
+                                            <label for="a-6f" class="checkbox-custom-label">Smoking Allow</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-7g" class="checkbox-custom" name="a-7g" type="checkbox">
+                                            <label for="a-7g" class="checkbox-custom-label">Terrace</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-8h" class="checkbox-custom" name="a-8h" type="checkbox">
+                                            <label for="a-8h" class="checkbox-custom-label">Balcony</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-9i" class="checkbox-custom" name="a-9i" type="checkbox">
+                                            <label for="a-9i" class="checkbox-custom-label">Icon</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-10j" class="checkbox-custom" name="a-10j" type="checkbox">
+                                            <label for="a-10j" class="checkbox-custom-label">Wi-Fi</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-11k" class="checkbox-custom" name="a-11k" type="checkbox">
+                                            <label for="a-11k" class="checkbox-custom-label">Beach</label>
+                                        </li>
+                                        <li>
+                                            <input id="a-12l" class="checkbox-custom" name="a-12l" type="checkbox">
+                                            <label for="a-12l" class="checkbox-custom-label">Parking</label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            /row commit this line 
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div> -->
 
                         <!-- Tab for Rent -->
                         <div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab">
