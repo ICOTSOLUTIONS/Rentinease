@@ -128,3 +128,7 @@ Route::view('/agentportal', 'client.pages.agent.agentportal');
 Route::view('/buy', 'client.pages.buy.buy');
 // rent
 Route::view('/rent', 'client.pages.rent.rent');
+// findagent
+Route::view('/findagent', 'client.pages.findagent.findagent');
+// findagency
+Route::view('/findagency', 'client.pages.findagency.findagency');
