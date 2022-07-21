@@ -30,7 +30,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/profile/{id}', [\App\Http\Controllers\Admin\AuthController::class, 'profile'])->name('admin.profile');
         Route::get('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('admin.logout');
         Route::resource('/agency', \App\Http\Controllers\Admin\AgencyController::class);
-        Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
         Route::resource('/agent', \App\Http\Controllers\Admin\AgentController::class);
         Route::resource('/package', \App\Http\Controllers\Admin\PackageController::class);
         Route::resource('/coinsdeduct', \App\Http\Controllers\Admin\CoinsDeductionController::class)->except('show');
@@ -84,6 +83,10 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/stripe-payment/{id}', [\App\Http\Controllers\Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
     Route::resource('/posting', \App\Http\Controllers\Agent\PostingController::class);
 });
+Route::post('/agent/register', [\App\Http\Controllers\Agent\AuthController::class, 'agentRegister'])->name('agent.register');
+Route::post('/agency/register', [\App\Http\Controllers\Agency\AuthController::class, 'agencyRegister'])->name('agency.register');
+Route::get('/agencyportal', [\App\Http\Controllers\Agency\ClientController::class, 'clientAgency'])->name('agency.portal');
+Route::get('/agentportal', [\App\Http\Controllers\Agent\ClientController::class, 'clientAgent'])->name('agent.portal');
 
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
@@ -121,9 +124,9 @@ Route::view('/payment', 'admin.pages.finance.payment');
 
 // client side
 //agency
-Route::view('/agencyportal', 'client.pages.agency.agencyportal');
+// Route::view('/agencyportal', 'client.pages.agency.agencyportal');
 //agent
-Route::view('/agentportal', 'client.pages.agent.agentportal');
+// Route::view('/agentportal', 'client.pages.agent.agentportal');
 // buy
 Route::view('/buy', 'client.pages.buy.buy');
 // rent

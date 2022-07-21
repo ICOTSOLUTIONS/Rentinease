@@ -101,9 +101,9 @@
                        <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
                        </li>
 
-                       <li><a href="{{ asset('/agencyportal') }}">Agency Portal<span class="submenu-indicator"></span></a>
+                       <li><a href="{{ route('agency.portal') }}">Agency Portal<span class="submenu-indicator"></span></a>
                        </li>
-                       <li><a href="{{ asset('/agentportal') }}">Agent Portal<span class="submenu-indicator"></span></a>
+                       <li><a href="{{ route('agent.portal') }}">Agent Portal<span class="submenu-indicator"></span></a>
                        </li>
                        <li><a href="#">Events<span class="submenu-indicator"></span></a>
                            <ul class="nav-dropdown nav-submenu">
