@@ -35,10 +35,42 @@
         background-repeat: no-repeat !important;
     }
 
-    .bannarimg {
+    /* .bannarimg {
         background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
         background-repeat: no-repeat !important;
-    }
+    } */
+
+    
+.bannarimg
+{
+    background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
+    /* border: 2px solid red; */
+    height: 650px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.bannarimg::before
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+	/* margin-top: 125px; */
+}
+.bannarimg > *
+{
+    z-index: 10;
+    position: relative;
+}
 
     .imgcover {
 

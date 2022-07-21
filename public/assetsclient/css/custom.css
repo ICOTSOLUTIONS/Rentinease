@@ -34,5 +34,7 @@
 .box:hover::after {
     opacity: 1;
 }
-
-
+.bannaragent{
+    background-size: cover;
+    background-repeat: no-repeat;
+}

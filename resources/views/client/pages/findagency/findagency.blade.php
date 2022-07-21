@@ -1,8 +1,16 @@
 @extends('client.layout.master')
 @section('content')
-
+<style>
+    .banneragency {
+        background-color: #f4f4f4;
+        background-image: url("{{asset('assetsclient/img/close-up-financial-advisor.jpg')}}");
+    }
+    #profile_img{
+        border-radius: 50%;
+    }
+</style>
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title" style="background:#f4f4f4 url(assets/img/slider-1.jpg);" data-overlay="5">
+<div class="page-title banneragency" data-overlay="5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -719,7 +727,7 @@
                         </div>
                         <div class="agency_gridio_caption">
                             <div class="agency_gridio_thumb">
-                                <a href="agency-page.html"><img src="assets/img/brand-4.png" class="img-fluid" alt=""></a>
+                                <a href="agency-page.html"><img id="profile_img" src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid" alt=""></a>
                             </div>
                             <div class="agency_gridio_txt">
                                 <h4><a href="agency-page.html">California Real Estate</a></h4>
@@ -739,7 +747,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-1.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Loss vengel New Apartment</a></h4>
@@ -758,7 +766,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-4.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Montreal Quriqe Apartment</a></h4>
@@ -777,7 +785,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-7.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Curmic Studio For Office</a></h4>
@@ -796,7 +804,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-5.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Montreal Quebec City</a></h4>
