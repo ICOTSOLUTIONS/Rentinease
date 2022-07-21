@@ -30,6 +30,8 @@ class AuthController extends Controller
             return redirect()->route('agency.dashboard');
         }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>4])){
             return redirect()->route('agent.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>5])){
+            return redirect()->route('customer.dashboard');
         }else{
             session()->flash('message', 'Invalid Credentials');
             session()->flash('messageType', 'danger');
@@ -150,7 +152,6 @@ class AuthController extends Controller
                 session()->flash('messageType', 'success');
                 return redirect()->back();
         } catch (\Throwable $th) {
-            dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
             return redirect()->back();

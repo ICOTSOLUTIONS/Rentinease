@@ -43,7 +43,6 @@ class AuthController extends Controller
                 session()->flash('messageType', 'success');
                 return redirect()->back();
         } catch (\Throwable $th) {
-            dd($th);
             session()->flash('message', 'Email not Sent');
             session()->flash('messageType', 'success');
             return redirect()->back();
