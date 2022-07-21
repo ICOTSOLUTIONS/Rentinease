@@ -239,9 +239,7 @@ function chart1() {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-yaxis-title",
+          color: "#8e8da4",
         },
       },
     },

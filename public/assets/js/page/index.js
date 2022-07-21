@@ -68,24 +68,9 @@ function chart1() {
       lineCap: "square",
     },
     xaxis: {
-      axisBorder: {
-        show: false,
-      },
-      axisTicks: {
-        show: false,
-      },
-      crosshairs: {
-        show: true,
-      },
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-      labels: {
-        offsetX: 0,
-        offsetY: 5,
-        style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-xaxis-title",
-        },
+      style: {
+        colors: "#8e8da4",
       },
     },
     yaxis: {
@@ -93,9 +78,7 @@ function chart1() {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-yaxis-title",
+          color: "#8e8da4",
         },
       },
     },
@@ -109,6 +92,10 @@ function chart1() {
       itemMargin: {
         horizontal: 0,
         vertical: 20,
+      },
+      labels: {
+        colors: "#8e8da4",
+        useSeriesColors: false,
       },
     },
     tooltip: {
@@ -189,7 +176,7 @@ function chart2() {
     ],
     chart: {
       type: "bar",
-      height: 350,
+      height: 370,
       dropShadow: {
         enabled: true,
         color: "#000",
@@ -222,8 +209,20 @@ function chart2() {
       categories: ["jan", "Feb", "Mar", "Apr", "May", "Jun"],
     },
     yaxis: {
-      title: {
-        text: "$ (thousands)",
+      labels: {
+        offsetX: 0,
+        offsetY: 0,
+        style: {
+          color: "#8e8da4",
+        },
+      },
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "right",
+      labels: {
+        colors: "#8e8da4",
+        useSeriesColors: false,
       },
     },
     fill: {
@@ -287,9 +286,7 @@ function smallchart1() {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-xaxis-title",
+          colors: "#8e8da4",
         },
       },
     },
@@ -301,9 +298,7 @@ function smallchart1() {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-yaxis-title",
+          color: "#8e8da4",
         },
       },
     },
@@ -487,9 +482,7 @@ function smallchart3() {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-          fontFamily: "Segoe UI",
-          cssClass: "apexcharts-yaxis-title",
+          color: "#8e8da4",
         },
       },
     },

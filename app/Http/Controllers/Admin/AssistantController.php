@@ -1,0 +1,250 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+
+class AssistantController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $assistant = User::where('role_id',2)->get();
+        return view('admin.pages.assistant.assistantadmin',['assistants'=>$assistant]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.pages.assistant.addassistantadmin');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $rules = [
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'email.unique' => 'The Email field is unique', 
+            'phone' => 'required',
+            'password' => 'required',
+            'designation' => 'required',
+            'logo' => 'nullable',
+        ];
+        $customMessage = [
+            'fname.required' => 'The First Name field is required', 
+            'lname.required' => 'The Last Name field is required', 
+            'email.required' => 'The Email field is required', 
+            'phone.required' => 'The Phone field is required', 
+            'password.required' => 'The Password field is required', 
+            'designation.required' => 'The Designation field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
+        if ($validate->fails()) {
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        $assistant = new User();
+        $assistant->role_id = 2; 
+        $assistant->fname = $request->fname; 
+        $assistant->lname = $request->lname;
+        $assistant->email = $request->email;
+        $assistant->phone = $request->phone;
+        $assistant->password = Hash::make($request->password);
+        $assistant->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('assistant/logo', $fileName,'public');
+            $assistant->logo = 'logo/'.$fileName;
+        }
+        try {
+            Mail::send('admin.email.assistantaddemail', 
+            [
+                'fname' => $request->fname,
+                'lname' => $request->lname,
+                'email' => $request->email,
+                'password' => $request->password
+            ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Add Assistant');
+            });
+            if($assistant->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency add';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently added a new agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
+                session()->flash('message', 'Successfully Assistant Added!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('assistant.index');
+            }else{
+                session()->flash('message', 'Assistant not added');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('assistant.index');
+            }
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
+            session()->flash('messageType', 'danger');
+            return redirect()->route('assistant.index');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $assistant = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','superadmin');
+        })->where('id',$id)->first();
+        return view('admin.pages.assistant.viewassistant',['assistant'=>$assistant]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $assistant = User::whereHas('roles',function ($q)
+        {
+            $q->where('name','superadmin');
+        })->where('id',$id)->first();
+        return view('admin.pages.assistant.editassistantadmin',['assistant'=>$assistant]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $rules = [
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'phone' => 'required',
+            // 'password' => 'required',
+            'designation' => 'required',
+            'logo' => 'nullable',
+        ];
+        $customMessage = [
+            'fname.required' => 'The First Name field is required', 
+            'lname.required' => 'The Last Name field is required', 
+            'email.required' => 'The Email field is required', 
+            'email.unique' => 'The Email field is unique', 
+            'phone.required' => 'The Phone field is required', 
+            // 'password.required' => 'The Password field is required', 
+            'designation.required' => 'The Designation field is required', 
+        ];
+        $validate = Validator::make($request->all(),$rules,$customMessage);
+        if ($validate->fails()) {
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        $assistant = User::where('id',$id)->first();
+        $assistant->role_id = 2; 
+        $assistant->fname = $request->fname; 
+        $assistant->lname = $request->lname;
+        $assistant->email = $request->email;
+        $assistant->phone = $request->phone;
+        // $assistant->password = $request->password;
+        $assistant->designation = $request->designation;
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
+            $file->storeAs('assistant/logo', $fileName,'public');
+            $assistant->logo = 'logo/'.$fileName;
+        }
+        try {
+            Mail::send('admin.email.assistantupdateemail', 
+                [
+                    'fname' => $request->fname,
+                    'lname' => $request->lname,
+                    'email' => $request->email,
+                ],
+                 function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Update Assistant');
+            });
+            if($assistant->save()){
+                $log = new ActivityLog();
+                $log->user_id = auth()->user()->id;
+                $log->title = 'Agency update';
+                $log->logs = auth()->user()->fname.' '.auth()->user()->lname.
+                ' recently updated a agency on the date of '.Carbon::now()->format('d-m-Y').
+                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->save();
+                session()->flash('message', 'Successfully Assistant Updated!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('assistant.index');
+            }else{
+                session()->flash('message', 'Assistant not Updated');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('assistant.index');
+            }
+        } catch (\Throwable $th) {
+            // return $th;
+            session()->flash('message', 'Mail not sent');
+            session()->flash('messageType', 'danger');
+            return redirect()->route('assistant.index');
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $assistant = User::where('id',$id)->first();
+        if(!empty($assistant)){
+            if($assistant->delete()){
+                session()->flash('message', 'Successfully Assistant Deleted!');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('assistant.index');
+            }
+        }else{
+            session()->flash('message', 'Assistant not Deleted!');
+            session()->flash('messageType', 'danger');
+            return redirect()->route('assistant.index');
+        }        
+    }
+}
