@@ -90,7 +90,7 @@
             <li><a href="single-property-2.html">Single Property 2</a></li>
             <li><a href="single-property-3.html">Single Property 3</a></li>
             <li><a href="single-property-4.html">Single Property 4</a></li>
-           </ul>
+        </ul>
           </li>
           <li><a href="compare-property.html">Compare Property</a></li>
          </ul> -->
