@@ -3,11 +3,11 @@
 <style>
     .bannaragent {
         background-color: #f4f4f4;
-        background-image: url("{{asset('assetsclient/img/slider-1.jpg')}}");
+        background-image: url("{{asset('assetsclient/img/close-up-financial-advisor.jpg')}}");
     }
 </style>
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title" data-overlay="5">
+<div class="page-title bannaragent" data-overlay="5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -604,7 +604,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-1.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Loss vengel New Apartment</a></h4>
@@ -623,7 +623,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-4.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Montreal Quriqe Apartment</a></h4>
@@ -642,7 +642,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-7.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Curmic Studio For Office</a></h4>
@@ -661,7 +661,7 @@
                             <!-- List Sibar Property -->
                             <div class="sides_list_property">
                                 <div class="sides_list_property_thumb">
-                                    <img src="assets/img/p-5.png" class="img-fluid" alt="" />
+                                    <img src="{{asset('assetsclient/img/property-img.jpg')}}" class="img-fluid" alt="" />
                                 </div>
                                 <div class="sides_list_property_detail">
                                     <h4><a href="single-property-1.html">Montreal Quebec City</a></h4>

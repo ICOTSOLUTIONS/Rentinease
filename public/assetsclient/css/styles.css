@@ -3956,7 +3956,7 @@ nav a:hover {
 .nav-menu > .active > a,
 .nav-menu > .focus > a,
 .nav-menu > li:hover > a {
-    color: #27ae60 !important;
+    color: #25D366 !important;
 }
 
 .nav-menu > li > a > [class*="ion-"],
