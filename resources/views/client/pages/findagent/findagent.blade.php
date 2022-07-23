@@ -112,7 +112,7 @@
                                 <div class="_exlio_125">For Rent</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-1.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-2.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-3.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
@@ -189,7 +189,7 @@
                                 <div class="_exlio_125">For Sale</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-4.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-5.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-6.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
@@ -266,7 +266,7 @@
                                 <div class="_exlio_125">For Rent</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-7.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-8.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-9.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
@@ -343,7 +343,7 @@
                                 <div class="_exlio_125">For Rent</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-10.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-11.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-12.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
@@ -420,7 +420,7 @@
                                 <div class="_exlio_125">For Sale</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-13.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-14.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-15.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
@@ -496,7 +496,7 @@
                                 <div class="_exlio_125">For Rent</div>
                                 <div class="list-img-slide">
                                     <div class="click">
-                                        <div><a href="single-property-1.html"><img src="assets/img/p-16.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-17.png" class="img-fluid mx-auto" alt="" /></a></div>
                                         <div><a href="single-property-1.html"><img src="assets/img/p-18.png" class="img-fluid mx-auto" alt="" /></a></div>
                                     </div>
