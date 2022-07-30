@@ -61,6 +61,8 @@
                                 data-feather="monitor"></i><span>Package
                                 Buy</span></a>
                     @endif
+                    <a href="{{ route('agencyposting.index') }}" class="nav-link"><i
+                        data-feather="monitor"></i><span>Posting</span></a>
                     <!-- <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="index-2.html">Dashboard 1</a></li>
                                 <li><a class="nav-link" href="index2.html">Dashboard 2</a></li>
