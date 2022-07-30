@@ -81,7 +81,7 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/success/{id?}', [\App\Http\Controllers\Agent\PaymentController::class, 'success'])->name('agent.payment.success');
     Route::get('/agents/cancel', [\App\Http\Controllers\Agent\PaymentController::class, 'cancel'])->name('agent.payment.cancel');
     Route::get('/agents/stripe-payment/{id}', [\App\Http\Controllers\Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
-    Route::resource('/posting', \App\Http\Controllers\Agent\PostingController::class);
+    Route::resource('/agentposting', \App\Http\Controllers\Agent\PostingController::class);
 });
 Route::middleware('customer')->group(function () {
     Route::get('/customer/dashboard', [\App\Http\Controllers\Customer\AuthController::class, 'dashboard'])->name('customer.dashboard');
@@ -91,9 +91,7 @@ Route::middleware('customer')->group(function () {
     Route::get('/customer/success/{id?}', [\App\Http\Controllers\Customer\PaymentController::class, 'success'])->name('customer.payment.success');
     Route::get('/customer/cancel', [\App\Http\Controllers\Customer\PaymentController::class, 'cancel'])->name('customer.payment.cancel');
     Route::get('/customer/stripe-payment/{id}', [\App\Http\Controllers\Customer\PaymentController::class, 'payment'])->name('customer.payment.stripe');
-    Route::resource('/posting', \App\Http\Controllers\Customer\PostingController::class,[
-        'as' => 'customer'
-    ]);
+    Route::resource('/customerposting', \App\Http\Controllers\Customer\PostingController::class);
 });
 Route::get('/customer-visitor', [\App\Http\Controllers\Customer\ClientController::class, 'clientCustomer'])->name('customer.portal');
 Route::post('/customer/register', [\App\Http\Controllers\Customer\AuthController::class, 'customerRegister'])->name('customer.register');
