@@ -15,22 +15,28 @@ class AuthController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
+            'number'=>'required',
+            'c_name'=>'required',
         ],[],[
             'name'=>'Name',
             'email'=>'Email',
+            'number'=>'Phone Number',
+            'c_name'=>'Company Name',
         ]);
         $email='icotsolutions@gmail.com';
         try {
             Mail::send(
-                'admin.email.agentRegisterMail',
+                'agency.email.agentRegister',
                 [
                     'name'=>$request->name,
                     'email'=>$request->email,
+                    'number'=>$request->number,
+                    'c_name'=>$request->c_name,
                 ],
                 function($message) use ($email){
                     $message->from(env('MAIL_USERNAME'));
                     $message->to($email);
-                    $message->subject('Contact');
+                    $message->subject('Agent Register');
                 }
             );
                 session()->flash('message', 'Email Sent');

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AgencyLogin
+class Customer
 {
     /**
      * Handle an incoming request.
@@ -17,17 +17,18 @@ class AgencyLogin
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if(auth()->user()->roles->name === 'agency'){
-                return redirect()->route('agency.dashboard');
-            }elseif(auth()->user()->roles->name === 'agent'){
-                return redirect()->route('agent.dashboard');
-            }elseif(auth()->user()->roles->name === 'customer'){
-                return redirect()->route('customer.dashboard');
-            }else{
+            if(auth()->user()->roles->name === 'customer'){
                 return $next($request);
+            }else{
+                auth()->logout();
+                session()->flash('message', 'First LoggedIn');
+                session()->flash('messageType', 'danger');
+                return redirect()->route('login');
             }
         }else{
-            return $next($request);
+            session()->flash('message', 'First LoggedIn');
+            session()->flash('messageType', 'danger');
+            return redirect()->route('login');
         }
     }
 }

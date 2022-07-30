@@ -71,10 +71,10 @@
                                     aria-label="Close"></button>
                             </div>
                         @endif
-                        <form action="{{ route('agency.register') }}" method="POST">
+                        <form action="{{ route('customer.register') }}" method="POST">
                             @csrf
                             <div class="property_block_wrap_header">
-                                <h3 class="property_block_title">Agency Form</h3>
+                                <h3 class="property_block_title">Visitomer Customer Form</h3>
                             </div>
                             <div class="block-body">
                                 <div class="row">

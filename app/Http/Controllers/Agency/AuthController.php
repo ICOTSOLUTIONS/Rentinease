@@ -30,6 +30,8 @@ class AuthController extends Controller
             return redirect()->route('agency.dashboard');
         }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>4])){
             return redirect()->route('agent.dashboard');
+        }elseif(auth()->attempt(['email' => $request->email, 'password' => $request->password] + ['role_id'=>5])){
+            return redirect()->route('customer.dashboard');
         }else{
             session()->flash('message', 'Invalid Credentials');
             session()->flash('messageType', 'danger');
@@ -115,5 +117,44 @@ class AuthController extends Controller
     {
         $agency = User::where('id',$id)->first();
         return view('agency.pages.profile',['allagency'=>$agency]);
+    }
+
+    public function agencyRegister(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'number'=>'required',
+            'c_name'=>'required',
+        ],[],[
+            'name'=>'Name',
+            'email'=>'Email',
+            'number'=>'Phone Number',
+            'c_name'=>'Company Name',
+        ]);
+        $email='icotsolutions@gmail.com';
+        try {
+            Mail::send(
+                'agency.email.agencyRegister',
+                [
+                    'name'=>$request->name,
+                    'email'=>$request->email,
+                    'number'=>$request->number,
+                    'c_name'=>$request->c_name,
+                ],
+                function($message) use ($email){
+                    $message->from(env('MAIL_USERNAME'));
+                    $message->to($email);
+                    $message->subject('Agency Register');
+                }
+            );
+                session()->flash('message', 'Email Sent');
+                session()->flash('messageType', 'success');
+                return redirect()->back();
+        } catch (\Throwable $th) {
+            session()->flash('message', 'Email not Sent');
+            session()->flash('messageType', 'success');
+            return redirect()->back();
+        }
     }
 }
