@@ -42,10 +42,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card design">
-                            <form action="{{ route('agency.agent.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('agentposting.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-header justify-content-center">
-                                    <h4 class="text-success">Enter Your Agent Details</h4>
+                                    <h4 class="text-success">Enter Your Posting Details</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -63,8 +63,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Owner Name
-                                                    <input type="text" name="owner_name"
-                                                        value="{{ old('owner_name') }}" class="form-control">
+                                                    <input type="text" name="owner_name" value="{{ old('owner_name') }}"
+                                                        class="form-control">
                                                 </label>
                                                 @error('owner_name')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -96,8 +96,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Licence no
-                                                    <input type="text" name="licence_no"
-                                                        value="{{ old('licence_no') }}" class="form-control">
+                                                    <input type="text" name="licence_no" value="{{ old('licence_no') }}"
+                                                        class="form-control">
                                                 </label>
                                                 @error('licence_no')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -130,8 +130,7 @@
                                             <div class="form-group">
                                                 <label>Establishment Date:
                                                     <input type="date" name="establishment_date"
-                                                        value="{{ old('establishment_date') }}"
-                                                        class="form-control date">
+                                                        value="{{ old('establishment_date') }}" class="form-control date">
                                                 </label>
                                                 @error('establishment_date')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -163,8 +162,6 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>City
-                                                    {{-- <input type="text" name="city" value="{{ old('city') }}"
-                                                        class="form-control"> --}}
                                                     <select name="city" class="form-control w-178">
                                                         <option value="">Select City</option>
                                                         <option value="Dubai"
@@ -172,10 +169,6 @@
                                                         <option value="Sharjah"
                                                             @if (old('city') == 'Sharjah') selected @endif>Sharjah
                                                         </option>
-                                                        {{-- <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
-                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
-                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option>
-                                                            <option value="Dubai" @if (old('city') == 'Dubai') selected @endif>Dubai</option> --}}
                                                     </select>
                                                 </label>
                                                 @error('city')
@@ -266,8 +259,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Building
-                                                    <input type="text" name="building"
-                                                        value="{{ old('building') }}" class="form-control">
+                                                    <input type="text" name="building" value="{{ old('building') }}"
+                                                        class="form-control">
                                                 </label>
                                                 @error('building')
                                                     <div class="text-danger">{{ $message }}</div>

@@ -7,9 +7,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header text-center justify-content-between">
-                                <h4>AGENT</h4>
-                                <a href="{{ route('agency.agent.create') }}"><button class="btn btn-success btn-hover">ADD
-                                        AGENT</button></a>
+                                <h4>Posting</h4>
+                                <a href="{{ route('agentposting.create') }}"><button class="btn btn-success btn-hover">ADD
+                                    Posting</button></a>
                             </div>
                             @if (Session::has('message'))
                                 <div class="alert alert-{{ Session::get('messageType') }}">
@@ -50,16 +50,16 @@
                                                     <td>
                                                         <div class="row">
                                                             <div class="col-md-4">
-                                                                <a href="{{ route('agency.agent.edit', ['agent' => $agent->id]) }}"
+                                                                <a href="{{ route('agencyposting.edit', ['agent' => $agent->id]) }}"
                                                                     class="btn btn-info text-white">Edit</a>
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <a href="{{ route('agency.agent.show', ['agent' => $agent->id]) }}"
+                                                                <a href="{{ route('agencyposting.show', ['agent' => $agent->id]) }}"
                                                                     class="btn btn-info text-white">View</a>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <form
-                                                                    action="{{ route('agency.agent.destroy', ['agent' => $agent->id]) }}"
+                                                                    action="{{ route('agencyposting.destroy', ['agent' => $agent->id]) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
