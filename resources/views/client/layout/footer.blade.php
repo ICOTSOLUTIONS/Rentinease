@@ -64,7 +64,7 @@
 												<li><a href="#">Listing</a></li>
 												<li><a href="#">Become a Member</a></li>
 												<li><a href="#">Login</a></li>
-												<li><a href="#">Register Agent<span class="update">Update</span></a></li>
+												<li><a href="{{url('/agentportal')}}">Register Agent<span class="update">Update</span></a></li>
 											</ul>
 										</div>
 									</div>

@@ -145,5 +145,9 @@ Route::view('/buy', 'client.pages.buy.buy');
 Route::view('/rent', 'client.pages.rent.rent');
 // findagent
 Route::view('/findagent', 'client.pages.findagent.findagent');
+// agentproperty
+Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
 // findagency
 Route::view('/findagency', 'client.pages.findagency.findagency');
+// agencyproperty
+Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
