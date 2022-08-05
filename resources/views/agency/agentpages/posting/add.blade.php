@@ -1,4 +1,4 @@
-@extends('agency.layouts.master')
+{{-- @extends('agency.layouts.master')
 
 @section('content')
     <style>
@@ -49,112 +49,169 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Company Name
-                                                    <input type="text" name="company_name"
-                                                        value="{{ old('company_name') }}" class="form-control">
-                                                </label>
-                                                @error('company_name')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Owner Name
-                                                    <input type="text" name="owner_name" value="{{ old('owner_name') }}"
-                                                        class="form-control">
-                                                </label>
-                                                @error('owner_name')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Agent Type
-                                                    <select name="agent_type" id="" class="form-control w-110">
-                                                        <option value="">Select Agent</option>
-                                                        <option value="brokerage"
-                                                            @if (old('company_type') == 'Brokerage') selected @endif>Brokerage
-                                                        </option>
-                                                        <option value="sales_marketing"
-                                                            @if (old('company_type') == 'Sales&Marketing') selected @endif>
-                                                            Sales&Marketing
-                                                        </option>
-                                                        <option value="professional_services"
-                                                            @if (old('company_type') == 'Professional Services') selected @endif>Professional
-                                                            Services</option>
+                                                <label>Purpose Type
+                                                    <select name="purpose_type" id="" class="form-control w-110">
+                                                        <option value="">Select Purpose</option>
+                                                        @forelse ($purposes as $purpose)
+                                                            <option value="{{ $purpose->id }}"
+                                                                @if (old('purpose_type') == '{{ $purpose->id }}') selected @endif>
+                                                                {{ $purpose->name }}
+                                                            </option>
+                                                        @empty
+                                                        @endforelse
                                                     </select>
                                                 </label>
-                                                @error('agent_type')
+                                                @error('purpose_type')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Licence no
-                                                    <input type="text" name="licence_no" value="{{ old('licence_no') }}"
+                                                <label>Property Type
+                                                    <select name="property_type" id="property" class="form-control w-110">
+                                                        <option value="">Select Property Type</option>
+                                                        @forelse ($place_types as $property)
+                                                            <option value="{{ $property->id }}"
+                                                                @if (old('property_type') == '{{ $property->id }}') selected @endif>
+                                                                {{ $property->name }}
+                                                            </option>
+                                                        @empty
+                                                        @endforelse
+                                                    </select>
+                                                </label>
+                                                @error('purpose_type')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 d-none" id="commercial">
+                                            <div class="form-group">
+                                                <label>Property type Commercial
+                                                    <select name="property_type_commercial" id=""
+                                                        class="form-control w-110">
+                                                        <option value="">Select Property type Commercial</option>
+                                                        @forelse ($place_types[0]->place as $placed_type)
+                                                            <option value="{{ $placed_type->id }}"
+                                                                @if (old('property_type_commercial') == '{{ $placed_type->id }}') selected @endif>
+                                                                {{ $placed_type->name }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No Property type Commercial</option>
+                                                        @endforelse
+                                                    </select>
+                                                </label>
+                                                @error('place_type')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-none" id="residential">
+                                            <div class="form-group">
+                                                <label>Property type Residential
+                                                    <select name="property_type_residential" class="form-control w-110">
+                                                        <option value="">Select Property type Residential</option>
+                                                        @forelse ($place_types[1]->place as $placed_type)
+                                                            <option value="{{ $placed_type->id }}"
+                                                                @if (old('property_type_residential') == '{{ $placed_type->id }}') selected @endif>
+                                                                {{ $placed_type->name }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No Property type Residential</option>
+                                                        @endforelse
+                                                    </select>
+                                                </label>
+                                                @error('place_type')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-none" id="layout">
+                                            <div class="form-group">
+                                                <label>Select Layout
+                                                    <input type="number" name="layout" value="{{ old('layout') }}"
                                                         class="form-control">
                                                 </label>
-                                                @error('licence_no')
+                                                @error('layout')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 d-none" id="bath">
                                             <div class="form-group">
-                                                <label>Permit no
-                                                    <input type="text" name="permit_no" value="{{ old('permit_no') }}"
+                                                <label>Bath
+                                                    <input type="number" name="bath" value="{{ old('bath') }}"
                                                         class="form-control">
                                                 </label>
-                                                @error('permit_no')
+                                                @error('bath')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Rera no
-                                                    <input type="text" name="rera_no" value="{{ old('rera_no') }}"
+                                                <label>Size(Square Feet/Square Meter)
+                                                    <input type="text" name="size" value="{{ old('size') }}"
                                                         class="form-control">
                                                 </label>
-                                                @error('rera_no')
+                                                @error('size')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Establishment Date:
-                                                    <input type="date" name="establishment_date"
-                                                        value="{{ old('establishment_date') }}" class="form-control date">
+                                                <label>Building Name/No
+                                                    <input type="text" name="building_name"
+                                                        value="{{ old('building_name') }}" class="form-control">
                                                 </label>
-                                                @error('establishment_date')
+                                                @error('building_name')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Licence Expire Date:
-                                                    <input type="date" name="licence_exp_date"
-                                                        value="{{ old('licence_exp_date') }}" class="form-control date">
+                                                <label>Building Age
+                                                    <input type="text" name="building_age"
+                                                        value="{{ old('building_age') }}" class="form-control">
                                                 </label>
-                                                @error('licence_exp_date')
+                                                @error('building_age')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Country
-                                                    <input type="text" name="country" value="UAE" class="form-control"
-                                                        readonly>
+                                                <label>Price:
+                                                    <input type="number" name="price" value="{{ old('price') }}"
+                                                        class="form-control date">
                                                 </label>
-                                                @error('country')
+                                                @error('price')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Price Per:
+                                                    <select name="price_per" id="" class="form-control">
+                                                        <option value="">No Price Per</option>
+                                                        <option value="day"
+                                                            @if (old('price_per') == 'day') selected @endif>Day</option>
+                                                        <option value="week"
+                                                            @if (old('price_per') == 'week') selected @endif>Week</option>
+                                                        <option value="month"
+                                                            @if (old('price_per') == 'month') selected @endif>Month</option>
+                                                        <option value="year"
+                                                            @if (old('price_per') == 'year') selected @endif>Year</option>
+                                                    </select>
+                                                </label>
+                                                @error('price_per')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -162,119 +219,44 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>City
-                                                    <select name="city" class="form-control w-178">
+                                                    <select name="city" class="form-control w-110">
                                                         <option value="">Select City</option>
-                                                        <option value="Dubai"
-                                                            @if (old('city') == 'Dubai') selected @endif>Dubai</option>
-                                                        <option value="Sharjah"
-                                                            @if (old('city') == 'Sharjah') selected @endif>Sharjah
-                                                        </option>
+                                                        @forelse ($cities as $city)
+                                                            <option value="{{ $city->id }}"
+                                                                @if (old('city') == '{{ $city->id }}') selected @endif>
+                                                                {{ $city->name }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No City</option>
+                                                        @endforelse
                                                     </select>
                                                 </label>
-                                                @error('city')
+                                                @error('purpose_type')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Email
-                                                    <input type="email" name="email" value="{{ old('email') }}"
-                                                        class="form-control">
+                                                <label>Area
+                                                    <select name="area" class="form-control w-110">
+                                                        <option value="">Select Area</option>
+                                                        @forelse ($cities as $city)
+                                                            <option value="{{ $city->id }}"
+                                                                @if (old('city') == '{{ $city->id }}') selected @endif>
+                                                                {{ $city->name }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No City</option>
+                                                        @endforelse
+                                                    </select>
                                                 </label>
-                                                @error('email')
+                                                @error('purpose_type')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label>Phone
-                                                <div class="input-group form-group">
-                                                    <span class="input-group-text" id="addon-wrapping">+971</span>
-                                                    <input type="hidden" name="p_code" value="+971">
-                                                    <input type="number" name="phone" value="{{ old('phone') }}"
-                                                        class="form-control">
-                                                </div>
-                                            </label>
-                                            @error('phone')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>Mobile
-                                                <div class="input-group form-group">
-                                                    <span class="input-group-text" id="addon-wrapping">+971</span>
-                                                    <input type="hidden" name="m_code" value="+971">
-                                                    <input type="number" name="mobile" value="{{ old('mobile') }}"
-                                                        class="form-control">
-                                                </div>
-                                            </label>
-                                            @error('mobile')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Website:(Optional)
-                                                    <input type="text" name="website" value="{{ old('website') }}"
-                                                        class="form-control">
-                                                </label>
-                                                @error('website')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Street
-                                                    <input type="text" name="street" value="{{ old('street') }}"
-                                                        class="form-control">
-                                                </label>
-                                                @error('street')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Office
-                                                    <input type="text" name="office" value="{{ old('office') }}"
-                                                        class="form-control">
-                                                </label>
-                                                @error('office')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Password
-                                                    <input type="password" name="password" class="form-control">
-                                                </label>
-                                                @error('password')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Building
-                                                    <input type="text" name="building" value="{{ old('building') }}"
-                                                        class="form-control">
-                                                </label>
-                                                @error('building')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group justify-content-center">
-                                                <label class="">Authorized
-                                                    <br>
-                                                    <input type="checkbox" value="authorized" name="authorized">
-                                                </label>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -358,3 +340,20 @@
         </section>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $("#property").on('change', function() {
+                var selectedText = $(this).find("option:selected").text().trim();
+                var selectedValue = $(this).val();
+                if (selectedText == 'Commercial' && selectedValue == 1) {
+                    $('#residential').addClass('d-none');
+                    $('#commercial').removeClass('d-none');
+                } else {
+                    $('#commercial').addClass('d-none');
+                    $('#residential').removeClass('d-none');
+                }
+            });
+        });
+    </script>
+@endpush --}}
