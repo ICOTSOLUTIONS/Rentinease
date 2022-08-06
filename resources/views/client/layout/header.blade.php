@@ -4,10 +4,10 @@
                <div class="nav-header">
                    <!-- <a class="nav-brand static-logo" href="#">
         <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="logo" alt="" /></a> -->
-        <!-- <a class="nav-brand fixed-logo" href="#">
+                   <!-- <a class="nav-brand fixed-logo" href="#">
             <img src="{{ asset('./assetsclient/img/logo.png') }}" class="logo" alt="" /></a> -->
-            <h4 class="text-primary nav-brand static-logo">LO<span class="text-success">GO</span></h4>
-            <h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success">GO</span></h4>
+                   <h4 class="text-primary nav-brand static-logo">LO<span class="text-success">GO</span></h4>
+                   <h4 class="text-primary nav-brand fixed-logo">LO<span class="text-success">GO</span></h4>
                    <div class="nav-toggle"></div>
                    <div class="mobile_nav">
                        <ul>
@@ -98,19 +98,25 @@
                        <li><a href="#">Index<span class="submenu-indicator"></span></a></li>
                        <li><a href="{{ '/findagent' }}">Find Agent<span class="submenu-indicator"></span></a>
                        </li>
-                       <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
-                       </li>
+                       <!-- <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
+                       </li> -->
 
                        <!-- <li><a href="{{ route('agency.portal') }}">Agency Portal<span class="submenu-indicator"></span></a>
                        </li> -->
                        <li><a href="{{ route('agent.portal') }}">Agent Portal<span class="submenu-indicator"></span></a>
                        </li>
                        <li><a href="#">Events<span class="submenu-indicator"></span></a>
-                           <ul class="nav-dropdown nav-submenu">
+                           <!-- <ul class="nav-dropdown nav-submenu">
                                <li><a href="#"> Blog</a></li>
                                <li><a href="#">New Projects</a></li>
                                <li><a href="#">Floor Plans</a></li>
-                           </ul>
+                           </ul> -->
+                       </li>
+                       <li><a href="{{ url('') }}">Blog<span class="submenu-indicator"></span></a>
+                       </li>
+                       <li><a href="{{ url('') }}">New Projects<span class="submenu-indicator"></span></a>
+                       </li>
+                       <li><a href="{{ url('') }}">Floor Plans<span class="submenu-indicator"></span></a>
                        </li>
                    </ul>
 

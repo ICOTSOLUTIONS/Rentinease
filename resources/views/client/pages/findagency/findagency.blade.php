@@ -39,7 +39,7 @@
                 <!-- Single Block Wrap -->
                 <div class="property_block_wrap">
 
-                    <div class="property_block_wrap_header" q>
+                    <div class="property_block_wrap_header" >
                         <h4 class="property_block_title">Agency Info</h4>
                     </div>
 
