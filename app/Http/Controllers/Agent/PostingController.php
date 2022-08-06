@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\City;
+use App\Models\PlaceType;
+use App\Models\PropertyTypePlace;
+use App\Models\Purpose;
 use Illuminate\Http\Request;
 
 class PostingController extends Controller
@@ -14,6 +19,7 @@ class PostingController extends Controller
      */
     public function index()
     {
+        
         return view('agency.agentpages.posting.index');
     }
 
@@ -24,7 +30,10 @@ class PostingController extends Controller
      */
     public function create()
     {
-        return view('agency.agentpages.posting.add');
+        $purpose = Purpose::all();
+        $place_type = PlaceType::with('place')->get();
+        $city = City::with('area')->get();
+        return view('agency.agentpages.posting.add',['purposes'=>$purpose,'place_types'=>$place_type,'cities'=>$city]);
     }
 
     /**
