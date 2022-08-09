@@ -81,6 +81,20 @@
 
                                         </div>
 
+<<<<<<< HEAD
+=======
+                    <!-- Single Property -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="property-listing property-2">
+
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Rent</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-2.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-3.png" class="img-fluid mx-auto" alt="" /></a></div>
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
                                     </div>
                                 </div>
 
@@ -481,9 +495,30 @@
                                                     </div>
                                                 </div>
 
+<<<<<<< HEAD
                                                 <div class="listing-detail-wrapper">
                                                     <div class="listing-short-detail-wrap">
                                                         <!-- <div class="_card_list_flex mb-2">
+=======
+                    <!-- Single Property -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="property-listing property-2">
+
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Sale</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-5.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-6.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-wrapper">
+                                <div class="listing-short-detail-wrap">
+                                    <div class="_card_list_flex mb-2">
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
                                         <div class="_card_flex_01">
                                             <span class="_list_blickes types">Super Agent</span>
                                             <span class="_list_blickes _netork">Company</span>
@@ -533,6 +568,350 @@
 
                                             </div>
                                         </div>
+                                        <!-- Single Property -->
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <div class="property-listing property-2">
+
+                                                <div class="listing-img-wrapper">
+                                                    <!-- <div class="_exlio_125">Featured</div> -->
+                                                    <div class="list-img-slide">
+                                                        <div class="click">
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+<<<<<<< HEAD
+                                                <div class="listing-detail-wrapper">
+                                                    <div class="listing-short-detail-wrap">
+                                                        <!-- <div class="_card_list_flex mb-2">
+=======
+                    <!-- Single Property -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="property-listing property-2">
+
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Rent</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-8.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-9.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-wrapper">
+                                <div class="listing-short-detail-wrap">
+                                    <div class="_card_list_flex mb-2">
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
+                                        <div class="_card_flex_01">
+                                            <span class="_list_blickes types">Super Agent</span>
+                                            <span class="_list_blickes _netork">Company</span>
+                                        </div>
+                                        <div class="_card_flex_last">
+                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
+                                        </div>
+                                    </div> -->
+                                                        <div class="_card_list_flex">
+                                                            <div class="_card_flex_01">
+                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
+                                                                <p class="text-center">5 AGENTS</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="price-features-wrapper">
+                                <div class="list-fx-features">
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
+                                    </div>
+                                </div>
+                            </div> -->
+
+                                                <div class="listing-detail-footer">
+                                                    <div class="footer-first text-center">
+                                                        <div class="foot-location d-flex justify-content-start ">
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For sale </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For rent </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For commercial </h6>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- End Single Property -->
+
+                                        <!-- Single Property -->
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <div class="property-listing property-2">
+
+                                                <div class="listing-img-wrapper">
+                                                    <!-- <div class="_exlio_125">Featured</div> -->
+                                                    <div class="list-img-slide">
+                                                        <div class="click">
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+<<<<<<< HEAD
+                                                <div class="listing-detail-wrapper">
+                                                    <div class="listing-short-detail-wrap">
+                                                        <!-- <div class="_card_list_flex mb-2">
+=======
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Rent</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-11.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-12.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-wrapper">
+                                <div class="listing-short-detail-wrap">
+                                    <div class="_card_list_flex mb-2">
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
+                                        <div class="_card_flex_01">
+                                            <span class="_list_blickes types">Super Agent</span>
+                                            <span class="_list_blickes _netork">Company</span>
+                                        </div>
+                                        <div class="_card_flex_last">
+                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
+                                        </div>
+                                    </div> -->
+                                                        <div class="_card_list_flex">
+                                                            <div class="_card_flex_01">
+                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
+                                                                <p class="text-center">5 AGENTS</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="price-features-wrapper">
+                                <div class="list-fx-features">
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
+                                    </div>
+                                </div>
+                            </div> -->
+
+                                                <div class="listing-detail-footer">
+                                                    <div class="footer-first text-center">
+                                                        <div class="foot-location d-flex justify-content-start ">
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For sale </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For rent </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For commercial </h6>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- End Single Property -->
+                                        <!-- Single Property -->
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <div class="property-listing property-2">
+
+                                                <div class="listing-img-wrapper">
+                                                    <!-- <div class="_exlio_125">Featured</div> -->
+                                                    <div class="list-img-slide">
+                                                        <div class="click">
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+<<<<<<< HEAD
+                                                <div class="listing-detail-wrapper">
+                                                    <div class="listing-short-detail-wrap">
+                                                        <!-- <div class="_card_list_flex mb-2">
+=======
+                    <!-- Single Property -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="property-listing property-2">
+
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Sale</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-14.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-15.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-wrapper">
+                                <div class="listing-short-detail-wrap">
+                                    <div class="_card_list_flex mb-2">
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
+                                        <div class="_card_flex_01">
+                                            <span class="_list_blickes types">Super Agent</span>
+                                            <span class="_list_blickes _netork">Company</span>
+                                        </div>
+                                        <div class="_card_flex_last">
+                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
+                                        </div>
+                                    </div> -->
+                                                        <div class="_card_list_flex">
+                                                            <div class="_card_flex_01">
+                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
+                                                                <p class="text-center">5 AGENTS</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="price-features-wrapper">
+                                <div class="list-fx-features">
+                                    <div class="listing-card-info-icon">
+<<<<<<< HEAD
+                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
+=======
+                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>5 Beds
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>3 Bath
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>920 sqft
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-footer">
+                                <div class="footer-first">
+                                    <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />California, USA</div>
+                                </div>
+                                <div class="footer-flex">
+                                    <ul class="selio_style">
+                                        <li>
+                                            <div class="prt_saveed_12lk">
+                                                <label class="toggler toggler-danger" data-toggle="tooltip" data-placement="top" data-original-title="Save property"><input type="checkbox"><i class="ti-heart"></i></label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="prt_saveed_12lk">
+                                                <a href="compare-property.html" data-toggle="tooltip" data-placement="top" data-original-title="Compare property"><i class="ti-control-shuffle"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="prt_saveed_12lk">
+                                                <a href="single-property-1.html" data-toggle="tooltip" data-placement="top" data-original-title="View Property"><i class="ti-arrow-right"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Single Property -->
+                    <!-- Single Property -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="property-listing property-2">
+
+                            <div class="listing-img-wrapper">
+                                <div class="_exlio_125">For Rent</div>
+                                <div class="list-img-slide">
+                                    <div class="click">
+                                        <div><a href="single-property-1.html"><img src="{{asset('assetsclient/img/house-isolated-field-min.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-17.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                        <div><a href="single-property-1.html"><img src="assets/img/p-18.png" class="img-fluid mx-auto" alt="" /></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listing-detail-wrapper">
+                                <div class="listing-short-detail-wrap">
+                                    <div class="_card_list_flex mb-2">
+                                        <div class="_card_flex_01">
+                                            <span class="_list_blickes _netork">7 Network</span>
+                                            <span class="_list_blickes types">Condos</span>
+                                        </div>
+                                        <div class="_card_flex_last">
+                                            <h6 class="listing-card-info-price mb-0">$1,200</h6>
+                                        </div>
+                                    </div>
+                                    <div class="_card_list_flex">
+                                        <div class="_card_flex_01">
+                                            <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">7012 Shine Sehu Street, Liverpool London, LC345AC</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="price-features-wrapper">
+                                <div class="list-fx-features">
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>3 Beds
+>>>>>>> 78dc85a3cfdec3f0a9328522b9367c94c5c1e012
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
+                                    </div>
+                                    <div class="listing-card-info-icon">
+                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
+                                    </div>
+                                </div>
+                            </div> -->
+
+                                                <div class="listing-detail-footer">
+                                                    <div class="footer-first text-center">
+                                                        <div class="foot-location d-flex justify-content-start ">
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For sale </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For rent </h6>
+                                                            </label>
+                                                            <label class="text-success m-1 w-100 fw-bolder">04
+                                                                <h6 class="text-dark">For commercial </h6>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- End Single Property -->
                                         <!-- Single Property -->
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="property-listing property-2">
@@ -601,7 +980,6 @@
                                             </div>
                                         </div>
                                         <!-- End Single Property -->
-
                                         <!-- Single Property -->
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="property-listing property-2">
@@ -679,211 +1057,7 @@
                                                     <div class="list-img-slide">
                                                         <div class="click">
                                                             <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="listing-detail-wrapper">
-                                                    <div class="listing-short-detail-wrap">
-                                                        <!-- <div class="_card_list_flex mb-2">
-                                        <div class="_card_flex_01">
-                                            <span class="_list_blickes types">Super Agent</span>
-                                            <span class="_list_blickes _netork">Company</span>
-                                        </div>
-                                        <div class="_card_flex_last">
-                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
-                                        </div>
-                                    </div> -->
-                                                        <div class="_card_list_flex">
-                                                            <div class="_card_flex_01">
-                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
-                                                                <p class="text-center">5 AGENTS</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- <div class="price-features-wrapper">
-                                <div class="list-fx-features">
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
-                                    </div>
-                                </div>
-                            </div> -->
-
-                                                <div class="listing-detail-footer">
-                                                    <div class="footer-first text-center">
-                                                        <div class="foot-location d-flex justify-content-start ">
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For sale </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For rent </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For commercial </h6>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!-- End Single Property -->
-                                        <!-- Single Property -->
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
-                                            <div class="property-listing property-2">
-
-                                                <div class="listing-img-wrapper">
-                                                    <!-- <div class="_exlio_125">Featured</div> -->
-                                                    <div class="list-img-slide">
-                                                        <div class="click">
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="listing-detail-wrapper">
-                                                    <div class="listing-short-detail-wrap">
-                                                        <!-- <div class="_card_list_flex mb-2">
-                                        <div class="_card_flex_01">
-                                            <span class="_list_blickes types">Super Agent</span>
-                                            <span class="_list_blickes _netork">Company</span>
-                                        </div>
-                                        <div class="_card_flex_last">
-                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
-                                        </div>
-                                    </div> -->
-                                                        <div class="_card_list_flex">
-                                                            <div class="_card_flex_01">
-                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
-                                                                <p class="text-center">5 AGENTS</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- <div class="price-features-wrapper">
-                                <div class="list-fx-features">
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
-                                    </div>
-                                </div>
-                            </div> -->
-
-                                                <div class="listing-detail-footer">
-                                                    <div class="footer-first text-center">
-                                                        <div class="foot-location d-flex justify-content-start ">
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For sale </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For rent </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For commercial </h6>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!-- End Single Property -->
-                                        <!-- Single Property -->
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
-                                            <div class="property-listing property-2">
-
-                                                <div class="listing-img-wrapper">
-                                                    <!-- <div class="_exlio_125">Featured</div> -->
-                                                    <div class="list-img-slide">
-                                                        <div class="click">
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="listing-detail-wrapper">
-                                                    <div class="listing-short-detail-wrap">
-                                                        <!-- <div class="_card_list_flex mb-2">
-                                        <div class="_card_flex_01">
-                                            <span class="_list_blickes types">Super Agent</span>
-                                            <span class="_list_blickes _netork">Company</span>
-                                        </div>
-                                        <div class="_card_flex_last">
-                                            <h6 class="listing-card-info-price mb-0">$12,000</h6>
-                                        </div>
-                                    </div> -->
-                                                        <div class="_card_list_flex">
-                                                            <div class="_card_flex_01">
-                                                                <h4 class="listing-name verified text-center"><a href="" class="prt-link-detail">ADNAN</a></h4>
-                                                                <p class="text-center">5 AGENTS</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- <div class="price-features-wrapper">
-                                <div class="list-fx-features">
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bed.svg" width="13" alt="" /></div>Nationality
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/bathtub.svg" width="13" alt="" /></div>2 Bath
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="assets/img/move.svg" width="13" alt="" /></div>820 sqft
-                                    </div>
-                                </div>
-                            </div> -->
-
-                                                <div class="listing-detail-footer">
-                                                    <div class="footer-first text-center">
-                                                        <div class="foot-location d-flex justify-content-start ">
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For sale </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For rent </h6>
-                                                            </label>
-                                                            <label class="text-success m-1 w-100 fw-bolder">04
-                                                                <h6 class="text-dark">For commercial </h6>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!-- End Single Property -->
-                                        <!-- Single Property -->
-                                        <div class="col-lg-3 col-md-6 col-sm-12">
-                                            <div class="property-listing property-2">
-
-                                                <div class="listing-img-wrapper">
-                                                    <!-- <div class="_exlio_125">Featured</div> -->
-                                                    <div class="list-img-slide">
-                                                        <div class="click">
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
-                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                                            <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-aut,o" alt="" /></a></div>
                                                             <div><a href="{{url('/agencyproperty')}}"><img src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                                         </div>
                                                     </div>

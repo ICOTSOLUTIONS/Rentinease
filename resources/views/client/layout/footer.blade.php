@@ -78,8 +78,8 @@
 				<div class="footer-bottom">
 					<div class="container">
 						<div class="row align-items-center">
-							<div class="col-lg-12 col-md-12 text-center">
-								<p class="mb-0">© 2022 Rentinease. Designd By <a href="https://icotsolutions.com/" target="_blank"> ICOTSOLUTIONS</a>.</p>
+							<div class="col-lg-12 col-md-12 text-center fw-light">
+								<p class="mb-0 fw-light">© 2022 Rentinease. Designd By <a href="https://icotsolutions.com/" target="_blank"> ICOTSOLUTIONS</a>.</p>
 							</div>
 						</div>
 					</div>
