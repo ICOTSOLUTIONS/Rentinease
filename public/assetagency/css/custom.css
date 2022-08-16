@@ -2,3 +2,293 @@
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
 
 /*# sourceMappingURL=custom.css.map */
+
+
+/* listing field css */
+
+
+.wrapper{
+    display: inline-flex;
+    background: #fff;
+    height: 83px;
+    width: 82%;
+    align-items: center !important;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+    /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
+  }
+  .wrapper .option{
+    background: #fff;
+    height: 98%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-items: center !important;
+    margin: 0 10px;
+    border-radius: 23px;
+    cursor: pointer;
+    padding: 0 48px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  .wrapper .option .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    align-items: center !important;
+    border-radius: 50%;
+    position: relative;
+  }
+  .wrapper .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #1BBE87;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #option-1:checked:checked ~ .option-1,
+  #option-2:checked:checked ~ .option-2{
+    border-color: #1BBE87;
+    background: #1BBE87;
+  }
+  #option-1:checked:checked ~ .option-1 .dot,
+  #option-2:checked:checked ~ .option-2 .dot{
+    background: #fff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot::before,
+  #option-2:checked:checked ~ .option-2 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .wrapper .option span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #option-1:checked:checked ~ .option-1 span,
+  #option-2:checked:checked ~ .option-2 span{
+    color: #fff;
+  }
+
+
+
+
+  /* commercial residential */
+
+
+
+
+
+
+
+
+
+
+  .wrapper{
+    display: inline-flex;
+    background: #fff;
+    height: 83px;
+    width: 82%;
+    align-items: center !important;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+    /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
+  }
+  .wrapper .optionnew{
+    background: #fff;
+    height: 98%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-items: center !important;
+    margin: 0 10px;
+    border-radius: 23px;
+    cursor: pointer;
+    padding: 0 40px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  .wrapper .optionnew .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    align-items: center !important;
+    border-radius: 50%;
+    position: relative;
+  }
+  .wrapper .optionnew .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #1BBE87;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #option-3:checked:checked ~ .option-3,
+  #option-4:checked:checked ~ .option-4{
+    border-color: #1BBE87;
+    background: #1BBE87;
+  }
+  #option-3:checked:checked ~ .option-3 .dot,
+  #option-4:checked:checked ~ .option-4 .dot{
+    background: #fff;
+  }
+  #option-3:checked:checked ~ .option-3 .dot::before,
+  #option-4:checked:checked ~ .option-4 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .wrapper .optionnew span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #option-3:checked:checked ~ .option-3 span,
+  #option-4:checked:checked ~ .option-4 span{
+    color: #fff;
+  }
+
+
+
+
+
+  /*  */
+
+
+
+  select{
+    width: 100%;
+    padding: 0px 15px;
+    height: 28px;
+    border: 2px solid grey;
+  }
+  select:focus{
+    transition: 0.5s;
+    /* border: 2px solid rgb(221, 221, 221); */
+    border: 2px solid #1BBE87;
+    outline: none;
+  }
+  .custom_label{
+    width: 100% !important;
+    margin-top: 8px !important;
+  }
+  .custom_label input{
+    border-radius: 0px;
+  }
+  .custom_label input:focus{
+    border-color: #1BBE87;
+  }
+  .select_input_col{
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .newinput{
+    width: 100%;
+    border-radius: 0px !important;
+    border: 2px solid grey;
+    padding: 0px 5px;
+  }
+  .newinput:focus{
+    outline: none;
+    border-color: #1BBE87;
+  }
+  
+
+
+.file_label{
+    padding: 9px 18px;
+    border: 2px solid #1BBE87; 
+    display: table;
+    color: #1BBE87;
+    font-weight: 600;
+  }
+.file_label:hover{
+    border: 2px solid #1a9169; 
+    color: #1a9169;
+    transition: 0.3s;
+  }
+
+.file_label:hover{
+    cursor: pointer;
+  }
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  /* media query */
+
+
+  @media screen and (max-width: 768px) {
+    .wrapper{
+        width: 100%;
+      }
+    .wrapper .optionnew{
+        width: 100%;
+        padding: 0px;
+      }
+    .wrapper .option{
+        width: 100%;
+        padding: 0px;
+      }
+  }
+  @media screen and (max-width: 425px) {
+    .wrapper .option span{
+        font-size: 15px;
+      }
+    .wrapper .optionnew span{
+        font-size: 15px;
+      }
+      .wrapper .optionnew{
+        width: 100%;
+        padding: 0px;
+      }
+    .wrapper .option{
+        width: 100%;
+        padding: 0px;
+      }
+  }
