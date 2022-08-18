@@ -34,6 +34,21 @@
              background-color: #c9c9c9;
              color: #040404;
          }
+
+         .text_area {
+             border: 2px solid grey !important;
+             outline: none !important;
+         }
+
+         .text_area:focus {
+             border: 2px solid #1BBE87 !important;
+             outline: none !important;
+         }
+
+         .save_btn {
+             padding: 5px 15px;
+             font-size: 15px;
+         }
      </style>
 
 
@@ -549,7 +564,7 @@
                                                  </fieldset>
 
                                              </div>
-                                    
+
 
                                          </div>
 
@@ -557,208 +572,251 @@
 
                                          <div class="row">
 
-                                            <div class="col-md-12 mt-4">
-                                                <fieldset>
-                                                    <legend>Facilities</legend>
+                                             <div class="col-md-12 mt-4">
+                                                 <fieldset>
+                                                     <legend>Facilities</legend>
 
-                                                    <div class="row">
+                                                     <div class="row">
 
-                                                        <div class="col-md-2">
-                                                            <label>Central A/C
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Maids Room
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Balcony
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Poo
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Spa
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="container">Shared
-                                                                <input type="checkbox">
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                    <div class="row">
-
-                                                        <div class="col-md-2">
-                                                            <label>Central A/C
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Maids Room
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Balcony
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Poo
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Spa
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="container">Shared
-                                                                <input type="checkbox">
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
+                                                         <div class="col-md-2">
+                                                             <label>Central A/C
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Maids Room
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Balcony
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Poo
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Spa
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label class="container">Shared
+                                                                 <input type="checkbox">
+                                                                 <span class="checkmark"></span>
+                                                             </label>
+                                                         </div>
 
 
 
-                                                    </div>
-                                                    <div class="row">
+                                                     </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>Central A/C
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Maids Room
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Balcony
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Poo
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Spa
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="container">Shared
-                                                                <input type="checkbox">
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
+                                                     <div class="row">
 
-
-
-                                                    </div>
-
-
-                                                    <div class="row">
-
-                                                        <div class="col-md-2">
-                                                            <label>Central A/C
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Maids Room
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Balcony
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Poo
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Spa
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="container">Shared
-                                                                <input type="checkbox">
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
+                                                         <div class="col-md-2">
+                                                             <label>Central A/C
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Maids Room
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Balcony
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Poo
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Spa
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label class="container">Shared
+                                                                 <input type="checkbox">
+                                                                 <span class="checkmark"></span>
+                                                             </label>
+                                                         </div>
 
 
 
-                                                    </div>
-                                                    <div class="row">
+                                                     </div>
+                                                     <div class="row">
 
-                                                        <div class="col-md-2">
-                                                            <label>Central A/C
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Maids Room
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Balcony
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Poo
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Shared Spa
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label class="container">Shared
-                                                                <input type="checkbox">
-                                                                <span class="checkmark"></span>
-                                                            </label>
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                </fieldset>
-
-                                            </div>
-                                   
-
-                                        </div>
+                                                         <div class="col-md-2">
+                                                             <label>Central A/C
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Maids Room
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Balcony
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Poo
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Spa
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label class="container">Shared
+                                                                 <input type="checkbox">
+                                                                 <span class="checkmark"></span>
+                                                             </label>
+                                                         </div>
 
 
 
+                                                     </div>
+
+
+                                                     <div class="row">
+
+                                                         <div class="col-md-2">
+                                                             <label>Central A/C
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Maids Room
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Balcony
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Poo
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Spa
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label class="container">Shared
+                                                                 <input type="checkbox">
+                                                                 <span class="checkmark"></span>
+                                                             </label>
+                                                         </div>
+
+
+
+                                                     </div>
+                                                     <div class="row">
+
+                                                         <div class="col-md-2">
+                                                             <label>Central A/C
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Maids Room
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Balcony
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Poo
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label>Shared Spa
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-2">
+                                                             <label class="container">Shared
+                                                                 <input type="checkbox">
+                                                                 <span class="checkmark"></span>
+                                                             </label>
+                                                         </div>
+
+
+
+                                                     </div>
+
+                                                 </fieldset>
+
+                                             </div>
+
+
+                                         </div>
+
+
+                                         {{-- title description --}}
+
+
+                                         <div class="row mt-3">
+                                             <div class="col-md-6">
+                                                 <label>Title</label> <br>
+                                                 <input class="newinput" placeholder="Enter Title" type="number">
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <label>Discription</label> <br>
+                                                 <textarea class="text_area w-100" name=""></textarea>
+                                             </div>
+                                         </div>
+
+
+
+                                         {{-- listing fields --}}
+
+
+
+                                         <div class="row mt-3">
+                                             <div class="col-md-6">
+                                                 <label>City</label>
+                                                 <select>
+                                                     <option>Standard</option>
+                                                     <option>Featured</option>
+                                                     <option>Hot</option>
+                                                     <option>Offer</option>
+                                                 </select>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <label>Cost</label> <br>
+                                                 <input class="newinput" placeholder="Coins" type="number">
+                                             </div>
+                                         </div>
+
+
+                                         <div class="row mt-4">
+                                             <div class="col-md-12">
+                                                 <button class="btn btn-success save_btn">
+                                                     Save
+                                                 </button>
+                                             </div>
+                                         </div>
 
 
 
@@ -1055,6 +1113,7 @@
                                             </div>
                                         </div> --}}
                                      </div>
+
                                  </div>
                          </div>
                          </form>
