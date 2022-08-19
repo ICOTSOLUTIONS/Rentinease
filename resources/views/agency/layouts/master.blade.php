@@ -59,6 +59,7 @@
     <script src="{{ asset('assetagency/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
     <script src="{{ asset('assetagency/js/custom.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
