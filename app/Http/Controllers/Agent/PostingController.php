@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
-use App\Models\Area;
-use App\Models\City;
 use App\Models\CoinDeduction;
 use App\Models\PlaceType;
 use App\Models\Posting;
-use App\Models\PropertyTypePlace;
-use App\Models\Purpose;
-use App\Models\User;
 use App\Models\UserCoins;
 use App\Models\UserPackageCoins;
 use Illuminate\Http\Request;
@@ -24,7 +19,7 @@ class PostingController extends Controller
      */
     public function index()
     {
-        
+
         return view('agency.agentpages.posting.index');
     }
 
@@ -35,10 +30,9 @@ class PostingController extends Controller
      */
     public function create()
     {
-        $purpose = Purpose::all();
         $place_type = PlaceType::with('place')->get();
-        $city = City::with('area')->get();
-        return view('agency.agentpages.posting.add',['purposes'=>$purpose,'place_types'=>$place_type,'cities'=>$city]);
+        $coins_deduct = CoinDeduction::with('packages')->get();
+        return view('agency.agentpages.posting.add', ['place_types' => $place_type, 'coins_deduct' => $coins_deduct]);
     }
 
     /**
@@ -49,11 +43,9 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-
-        ]);
-        $remain_coins = UserPackageCoins::where('user_id',auth()->user()->id)->first();
-        if($remain_coins->remain_coins >= 0){
+        $request->validate([]);
+        $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
+        if ($remain_coins->remain_coins >= 0) {
             $posting = new Posting();
             $posting->purpose_id = $request->purpose_id;
             $posting->property_type_place_id = $request->property_type_place_id;
@@ -65,9 +57,9 @@ class PostingController extends Controller
             $posting->building_age = $request->building_age;
             $posting->price = $request->price;
             $posting->price_per = $request->price_per;
-            if(isset($package_coins)){
-                $coins_deduct = CoinDeduction::where('id',$package_coins)->first();
-                if($coins_deduct->coins_deduct > $remain_coins->remain_coins){
+            if (isset($package_coins)) {
+                $coins_deduct = CoinDeduction::where('id', $package_coins)->first();
+                if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) {
                     session()->flash('message', 'Please Buy Package First. Your Coins 0!');
                     session()->flash('messageType', 'danger');
                     return redirect()->back();
@@ -80,7 +72,7 @@ class PostingController extends Controller
                 $user_coins->save();
             }
             $posting->save();
-        }else{
+        } else {
             session()->flash('message', 'Please Buy Package First. Your Coins 0!');
             session()->flash('messageType', 'danger');
             return redirect()->back();
@@ -130,5 +122,11 @@ class PostingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function coins_deduct(Request $request)
+    {
+        if(!empty($request->id)) $coins_deduct = CoinDeduction::where('id',$request->id)->first();
+        return response()->json(['message'=>'success','data'=>$coins_deduct->coins_deduct]);
     }
 }

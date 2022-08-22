@@ -71,9 +71,9 @@
                                 </div>
                                 <div class="agency_gridio_txt">
                                     <h4>
-                                        <a href="#">ADNAN</a>
+                                        <a href="">California Real Estate</a>
                                     </h4>
-                                    <span class="agt_gridio_ocat">DUBAI.UAE</span>
+                                    <span class="agt_gridio_ocat">Liverpool. London</span>
                                     <a href="#" data-toggle="modal" data-target="#autho-message" class="vew_agency_btn">Send Message</a>
                                 </div>
                             </div>
@@ -968,39 +968,5 @@
     </div>
 </section>
 <!-- ============================ Call To Action End ================================== -->
-<!-- Send Message -->
-<div class="modal fade" id="autho-message" tabindex="-1" role="dialog" aria-labelledby="authomessage" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
-        <div class="modal-content" id="authomessage">
-            <span class="mod-close" data-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
-            <div class="modal-body">
-                <h4 class="modal-header-title">Drop Message</h4>
-                <div class="login-form">
-                    <form>
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <div class="input-with-icons">
-                                <input type="text" class="form-control" placeholder="Message Title" />
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Messages</label>
-                            <div class="input-with-icons">
-                                <textarea class="form-control ht-80"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-md full-width pop-login">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
 @endsection

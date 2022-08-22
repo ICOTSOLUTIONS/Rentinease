@@ -79,18 +79,18 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label class="float-left text-dark">Name</label>
-                                        <input type="text" name="name" class="form-control simple" value="{{ old('name') }}">
-                                        @error('name')
+                                        <label class="float-left text-dark">Email</label>
+                                        <input type="email" name="email" class="form-control simple" value="{{ old('email') }}">
+                                        @error('email')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label class="float-left text-dark">Email</label>
-                                        <input type="email" name="email" class="form-control simple" value="{{ old('email') }}">
-                                        @error('email')
+                                        <label class="float-left text-dark">Phone Number</label>
+                                        <input type="number" name="number" class="form-control simple" value="{{ old('number') }}">
+                                        @error('number')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -99,9 +99,9 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label class="float-left text-dark">Phone Number</label>
-                                        <input type="number" name="number" class="form-control simple" value="{{ old('number') }}">
-                                        @error('number')
+                                        <label class="float-left text-dark">Name</label>
+                                        <input type="text" name="name" class="form-control simple" value="{{ old('name') }}">
+                                        @error('name')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -123,7 +123,7 @@
                                 <!-- <div class="dropdown-menu"> -->
                                 <!-- Dropdown menu links -->
                                 <select name="" id="" class="form-control" aria-label="Default select example">
-                                    <option value="" class="text-center" selected>Please Select</option>
+                                    <option value="" class="text-center" selected>--- Select ---</option>
                                     <option value="" class="text-center">AGENT</option>
                                     <option value="" class="text-center">AGENCY</option>
                                 </select>

@@ -82,6 +82,7 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/cancel', [\App\Http\Controllers\Agent\PaymentController::class, 'cancel'])->name('agent.payment.cancel');
     Route::get('/agents/stripe-payment/{id}', [\App\Http\Controllers\Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
     Route::resource('/agentposting', \App\Http\Controllers\Agent\PostingController::class);
+    Route::get('/coins_deduct', [\App\Http\Controllers\Agent\PostingController::class,'coins_deduct'])->name('agent.coins.deduct');
 });
 Route::middleware('customer')->group(function () {
     Route::get('/customer/dashboard', [\App\Http\Controllers\Customer\AuthController::class, 'dashboard'])->name('customer.dashboard');
