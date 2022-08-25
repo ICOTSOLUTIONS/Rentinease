@@ -288,7 +288,7 @@
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Poo
+                                                             <label>Shared Pool
                                                                  <input type="checkbox" name="shared_poo"
                                                                      value="Shared Poo">
                                                              </label>
@@ -367,12 +367,12 @@
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Spa
+                                                             <label>Private Poo
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label class="container">Shared
+                                                             <label class="container">Private Gym
                                                                  <input type="checkbox">
                                                                  <span class="checkmark"></span>
                                                              </label>
@@ -380,32 +380,32 @@
                                                      </div>
                                                      <div class="row">
                                                          <div class="col-md-2">
-                                                             <label>Central A/C
+                                                             <label>Private Jacuzzi
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Maids Room
+                                                             <label>Built in
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Balcony
+                                                             <label>Wardrobes
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Poo
+                                                             <label>Walk-in Close
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Spa
+                                                             <label>Built in Kitchen Appliances
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label class="container">Shared
+                                                             <label class="container">Maid Service
                                                                  <input type="checkbox">
                                                                  <span class="checkmark"></span>
                                                              </label>
@@ -413,37 +413,54 @@
                                                      </div>
                                                      <div class="row">
                                                          <div class="col-md-2">
-                                                             <label>Central A/C
+                                                             <label>Children's
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Maids Room
+                                                             <label>Play Area
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Balcony
+                                                             <label>Children's Pool
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Poo
+                                                             <label>Barbecue Area
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label>Shared Spa
+                                                             <label>Basement Parking
                                                                  <input type="checkbox">
                                                              </label>
                                                          </div>
                                                          <div class="col-md-2">
-                                                             <label class="container">Shared
+                                                             <label class="container">Covered Parking
                                                                  <input type="checkbox">
                                                                  <span class="checkmark"></span>
                                                              </label>
                                                          </div>
                                                      </div>
+                                                     <div class="row">
+                                                        <div class="col-md-4">
+                                                            <label>Garage parking
+                                                                <input type="checkbox">
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>Community Parking
+                                                                <input type="checkbox">
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>Street Parking
+                                                                <input type="checkbox">
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                  </fieldset>
                                              </div>
                                          </div>
