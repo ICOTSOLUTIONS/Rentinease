@@ -28,9 +28,9 @@ class CreatePostingsTable extends Migration
             $table->string('building_age')->nullable();
             $table->string('price')->nullable();
             $table->string('price_per')->nullable();
-            $table->mediumText('images')->nullable();
-            $table->mediumText('videos')->nullable();
-            $table->string('floor_plan_layout')->nullable();
+            // $table->mediumText('images')->nullable();
+            // $table->mediumText('videos')->nullable();
+            // $table->string('floor_plan_layout')->nullable();
             $table->string('furnishing')->nullable();
             $table->string('amenities')->nullable();
             $table->string('facilities')->nullable();
