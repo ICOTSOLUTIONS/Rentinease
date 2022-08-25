@@ -229,13 +229,13 @@
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Photos
-                                                 <input type="file" size="60" name="photos">
+                                                 <input type="file" size="60" name="photos[]" multiple>
                                              </label>
                                          </div>
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Video
-                                                 <input type="file" size="60" name="video">
+                                                 <input type="file" size="60" name="video[]" multiple>
                                              </label>
                                          </div>
                                      </div>
@@ -244,13 +244,13 @@
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; 360
-                                                 <input type="file" size="60" name="360">
+                                                 <input type="file" size="60" name="three_sixty[]" multiple>
                                              </label>
                                          </div>
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Floor Plan/Layout
-                                                 <input type="file" size="60" name="floor_plan_layout">
+                                                 <input type="file" size="60" name="floor_plan_layout[]" multiple>
                                              </label>
                                          </div>
                                      </div>

@@ -50,7 +50,29 @@ class PostingController extends Controller
     public function store(Request $request)
     {
         dd($request->all());
-        $request->validate([]);
+        $request->validate([
+            'purpose_id' => 'required', 
+            'property_type_place_id' => 'required',
+            'city' => 'required',
+            'area' => 'required',
+            'layout' => 'required',
+            'bath' => 'required',
+            'size' => 'required',
+            'building_name' => 'required',
+            'building_age' => 'required',
+            'price' => 'required',
+            'price_per' => 'required',
+            'listning_type' => 'required',
+            'photos.*' => 'required',
+            'video.*' => 'required',
+            'three_sixty.*' => 'required',
+            'floor_plan_layout.*' => 'required',
+        ],[],[
+            'photos.*' => 'Photos',
+            'video.*' => 'Video',
+            'three_sixty.*' => '360',
+            'floor_plan_layout.*' => 'Floor Plan/Layout',
+        ]);
         try {
             DB::beginTransaction();
             $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
@@ -58,7 +80,8 @@ class PostingController extends Controller
                 $posting = new Posting();
                 $posting->purpose_id = $request->purpose_id;
                 $posting->property_type_place_id = $request->property_type_place_id;
-                $posting->area_id = $request->area_id;
+                $posting->area = $request->area;
+                $posting->city = $request->city;
                 $posting->layout = $request->layout;
                 $posting->bath = $request->bath;
                 $posting->size = $request->size;
@@ -66,13 +89,9 @@ class PostingController extends Controller
                 $posting->building_age = $request->building_age;
                 $posting->price = $request->price;
                 $posting->price_per = $request->price_per;
-                if (isset($package_coins)) {
-                    $coins_deduct = CoinDeduction::where('id', $package_coins)->first();
-                    if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) {
-                        session()->flash('message', 'Please Buy Package First. Your Coins 0!');
-                        session()->flash('messageType', 'danger');
-                        return redirect()->back();
-                    }
+                if (isset($request->listning_type)) {
+                    $coins_deduct = CoinDeduction::where('id', $request->listning_type)->first();
+                    if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) throw new Error("Please Buy Package First. Your Coins 0!");
                     $remain_coins->remain_Coins = $remain_coins->remain_Coins - $coins_deduct->coins_deduct;
                     $remain_coins->save();
                     $user_coins = new UserCoins();
@@ -81,40 +100,40 @@ class PostingController extends Controller
                     $user_coins->save();
                 }
                 if (!$posting->save()) throw new Error("Posting not Added!");
-                if(!empty($request->photos)){
+                if (!empty($request->photos)) {
                     foreach ($request->photos as $key => $image) {
                         $images = new PostingPhoto();
-                        $images->posting_id = $posting->id; 
+                        $images->posting_id = $posting->id;
                         $filename = "Photo-" . time() . "-" . rand() . "." . $image->getClientOriginalExtension();
                         $image->storeAs('photo', $filename, "public");
                         $images->image = "photo/" . $filename;
                         $images->save();
                     }
                 }
-                if(!empty($request->video)){
+                if (!empty($request->video)) {
                     foreach ($request->video as $key => $video) {
                         $videos = new PostingVideo();
-                        $videos->posting_id = $posting->id; 
+                        $videos->posting_id = $posting->id;
                         $filename = "Video-" . time() . "-" . rand() . "." . $video->getClientOriginalExtension();
                         $video->storeAs('video', $filename, "public");
                         $videos->video = "video/" . $filename;
                         $videos->save();
                     }
                 }
-                if(!empty($request->three_sixty)){
+                if (!empty($request->three_sixty)) {
                     foreach ($request->three_sixty as $key => $three_sixties) {
                         $three_sixties = new PostingThreeSixty();
-                        $three_sixties->posting_id = $posting->id; 
+                        $three_sixties->posting_id = $posting->id;
                         $filename = "ThreeSixty-" . time() . "-" . rand() . "." . $three_sixties->getClientOriginalExtension();
                         $three_sixties->storeAs('threesixty', $filename, "public");
                         $three_sixties->three_sixty = "threesixty/" . $filename;
                         $three_sixties->save();
                     }
                 }
-                if(!empty($request->floor_plan_layout)){
+                if (!empty($request->floor_plan_layout)) {
                     foreach ($request->floor_plan_layout as $key => $floor_plan_layout) {
                         $floor_plan_layouts = new PostingFloorPlan();
-                        $floor_plan_layouts->posting_id = $posting->id; 
+                        $floor_plan_layouts->posting_id = $posting->id;
                         $filename = "FloorPlan-" . time() . "-" . rand() . "." . $floor_plan_layout->getClientOriginalExtension();
                         $floor_plan_layout->storeAs('floorplan', $filename, "public");
                         $floor_plan_layouts->floor_plan_layout = "floorplan/" . $filename;
@@ -122,10 +141,13 @@ class PostingController extends Controller
                     }
                 }
                 DB::commit();
+                session()->flash('message', 'Please Buy Package First. Your Coins 0!');
+                session()->flash('messageType', 'success');
+                return redirect()->route('agentposting.index');
             } else throw new Error("Please Buy Package First. Your Coins 0!");
         } catch (\Throwable $th) {
             DB::rollBack();
-            session()->flash('message', 'Please Buy Package First. Your Coins 0!');
+            session()->flash('message', 'Posting not added');
             session()->flash('messageType', 'danger');
             return redirect()->back();
         }
