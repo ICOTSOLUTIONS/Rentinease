@@ -43,6 +43,7 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([]);
         $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
         if ($remain_coins->remain_coins >= 0) {

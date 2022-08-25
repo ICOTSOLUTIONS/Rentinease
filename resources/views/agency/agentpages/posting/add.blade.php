@@ -110,9 +110,9 @@
                                          <div class="col-md-12 mt-2" id="p_commercial">
                                              <label for="">Property type Commercial</label>
                                              <select name="p_commercial">
-                                                 <option>Select Option</option>
+                                                 <option value="">Select Option</option>
                                                  @foreach ($place_types[0]->place as $place_type)
-                                                     <option>{{ $place_type->name }}</option>
+                                                     <option value="{{ $place_type->id }}">{{ $place_type->name }}</option>
                                                  @endforeach
                                              </select>
                                          </div>
@@ -120,9 +120,9 @@
                                          <div class="col-md-12 mt-2 d-none" id="p_residential">
                                              <label for="">Property type Residential</label>
                                              <select name="p_residential">
-                                                 <option>Select Option</option>
+                                                 <option value="">Select Option</option>
                                                  @foreach ($place_types[1]->place as $place_type)
-                                                     <option>{{ $place_type->name }}</option>
+                                                     <option value="{{ $place_type->id }}">{{ $place_type->name }}</option>
                                                  @endforeach
                                              </select>
                                          </div>
@@ -132,7 +132,7 @@
                                          <div class="col-md-6 mt-2 d-none" id="layout">
                                              <label for="">Select Layout</label>
                                              <select name="layout" id="s_layout">
-                                                 <option>Select Option</option>
+                                                 <option value="">Select Option</option>
                                                  <option value="Studio">Studio</option>
                                                  @for ($i = 1; $i <= 10; $i++)
                                                      <option value="{{ $i }}">{{ $i }}</option>
@@ -147,7 +147,7 @@
                                          <div class="col-md-6 mt-2 d-none" id="bath">
                                              <label for="">Select Bath</label>
                                              <select name="bath" id="s_bath">
-                                                 <option>Select Option</option>
+                                                 <option value="">Select Option</option>
                                                  @for ($i = 1; $i <= 10; $i++)
                                                      <option value="{{ $i }}">{{ $i }}</option>
                                                  @endfor
@@ -167,8 +167,8 @@
                                                  </div>
                                                  <div class="col-md-6 select_input_col">
                                                      <select name="size_square">
-                                                         <option>Square Feet</option>
-                                                         <option>Square metre</option>
+                                                         <option value="Square Feet">Square Feet</option>
+                                                         <option value="Square metre">Square metre</option>
                                                      </select>
                                                  </div>
                                              </div>
@@ -219,7 +219,7 @@
                                          <div class="col-md-6 mt-2">
                                              <label>Area</label>
                                              <select name="area" id="s_area">
-                                                 <option>Abu Hail</option>
+                                                 <option >Abu Hail</option>
                                                  <option>Al Awir First</option>
                                                  <option>Al Awir Second</option>
                                              </select>
