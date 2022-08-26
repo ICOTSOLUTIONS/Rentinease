@@ -1,7 +1,13 @@
 @extends('client.layout.master')
 @section('content')
+<style>
+    .bannarblog {
+        background-color: #f4f4f4;
+        background-image: url("{{asset('assetsclient/img/close-up-financial-advisor.jpg')}}");
+    }
+</style>
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title" style="background:#f4f4f4 url(assets/img/slider-2.jpg);" data-overlay="5">
+<div class="page-title bannarblog"  data-overlay="5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
