@@ -96,7 +96,7 @@
          </ul> -->
                        </li>
                        <li><a href="#">Index<span class="submenu-indicator"></span></a></li>
-                       <li><a href="{{ '/findagent' }}">Find Agent<span class="submenu-indicator"></span></a>
+                       <li><a href="{{url( '/findagent') }}">Find Agent<span class="submenu-indicator"></span></a>
                        </li>
                        <!-- <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
                        </li> -->
@@ -112,7 +112,7 @@
                                <li><a href="#">Floor Plans</a></li>
                            </ul> -->
                        </li>
-                       <li><a href="{{ url('') }}">Blog<span class="submenu-indicator"></span></a>
+                       <li><a href="{{ url('/blog') }}">Blog<span class="submenu-indicator"></span></a>
                        </li>
                        <li><a href="{{ url('') }}">New Projects<span class="submenu-indicator"></span></a>
                        </li>

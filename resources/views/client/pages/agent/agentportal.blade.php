@@ -79,26 +79,6 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label class="float-left text-dark">Email</label>
-                                        <input type="email" name="email" class="form-control simple" value="{{ old('email') }}">
-                                        @error('email')
-                                        <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
-                                        <label class="float-left text-dark">Phone Number</label>
-                                        <input type="number" name="number" class="form-control simple" value="{{ old('number') }}">
-                                        @error('number')
-                                        <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
                                         <label class="float-left text-dark">Name</label>
                                         <input type="text" name="name" class="form-control simple" value="{{ old('name') }}">
                                         @error('name')
@@ -115,6 +95,26 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label class="float-left text-dark">Email</label>
+                                        <input type="email" name="email" class="form-control simple" value="{{ old('email') }}">
+                                        @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label class="float-left text-dark">Phone Number</label>
+                                        <input type="number" name="number" class="form-control simple" value="{{ old('number') }}">
+                                        @error('number')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <!-- Default dropright button -->
                                 <!-- <div class="btn-group dropright">
                                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,6 +126,13 @@
                                     <option value="" class="text-center" selected>--- Select ---</option>
                                     <option value="" class="text-center">AGENT</option>
                                     <option value="" class="text-center">AGENCY</option>
+                                    <option value="" class="text-center">REAL STATE</option>
+                                    <option value="" class="text-center">DEVELOPER</option>
+                                    <option value="" class="text-center">SALES & MARKETING</option>
+                                    <option value="" class="text-center">LENDING</option>
+                                    <option value="" class="text-center">PROPERTY - MANAGMENT</option>
+                                    <option value="" class="text-center">OWNER</option>
+                                    <option value="" class="text-center">PROFESSTIONAL SERVICES</option>
                                 </select>
                                 <!-- <button class="dropdown-item" type="button">Select</button>
                                         <button class="dropdown-item" type="button">Another action</button>
