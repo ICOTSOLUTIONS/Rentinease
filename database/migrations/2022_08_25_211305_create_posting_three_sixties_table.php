@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCitiesTable extends Migration
+class CreatePostingThreeSixtiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('posting_three_sixties', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('posting_id')->nullable();
             $table->string('name')->nullable();
+            $table->mediumText('three_sixty')->nullable();
+            $table->foreign('posting_id')->references('id')->on('postings')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('posting_three_sixties');
     }
 }

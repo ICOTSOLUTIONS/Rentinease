@@ -17,18 +17,20 @@ class CreatePostingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('purpose_id')->nullable();
             $table->unsignedBigInteger('property_type_place_id')->nullable();
-            // $table->unsignedBigInteger('city_id')->nullable();
-            $table->unsignedBigInteger('area_id')->nullable();
             $table->string('layout')->nullable();
+            $table->string('area')->nullable();
+            $table->string('city')->nullable();
             $table->string('bath')->nullable();
             $table->string('size')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->string('building_name')->nullable();
             $table->string('building_age')->nullable();
             $table->string('price')->nullable();
             $table->string('price_per')->nullable();
-            $table->mediumText('images')->nullable();
-            $table->mediumText('videos')->nullable();
-            $table->string('floor_plan_layout')->nullable();
+            // $table->mediumText('images')->nullable();
+            // $table->mediumText('videos')->nullable();
+            // $table->string('floor_plan_layout')->nullable();
             $table->string('furnishing')->nullable();
             $table->string('amenities')->nullable();
             $table->string('facilities')->nullable();
@@ -37,8 +39,6 @@ class CreatePostingsTable extends Migration
             $table->string('listing_type')->nullable();
             $table->foreign('purpose_id')->references('id')->on('purposes')->onDelete('CASCADE');
             $table->foreign('property_type_place_id')->references('id')->on('property_type_places')->onDelete('CASCADE');
-            // $table->foreign('city_id')->references('cities')->on('id')->onDelete('CASCADE');
-            $table->foreign('area_id')->references('id')->on('areas')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
