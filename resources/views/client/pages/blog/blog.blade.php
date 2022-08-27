@@ -14,7 +14,7 @@
 
                 <div class="breadcrumbs-wrap">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Blog Detal</li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
                     </ol>
                     <h2 class="breadcrumb-title">How To Increase Wordpress Speed</h2>
                 </div>
@@ -356,3 +356,22 @@
 <!-- ============================ Call To Action End ================================== -->
 
 @endsection
+@push('script')
+    <script type="text/javascript">
+        (function() {
+            window.addEventListener('load', function() {
+                var characterCount = 500
+                var blogParagraph = document.querySelectorAll('.blog')
+                var trail = "..."
+                // Shorten a string to less than maxLen characters without truncating words.
+                function shorten(str, maxLen, separator = ' ') {
+                    if (str.length <= maxLen) return str;
+                    return str.substr(0, str.lastIndexOf(separator, maxLen));
+                }
+                blogParagraph.forEach(item => {
+                    item.textContent = shorten(item.textContent, characterCount) + trail;
+                })
+            })
+        })()
+    </script>
+@endpush

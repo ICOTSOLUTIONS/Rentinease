@@ -112,7 +112,7 @@
                                <li><a href="#">Floor Plans</a></li>
                            </ul> -->
                        </li>
-                       <li><a href="{{ url('/blog') }}">Blog<span class="submenu-indicator"></span></a>
+                       <li><a href="{{ route('web.blog') }}">Blog<span class="submenu-indicator"></span></a>
                        </li>
                        <li><a href="{{ url('') }}">New Projects<span class="submenu-indicator"></span></a>
                        </li>

@@ -39,11 +39,23 @@
                                                 <td>{{ $blog->title }}</td>
                                                 <td>{{ $blog->heading }}</td>
                                                 <td>
-                                                    <a href="{{ asset('/storage/blog/'.$blog->image) }}" target="_blank">
+                                                    @if (!empty($blog->image))
+                                                        <img width="100" height="100"
+                                                            src="{{ asset('/storage/blog/'.$blog->image) }}"
+                                                            class="img-fluid wp-post-image lazyloaded" alt=""
+                                                            loading="lazy" />
+                                                    @else
+                                                        <img width="100" height="100"
+                                                            src="https://www.comparethestorage.com/blog/wp-content/uploads/2019/06/writing-man-person-hair-white-thinking-1169800-pxhere.com_-1120x747.jpg"
+                                                            class="img-fluid wp-post-image lazyloaded" alt=""
+                                                            loading="lazy" />
+                                                    @endif
+
+                                                    {{-- <a href="{{ asset('/storage/blog/'.$blog->image) }}" target="_blank">
                                                         <i class="fa fa-eye" aria-hidden="true">View</i>
-                                                    </a>
-                                                    </td>
-                                                <td>{!! $blog->text !!}</td>
+                                                    </a> --}}
+                                                </td>
+                                                <td class="blog">{!! $blog->text !!}</td>
                                                 @if (auth()->user()->roles->name != 'subadmin')
                                                     <td>
                                                         <div class="row">
@@ -80,10 +92,22 @@
         </div>
     </section>
 @endsection
-<!-- @section('script')
-    <script>
-        $(document).ready(function() {
-            $('#dbtable').DataTable();
-        });
+@push('scripts')
+    <script type="text/javascript">
+        (function() {
+            window.addEventListener('load', function() {
+                var characterCount = 500
+                var blogParagraph = document.querySelectorAll('.blog')
+                var trail = "..."
+                // Shorten a string to less than maxLen characters without truncating words.
+                function shorten(str, maxLen, separator = ' ') {
+                    if (str.length <= maxLen) return str;
+                    return str.substr(0, str.lastIndexOf(separator, maxLen));
+                }
+                blogParagraph.forEach(item => {
+                    item.textContent = shorten(item.textContent, characterCount) + trail;
+                })
+            })
+        })()
     </script>
-@endsection -->
+@endpush

@@ -1,49 +1,49 @@
  @extends('agency.layouts.master')
 
  @section('content')
- <style>
-     .input-group-text,
-     select.form-control:not([size]):not([multiple]),
-     .form-control:not(.form-control-sm):not(.form-control-lg) {
-         font-size: 14px;
-         background-color: white;
-         padding: 0 15px;
-         height: 28px;
-     }
+     <style>
+         .input-group-text,
+         select.form-control:not([size]):not([multiple]),
+         .form-control:not(.form-control-sm):not(.form-control-lg) {
+             font-size: 14px;
+             background-color: white;
+             padding: 0 15px;
+             height: 28px;
+         }
 
-     .w-110 {
-         width: 105% !important;
+         .w-110 {
+             width: 105% !important;
 
-     }
+         }
 
-     .w-178 {
-         width: 170% !important;
+         .w-178 {
+             width: 170% !important;
 
-     }
+         }
 
-     .date {
-         width: 125%;
+         .date {
+             width: 125%;
 
-     }
+         }
 
-     .input-group input {
-         width: 140px !important;
-     }
+         .input-group input {
+             width: 140px !important;
+         }
 
-     .dark .input-group-text {
-         background-color: #c9c9c9;
-         color: #040404;
-     }
+         .dark .input-group-text {
+             background-color: #c9c9c9;
+             color: #040404;
+         }
 
-     .text_area {
-         border: 2px solid grey !important;
-         outline: none !important;
-     }
+         .text_area {
+             border: 2px solid grey !important;
+             outline: none !important;
+         }
 
-     .text_area:focus {
-         border: 2px solid #1BBE87 !important;
-         outline: none !important;
-     }
+         .text_area:focus {
+             border: 2px solid #1BBE87 !important;
+             outline: none !important;
+         }
 
          .save_btn {
              padding: 5px 15px;
@@ -219,7 +219,7 @@
                                          <div class="col-md-6 mt-2">
                                              <label>Area</label>
                                              <select name="area" id="s_area">
-                                                 <option >Abu Hail</option>
+                                                 <option>Abu Hail</option>
                                                  <option>Al Awir First</option>
                                                  <option>Al Awir Second</option>
                                              </select>
@@ -250,7 +250,8 @@
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Floor Plan/Layout
-                                                 <input type="file" size="60" name="floor_plan_layout[]" multiple>
+                                                 <input type="file" size="60" name="floor_plan_layout[]"
+                                                     multiple>
                                              </label>
                                          </div>
                                      </div>
@@ -445,22 +446,22 @@
                                                          </div>
                                                      </div>
                                                      <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label>Garage parking
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Community Parking
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Street Parking
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                         <div class="col-md-4">
+                                                             <label>Garage parking
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-4">
+                                                             <label>Community Parking
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                         <div class="col-md-4">
+                                                             <label>Street Parking
+                                                                 <input type="checkbox">
+                                                             </label>
+                                                         </div>
+                                                     </div>
                                                  </fieldset>
                                              </div>
                                          </div>
@@ -654,14 +655,15 @@
                                                  <select name="listning_type" id="s_listning_type">
                                                      <option value="">Select Listing Type</option>
                                                      @foreach ($coins_deduct as $deduct)
-                                                         <option value="{{ $deduct->id }}">{{ $deduct->packages->name }}
+                                                         <option value="{{ $deduct->id }}">
+                                                             {{ $deduct->packages->name }}
                                                          </option>
                                                      @endforeach
                                                  </select>
                                              </div>
-                                             <div class="col-md-6" >
-                                                <label>Cost</label> <br>
-                                                <input class="newinput" id="l_cost" type="text" readonly>
+                                             <div class="col-md-6">
+                                                 <label>Cost</label> <br>
+                                                 <input class="newinput" id="l_cost" type="text" readonly>
                                              </div>
                                          </div>
                                          <div class="row mt-4">
@@ -724,7 +726,7 @@
              });
              $("#s_listning_type").on('change', function() {
                  var selectedId = $(this).find("option:selected").val();
-                if(selectedId == '') $('#l_cost').val('');
+                 if (selectedId == '') $('#l_cost').val('');
                  $.ajax({
                      type: "GET",
                      url: "{{ route('agent.coins.deduct') }}",
@@ -741,29 +743,43 @@
              });
          });
      </script>
-     {{-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-      <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-      <script>
+     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+     <script>
          var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
-          mapboxgl.accessToken =
-              'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
-         fetch_loca('place.7148467886841210') 
-          function fetch_loca(city) {
-             return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${accessToken}`)
-                 .then(response => response.json())
-                 .then(data => {
-                     var latitude = data.features[0].geometry.coordinates[0];
-                     var longtitude = data.features[0].geometry.coordinates[1];
-                     console.log(latitude);
-                     console.log(longtitude);
- 
-                     console.log(data);
-                     
-                 })
-         }
-         var map = new mapboxgl.Map({
-              container: 'map',
-              style: 'mapbox://styles/mapbox/streets-v11'
-          });
-      </script> --}}
+         mapboxgl.accessToken =
+             'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+         var FourSquareApiKey = 'fsq3xvdsfE9OmcUC2/5qjOd5mRDVbqpgtEz8CXnDV+k8xEk=';
+        //  fetch_loca('place.7148467886841210')
+         //   function fetch_loca(city) {
+         //      return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${accessToken}`)
+         //          .then(response => response.json())
+         //          .then(data => {
+         //              var latitude = data.features[0].geometry.coordinates[0];
+         //              var longtitude = data.features[0].geometry.coordinates[1];
+         //              console.log(latitude);
+         //              console.log(longtitude);
+
+         //              console.log(data);
+
+         //          })
+         //  }
+         const options = {
+             method: 'GET',
+             headers: {
+                 Accept: 'application/json',
+                 Authorization: FourSquareApiKey,
+             }
+         };
+
+         fetch('https://api.foursquare.com/v3/places/search?query=dubai', options)
+             .then(response => response.json())
+             .then(response => console.log(response))
+             .catch(err => console.error(err));
+
+         //  var map = new mapboxgl.Map({
+         //       container: 'map',
+         //       style: 'mapbox://styles/mapbox/streets-v11'
+         //   });
+     </script>
  @endpush

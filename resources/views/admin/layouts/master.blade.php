@@ -110,6 +110,7 @@
     <!-- Custom JS File -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('script')
+    @stack('scripts')
 </body>
 
 </html>
