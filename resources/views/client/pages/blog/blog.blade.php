@@ -7,7 +7,7 @@
     }
 </style>
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title bannarblog"  data-overlay="5">
+<div class="page-title bannarblog" data-overlay="5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -25,311 +25,203 @@
 </div>
 <!-- ============================ Page Title End ================================== -->
 
+
 <!-- ============================ Agency List Start ================================== -->
 <section class="gray">
 
     <div class="container">
 
+        <div class="row">
+            <div class="col text-center">
+                <div class="sec-heading center">
+                    <h2>Latest News</h2>
+                    <p>We post regulary most powerful articles for help and support.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- row Start -->
         <div class="row">
 
-            <!-- Blog Detail -->
-            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
-                <div class="article_detail_wrapss single_article_wrap format-standard">
-                    <div class="article_body_wrap">
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
 
-                        <div class="article_featured_image">
-                            <img class="img-fluid" src="assets/img/b-6.jpg" alt="">
-                        </div>
-
-                        <div class="article_top_info">
-                            <ul class="article_middle_info">
-                                <li><a href="#"><span class="icons"><i class="ti-user"></i></span>by Rosalina Doe</a></li>
-                                <li><a href="#"><span class="icons"><i class="ti-comment-alt"></i></span>45 Comments</a></li>
-                            </ul>
-                        </div>
-                        <h2 class="post-title">Lorem ipsum dolor sit amet, cons pisicing elit, sed do.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem. <br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                        <blockquote>
-                            <span class="icon"><i class="fas fa-quote-left"></i></span>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tem
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ullamco laboris nisi ut aliquip ex ea commodo onsequat.</p>
-                            <h5 class="name">- Rosalina Pong</h5>
-                        </blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                            magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-                            dolorem. <br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis
-                            iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                            sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>12</span>Sep 2021</div>
                     </div>
-                </div>
 
-                <!-- Author Detail -->
-                <div class="article_detail_wrapss single_article_wrap format-standard">
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">Creative Designs</a><span class="latest_new_post">New</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. <a href="{{url('/blogmore')}}"><b> READ MORE</b></a>
+                            <!-- <span class="text-dark mt-1 mr-2 readmore"></span> -->
+                        </p>
+                    </div>
 
-                    <div class="article_posts_thumb">
-                        <span class="img"><img class="img-fluid" src="assets/img/user-1.jpg" alt=""></span>
-                        <h3 class="pa-name">Rosalina William</h3>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                        <p class="pa-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Shaurya Preet</a></h5>
+                        </div>
+                        <!-- <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>202</span> -->
                     </div>
 
                 </div>
-
-                <!-- Blog Comment -->
-                <div class="article_detail_wrapss single_article_wrap format-standard">
-
-                    <div class="comment-area">
-                        <div class="all-comments">
-                            <h3 class="comments-title">05 Comments</h3>
-                            <div class="comment-list">
-                                <ul>
-                                    <li class="article_comments_wrap">
-                                        <article>
-                                            <div class="article_comments_thumb">
-                                                <img src="assets/img/user-1.jpg" alt="">
-                                            </div>
-                                            <div class="comment-details">
-                                                <div class="comment-meta">
-                                                    <div class="comment-left-meta">
-                                                        <h4 class="author-name">Rosalina Kelian <span class="selected"><i class="fas fa-bookmark"></i></span></h4>
-                                                        <div class="comment-date">19th May 2018</div>
-                                                    </div>
-                                                    <div class="comment-reply">
-                                                        <a href="#" class="reply"><span class="icona"><i class="ti-back-left"></i></span> Reply</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim laborumab.
-                                                        perspiciatis unde omnis iste natus error.</p>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <ul class="children">
-                                            <li class="article_comments_wrap">
-                                                <article>
-                                                    <div class="article_comments_thumb">
-                                                        <img src="assets/img/user-2.jpg" alt="">
-                                                    </div>
-                                                    <div class="comment-details">
-                                                        <div class="comment-meta">
-                                                            <div class="comment-left-meta">
-                                                                <h4 class="author-name">Rosalina Kelian</h4>
-                                                                <div class="comment-date">19th May 2018</div>
-                                                            </div>
-                                                            <div class="comment-reply">
-                                                                <a href="#" class="reply"><span class="icons"><i class="ti-back-left"></i></span> Reply</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comment-text">
-                                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim laborumab.
-                                                                perspiciatis unde omnis iste natus error.</p>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                <ul class="children">
-                                                    <li class="article_comments_wrap">
-                                                        <article>
-                                                            <div class="article_comments_thumb">
-                                                                <img src="assets/img/user-4.jpg" alt="">
-                                                            </div>
-                                                            <div class="comment-details">
-                                                                <div class="comment-meta">
-                                                                    <div class="comment-left-meta">
-                                                                        <h4 class="author-name">Rosalina Kelian</h4>
-                                                                        <div class="comment-date">19th May 2018</div>
-                                                                    </div>
-                                                                    <div class="comment-reply">
-                                                                        <a href="#" class="reply"><span class="icons"><i class="ti-back-left"></i></span> Reply</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="comment-text">
-                                                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim laborumab.
-                                                                        perspiciatis unde omnis iste natus error.</p>
-                                                                </div>
-                                                            </div>
-                                                        </article>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="article_comments_wrap">
-                                        <article>
-                                            <div class="article_comments_thumb">
-                                                <img src="assets/img/user-5.jpg" alt="">
-                                            </div>
-                                            <div class="comment-details">
-                                                <div class="comment-meta">
-                                                    <div class="comment-left-meta">
-                                                        <h4 class="author-name">Rosalina Kelian</h4>
-                                                        <div class="comment-date">19th May 2018</div>
-                                                    </div>
-                                                    <div class="comment-reply">
-                                                        <a href="#" class="reply"><span class="icons"><i class="ti-back-left"></i></span> Reply</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim laborumab.
-                                                        perspiciatis unde omnis iste natus error.</p>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="comment-box submit-form">
-                            <h3 class="reply-title">Post Comment</h3>
-                            <div class="comment-form">
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <textarea name="comment" class="form-control" cols="30" rows="6" placeholder="Type your comments...."></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <a href="#" class="btn search-btn">Submit Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
             </div>
 
             <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
 
-                <!-- Searchbard -->
-                <div class="single_widgets widget_search">
-                    <h4 class="title">Search</h4>
-                    <form action="#" class="sidebar-search-form">
-                        <input type="search" name="search" placeholder="Search..">
-                        <button type="submit"><i class="ti-search"></i></button>
-                    </form>
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>15</span>Aug 2021</div>
+                    </div>
+
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">UX/UI Developer</a><span class="latest_new_post hot">Hot</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
+                    </div>
+
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Nirgam Singh</a></h5>
+                        </div>
+                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>407</span>
+                    </div>
+
                 </div>
+            </div>
 
-                <!-- Categories -->
-                <div class="single_widgets widget_category">
-                    <h4 class="title">Categories</h4>
-                    <ul>
-                        <li><a href="#">Lifestyle <span>09</span></a></li>
-                        <li><a href="#">Travel <span>12</span></a></li>
-                        <li><a href="#">Fashion <span>19</span></a>
-                        </li>
-                        <li><a href="#">Branding <span>17</span></a></li>
-                        <li><a href="#">Music <span>10</span></a></li>
-                    </ul>
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
+
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>27</span>Nov 2021</div>
+                    </div>
+
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">WordPress Developer & UI</a><span class="latest_new_post">New</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
+                    </div>
+
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Dhananjay Singh</a></h5>
+                        </div>
+                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>410</span>
+                    </div>
+
                 </div>
+            </div>
 
-                <!-- Trending Posts -->
-                <div class="single_widgets widget_thumb_post">
-                    <h4 class="title">Trending Posts</h4>
-                    <ul>
-                        <li>
-                            <span class="left">
-                                <img src="assets/img/b-1.jpg" alt="" class="">
-                            </span>
-                            <span class="right">
-                                <a class="feed-title" href="#">Alonso Kelina Falao Asiano Pero</a>
-                                <span class="post-date"><i class="ti-calendar"></i>10 Min ago</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="left">
-                                <img src="assets/img/b-2.jpg" alt="" class="">
-                            </span>
-                            <span class="right">
-                                <a class="feed-title" href="#">It is a long established fact that a reader</a>
-                                <span class="post-date"><i class="ti-calendar"></i>2 Hours ago</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="left">
-                                <img src="assets/img/b-3.jpg" alt="" class="">
-                            </span>
-                            <span class="right">
-                                <a class="feed-title" href="#">Many desktop publish packages and web</a>
-                                <span class="post-date"><i class="ti-calendar"></i>4 Hours ago</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="left">
-                                <img src="assets/img/b-4.jpg" alt="" class="">
-                            </span>
-                            <span class="right">
-                                <a class="feed-title" href="#">Various versions have evolved over the years</a>
-                                <span class="post-date"><i class="ti-calendar"></i>7 Hours ago</span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="left">
-                                <img src="assets/img/b-5.jpg" alt="" class="">
-                            </span>
-                            <span class="right">
-                                <a class="feed-title" href="#">Photo booth anim 8-bit PBR 3 wolf moon.</a>
-                                <span class="post-date"><i class="ti-calendar"></i>3 Days ago</span>
-                            </span>
-                        </li>
-                    </ul>
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
+
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>12</span>Sep 2021</div>
+                    </div>
+
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">Creative Designs</a><span class="latest_new_post">New</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
+                    </div>
+
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Shaurya Preet</a></h5>
+                        </div>
+                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>202</span>
+                    </div>
+
                 </div>
+            </div>
 
-                <!-- Tags Cloud -->
-                <div class="single_widgets widget_tags">
-                    <h4 class="title">Tags Cloud</h4>
-                    <ul>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Fashion</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Music</a></li>
-                    </ul>
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
+
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>15</span>Aug 2021</div>
+                    </div>
+
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">UX/UI Developer</a><span class="latest_new_post hot">Hot</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
+                    </div>
+
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Nirgam Singh</a></h5>
+                        </div>
+                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>407</span>
+                    </div>
+
                 </div>
+            </div>
 
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-6">
+                <div class="grid_blog_box">
+
+                    <div class="gtid_blog_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>27</span>Nov 2021</div>
+                    </div>
+
+                    <div class="blog-body">
+                        <h4 class="bl-title"><a href="blog-detail.html">WordPress Developer & UI</a><span class="latest_new_post">New</span></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
+                    </div>
+
+                    <div class="modern_property_footer">
+                        <div class="property-author">
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
+                            <h5><a href="agent-page.html" tabindex="-1">Dhananjay Singh</a></h5>
+                        </div>
+                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>410</span>
+                    </div>
+
+                </div>
             </div>
 
         </div>
         <!-- /row -->
+
+        <!-- Pagination -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <ul class="pagination p-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span class="ti-arrow-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <li class="page-item"><a class="page-link" href="#">18</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span class="ti-arrow-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
     </div>
 
@@ -357,21 +249,21 @@
 
 @endsection
 @push('script')
-    <script type="text/javascript">
-        (function() {
-            window.addEventListener('load', function() {
-                var characterCount = 500
-                var blogParagraph = document.querySelectorAll('.blog')
-                var trail = "..."
-                // Shorten a string to less than maxLen characters without truncating words.
-                function shorten(str, maxLen, separator = ' ') {
-                    if (str.length <= maxLen) return str;
-                    return str.substr(0, str.lastIndexOf(separator, maxLen));
-                }
-                blogParagraph.forEach(item => {
-                    item.textContent = shorten(item.textContent, characterCount) + trail;
-                })
+<script type="text/javascript">
+    (function() {
+        window.addEventListener('load', function() {
+            var characterCount = 500
+            var blogParagraph = document.querySelectorAll('.blog')
+            var trail = "..."
+            // Shorten a string to less than maxLen characters without truncating words.
+            function shorten(str, maxLen, separator = ' ') {
+                if (str.length <= maxLen) return str;
+                return str.substr(0, str.lastIndexOf(separator, maxLen));
+            }
+            blogParagraph.forEach(item => {
+                item.textContent = shorten(item.textContent, characterCount) + trail;
             })
-        })()
-    </script>
+        })
+    })()
+</script>
 @endpush

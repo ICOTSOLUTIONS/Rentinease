@@ -16,7 +16,7 @@
                 <div class="_page_tetio">
                     <div class="pledtio_wrap"><span>Get In Touch</span></div>
                     <h2 class="text-light mb-0">Get Helps & Friendly Support</h2>
-                    <p>Looking for help or any support? We's available 24 hour a day.</p>
+                    <!-- <p>Looking for help or any support? We's available 24 hour a day.</p> -->
                 </div>
             </div>
         </div>

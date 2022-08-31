@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{ Admin,Agency,Agent,Customer,Web };
+use App\Http\Controllers\{Admin, Agency, Agent, Customer, Web};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,7 +82,7 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/cancel', [Agent\PaymentController::class, 'cancel'])->name('agent.payment.cancel');
     Route::get('/agents/stripe-payment/{id}', [Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
     Route::resource('/agentposting', Agent\PostingController::class);
-    Route::get('/coins_deduct', [Agent\PostingController::class,'coins_deduct'])->name('agent.coins.deduct');
+    Route::get('/coins_deduct', [Agent\PostingController::class, 'coins_deduct'])->name('agent.coins.deduct');
 });
 Route::middleware('customer')->group(function () {
     Route::get('/customer/dashboard', [Customer\AuthController::class, 'dashboard'])->name('customer.dashboard');
@@ -142,7 +142,7 @@ Route::view('/payment', 'admin.pages.finance.payment');
 //agent
 // Route::view('/agentportal', 'client.pages.agent.agentportal');
 //blog
-// Route::view('/blog', 'client.pages.blog.blog');
+Route::view('/blogmore', 'client.pages.blog.blogmore');
 // buy
 Route::view('/buy', 'client.pages.buy.buy');
 // rent
@@ -155,3 +155,5 @@ Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
 Route::view('/findagency', 'client.pages.findagency.findagency');
 // agencyproperty
 Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
+//blog
+Route::view('/contact', 'client.pages.contact.contact');

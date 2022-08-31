@@ -118,6 +118,8 @@
                        </li>
                        <li><a href="{{ url('') }}">Floor Plans<span class="submenu-indicator"></span></a>
                        </li>
+                       <li><a href="{{ url('/contact') }}">Contact<span class="submenu-indicator"></span></a>
+                       </li>
                    </ul>
 
                    <ul class="nav-menu nav-menu-social align-to-right">
