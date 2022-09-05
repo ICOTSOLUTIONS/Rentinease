@@ -42,27 +42,31 @@
 
         <!-- row Start -->
         <div class="row">
-
-            <!-- Single blog Grid -->
+            @foreach ($blogs as $blog)
             <div class="col-lg-4 col-md-6">
                 <div class="grid_blog_box">
 
                     <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>12</span>Sep 2021</div>
+                        <a href="blog-detail.html"><img src="{{asset('storage/blog/'.$blog->image)}}" class="img-fluid" alt="" /></a>
+                        <div class="gtid_blog_info"><span>{{ $blog->created_at->format('d-m-Y') }}</span></div>
                     </div>
 
                     <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">Creative Designs</a><span class="latest_new_post">New</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. <a href="{{url('/blogmore')}}"><b> READ MORE</b></a>
+                        <h4 class="bl-title"><a href="{{ route('web.blog.details', ['id' => $blog->id]) }}">{{ $blog->heading }}</a></h4>
+                        <div class="blog"> {!! $blog->text !!}
                             <!-- <span class="text-dark mt-1 mr-2 readmore"></span> -->
-                        </p>
+                        </div>
+                        <a href="{{ route('web.blog.details', ['id' => $blog->id]) }}"><b> READ MORE</b></a>
                     </div>
 
                     <div class="modern_property_footer">
                         <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Shaurya Preet</a></h5>
+                            @if ($blog->user->role_id == 1)
+                                <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('storage/admin/'.$blog->user->logo)}}" class="img-fluid" alt=""></a></div>
+                            @else
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('storage/blogger/'.$blog->user->logo)}}" class="img-fluid" alt=""></a></div>
+                            @endif
+                            <h5><a href="agent-page.html" tabindex="-1">{{ $blog->user->fname.' '.$blog->user->lname }}</a></h5>
                         </div>
                         <!-- <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>202</span> -->
                     </div>
@@ -70,131 +74,7 @@
                 </div>
             </div>
 
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="grid_blog_box">
-
-                    <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>15</span>Aug 2021</div>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">UX/UI Developer</a><span class="latest_new_post hot">Hot</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
-                    </div>
-
-                    <div class="modern_property_footer">
-                        <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Nirgam Singh</a></h5>
-                        </div>
-                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>407</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="grid_blog_box">
-
-                    <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>27</span>Nov 2021</div>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">WordPress Developer & UI</a><span class="latest_new_post">New</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
-                    </div>
-
-                    <div class="modern_property_footer">
-                        <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Dhananjay Singh</a></h5>
-                        </div>
-                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>410</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="grid_blog_box">
-
-                    <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>12</span>Sep 2021</div>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">Creative Designs</a><span class="latest_new_post">New</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
-                    </div>
-
-                    <div class="modern_property_footer">
-                        <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Shaurya Preet</a></h5>
-                        </div>
-                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>202</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="grid_blog_box">
-
-                    <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>15</span>Aug 2021</div>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">UX/UI Developer</a><span class="latest_new_post hot">Hot</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
-                    </div>
-
-                    <div class="modern_property_footer">
-                        <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Nirgam Singh</a></h5>
-                        </div>
-                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>407</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="grid_blog_box">
-
-                    <div class="gtid_blog_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt="" /></a>
-                        <div class="gtid_blog_info"><span>27</span>Nov 2021</div>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="blog-detail.html">WordPress Developer & UI</a><span class="latest_new_post">New</span></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. </p>
-                    </div>
-
-                    <div class="modern_property_footer">
-                        <div class="property-author">
-                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('assetsclient/img/b-1.jpg')}}" class="img-fluid" alt=""></a></div>
-                            <h5><a href="agent-page.html" tabindex="-1">Dhananjay Singh</a></h5>
-                        </div>
-                        <span class="article-pulish-date"><i class="ti-comment-alt mr-2"></i>410</span>
-                    </div>
-
-                </div>
-            </div>
-
+            @endforeach
         </div>
         <!-- /row -->
 
