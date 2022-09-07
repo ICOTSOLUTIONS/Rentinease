@@ -157,3 +157,5 @@ Route::view('/findagency', 'client.pages.findagency.findagency');
 Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
 //blog
 Route::view('/contact', 'client.pages.contact.contact');
+//profile
+Route::view('/profile', 'client.pages.profile.profile');
