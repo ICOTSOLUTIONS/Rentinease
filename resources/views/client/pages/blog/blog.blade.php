@@ -35,7 +35,7 @@
             <div class="col text-center">
                 <div class="sec-heading center">
                     <h2>Latest News</h2>
-                    <p>We post regulary most powerful articles for help and support.</p>
+                    <p>We post regulary most remarkable articles for help and backing.</p>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <div class="modern_property_footer">
                         <div class="property-author">
                             @if ($blog->user->role_id == 1)
-                                <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('storage/admin/'.$blog->user->logo)}}" class="img-fluid" alt=""></a></div>
+                            <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('storage/admin/'.$blog->user->logo)}}" class="img-fluid" alt=""></a></div>
                             @else
                             <div class="path-img"><a href="agent-page.html" tabindex="-1"><img src="{{asset('storage/blogger/'.$blog->user->logo)}}" class="img-fluid" alt=""></a></div>
                             @endif
@@ -79,7 +79,7 @@
         <!-- /row -->
 
         <!-- Pagination -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <ul class="pagination p-center">
                     <li class="page-item">
@@ -101,7 +101,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
