@@ -41,8 +41,12 @@
                 <div class="article_detail_wrapss single_article_wrap format-standard">
 
                     <div class="article_posts_thumb">
-                        <span class="img"><img class="img-fluid" src="{{asset('assetsclient/img/myimg.jpg')}}" alt=""></span>
-                        <h3 class="pa-name">Adnan</h3>
+                        @if ($blog->user->role_id == 1)
+                        <span class="img"><img class="img-fluid" src="{{asset('storage/admin/'.$blog->user->logo)}}" alt=""></span>
+                        @else
+                        <span class="img"><img class="img-fluid" src="{{asset('storage/blogger/'.$blog->user->logo)}}" alt=""></span>
+                        @endif
+                        <h3 class="pa-name">{{ $blog->user->fname.' '.$blog->user->lname }}</h3>
                         <ul class="social-links">
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -50,9 +54,6 @@
                             <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
-                        <p class="pa-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
                     </div>
                 </div>
                 <div class="article_detail_wrapss single_article_wrap format-standard">
@@ -61,35 +62,10 @@
                         <div class="article_featured_image">
                             <img class="img-fluid" src="assets/img/b-6.jpg" alt="">
                         </div>
-                        <h2 class="post-title">Blog Details 'Title'</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem. <br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                        <blockquote>
-                            <span class="icon"><i class="fas fa-quote-left"></i></span>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tem
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ullamco laboris nisi ut aliquip ex ea commodo onsequat.</p>
-                            <h5 class="name">- Rosalina Pong</h5>
-                        </blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                            magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-                            dolorem. <br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis
-                            iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                            sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                        <h2 class="post-title">{{ $blog->title }}</h2>
                     </div>
                 </div>
+                <p>{!! $blog->text !!}</p>
 
 
             </div>

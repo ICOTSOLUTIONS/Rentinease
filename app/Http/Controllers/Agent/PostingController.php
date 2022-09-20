@@ -10,11 +10,13 @@ use App\Models\PostingFloorPlan;
 use App\Models\PostingPhoto;
 use App\Models\PostingThreeSixty;
 use App\Models\PostingVideo;
+use App\Models\Purpose;
 use App\Models\UserCoins;
 use App\Models\UserPackageCoins;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class PostingController extends Controller
 {
@@ -49,46 +51,109 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $request->validate([
-            'purpose_id' => 'required', 
-            'property_type_place_id' => 'required',
-            'city' => 'required',
-            'area' => 'required',
-            'layout' => 'required',
-            'bath' => 'required',
+        // dd($request->all());
+        $rules = [
+            'purpose' => 'required',
             'size' => 'required',
-            'building_name' => 'required',
-            'building_age' => 'required',
+            'size_square' => 'required',
+            'building_no' => 'required',
             'price' => 'required',
             'price_per' => 'required',
+            'furnishing' => 'required',
+            'city' => 'required',
+            'area' => 'required',
             'listning_type' => 'required',
             'photos.*' => 'required',
             'video.*' => 'required',
             'three_sixty.*' => 'required',
             'floor_plan_layout.*' => 'required',
-        ],[],[
+        ];
+        if($request->place_type == 'commercial'){
+            $rules['p_commercial'] = 'required';
+        }else{
+            $rules['p_residential'] = 'required';
+            if($request->layout == 'custom'){
+                $rules['l_custom'] = 'required';
+            }else{
+                $rules['layout'] = 'required';
+            }
+            if($request->bath == 'custom'){
+                $rules['b_custom'] = 'required';
+            }else{
+                $rules['bath'] = 'required';
+            }
+        }
+        if($request->building_age == 'custom'){
+            $rules['build_age_custom'] = 'required';
+        }else{
+            $rules['building_age'] = 'required';
+        }
+
+        $customFields = [
+            'p_commercial' => 'Property Type Commercial',
+            'p_residential' => 'Property Type Residential',
+            'layout' => 'Layout',
+            'bath' => 'Bath',
+            'size' => 'Size',
+            'size_square' => 'Size Square',
+            'building_no' => 'Building Number',
+            'build_age_custom' => 'Building Age Custom',
+            'building_age' => 'Building Age',
+            'l_custom' => 'Layout Custom',
+            'b_custom' => 'Bath Custom',
             'photos.*' => 'Photos',
             'video.*' => 'Video',
             'three_sixty.*' => '360',
-            'floor_plan_layout.*' => 'Floor Plan/Layout',
-        ]);
+            'floor_plan_layout.*' => 'Floor Plan Layout',
+        ];
+
+        $valid = Validator::make($request->all(),$rules,[],$customFields);
+        if ($valid->fails()) {
+            return back()->withErrors($valid->errors())->withInput();
+        }
         try {
             DB::beginTransaction();
             $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
             if ($remain_coins->remain_coins >= 0) {
                 $posting = new Posting();
-                $posting->purpose_id = $request->purpose_id;
-                $posting->property_type_place_id = $request->property_type_place_id;
-                $posting->area = $request->area;
-                $posting->city = $request->city;
-                $posting->layout = $request->layout;
-                $posting->bath = $request->bath;
+                if($request->purpose){
+                    $purpose = Purpose::where('name', $request->purpose)->first();
+                    $posting->purpose_id = $purpose->id;
+                }
+                if($request->place_type == 'commercial'){
+                    $posting->property_type_place_id = $request->p_commercial;
+                }else{
+                    $posting->property_type_place_id = $request->p_residential;
+                    if($request->layout == 'custom'){
+                        $posting->layout = $request->l_custom;
+                    }else{
+                        $posting->layout = $request->layout;
+                    }
+                    if($request->bath == 'custom'){
+                        $posting->bath = $request->b_custom;
+                    }else{
+                        $posting->bath = $request->bath;
+                    }
+                }
                 $posting->size = $request->size;
+                $posting->size_square = $request->size_square;
                 $posting->building_name = $request->building_name;
-                $posting->building_age = $request->building_age;
+                $posting->furnishing = $request->furnishing;
+                if($request->building_age == 'custom'){
+                    $posting->building_age = $request->build_age_custom;
+                }else{
+                    $posting->building_age = $request->building_age;
+                }
                 $posting->price = $request->price;
                 $posting->price_per = $request->price_per;
+                $posting->city = $request->city;
+                $posting->area = $request->area;
+                $posting->lat = $request->a_lat;
+                $posting->lng = $request->a_lon;
+                $posting->amenities = json_encode($request->amenities);
+                $posting->facilities = json_encode($request->facilities);
+                $posting->title = $request->title;
+                $posting->description = $request->description;
                 if (isset($request->listning_type)) {
                     $coins_deduct = CoinDeduction::where('id', $request->listning_type)->first();
                     if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) throw new Error("Please Buy Package First. Your Coins 0!");
@@ -141,7 +206,7 @@ class PostingController extends Controller
                     }
                 }
                 DB::commit();
-                session()->flash('message', 'Please Buy Package First. Your Coins 0!');
+                session()->flash('message', 'Posting Added Successfully');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agentposting.index');
             } else throw new Error("Please Buy Package First. Your Coins 0!");

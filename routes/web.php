@@ -101,6 +101,7 @@ Route::get('/agentportal', [Agent\ClientController::class, 'clientAgent'])->name
 Route::post('/agency/register', [Agency\AuthController::class, 'agencyRegister'])->name('agency.register');
 Route::get('/agencyportal', [Agency\ClientController::class, 'clientAgency'])->name('agency.portal');
 Route::get('/blog', [Web\WebController::class, 'blog'])->name('web.blog');
+Route::get('/blog-detail/{id}', [Web\WebController::class, 'blog_details'])->name('web.blog.details');
 // Route::get('/findagent', [Web\WebController::class, 'findagent'])->name('web.findagent');
 
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
@@ -142,7 +143,7 @@ Route::view('/payment', 'admin.pages.finance.payment');
 //agent
 // Route::view('/agentportal', 'client.pages.agent.agentportal');
 //blog
-Route::view('/blogmore', 'client.pages.blog.blogmore');
+// Route::view('/blogmore', 'client.pages.blog.blogmore');
 // buy
 Route::view('/buy', 'client.pages.buy.buy');
 // rent
