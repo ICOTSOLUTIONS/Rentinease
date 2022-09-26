@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('/coinsdeduct', Admin\CoinsDeductionController::class)->except('show');
         Route::resource('/customer', Admin\CustomerController::class);
         Route::resource('/blog', Admin\BlogController::class)->except('show');
+        Route::get('/blog/statusChange/{id}',[Admin\BlogController::class,'statusChange'])->name('blog.statusChange');
+
         Route::get('/activity', [Admin\ActivityController::class, 'index'])->name('activity.index');
     });
 });

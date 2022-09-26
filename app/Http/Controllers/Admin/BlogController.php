@@ -47,10 +47,10 @@ class BlogController extends Controller
             'text' => 'required',
         ];
         $customMessage = [
-            'title.required' => 'The Title field is required', 
-            'header.required' => 'The Header field is required', 
-            'image.required' => 'The Image field is required', 
-            'text.required' => 'The Text field is required', 
+            'title.required' => 'The Title field is required',
+            'header.required' => 'The Header field is required',
+            'image.required' => 'The Image field is required',
+            'text.required' => 'The Text field is required',
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
@@ -58,8 +58,8 @@ class BlogController extends Controller
         }
 
         $blog = new Blog();
-        $blog->user_id = auth()->user()->id; 
-        $blog->title = $request->title; 
+        $blog->user_id = auth()->user()->id;
+        $blog->title = $request->title;
         $blog->heading = $request->header;
         $blog->text = $request->text;
         if($request->hasFile('image')){
@@ -125,10 +125,10 @@ class BlogController extends Controller
             'text' => 'required',
         ];
         $customMessage = [
-            'title.required' => 'The Title field is required', 
-            'header.required' => 'The Header field is required', 
-            // 'image.required' => 'The Image field is required', 
-            'text.required' => 'The Text field is required', 
+            'title.required' => 'The Title field is required',
+            'header.required' => 'The Header field is required',
+            // 'image.required' => 'The Image field is required',
+            'text.required' => 'The Text field is required',
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
         if ($validate->fails()) {
@@ -136,8 +136,8 @@ class BlogController extends Controller
         }
 
         $blog = Blog::where('id',$id)->first();
-        $blog->user_id = auth()->user()->id; 
-        $blog->title = $request->title; 
+        $blog->user_id = auth()->user()->id;
+        $blog->title = $request->title;
         $blog->heading = $request->header;
         $blog->text = $request->text;
         if($request->hasFile('image')){
@@ -183,6 +183,28 @@ class BlogController extends Controller
             session()->flash('message', 'Blog not Deleted!');
             session()->flash('messageType', 'danger');
             return redirect()->route('blog.index');
-        }        
+        }
+    }
+
+    public function statusChange($id)
+    {
+        $blog = Blog::where('id',$id)->first();
+        if(!empty($blog)){
+            if($blog->isauthor == true) $blog->isauthor = false;
+            else $blog->isauthor = true;
+            if($blog->save()){
+                session()->flash('message','Blog Status Change');
+                session()->flash('messageType','success');
+                return redirect()->route('blog.index');
+            }else{
+                session()->flash('message','Blog Status not Change');
+                session()->flash('messageType','danger');
+                return redirect()->route('blog.index');
+            }
+        }else{
+            session()->flash('message','Blog not Found');
+            session()->flash('messageType','danger');
+            return redirect()->route('blog.index');
+        }
     }
 }

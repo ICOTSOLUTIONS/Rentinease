@@ -20,6 +20,7 @@ class CreateBlogsTable extends Migration
             $table->string('image')->nullable();
             $table->string('heading')->nullable();
             $table->mediumText('text')->nullable();
+            $table->boolean('isauthor')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -29,6 +29,7 @@
                                             <th>Header</th>
                                             <th>Image</th>
                                             <th>Text</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -41,7 +42,7 @@
                                                 <td>
                                                     @if (!empty($blog->image))
                                                         <img width="100" height="100"
-                                                            src="{{ asset('/storage/blog/'.$blog->image) }}"
+                                                            src="{{ asset('/storage/blog/' . $blog->image) }}"
                                                             class="img-fluid wp-post-image lazyloaded" alt=""
                                                             loading="lazy" />
                                                     @else
@@ -56,6 +57,15 @@
                                                     </a> --}}
                                                 </td>
                                                 <td class="blog">{!! $blog->text !!}</td>
+                                                <td>
+                                                    @if ($blog->isauthor == true)
+                                                        <a href="{{ route('blog.statusChange', ['id' => $blog->id]) }}"
+                                                            class="btn btn-success text-white">Active</a>
+                                                    @else
+                                                        <a href="{{ route('blog.statusChange', ['id' => $blog->id]) }}"
+                                                            class="btn btn-danger text-white">De-Active</a>
+                                                    @endif
+                                                </td>
                                                 @if (auth()->user()->roles->name != 'subadmin')
                                                     <td>
                                                         <div class="row">

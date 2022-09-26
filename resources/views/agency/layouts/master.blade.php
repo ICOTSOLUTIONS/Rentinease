@@ -8,13 +8,21 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assetagency/bundles/datatables/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assetagency/css/components.css') }}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assetagency/css/custom.css') }}">
     <!-- <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' /> -->
+    <!-- Map box style CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet'
+        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+        type='text/css' />
+
+
 </head>
 <style>
     ::-webkit-scrollbar {
@@ -50,8 +58,7 @@
     <script src="{{ asset('assetagency/js/app.min.js') }}"></script>
     <!-- JS Libraies -->
     <script src="{{ asset('assetagency/bundles/datatables/datatables.min.js') }}"></script>
-    <script src="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}">
-    </script>
+    <script src="{{ asset('assetagency/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assetagency/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Page Specific JS File -->
     <script src="{{ asset('assetagency/js/page/datatables.js') }}"></script>
@@ -59,6 +66,9 @@
     <script src="{{ asset('assetagency/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
     <script src="{{ asset('assetagency/js/custom.js') }}"></script>
+    <!-- Map box js file -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
     @stack('scripts')
 </body>
 

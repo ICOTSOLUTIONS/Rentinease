@@ -207,7 +207,7 @@
                                                          <span class="text-danger">{{ $message }}</span>
                                                      @enderror
                                                  </div>
-                                                 <div class="col-md-6 select_input_col">
+                                                 <div class="col-md-6 select_input_col ">
                                                      <select name="size_square">
                                                          <option value="">Select Size Square</option>
                                                          <option value="Square Feet"
@@ -217,8 +217,10 @@
                                                              @if (old('size_square') == 'Square metre') selected @endif>
                                                              Square metre</option>
                                                      </select>
+                                                 </div>
+                                                 <div class="row d-flex justify-content-end">
                                                      @error('size_square')
-                                                         <span class="text-danger">{{ $message }}</span>
+                                                         <span class="text-danger pr-5">{{ $message }}</span>
                                                      @enderror
                                                  </div>
                                              </div>
@@ -238,6 +240,7 @@
                                          <div class="col-md-6 mt-2" id="building_age">
                                              <label>Building age</label>
                                              <select name="building_age" id="s_building_age">
+                                                 <option value="">Select Building age</option>
                                                  <option value="Brand New Building"
                                                      @if (old('building_age') == 'Brand New Building') selected @endif>
                                                      Brand New Building</option>
@@ -294,6 +297,7 @@
                                          <div class="col-md-6 mt-2">
                                              <label>Furnishing</label>
                                              <select name="furnishing">
+                                                 <option value="">Select Furnishing</option>
                                                  <option value="Furnished"
                                                      @if (old('furnishing') == 'Furnished') selected @endif>Furnished</option>
                                                  <option value="Unfurnished"
@@ -313,6 +317,7 @@
                                          <div class="col-md-6 mt-2">
                                              <label>City</label>
                                              <select name="city" id="s_city">
+                                                 <option value="">Select City</option>
                                                  <option value="Dubai"
                                                      @if (old('city') == 'Dubai') selected @endif>Dubai</option>
                                                  <option value="Abu Dhabi"
@@ -349,16 +354,27 @@
                                          </div>
                                      </div>
                                      <div class="row">
+                                         <div class="col-md-12 mb-3 mt-4">
+                                             <div id='map' style='width: 100%; height: 300px; '></div>
+                                         </div>
+                                         {{-- <div class="col-md-6 mb-3 mt-4">
+                                            <label class="file_label">
+                                                <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Video
+                                                <input type="file" name="video[]" multiple>
+                                            </label>
+                                        </div> --}}
+                                     </div>
+                                     <div class="row">
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Photos
-                                                 <input type="file" size="60" name="photos[]" multiple>
+                                                 <input type="file" name="photos[]" multiple>
                                              </label>
                                          </div>
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Video
-                                                 <input type="file" size="60" name="video[]" multiple>
+                                                 <input type="file" name="video[]" multiple>
                                              </label>
                                          </div>
                                      </div>
@@ -367,14 +383,13 @@
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; 360
-                                                 <input type="file" size="60" name="three_sixty[]" multiple>
+                                                 <input type="file" name="three_sixty[]" multiple>
                                              </label>
                                          </div>
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Floor Plan/Layout
-                                                 <input type="file" size="60" name="floor_plan_layout[]"
-                                                     multiple>
+                                                 <input type="file" name="floor_plan_layout[]" multiple>
                                              </label>
                                          </div>
                                      </div>
@@ -816,7 +831,7 @@
                  </div>
              </div>
      </div>
-     {{-- <div id='map' style='width: 900px; height: 500px;'></div> --}}
+
      </section>
  @endsection
  @push('scripts')
@@ -912,58 +927,105 @@
              });
          });
 
-         var accessToken = 'ruxtrh7125';
+         //  var accessToken = 'ruxtrh7125';
          //fetch city id
-         function fetch_loca(selectedCity) {
-             //13933634117436396
+         //  function fetch_loca(selectedCity) {
+         //      //13933634117436396
 
-             return fetch(`https://catalog.api.2gis.com/3.0/items?q=${selectedCity}&type=adm_div.city&key=${accessToken}`)
-                 .then(response => response.json())
-                 .then(data => {
-                     //   console.log(data.result);
-                     console.log(data.result.items[0].id);
-                     selectedCityId = data.result.items[0].id;
-                     fetch_areas(selectedCityId);
-                 })
-         }
-         //fetch area details
-         function fetch_area(selectedArea) {
-             return fetch(
-                     `https://catalog.api.2gis.com/3.0/items/geocode?q=${selectedArea}&fields=items.point&key=${accessToken}`
-                 )
-                 .then(response => response.json())
-                 .then(data => {
-                     console.log(data.result);
-                     $('#a_lat').val(data.result.items[0].point.lat)
-                     $('#a_lon').val(data.result.items[0].point.lon)
-                 })
-         }
-         //fetch areas
-         function fetch_areas(selectedCityId) {
-             return fetch(
-                     `https://catalog.api.2gis.com/3.0/items?q=area&city_id=${selectedCityId}&fields=items.address&key=${accessToken}`
-                 )
-                 .then(response => response.json())
-                 .then(data => {
-                     console.log(data.result);
-                     var html = '';
-                     $.each(data.result.items, function(index, value) {
-                         //  console.log(value.id);
-                         var option = '';
-                         if (value.full_name) {
-                             option = `<option value="${value.full_name}">${value.full_name}</option>`;
-                         }
-                         html += option;
-                     });
-                     var firstOption = `<option value=''>Select Area</option>`;;
-                     $('#s_area').html(firstOption);
-                     $('#s_area').append(html);
-                 });
-         }
+         //      return fetch(`https://catalog.api.2gis.com/3.0/items?q=${selectedCity}&type=adm_div.city&key=${accessToken}`)
+         //          .then(response => response.json())
+         //          .then(data => {
+         //              //   console.log(data.result);
+         //              console.log(data.result.items[0].id);
+         //              selectedCityId = data.result.items[0].id;
+         //              fetch_areas(selectedCityId);
+         //          })
+         //  }
+         //  //fetch area details
+         //  function fetch_area(selectedArea) {
+         //      return fetch(
+         //              `https://catalog.api.2gis.com/3.0/items/geocode?q=${selectedArea}&fields=items.point&key=${accessToken}`
+         //          )
+         //          .then(response => response.json())
+         //          .then(data => {
+         //              console.log(data.result);
+         //              $('#a_lat').val(data.result.items[0].point.lat)
+         //              $('#a_lon').val(data.result.items[0].point.lon)
+         //          })
+         //  }
+         //  //fetch areas
+         //  function fetch_areas(selectedCityId) {
+         //      return fetch(
+         //              `https://catalog.api.2gis.com/3.0/items?q=area&city_id=${selectedCityId}&fields=items.address&key=${accessToken}`
+         //          )
+         //          .then(response => response.json())
+         //          .then(data => {
+         //              console.log(data.result);
+         //              var html = '';
+         //              $.each(data.result.items, function(index, value) {
+         //                  //  console.log(value.id);
+         //                  var option = '';
+         //                  if (value.full_name) {
+         //                      option = `<option value="${value.full_name}">${value.full_name}</option>`;
+         //                  }
+         //                  html += option;
+         //              });
+         //              var firstOption = `<option value=''>Select Area</option>`;;
+         //              $('#s_area').html(firstOption);
+         //              $('#s_area').append(html);
+         //          });
+         //  }
+         mapboxgl.accessToken =
+             'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+         const map = new mapboxgl.Map({
+             container: 'map', // container ID
+             style: 'mapbox://styles/mapbox/streets-v11', // style URL
+             center: [55.2708, 25.2048], // starting position [lng, lat]
+             zoom: 10, // starting zoom
+         });
+         const marker = new mapboxgl.Marker() // initialize a new marker
+             .setLngLat([55.2708, 25.2048]) // Marker [lng, lat] coordinates
+             .addTo(map); // Add the marker to the map
+         const geocoder = new MapboxGeocoder({
+             // Initialize the geocoder
+             accessToken: mapboxgl.accessToken, // Set the access token
+             mapboxgl: mapboxgl, // Set the mapbox-gl instance
+             marker: true // Do not use the default marker style
+             //  placeholder: 'Search for places in Dubai', // Placeholder text for the search
+             //  bar
+             //  bbox: [55.2708, 25.2048, 55.2708, 25.2048], // Boundary for Berkeley
+             //  proximity: {
+             //      longitude: 55.2708,
+             //      latitude: 25.2048
+             //  } // Coordinates of UC Berkeley
+         });
+         // Add the geocoder to the map
+         map.addControl(geocoder);
+         // After the map style has loaded on the page,
+         // add a source layer and default styling for a single point
+         map.on('load', () => {
+             map.addSource('single-point', {
+                 type: 'geojson',
+                 data: {
+                     type: 'FeatureCollection',
+                     features: []
+                 }
+             });
 
-         //  var map = new mapboxgl.Map({
-         //       container: 'map',
-         //       style: 'mapbox://styles/mapbox/streets-v11'
-         //   });
+             map.addLayer({
+                 id: 'point',
+                 source: 'single-point',
+                 type: 'circle',
+                 paint: {
+                     'circle-radius': 10,
+                     'circle-color': '#448ee4'
+                 }
+             });
+         });
+         geocoder.on('result', (event) => {
+             map.getSource('single-point').setData(event.result.geometry);
+         });
+         // Listen for the `result` event from the Geocoder
+         // `r
      </script>
  @endpush

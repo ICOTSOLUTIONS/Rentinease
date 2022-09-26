@@ -212,7 +212,7 @@
     outline: none;
     border-color: #1BBE87;
   }
-  
+
 
 
 .file_label{
@@ -223,7 +223,7 @@
     font-weight: 600;
   }
 .file_label:hover{
-    border: 2px solid #1a9169; 
+    border: 2px solid #1a9169;
     color: #1a9169;
     transition: 0.3s;
   }
@@ -249,7 +249,7 @@ input[type="checkbox"] {
 
 
 
-  
+
 
 
 

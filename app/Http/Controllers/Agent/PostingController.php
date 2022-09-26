@@ -51,7 +51,7 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $rules = [
             'purpose' => 'required',
             'size' => 'required',
@@ -62,7 +62,12 @@ class PostingController extends Controller
             'furnishing' => 'required',
             'city' => 'required',
             'area' => 'required',
+            'title' => 'required',
+            'description' => 'required',
             'listning_type' => 'required',
+            'amenities.*' => 'required',
+            'facilities.*' => 'required',
+            'photos' => 'required|array',
             'photos.*' => 'required',
             'video.*' => 'required',
             'three_sixty.*' => 'required',
@@ -90,6 +95,9 @@ class PostingController extends Controller
         }
 
         $customFields = [
+            'title' => 'Title',
+            'description' => 'Description',
+            'listning_type' => 'Listning Type',
             'p_commercial' => 'Property Type Commercial',
             'p_residential' => 'Property Type Residential',
             'layout' => 'Layout',
@@ -101,6 +109,7 @@ class PostingController extends Controller
             'building_age' => 'Building Age',
             'l_custom' => 'Layout Custom',
             'b_custom' => 'Bath Custom',
+            'amenities.*' => 'Amenities',
             'photos.*' => 'Photos',
             'video.*' => 'Video',
             'three_sixty.*' => '360',
