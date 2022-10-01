@@ -19,31 +19,34 @@ class PaymentController extends Controller
     }
     public function success($id = null)
     {
+        // dd(auth()->user()->id);
         if(!empty($id)){
             $package = Package::where('id',$id)->first();
 
             $remain_coins = UserPackageCoins::where('user_id',auth()->user()->id)
             ->where('package_id',$id)->first();
-            
+
             if(empty($remain_coins)) $remain_coins = UserPackageCoins::where('user_id',auth()->user()->id)->first();
+            // if(empty($remain_coins)) $remain_coins = new UserPackageCoins();
             $remain_coins->user_id = auth()->user()->id;
             $remain_coins->package_id = $id;
             if(!empty($remain_coins->remain_coins)) $remain_coins->remain_coins = $remain_coins->remain_coins + $package->coins;
             else $remain_coins->remain_coins = $package->coins;
             $remain_coins->save();
-            
+
             $exist_package = Payment::where('user_id',auth()->user()->id)
             ->where('package_id',$id)->first();
 
             if(empty($exist_package)) $exist_package = Payment::where('user_id',auth()->user()->id)->first();
+            // if(empty($exist_package)) $exist_package = new Payment();
             $exist_package->user_id = auth()->user()->id;
             $exist_package->package_id = $id;
             $exist_package->date = Carbon::now();
             $exist_package->save();
 
             $package_logs = new PackageLog();
-            $package_logs->payment_id = $exist_package->id; 
-            $package_logs->user_package_coin_id = $remain_coins->id; 
+            $package_logs->payment_id = $exist_package->id;
+            $package_logs->user_package_coin_id = $remain_coins->id;
             $package_logs->date = Carbon::now();
             $package_logs->save();
             session()->flash('message', 'Successfully Package Buy!');
@@ -54,7 +57,7 @@ class PaymentController extends Controller
             session()->flash('messageType', 'danger');
             return redirect()->route('agent.payment.index');
         }
-        
+
     }
     public function cancel()
     {

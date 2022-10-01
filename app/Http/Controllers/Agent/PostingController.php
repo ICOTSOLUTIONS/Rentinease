@@ -28,7 +28,9 @@ class PostingController extends Controller
      */
     public function index()
     {
-        return view('agency.agentpages.posting.index');
+        $posting = Posting::with(['photos','floorPlans','threeSixties','videos','purpose','propertyType.placeType'])->get();
+        // dd($posting);
+        return view('agency.agentpages.posting.index',['postings'=>$posting??[]]);
     }
 
     /**
@@ -52,12 +54,12 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->facilities);
         $rules = [
             'purpose' => 'required',
             'size' => 'required',
             'size_square' => 'required',
-            'building_no' => 'required',
+            'building_name' => 'required',
             'price' => 'required',
             'price_per' => 'required',
             'furnishing' => 'required',
@@ -105,12 +107,13 @@ class PostingController extends Controller
             'bath' => 'Bath',
             'size' => 'Size',
             'size_square' => 'Size Square',
-            'building_no' => 'Building Number',
+            'building_name' => 'Building Name/No',
             'build_age_custom' => 'Building Age Custom',
             'building_age' => 'Building Age',
             'l_custom' => 'Layout Custom',
             'b_custom' => 'Bath Custom',
             'amenities.*' => 'Amenities',
+            'facilities.*' => 'Facilities',
             'photos.*' => 'Photos',
             'video.*' => 'Video',
             'three_sixty.*' => '360',
@@ -124,6 +127,7 @@ class PostingController extends Controller
         try {
             DB::beginTransaction();
             $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
+            if(empty($remain_coins)) throw new Error("Please Buy Package First!");
             if ($remain_coins->remain_coins >= 0) {
                 $posting = new Posting();
                 if($request->purpose){
@@ -160,17 +164,19 @@ class PostingController extends Controller
                 $posting->area = $request->area;
                 $posting->lat = $request->a_lat;
                 $posting->lng = $request->a_lon;
-                $posting->amenities = json_encode($request->amenities);
-                $posting->facilities = json_encode($request->facilities);
+                $posting->amenities = implode(", ", array_filter($request->amenities));
+                $posting->facilities = implode(", ", array_filter($request->facilities));
+                // $posting->amenities = json_encode($request->amenities);
+                // $posting->facilities = json_encode($request->facilities);
                 $posting->title = $request->title;
                 $posting->description = $request->description;
                 if (isset($request->listning_type)) {
                     $coins_deduct = CoinDeduction::where('id', $request->listning_type)->first();
                     if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) throw new Error("Please Buy Package First. Your Coins 0!");
-                    $remain_coins->remain_Coins = $remain_coins->remain_Coins - $coins_deduct->coins_deduct;
+                    $remain_coins->remain_coins -= $coins_deduct->coins_deduct;
                     $remain_coins->save();
                     $user_coins = new UserCoins();
-                    $user_coins->user_package_coins_id =  $remain_coins->id;
+                    $user_coins->user_package_coin_id =  $remain_coins->id;
                     $user_coins->minus_coins =  $coins_deduct->coins_deduct;
                     $user_coins->save();
                 }
@@ -197,12 +203,12 @@ class PostingController extends Controller
                 }
                 if (!empty($request->three_sixty)) {
                     foreach ($request->three_sixty as $key => $three_sixties) {
-                        $three_sixties = new PostingThreeSixty();
-                        $three_sixties->posting_id = $posting->id;
+                        $three_sixty = new PostingThreeSixty();
+                        $three_sixty->posting_id = $posting->id;
                         $filename = "ThreeSixty-" . time() . "-" . rand() . "." . $three_sixties->getClientOriginalExtension();
                         $three_sixties->storeAs('threesixty', $filename, "public");
-                        $three_sixties->three_sixty = "threesixty/" . $filename;
-                        $three_sixties->save();
+                        $three_sixty->three_sixty = "threesixty/" . $filename;
+                        $three_sixty->save();
                     }
                 }
                 if (!empty($request->floor_plan_layout)) {
@@ -211,7 +217,7 @@ class PostingController extends Controller
                         $floor_plan_layouts->posting_id = $posting->id;
                         $filename = "FloorPlan-" . time() . "-" . rand() . "." . $floor_plan_layout->getClientOriginalExtension();
                         $floor_plan_layout->storeAs('floorplan', $filename, "public");
-                        $floor_plan_layouts->floor_plan_layout = "floorplan/" . $filename;
+                        $floor_plan_layouts->floor_plan = "floorplan/" . $filename;
                         $floor_plan_layouts->save();
                     }
                 }
@@ -222,7 +228,7 @@ class PostingController extends Controller
             } else throw new Error("Please Buy Package First. Your Coins 0!");
         } catch (\Throwable $th) {
             DB::rollBack();
-            session()->flash('message', 'Posting not added');
+            session()->flash('message', $th->getMessage());
             session()->flash('messageType', 'danger');
             return redirect()->back();
         }
@@ -270,7 +276,18 @@ class PostingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $posting = Posting::where('id',$id)->first();
+        if(!empty($posting)){
+            if($posting->delete()){
+                session()->flash('message', 'Successfully Posting Deleted!');
+                session()->flash('messageType', 'danger');
+                return redirect()->back();
+            }
+        }else{
+            session()->flash('message', 'Posting not Deleted!');
+            session()->flash('messageType', 'danger');
+            return redirect()->back();
+        }
     }
 
     public function coins_deduct(Request $request)

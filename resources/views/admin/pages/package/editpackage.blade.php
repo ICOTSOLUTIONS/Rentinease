@@ -51,7 +51,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Coins
-                                                <input type="text" name="coins" class="form-control"
+                                                <input type="number" name="coins" class="form-control"
                                                     @if (old('coins')) value="{{ old('coins') }}"
                                                 @else
                                                 value="{{ $package->coins }}" @endif />
@@ -82,7 +82,7 @@
                                                     <option
                                                     @if(old('duration_period') == "year")
                                                         value = "{{ old('duration_period') }}" selected
-                                                    @elseif($package->duration_period == "year") 
+                                                    @elseif($package->duration_period == "year")
                                                         value = "{{ $package->duration_period }}" selected
                                                     @else
                                                         value = "year"
@@ -90,7 +90,7 @@
                                                     <option
                                                     @if(old('duration_period') == "month")
                                                         value = "{{ old('duration_period') }}" selected
-                                                    @elseif($package->duration_period == "month") 
+                                                    @elseif($package->duration_period == "month")
                                                         value = "{{ $package->duration_period }}" selected
                                                     @else
                                                         value = "month"
@@ -98,7 +98,7 @@
                                                     <option
                                                     @if(old('duration_period') == "week")
                                                         value = "{{ old('duration_period') }}" selected
-                                                    @elseif($package->duration_period == "week") 
+                                                    @elseif($package->duration_period == "week")
                                                         value = "{{ $package->duration_period }}" selected
                                                     @else
                                                         value = "week"

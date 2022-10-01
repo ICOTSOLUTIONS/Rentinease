@@ -9,7 +9,7 @@
                             <div class="card-header text-center justify-content-between">
                                 <h4>Posting</h4>
                                 <a href="{{ route('agentposting.create') }}"><button class="btn btn-success btn-hover">ADD
-                                    Posting</button></a>
+                                        Posting</button></a>
                             </div>
                             @if (Session::has('message'))
                                 <div class="alert alert-{{ Session::get('messageType') }}">
@@ -25,41 +25,53 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Owner Name</th>
-                                                <th>Email</th>
-                                                <th>Company Name</th>
-                                                <th>Phone</th>
-                                                <th>Mobile</th>
-                                                <th>Country</th>
+                                                <th>Purpose</th>
+                                                <th>Property Type Place</th>
+                                                <th>Building Name/No</th>
+                                                <th>Building Age</th>
+                                                <th>Price</th>
+                                                <th>Price Per</th>
                                                 {{-- <th>Coins of Agents</th> --}}
-                                                <th>Office</th>
+                                                <th>Furnishing</th>
+                                                <th>City</th>
+                                                <th>Area</th>
+                                                <th>Amenities</th>
+                                                <th>Facilities</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        {{-- <tbody>
-                                            @foreach ($agents as $agent)
+                                        <tbody>
+                                            @foreach ($postings as $posting)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $agent->owner_name }}</td>
-                                                    <td>{{ $agent->email }}</td>
-                                                    <td>{{ $agent->company_name }}</td>
-                                                    <td>{{ $agent->phone_code }} {{ $agent->phone }}</td>
-                                                    <td>{{ $agent->mobile_code }} {{ $agent->mobile }}</td>
-                                                    <td>{{ $agent->country }}</td>
-                                                    <td>{{ $agent->office }}</td>
+                                                    <td>@if ($posting->purpose) @endif {{ $posting->purpose->name??'' }}</td>
+                                                    <td>@if ($posting->propertyType) @endif {{ $posting->propertyType->name??'' }}</td>
+                                                    <td>{{ $posting->building_name??'' }}</td>
+                                                    <td>{{ $posting->building_age??'' }}</td>
+                                                    <td>{{ $posting->price??'' }}</td>
+                                                    <td>{{ $posting->price_per??'' }}</td>
+                                                    <td>{{ $posting->furnishing??'' }}</td>
+                                                    <td>{{ $posting->city??'' }}</td>
+                                                    <td>{{ $posting->area??'' }}</td>
+                                                    <td>{{ $posting->amenities??'' }}</td>
+                                                    <td>{{ $posting->facilities??'' }}</td>
+                                                    <td>{{ $posting->title??'' }}</td>
+                                                    <td>{{ $posting->description??'' }}</td>
                                                     <td>
                                                         <div class="row">
-                                                            <div class="col-md-4">
-                                                                <a href="{{ route('agencyposting.edit', ['agent' => $agent->id]) }}"
+                                                            {{-- <div class="col-md-4">
+                                                                <a href="{{ route('agentposting.edit', ['agentposting' => $posting->id]) }}"
                                                                     class="btn btn-info text-white">Edit</a>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <a href="{{ route('agencyposting.show', ['agent' => $agent->id]) }}"
+                                                            </div> --}}
+                                                            {{-- <div class="col-md-4">
+                                                                <a href="{{ route('agentposting.show', ['agentposting' => $posting->id]) }}"
                                                                     class="btn btn-info text-white">View</a>
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="col-md-4">
                                                                 <form
-                                                                    action="{{ route('agencyposting.destroy', ['agent' => $agent->id]) }}"
+                                                                    action="{{ route('agentposting.destroy', ['agentposting' => $posting->id]) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
@@ -71,7 +83,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        </tbody> --}}
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
