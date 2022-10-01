@@ -85,6 +85,7 @@ Route::middleware('agent')->group(function () {
     Route::get('/agents/stripe-payment/{id}', [Agent\PaymentController::class, 'payment'])->name('agent.payment.stripe');
     Route::resource('/agentposting', Agent\PostingController::class);
     Route::get('/coins_deduct', [Agent\PostingController::class, 'coins_deduct'])->name('agent.coins.deduct');
+    Route::get('/areas', [Agent\PostingController::class, 'fetch_areas'])->name('agent.fetch.areas');
 });
 Route::middleware('customer')->group(function () {
     Route::get('/customer/dashboard', [Customer\AuthController::class, 'dashboard'])->name('customer.dashboard');

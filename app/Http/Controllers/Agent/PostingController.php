@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
 use App\Models\CoinDeduction;
 use App\Models\PlaceType;
 use App\Models\Posting;
@@ -27,7 +28,6 @@ class PostingController extends Controller
      */
     public function index()
     {
-
         return view('agency.agentpages.posting.index');
     }
 
@@ -40,7 +40,8 @@ class PostingController extends Controller
     {
         $place_type = PlaceType::with('place')->get();
         $coins_deduct = CoinDeduction::with('packages')->get();
-        return view('agency.agentpages.posting.add', ['place_types' => $place_type, 'coins_deduct' => $coins_deduct]);
+        $areas = Area::all();
+        return view('agency.agentpages.posting.add', ['place_types' => $place_type, 'coins_deduct' => $coins_deduct,'areas'=>$areas]);
     }
 
     /**
@@ -276,5 +277,11 @@ class PostingController extends Controller
     {
         if (!empty($request->id)) $coins_deduct = CoinDeduction::where('id', $request->id)->first();
         return response()->json(['message' => 'success', 'data' => $coins_deduct->coins_deduct]);
+    }
+
+    public function fetch_areas(Request $request)
+    {
+        if (!empty($request->city_name)) $areas = Area::where('city_name', $request->city_name)->get();
+        return response()->json(['message' => 'success', 'data' => $areas]);
     }
 }
