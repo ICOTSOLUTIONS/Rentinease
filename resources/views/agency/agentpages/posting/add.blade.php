@@ -375,14 +375,18 @@
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Photos
-                                                 <input type="file" name="photos[]" multiple>
+                                                 <input type="file" class="photos" name="photos[]" multiple>
                                              </label>
+                                         </div>
+                                         <div class="col-md-6 mb-3 mt-4 photo">
                                          </div>
                                          <div class="col-md-6 mb-3 mt-4">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Video
-                                                 <input type="file" name="video[]" multiple>
+                                                 <input type="file" class="videos" name="video[]" multiple>
                                              </label>
+                                         </div>
+                                         <div class="col-md-6 mb-3 mt-4 video">
                                          </div>
                                      </div>
                                      {{-- 360 --}}
@@ -390,14 +394,19 @@
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; 360
-                                                 <input type="file" name="three_sixty[]" multiple>
+                                                 <input type="file" class="360" name="three_sixty[]" multiple>
                                              </label>
+                                         </div>
+                                         <div class="col-md-6 mb-3 mt-4 three60">
                                          </div>
                                          <div class="col-md-6 mb-3 mt-1">
                                              <label class="file_label">
                                                  <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Floor Plan/Layout
-                                                 <input type="file" name="floor_plan_layout[]" multiple>
+                                                 <input type="file" class="floorPlans" name="floor_plan_layout[]"
+                                                     multiple>
                                              </label>
+                                         </div>
+                                         <div class="col-md-6 mb-3 mt-4 floorPlan">
                                          </div>
                                      </div>
                                      <div class="row">
@@ -613,235 +622,234 @@
                                          </div>
                                      </div>
                                      <div class="row">
-                                        <div class="col-md-12 mt-4">
-                                            <fieldset>
-                                                <legend>Facilities</legend>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Restaurant
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Restaurant">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Coffee Shop
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Coffee Shop">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Supermarket
-                                                            <input type="checkbox" name="facilities[]" value="Supermarket">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Mall
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Mall">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Hyper Market
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Hyper Market">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="container">Pharmacy
-                                                            <input type="checkbox" name="facilities[]" value="Pharmacy">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Health care centre
-                                                            <input type="checkbox" name="facilities[]" value="Health care centre">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Hospital
-                                                            <input type="checkbox" name="facilities[]" value="Hospital">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>School
-                                                            <input type="checkbox" name="facilities[]" value="School">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Nursery
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Nursery">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Collage
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Collage">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="container">University
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="University">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Sports academy
-                                                            <input type="checkbox" name="facilities[]" value="Sports academy">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Stadium
-                                                            <input type="checkbox" name="facilities[]" value="Stadium">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Kids play Area
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Kids play Area">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Kids park
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Kids park">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Pets friendly park
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Pets friendly park">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="container">Park in area
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Park in area">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Running track
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Running track">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Beach
-                                                            <input type="checkbox" name="facilities[]" value="Beach">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Open Beach
-                                                            <input type="checkbox" name="facilities[]" value="Open Beach">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Metro
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Metro">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Metro
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Metro">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="container">Metro
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Metro">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Bus Service
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Bus Service">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Out side parking
-                                                            <input type="checkbox" name="facilities[]" value="Out side parking">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Accessibility for the Disabled,
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="ccessibility Afor the Disabled,">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Concierge desk
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Concierge desk">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>24/7 Security
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="24/7 Security">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="container">CCTV Monitoring
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="CCTV Monitoring">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label>Kids Playground
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Kids Playground">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Sports Academy
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Sports Academy">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Pets grooming centre
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Pets grooming centre">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Kids Hospital
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Kids Hospital">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Medical Clinic
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Medical Clinic">
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label>Chiller free
-                                                            <input type="checkbox" name="facilities[]"
-                                                                value="Chiller free">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
+                                         <div class="col-md-12 mt-4">
+                                             <fieldset>
+                                                 <legend>Facilities</legend>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Restaurant
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Restaurant">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Coffee Shop
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Coffee Shop">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Supermarket
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Supermarket">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Mall
+                                                             <input type="checkbox" name="facilities[]" value="Mall">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Hyper Market
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Hyper Market">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label class="container">Pharmacy
+                                                             <input type="checkbox" name="facilities[]" value="Pharmacy">
+                                                             <span class="checkmark"></span>
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Health care centre
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Health care centre">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Hospital
+                                                             <input type="checkbox" name="facilities[]" value="Hospital">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>School
+                                                             <input type="checkbox" name="facilities[]" value="School">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Nursery
+                                                             <input type="checkbox" name="facilities[]" value="Nursery">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Collage
+                                                             <input type="checkbox" name="facilities[]" value="Collage">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label class="container">University
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="University">
+                                                             <span class="checkmark"></span>
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Sports academy
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Sports academy">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Stadium
+                                                             <input type="checkbox" name="facilities[]" value="Stadium">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Kids play Area
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Kids play Area">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Kids park
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Kids park">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Pets friendly park
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Pets friendly park">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label class="container">Park in area
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Park in area">
+                                                             <span class="checkmark"></span>
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Running track
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Running track">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Beach
+                                                             <input type="checkbox" name="facilities[]" value="Beach">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Open Beach
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Open Beach">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Metro
+                                                             <input type="checkbox" name="facilities[]" value="Metro">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Metro
+                                                             <input type="checkbox" name="facilities[]" value="Metro">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label class="container">Metro
+                                                             <input type="checkbox" name="facilities[]" value="Metro">
+                                                             <span class="checkmark"></span>
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Bus Service
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Bus Service">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Out side parking
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Out side parking">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Accessibility for the Disabled,
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="ccessibility Afor the Disabled,">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Concierge desk
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Concierge desk">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>24/7 Security
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="24/7 Security">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label class="container">CCTV Monitoring
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="CCTV Monitoring">
+                                                             <span class="checkmark"></span>
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                                 <div class="row">
+                                                     <div class="col-md-2">
+                                                         <label>Kids Playground
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Kids Playground">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Sports Academy
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Sports Academy">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Pets grooming centre
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Pets grooming centre">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Kids Hospital
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Kids Hospital">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Medical Clinic
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Medical Clinic">
+                                                         </label>
+                                                     </div>
+                                                     <div class="col-md-2">
+                                                         <label>Chiller free
+                                                             <input type="checkbox" name="facilities[]"
+                                                                 value="Chiller free">
+                                                         </label>
+                                                     </div>
+                                                 </div>
+                                             </fieldset>
+                                         </div>
+                                     </div>
                                      {{-- title description --}}
                                      <div class="row mt-3">
                                          <div class="col-md-6">
@@ -891,6 +899,7 @@
                                              <button class="btn btn-success save_btn">
                                                  Save
                                              </button>
+
                                          </div>
                                      </div>
                                  </div>
@@ -982,6 +991,64 @@
                          error: err => console.log(err)
                      });
                  }
+             });
+
+             $(function() {
+                 // Multiple images preview with JavaScript
+                 var previewImages = function(input, imgPreviewPlaceholder) {
+                     if (input.files) {
+                         var filesAmount = input.files.length;
+                         for (i = 0; i < filesAmount; i++) {
+                             var reader = new FileReader();
+                             reader.onload = function(event) {
+                                 $($.parseHTML(
+                                     '<img class="img-thumbnail" style="height: 80px; width: 80px;">'
+                                 )).attr('src', event.target.result).appendTo(
+                                     imgPreviewPlaceholder);
+                             }
+                             reader.readAsDataURL(input.files[i]);
+                         }
+                     }
+                 };
+                 //photos
+                 $('.photos').on('change', function() {
+                     $(".photo img:last-child").remove()
+                     previewImages(this, '.photo');
+                 });
+                 //360
+                 $('.360').on('change', function() {
+                     $(".three60 img:last-child").remove()
+                     previewImages(this, '.three60');
+                 });
+                 //floorPlan
+                 $('.floorPlans').on('change', function() {
+                     $(".floorPlan img:last-child").remove()
+                     previewImages(this, '.floorPlan');
+                 });
+             });
+             $(function() {
+                 // Multiple images preview with JavaScript
+                 var previewVideos = function(input, vidPreviewPlaceholder) {
+                     if (input.files) {
+                         var filesAmount = input.files.length;
+                         for (i = 0; i < filesAmount; i++) {
+                             var reader = new FileReader();
+                             reader.onload = function(event) {
+                                 $($.parseHTML(
+                                     `<video style="height: 150px; width: 200px;" controls>
+                                        </video>`
+                                 )).attr('src', event.target.result).appendTo(
+                                     vidPreviewPlaceholder);
+                             }
+                             reader.readAsDataURL(input.files[i]);
+                         }
+                     }
+                 };
+                 //videos
+                 $('.videos').on('change', function() {
+                     $(".video video:last-child").remove()
+                     previewVideos(this, '.video');
+                 });
              });
          });
      </script>
