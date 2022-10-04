@@ -1,3 +1,8 @@
+			<style>
+				.widthimg {
+					width: 30%;
+				}
+			</style>
 			<footer class="dark-footer skin-dark-footer style-2">
 				<div class="footer-middle">
 					<div class="container">
@@ -5,7 +10,7 @@
 
 							<div class="col-lg-5 col-md-5">
 								<div class="footer_widget">
-									<h4 class="text-primary">LO<span class="text-success">GO</span></h4>
+									<span class="w-100"><img class="widthimg" src="{{asset('assets/img/Rentinease-HR-Logo-05.png')}}" alt="" srcset=""></span>
 									<!-- <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="img-footer small mb-2" alt="" /> -->
 									<h4 class="extream mb-3">Do You Really want Assistance With<br>Anything?</h4>
 									<!-- <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p> -->

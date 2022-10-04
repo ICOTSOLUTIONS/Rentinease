@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{Admin, Agency, Agent, Customer, Web};
+use JoggApp\GoogleTranslate\Tests\GoogleTranslateTest;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +37,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/coinsdeduct', Admin\CoinsDeductionController::class)->except('show');
         Route::resource('/customer', Admin\CustomerController::class);
         Route::resource('/blog', Admin\BlogController::class)->except('show');
-        Route::get('/blog/statusChange/{id}',[Admin\BlogController::class,'statusChange'])->name('blog.statusChange');
+        Route::get('/blog/statusChange/{id}', [Admin\BlogController::class, 'statusChange'])->name('blog.statusChange');
 
         Route::get('/activity', [Admin\ActivityController::class, 'index'])->name('activity.index');
     });
@@ -163,3 +165,9 @@ Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
 Route::view('/contact', 'client.pages.contact.contact');
 //profile
 Route::view('/profile', 'client.pages.profile.profile');
+
+
+
+Route::view('/test', 'admin.auth.test');
+Route::get('admin/auth/test', [LangController::class, 'test']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
