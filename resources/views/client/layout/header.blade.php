@@ -27,7 +27,6 @@
 
       .goog-te-menu-value>span>img>span>img {
           color: white !important;
-
       }
   </style>
   <div class="header header-transparent change-logo">
@@ -35,13 +34,17 @@
           <nav id="navigation" class="navigation navigation-landscape">
               <form class="">
                   <div class="row mt-3">
-                      <div class="col-md-2">
+                      <div class="col-md-2 mt-3">
                           <div id="google_translate_element"></div>
                       </div>
                       <div class="col-md-6"></div>
-                      <div class="col-md-4 d-flex">
-                          <input class="form-control w-75 me-2" type="text" placeholder="Subscribe" aria-label="Search">
-                          <button class="btn btn-outline-success" type="submit">Subscribe</button>
+                      <div class="col-md-4 foot-news-last">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Email Address">
+                              <div class="input-group-append">
+                                  <button type="button" class="input-group-text theme-bg b-0 text-light">Subscribe</button>
+                              </div>
+                          </div>
                       </div>
                   </div>
               </form>
