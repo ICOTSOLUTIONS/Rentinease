@@ -964,82 +964,82 @@
      });
  </script>
  <script>
-     var selectedCity;
-     var selectedCityId;
+    //  var selectedCity;
+    //  var selectedCityId;
      var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
 
-     $(document).ready(function() {
-         var oldCityvalue = "{{ old('city') }}";
-         // console.log(oldCityvalue);
-         if (oldCityvalue) fetch_areas(oldCityvalue);
-         $("#s_city").on('change', function() {
-             selectedCity = $(this).find("option:selected").val();
-             fetch_areas(selectedCity);
-         });
-         $("#s_area").on('change', function() {
-             selectedArea = $(this).find("option:selected").text();
-             fetch_area_detail(selectedArea);
-         });
-     });
+    //  $(document).ready(function() {
+    //      var oldCityvalue = "{{ old('city') }}";
+    //      // console.log(oldCityvalue);
+    //      if (oldCityvalue) fetch_areas(oldCityvalue);
+    //      $("#s_city").on('change', function() {
+    //          selectedCity = $(this).find("option:selected").val();
+    //          fetch_areas(selectedCity);
+    //      });
+    //      $("#s_area").on('change', function() {
+    //          selectedArea = $(this).find("option:selected").text();
+    //          fetch_area_detail(selectedArea);
+    //      });
+    //  });
 
      //  fetch areas
-     function fetch_areas(selectedCity) {
-         if (selectedCity != '') {
-             var html = '';
-             var firstOption = '';
-             var oldAreavalue = "{{ old('area') }}";
-             $.ajax({
-                 type: "GET",
-                 url: "{{ route('agent.fetch.areas') }}",
-                 data: {
-                     city_name: selectedCity,
-                 },
-                 dataType: "json",
-                 cache: false,
-                 success: function(response) {
-                     console.log(response);
-                     if (response.data == null) {
-                         firstOption = `<option value=''>Select Area</option>`;
-                         $('#s_area').html(firstOption);
-                     } else {
-                         $.each(response.data, function(index, value) {
-                             var option = '';
-                             if (value.area_name) {
-                                 option =
-                                     `<option value="${value.area_name}">${value.area_name}</option>`;
-                             }
-                             html += option;
-                         });
-                         firstOption = `<option value=''>Select Area</option>`;
-                         $('#s_area').html(firstOption);
-                         $('#s_area').append(html);
-                         if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
-                     }
-                 },
-                 error: err => console.log(err)
-             });
-         } else {
-             firstOption = `<option value=''>Select Area</option>`;
-             $('#s_area').html(firstOption);
-         }
-     }
+    //  function fetch_areas(selectedCity) {
+    //      if (selectedCity != '') {
+    //          var html = '';
+    //          var firstOption = '';
+    //          var oldAreavalue = "{{ old('area') }}";
+    //          $.ajax({
+    //              type: "GET",
+    //              url: "{{ route('agent.fetch.areas') }}",
+    //              data: {
+    //                  city_name: selectedCity,
+    //              },
+    //              dataType: "json",
+    //              cache: false,
+    //              success: function(response) {
+    //                  console.log(response);
+    //                  if (response.data == null) {
+    //                      firstOption = `<option value=''>Select Area</option>`;
+    //                      $('#s_area').html(firstOption);
+    //                  } else {
+    //                      $.each(response.data, function(index, value) {
+    //                          var option = '';
+    //                          if (value.area_name) {
+    //                              option =
+    //                                  `<option value="${value.area_name}">${value.area_name}</option>`;
+    //                          }
+    //                          html += option;
+    //                      });
+    //                      firstOption = `<option value=''>Select Area</option>`;
+    //                      $('#s_area').html(firstOption);
+    //                      $('#s_area').append(html);
+    //                      if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
+    //                  }
+    //              },
+    //              error: err => console.log(err)
+    //          });
+    //      } else {
+    //          firstOption = `<option value=''>Select Area</option>`;
+    //          $('#s_area').html(firstOption);
+    //      }
+    //  }
      mapboxgl.accessToken =
          'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
      //  fetch areas_details
-     function fetch_area_detail(selectedArea) {
-         if (selectedArea != '') {
-             console.log(accessToken)
-             return fetch(
-                     `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
-                 )
-                 .then(response => response.json())
-                 .then(data => {
-                     console.log(data.features);
-                     $('#a_lat').val(data.features[0].center[0])
-                     $('#a_lon').val(data.features[0].center[1])
-                 });
-         }
-     }
+    //  function fetch_area_detail(selectedArea) {
+    //      if (selectedArea != '') {
+    //          console.log(accessToken)
+    //          return fetch(
+    //                  `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
+    //              )
+    //              .then(response => response.json())
+    //              .then(data => {
+    //                  console.log(data.features);
+    //                  $('#a_lat').val(data.features[0].center[0])
+    //                  $('#a_lon').val(data.features[0].center[1])
+    //              });
+    //      }
+    //  }
      const map = new mapboxgl.Map({
          container: 'map', // container ID
          style: 'mapbox://styles/mapbox/streets-v11', // style URL
