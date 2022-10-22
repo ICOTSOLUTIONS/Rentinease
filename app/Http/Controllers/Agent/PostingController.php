@@ -28,7 +28,7 @@ class PostingController extends Controller
      */
     public function index()
     {
-        $posting = Posting::with(['photos','floorPlans','threeSixties','videos','purpose','propertyType.placeType'])->get();
+        $posting = Posting::with(['photos','floorPlans','threeSixties','videos','purpose','propertyType.placeType'])->where('user_id',auth()->user()->id)->get();
         // dd($posting);
         return view('agency.agentpages.posting.index',['postings'=>$posting??[]]);
     }
@@ -126,8 +126,13 @@ class PostingController extends Controller
         }
         try {
             DB::beginTransaction();
-            $user_id = auth()->user()->id;
-            $remain_coins = UserPackageCoins::where('user_id', $user_id)->first();
+            $user = auth()->user();
+            $user_id = $user->id;
+            if($user->agency_id != null){
+                $remain_coins = UserPackageCoins::where('user_id', $user->agency_id)->first();
+            }else{
+                $remain_coins = UserPackageCoins::where('user_id', $user_id)->first();
+            }
             if(empty($remain_coins)) throw new Error("Please Buy Package First!");
             if ($remain_coins->remain_coins >= 0) {
                 $posting = new Posting();

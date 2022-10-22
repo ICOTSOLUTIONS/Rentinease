@@ -82,7 +82,7 @@
                                                         <span><i class="ti-location-pin mr-1"></i>{{ $agent->city ?? '' }},
                                                             {{ $agent->country ?? '' }}</span>
                                                         <h5 class="fr-can-name"><a
-                                                                href="{{ url('/agentproperty') }}">{{ $agent->owner_name ?? '' }}
+                                                                href="{{ route('web.agentproperty', ['id' => $agent->id]) }}">{{ $agent->owner_name ?? '' }}
                                                             </a></h5>
                                                         <ul class="inline_social">
                                                             <li><a href="#" class="fb"><i
@@ -166,18 +166,19 @@
                                                         <div class="listing-img-wrapper">
                                                             <div class="list-img-slide">
                                                                 <div class="click">
-                                                                    <div><a href="{{ url('/agencyproperty') }}"><img
-                                                                                src="{{ asset('assetsclient/img/myimg.jpg') }}"
-                                                                                class="img-fluid mx-auto"
-                                                                                alt="" /></a></div>
-                                                                    <div><a href="{{ url('/agencyproperty') }}"><img
-                                                                                src="{{ asset('assetsclient/img/myimg.jpg') }}"
-                                                                                class="img-fluid mx-auto"
-                                                                                alt="" /></a></div>
-                                                                    <div><a href="{{ url('/agencyproperty') }}"><img
-                                                                                src="{{ asset('assetsclient/img/myimg.jpg') }}"
-                                                                                class="img-fluid mx-auto"
-                                                                                alt="" /></a></div>
+                                                                    <div>
+                                                                        <a href="{{ url('/agencyproperty') }}">
+                                                                            @if (!empty($agency->logo))
+                                                                                <img src="{{ asset('storage/agency/' . $agency->logo) }}"
+                                                                                    class="img-fluid mx-auto"
+                                                                                    alt="" />
+                                                                            @else
+                                                                                <img src="{{ asset('assetsclient/img/myimg.jpg') }}"
+                                                                                    class="img-fluid mx-auto"
+                                                                                    alt="" />
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -187,8 +188,10 @@
                                                                     <div class="_card_flex_01">
                                                                         <h4 class="listing-name verified text-center"><a
                                                                                 href=""
-                                                                                class="prt-link-detail">{{ $agency->owner_name }}</a></h4>
-                                                                        <p class="text-center">{{ $agency->agency_agent_count }} AGENTS</p>
+                                                                                class="prt-link-detail">{{ $agency->owner_name }}</a>
+                                                                        </h4>
+                                                                        <p class="text-center">
+                                                                            {{ $agency->agency_agent_count }} AGENTS</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -196,15 +199,17 @@
                                                         <div class="listing-detail-footer">
                                                             <div class="footer-first text-center">
                                                                 <div class="foot-location d-flex justify-content-start ">
-                                                                    <label class="text-success m-1 w-100 fw-bolder">{{ $agency->agency_agent_for_sale_count }}
+                                                                    <label
+                                                                        class="text-success m-1 w-100 fw-bolder">{{ $agency->agency_agent_for_sale_count }}
                                                                         <h6 class="text-dark">For sale </h6>
                                                                     </label>
-                                                                    <label class="text-success m-1 w-100 fw-bolder">04
+                                                                    <label
+                                                                        class="text-success m-1 w-100 fw-bolder">{{ $agency->agency_agent_for_rent_count }}
                                                                         <h6 class="text-dark">For rent </h6>
                                                                     </label>
-                                                                    <label class="text-success m-1 w-100 fw-bolder">04
+                                                                    {{-- <label class="text-success m-1 w-100 fw-bolder">04
                                                                         <h6 class="text-dark">For commercial </h6>
-                                                                    </label>
+                                                                    </label> --}}
                                                                 </div>
                                                             </div>
                                                         </div>

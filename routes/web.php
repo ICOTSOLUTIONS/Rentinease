@@ -108,6 +108,7 @@ Route::get('/agencyportal', [Agency\ClientController::class, 'clientAgency'])->n
 Route::get('/blog', [Web\WebController::class, 'blog'])->name('web.blog');
 Route::get('/blog-detail/{id}', [Web\WebController::class, 'blog_details'])->name('web.blog.details');
 Route::get('/findagent', [Web\WebController::class, 'findagent'])->name('web.findagent');
+Route::get('/agentproperty/{id}', [Web\WebController::class, 'agentproperty'])->name('web.agentproperty');
 
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
@@ -156,7 +157,7 @@ Route::view('/rent', 'client.pages.rent.rent');
 // findagent
 // Route::view('/findagent', 'client.pages.findagent.findagent');
 // agentproperty
-Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
+// Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
 // findagency
 Route::view('/findagency', 'client.pages.findagency.findagency');
 // agencyproperty
