@@ -15,6 +15,7 @@ class CreatePostingsTable extends Migration
     {
         Schema::create('postings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('purpose_id')->nullable();
             $table->unsignedBigInteger('property_type_place_id')->nullable();
             $table->string('layout')->nullable();
@@ -30,14 +31,15 @@ class CreatePostingsTable extends Migration
             $table->string('city')->nullable();
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
-            // $table->mediumText('images')->nullable();
-            // $table->mediumText('videos')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->mediumText('map_place_id')->nullable();
             // $table->string('floor_plan_layout')->nullable();
             $table->mediumText('amenities')->nullable();
             $table->mediumText('facilities')->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('listing_type')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('purpose_id')->references('id')->on('purposes')->onDelete('CASCADE');
             $table->foreign('property_type_place_id')->references('id')->on('property_type_places')->onDelete('CASCADE');
             $table->timestamps();

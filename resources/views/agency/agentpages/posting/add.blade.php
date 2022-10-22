@@ -291,11 +291,11 @@
                                                 <option value="Day" @if (old('price_per') == 'Day') selected @endif>
                                                     Day</option>
                                                 <option value="Week" @if (old('price_per') == 'Week') selected @endif>
-                                                    >Week</option>
+                                                    Week</option>
                                                 <option value="Month" @if (old('price_per') == 'Month') selected @endif>
-                                                    >Month</option>
+                                                    Month</option>
                                                 <option value="Year" @if (old('price_per') == 'Year') selected @endif>
-                                                    >Year</option>
+                                                    Year</option>
                                             </select>
                                             @error('price_per')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -312,8 +312,6 @@
                                                 </option>
                                                 <option value="Semi" @if (old('furnishing') == 'Semi') selected @endif>
                                                     Semi</option>
-                                                <option value="Furnished"
-                                                    @if (old('furnishing') == 'Furnished') selected @endif>Furnished</option>
                                             </select>
                                             @error('furnishing')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -354,18 +352,19 @@
                                             @error('area')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
-                                            <input type="hidden" name="a_lat" id="a_lat"
-                                                value="{{ old('a_lat') }}">
-                                            <input type="hidden" name="a_lon" id="a_lon"
-                                                value="{{ old('a_lon') }}">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 mb-3 mt-4">
                                             <div id='map' style='width: 100%; height: 300px; '></div>
                                         </div>
-                                        <input type="text" name="text" value="" id="mapval"
+                                        <input type="text" name="address" id="mapval" class="form-control">
+                                        <input type="hidden" name="map_place_id" id="map_place_id"
                                             class="form-control">
+                                        <input type="hidden" name="a_lat" id="a_lat"
+                                            value="{{ old('a_lat') }}">
+                                        <input type="hidden" name="a_lon" id="a_lon"
+                                            value="{{ old('a_lon') }}">
                                         {{-- <div class="col-md-6 mb-3 mt-4">
                                             <label class="file_label">
                                                 <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Add Video
@@ -858,7 +857,11 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label>Discription</label> <br>
-                                            <textarea class="text_area w-100" name="description">@if (old('description')) {{ old('description') }} @endif </textarea>
+                                            <textarea class="text_area w-100" name="description">
+@if (old('description'))
+{{ old('description') }}
+@endif
+</textarea>
                                             @error('description')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -1044,354 +1047,356 @@
         });
     </script>
     <script>
-        //  var selectedCity;
-        //  var selectedCityId;
-         var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+        var selectedCity;
+        var selectedCityId;
+        var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
 
-        //  $(document).ready(function() {
-        //      var oldCityvalue = "{{ old('city') }}";
-        //      // console.log(oldCityvalue);
-        //      if (oldCityvalue) fetch_areas(oldCityvalue);
-        //      $("#s_city").on('change', function() {
-        //          selectedCity = $(this).find("option:selected").val();
-        //          fetch_areas(selectedCity);
-        //      });
-        //      $("#s_area").on('change', function() {
-        //          selectedArea = $(this).find("option:selected").text();
-        //          fetch_area_detail(selectedArea);
-        //      });
-        //  });
+        $(document).ready(function() {
+            var oldCityvalue = "{{ old('city') }}";
+            // console.log(oldCityvalue);
+            if (oldCityvalue) fetch_areas(oldCityvalue);
+            $("#s_city").on('change', function() {
+                selectedCity = $(this).find("option:selected").val();
+                fetch_areas(selectedCity);
+            });
+            $("#s_area").on('change', function() {
+                selectedArea = $(this).find("option:selected").text();
+                fetch_area_detail(selectedArea);
+            });
+        });
 
-         //  fetch areas
-        //  function fetch_areas(selectedCity) {
-        //      if (selectedCity != '') {
-        //          var html = '';
-        //          var firstOption = '';
-        //          var oldAreavalue = "{{ old('area') }}";
-        //          $.ajax({
-        //              type: "GET",
-        //              url: "{{ route('agent.fetch.areas') }}",
-        //              data: {
-        //                  city_name: selectedCity,
-        //              },
-        //              dataType: "json",
-        //              cache: false,
-        //              success: function(response) {
-        //                  console.log(response);
-        //                  if (response.data == null) {
-        //                      firstOption = `<option value=''>Select Area</option>`;
-        //                      $('#s_area').html(firstOption);
-        //                  } else {
-        //                      $.each(response.data, function(index, value) {
-        //                          var option = '';
-        //                          if (value.area_name) {
-        //                              option =
-        //                                  `<option value="${value.area_name}">${value.area_name}</option>`;
-        //                          }
-        //                          html += option;
-        //                      });
-        //                      firstOption = `<option value=''>Select Area</option>`;
-        //                      $('#s_area').html(firstOption);
-        //                      $('#s_area').append(html);
-        //                      if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
+        //  fetch areas
+        function fetch_areas(selectedCity) {
+            if (selectedCity != '') {
+                var html = '';
+                var firstOption = '';
+                var oldAreavalue = "{{ old('area') }}";
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('agent.fetch.areas') }}",
+                    data: {
+                        city_name: selectedCity,
+                    },
+                    dataType: "json",
+                    cache: false,
+                    success: function(response) {
+                        console.log(response);
+                        if (response.data == null) {
+                            firstOption = `<option value=''>Select Area</option>`;
+                            $('#s_area').html(firstOption);
+                        } else {
+                            $.each(response.data, function(index, value) {
+                                var option = '';
+                                if (value.area_name) {
+                                    option =
+                                        `<option value="${value.area_name}">${value.area_name}</option>`;
+                                }
+                                html += option;
+                            });
+                            firstOption = `<option value=''>Select Area</option>`;
+                            $('#s_area').html(firstOption);
+                            $('#s_area').append(html);
+                            if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
+                        }
+                    },
+                    error: err => console.log(err)
+                });
+            } else {
+                firstOption = `<option value=''>Select Area</option>`;
+                $('#s_area').html(firstOption);
+            }
+        }
+        //  fetch areas_details
+        function fetch_area_detail(selectedArea) {
+            if (selectedArea != '') {
+                console.log(accessToken)
+                return fetch(
+                        `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
+                    )
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.features);
+                        $('#a_lat').val(data.features[0].center[0])
+                        $('#a_lon').val(data.features[0].center[1])
+                    });
+            }
+        }
+
+        //map
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [55.2708, 25.2048], // starting position [lng, lat]
+            zoom: 10, // starting zoom
+        });
+        const geocoder = new MapboxGeocoder({
+            // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instanceb
+            marker: true, // Do not use the default marker style
+        });
+        // Add the geocoder to the map
+        map.addControl(geocoder);
+        // After the map style has loaded on the page,
+        map.on('load', () => {
+            map.addSource('single-point', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: []
+                }
+            });
+            map.addLayer({
+                id: 'point',
+                source: 'single-point',
+                type: 'circle',
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#448ee4'
+                }
+            });
+        });
+        geocoder.on('result', (event) => {
+            map.getSource('single-point').setData(event.result);
+        });
+        const marker = new mapboxgl.Marker() // initialize a new marker
+            .setLngLat([55.2708, 25.2048]) // Marker [lng, lat] coordinates
+            .addTo(map); // Add the marker to the map
+        function add_marker(event) {
+            var coordinates = event.lngLat;
+            marker.setLngLat(coordinates).addTo(map);
+            const lng = coordinates.lng
+            const lat = coordinates.lat
+            getlocation(lat, lng)
+        }
+
+        function getlocation(lat, lng) {
+            return fetch(
+                    `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${accessToken}`
+                )
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data, 'data./.');
+                    // document.getElementById('mapval').value = `Address: ${data.features[0].place_name}`
+                    $('#mapval').val(`Address: ${data.features[0].place_name}`)
+                    $('#map_place_id').val(data.features[0].id)
+                    $('#a_lat').val(data.features[0].center[0])
+                    $('#a_lon').val(data.features[0].center[1])
+                });
+        }
+
+
+        map.on('click', add_marker);
+        //  navigator.geolocation.getCurrentPosition(function(position) {
+        //          var locationMarker = null;
+        //          if (locationMarker) {
+        //              // return if there is a locationMarker bug
+        //              return;
+        //              // sets default position to your position
+        //              lat = position.coords["latitude"];
+        //              lng = position.coords["longitude"];
+        //          }
+
+
+        //      },
+        //      function(error) {
+        //          console.log("Error: ", error);
+        //      }, {
+        //          enableHighAccuracy: true
+        //      }
+        //  );
+        map.setView([lat, lng], 17);
+        marker = L.marker([lat, lng], {
+            icon: L.mapbox.marker.icon({
+                'marker-color': '#f86767'
+            })
+        });
+        marker.addTo(map);
+    </script>
+
+
+
+    <!-- <script>
+        var selectedCity;
+        var selectedCityId;
+        var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+        $(document).ready(function() {
+            var oldCityvalue = "{{ old('city') }}";
+            // console.log(oldCityvalue);
+            if (oldCityvalue) fetch_areas(oldCityvalue);
+            $("#s_city").on('change', function() {
+                selectedCity = $(this).find("option:selected").val();
+                fetch_areas(selectedCity);
+            });
+            $("#s_area").on('change', function() {
+                selectedArea = $(this).find("option:selected").text();
+                fetch_area_detail(selectedArea);
+            });
+        });
+        //  fetch areas
+        function fetch_areas(selectedCity) {
+            if (selectedCity != '') {
+                var html = '';
+                var firstOption = '';
+                var oldAreavalue = "{{ old('area') }}";
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('agent.fetch.areas') }}",
+                    data: {
+                        city_name: selectedCity,
+                    },
+                    dataType: "json",
+                    cache: false,
+                    success: function(response) {
+                        console.log(response);
+                        if (response.data == null) {
+                            firstOption = `<option value=''>Select Area</option>`;
+                            $('#s_area').html(firstOption);
+                        } else {
+                            $.each(response.data, function(index, value) {
+                                var option = '';
+                                if (value.area_name) {
+                                    option =
+                                        `<option value="${value.area_name}">${value.area_name}</option>`;
+                                }
+                                html += option;
+                            });
+                            firstOption = `<option value=''>Select Area</option>`;
+                            $('#s_area').html(firstOption);
+                            $('#s_area').append(html);
+                            if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
+                        }
+                    },
+                    error: err => console.log(err)
+                });
+            } else {
+                firstOption = `<option value=''>Select Area</option>`;
+                $('#s_area').html(firstOption);
+            }
+        }
+        //  fetch areas_details
+        function fetch_area_detail(selectedArea) {
+            if (selectedArea != '') {
+                console.log(accessToken)
+                return fetch(
+                        `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
+                    )
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.features);
+                        $('#a_lat').val(data.features[0].center[0])
+                        $('#a_lon').val(data.features[0].center[1])
+                    });
+            }
+        }
+        //  var accessToken = 'ruxtrh7125';
+        //fetch city id
+        //  function fetch_loca(selectedCity) {
+        //      //13933634117436396
+        //      return fetch(`https://catalog.api.2gis.com/3.0/items?q=${selectedCity}&type=adm_div.city&key=${accessToken}`)
+        //          .then(response => response.json())
+        //          .then(data => {
+        //              //   console.log(data.result);
+        //              console.log(data.result.items[0].id);
+        //              selectedCityId = data.result.items[0].id;
+        //              fetch_areas(selectedCityId);
+        //          })
+        //  }
+        //  //fetch area details
+        //  function fetch_area(selectedArea) {
+        //      return fetch(
+        //              `https://catalog.api.2gis.com/3.0/items/geocode?q=${selectedArea}&fields=items.point&key=${accessToken}`
+        //          )
+        //          .then(response => response.json())
+        //          .then(data => {
+        //              console.log(data.result);
+        //              $('#a_lat').val(data.result.items[0].point.lat)
+        //              $('#a_lon').val(data.result.items[0].point.lon)
+        //          })
+        //  }
+        //  //fetch areas
+        //  function fetch_areas(selectedCityId) {
+        //      return fetch(
+        //              `https://catalog.api.2gis.com/3.0/items?q=area&city_id=${selectedCityId}&fields=items.address&key=${accessToken}`
+        //          )
+        //          .then(response => response.json())
+        //          .then(data => {
+        //              console.log(data.result);
+        //              var html = '';
+        //              $.each(data.result.items, function(index, value) {
+        //                  //  console.log(value.id);
+        //                  var option = '';
+        //                  if (value.full_name) {
+        //                      option = `<option value="${value.full_name}">${value.full_name}</option>`;
         //                  }
-        //              },
-        //              error: err => console.log(err)
-        //          });
-        //      } else {
-        //          firstOption = `<option value=''>Select Area</option>`;
-        //          $('#s_area').html(firstOption);
-        //      }
-        //  }
-         mapboxgl.accessToken =
-             'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
-         //  fetch areas_details
-        //  function fetch_area_detail(selectedArea) {
-        //      if (selectedArea != '') {
-        //          console.log(accessToken)
-        //          return fetch(
-        //                  `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
-        //              )
-        //              .then(response => response.json())
-        //              .then(data => {
-        //                  console.log(data.features);
-        //                  $('#a_lat').val(data.features[0].center[0])
-        //                  $('#a_lon').val(data.features[0].center[1])
+        //                  html += option;
         //              });
-        //      }
+        //              var firstOption = `<option value=''>Select Area</option>`;;
+        //              $('#s_area').html(firstOption);
+        //              $('#s_area').append(html);
+        //          });
         //  }
-         const map = new mapboxgl.Map({
-             container: 'map', // container ID
-             style: 'mapbox://styles/mapbox/streets-v11', // style URL
-             center: [55.2708, 25.2048], // starting position [lng, lat]
-             zoom: 10, // starting zoom
-         });
-         const geocoder = new MapboxGeocoder({
-             // Initialize the geocoder
-             accessToken: mapboxgl.accessToken, // Set the access token
-             mapboxgl: mapboxgl, // Set the mapbox-gl instanceb
-             marker: true, // Do not use the default marker style
-         });
-         // Add the geocoder to the map
-         map.addControl(geocoder);
-         // After the map style has loaded on the page,
-         map.on('load', () => {
-             map.addSource('single-point', {
-                 type: 'geojson',
-                 data: {
-                     type: 'FeatureCollection',
-                     features: []
-                 }
-             });
-             map.addLayer({
-                 id: 'point',
-                 source: 'single-point',
-                 type: 'circle',
-                 paint: {
-                     'circle-radius': 10,
-                     'circle-color': '#448ee4'
-                 }
-             });
-         });
-         geocoder.on('result', (event) => {
-             map.getSource('single-point').setData(event.result);
-         });
-         const marker = new mapboxgl.Marker() // initialize a new marker
-             .setLngLat([55.2708, 25.2048]) // Marker [lng, lat] coordinates
-             .addTo(map); // Add the marker to the map
-         function add_marker(event) {
-             var coordinates = event.lngLat;
-             marker.setLngLat(coordinates).addTo(map);
-             const lng = coordinates.lng
-             const lat = coordinates.lat
-             getlocation(lat, lng)
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [55.2708, 25.2048], // starting position [lng, lat]
+            zoom: 10, // starting zoom
+        });
+        const marker = new mapboxgl.Marker() // initialize a new marker
+            .setLngLat([55.2708, 25.2048]) // Marker [lng, lat] coordinates
+            .addTo(map); // Add the marker to the map
+        function add_marker(event) {
+            var coordinates = event.lngLat;
+            marker.setLngLat(coordinates).addTo(map);
+            console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+            const lng = coordinates.lng
+            const lat = coordinates.lat
+            document.getElementById('mapval').value = ` Lat: ${coordinates.lng} , Lang: ${coordinates.lat}`
 
-         }
-
-         function getlocation(lat, lng) {
-             return fetch(
-                     `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${accessToken}`
-                 )
-                 .then(response => response.json())
-                 .then(data => {
-                     //  console.log(data.features[0].place_name, 'data./.');
-                     document.getElementById('mapval').value = `Address: ${data.features[0].place_name}`
-
-                     //  $('#a_lat').val(data.features[0].center[0])
-                     //  $('#a_lon').val(data.features[0].center[1])
-                 });
-         }
-
-
-         map.on('click', add_marker);
-         //  navigator.geolocation.getCurrentPosition(function(position) {
-         //          var locationMarker = null;
-         //          if (locationMarker) {
-         //              // return if there is a locationMarker bug
-         //              return;
-         //              // sets default position to your position
-         //              lat = position.coords["latitude"];
-         //              lng = position.coords["longitude"];
-         //          }
-
-
-         //      },
-         //      function(error) {
-         //          console.log("Error: ", error);
-         //      }, {
-         //          enableHighAccuracy: true
-         //      }
-         //  );
-         map.setView([lat, lng], 17);
-         marker = L.marker([lat, lng], {
-             icon: L.mapbox.marker.icon({
-                 'marker-color': '#f86767'
-             })
-         });
-         marker.addTo(map);
-     </script>
-
-
-
-     <!-- <script>
-         var selectedCity;
-         var selectedCityId;
-         var accessToken = 'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
-         $(document).ready(function() {
-             var oldCityvalue = "{{ old('city') }}";
-             // console.log(oldCityvalue);
-             if (oldCityvalue) fetch_areas(oldCityvalue);
-             $("#s_city").on('change', function() {
-                 selectedCity = $(this).find("option:selected").val();
-                 fetch_areas(selectedCity);
-             });
-             $("#s_area").on('change', function() {
-                 selectedArea = $(this).find("option:selected").text();
-                 fetch_area_detail(selectedArea);
-             });
-         });
-         //  fetch areas
-         function fetch_areas(selectedCity) {
-             if (selectedCity != '') {
-                 var html = '';
-                 var firstOption = '';
-                 var oldAreavalue = "{{ old('area') }}";
-                 $.ajax({
-                     type: "GET",
-                     url: "{{ route('agent.fetch.areas') }}",
-                     data: {
-                         city_name: selectedCity,
-                     },
-                     dataType: "json",
-                     cache: false,
-                     success: function(response) {
-                         console.log(response);
-                         if (response.data == null) {
-                             firstOption = `<option value=''>Select Area</option>`;
-                             $('#s_area').html(firstOption);
-                         } else {
-                             $.each(response.data, function(index, value) {
-                                 var option = '';
-                                 if (value.area_name) {
-                                     option =
-                                         `<option value="${value.area_name}">${value.area_name}</option>`;
-                                 }
-                                 html += option;
-                             });
-                             firstOption = `<option value=''>Select Area</option>`;
-                             $('#s_area').html(firstOption);
-                             $('#s_area').append(html);
-                             if (oldAreavalue != null) $('#s_area').val(oldAreavalue);
-                         }
-                     },
-                     error: err => console.log(err)
-                 });
-             } else {
-                 firstOption = `<option value=''>Select Area</option>`;
-                 $('#s_area').html(firstOption);
-             }
-         }
-         //  fetch areas_details
-         function fetch_area_detail(selectedArea) {
-             if (selectedArea != '') {
-                 console.log(accessToken)
-                 return fetch(
-                         `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedArea}.json?types=place%2Cpostcode%2Caddress&access_token=${accessToken}`
-                     )
-                     .then(response => response.json())
-                     .then(data => {
-                         console.log(data.features);
-                         $('#a_lat').val(data.features[0].center[0])
-                         $('#a_lon').val(data.features[0].center[1])
-                     });
-             }
-         }
-         //  var accessToken = 'ruxtrh7125';
-         //fetch city id
-         //  function fetch_loca(selectedCity) {
-         //      //13933634117436396
-         //      return fetch(`https://catalog.api.2gis.com/3.0/items?q=${selectedCity}&type=adm_div.city&key=${accessToken}`)
-         //          .then(response => response.json())
-         //          .then(data => {
-         //              //   console.log(data.result);
-         //              console.log(data.result.items[0].id);
-         //              selectedCityId = data.result.items[0].id;
-         //              fetch_areas(selectedCityId);
-         //          })
-         //  }
-         //  //fetch area details
-         //  function fetch_area(selectedArea) {
-         //      return fetch(
-         //              `https://catalog.api.2gis.com/3.0/items/geocode?q=${selectedArea}&fields=items.point&key=${accessToken}`
-         //          )
-         //          .then(response => response.json())
-         //          .then(data => {
-         //              console.log(data.result);
-         //              $('#a_lat').val(data.result.items[0].point.lat)
-         //              $('#a_lon').val(data.result.items[0].point.lon)
-         //          })
-         //  }
-         //  //fetch areas
-         //  function fetch_areas(selectedCityId) {
-         //      return fetch(
-         //              `https://catalog.api.2gis.com/3.0/items?q=area&city_id=${selectedCityId}&fields=items.address&key=${accessToken}`
-         //          )
-         //          .then(response => response.json())
-         //          .then(data => {
-         //              console.log(data.result);
-         //              var html = '';
-         //              $.each(data.result.items, function(index, value) {
-         //                  //  console.log(value.id);
-         //                  var option = '';
-         //                  if (value.full_name) {
-         //                      option = `<option value="${value.full_name}">${value.full_name}</option>`;
-         //                  }
-         //                  html += option;
-         //              });
-         //              var firstOption = `<option value=''>Select Area</option>`;;
-         //              $('#s_area').html(firstOption);
-         //              $('#s_area').append(html);
-         //          });
-         //  }
-         mapboxgl.accessToken =
-             'pk.eyJ1IjoicmVudGluZWFzZSIsImEiOiJjbDZ6ODRxaDIwMXh5M3FxeXIza2VzZm5mIn0.lXvnhh-TY3UCIKNbUxLLjA';
-         const map = new mapboxgl.Map({
-             container: 'map', // container ID
-             style: 'mapbox://styles/mapbox/streets-v11', // style URL
-             center: [55.2708, 25.2048], // starting position [lng, lat]
-             zoom: 10, // starting zoom
-         });
-         const marker = new mapboxgl.Marker() // initialize a new marker
-             .setLngLat([55.2708, 25.2048]) // Marker [lng, lat] coordinates
-             .addTo(map); // Add the marker to the map
-         function add_marker(event) {
-             var coordinates = event.lngLat;
-             marker.setLngLat(coordinates).addTo(map);
-             console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
-             const lng = coordinates.lng
-             const lat = coordinates.lat
-             document.getElementById('mapval').value = ` Lat: ${coordinates.lng} , Lang: ${coordinates.lat}`
-
-         }
-         const geocoder = new MapboxGeocoder({
-             // Initialize the geocoder
-             accessToken: mapboxgl.accessToken, // Set the access token
-             mapboxgl: mapboxgl, // Set the mapbox-gl instance
-             marker: true // Do not use the default marker style
-             //  placeholder: 'Search for places in Dubai', // Placeholder text for the search
-             //  bar
-             //  bbox: [55.2708, 25.2048, 55.2708, 25.2048], // Boundary for Berkeley
-             //  proximity: {
-             //      longitude: 55.2708,
-             //      latitude: 25.2048
-             //  } // Coordinates of UC Berkeley
-         });
-         // Add the geocoder to the map
-         map.addControl(geocoder);
-         // After the map style has loaded on the page,
-         // add a source layer and default styling for a single point
-         map.on('load', () => {
-             map.addSource('single-point', {
-                 type: 'geojson',
-                 data: {
-                     type: 'FeatureCollection',
-                     features: []
-                 }
-             });
-             map.addLayer({
-                 id: 'point',
-                 source: 'single-point',
-                 type: 'circle',
-                 paint: {
-                     'circle-radius': 10,
-                     'circle-color': '#448ee4'
-                 }
-             });
-         });
-         geocoder.on('result', (event) => {
-             map.getSource('single-point').setData(event.result.geometry);
-         });
-         // Listen for the `result` event from the Geocoder
-         // `r
-     </script> -->
+        }
+        const geocoder = new MapboxGeocoder({
+            // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+            marker: true // Do not use the default marker style
+            //  placeholder: 'Search for places in Dubai', // Placeholder text for the search
+            //  bar
+            //  bbox: [55.2708, 25.2048, 55.2708, 25.2048], // Boundary for Berkeley
+            //  proximity: {
+            //      longitude: 55.2708,
+            //      latitude: 25.2048
+            //  } // Coordinates of UC Berkeley
+        });
+        // Add the geocoder to the map
+        map.addControl(geocoder);
+        // After the map style has loaded on the page,
+        // add a source layer and default styling for a single point
+        map.on('load', () => {
+            map.addSource('single-point', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: []
+                }
+            });
+            map.addLayer({
+                id: 'point',
+                source: 'single-point',
+                type: 'circle',
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#448ee4'
+                }
+            });
+        });
+        geocoder.on('result', (event) => {
+            map.getSource('single-point').setData(event.result.geometry);
+        });
+        // Listen for the `result` event from the Geocoder
+        // `r
+    </script> -->
 @endpush

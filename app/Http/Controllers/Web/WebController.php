@@ -22,8 +22,9 @@ class WebController extends Controller
     }
     public function findagent()
     {
-        $users = User::where('role_id',4)->where('agency_id',null)->get();
-        dd($users);
-        return view('client.pages.findagent.findagent',['users'=>$users??[]]);
+        $agents = User::where('role_id',4)->where('agency_id',null)->get();
+        $agencies = User::where('role_id',7)->get();
+        // dd($agencies);
+        return view('client.pages.findagent.findagent',['agents'=>$agents??[],'agencies'=>$agencies??[]]);
     }
 }

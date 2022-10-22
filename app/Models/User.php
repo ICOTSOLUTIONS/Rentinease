@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    protected $appends = ["posting_count",'agency_agent_count','agency_agent_for_sale_count'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,5 +51,28 @@ class User extends Authenticatable
     public function payments()
     {
         return $this->hasMany(Payment::class,'user_id','id');
+    }
+
+    protected function getPostingCountAttribute()
+    {
+        $count = Posting::where('user_id',$this->id)->count();
+        return $count;
+    }
+
+    protected function getAgencyAgentCountAttribute()
+    {
+        $agentCount = User::where('role_id',4)->where('agency_id',$this->id)->count();
+        return $agentCount;
+    }
+
+    protected function getAgencyAgentForSaleCountAttribute()
+    {
+        $agents = User::where('role_id',4)->get();
+        $forsale = 0;
+        foreach ($agents as $key => $value) {
+            $agentCount = Posting::where('user_id',$value->id)->where('purpose_id',2)->first();
+            if(!empty($agentCount)) $forsale += 1;
+        }
+        return $forsale;
     }
 }

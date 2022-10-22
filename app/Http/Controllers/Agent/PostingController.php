@@ -54,7 +54,7 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->facilities);
+        // dd($request->all());
         $rules = [
             'purpose' => 'required',
             'size' => 'required',
@@ -126,10 +126,12 @@ class PostingController extends Controller
         }
         try {
             DB::beginTransaction();
-            $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
+            $user_id = auth()->user()->id;
+            $remain_coins = UserPackageCoins::where('user_id', $user_id)->first();
             if(empty($remain_coins)) throw new Error("Please Buy Package First!");
             if ($remain_coins->remain_coins >= 0) {
                 $posting = new Posting();
+                $posting->user_id = $user_id;
                 if($request->purpose){
                     $purpose = Purpose::where('name', $request->purpose)->first();
                     $posting->purpose_id = $purpose->id;
@@ -164,6 +166,8 @@ class PostingController extends Controller
                 $posting->area = $request->area;
                 $posting->lat = $request->a_lat;
                 $posting->lng = $request->a_lon;
+                $posting->map_place_id = $request->map_place_id;
+                $posting->address = $request->address;
                 $posting->amenities = implode(", ", array_filter($request->amenities));
                 $posting->facilities = implode(", ", array_filter($request->facilities));
                 // $posting->amenities = json_encode($request->amenities);
