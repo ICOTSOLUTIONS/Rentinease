@@ -40,46 +40,52 @@
         background-repeat: no-repeat !important;
     } */
 
-    
-.bannarimg
-{
-    background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
-    /* border: 2px solid red; */
-    height: 650px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-.bannarimg::before
-{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-	/* margin-top: 125px; */
-}
-.bannarimg > *
-{
-    z-index: 10;
-    position: relative;
-}
+
+    .bannarimg {
+        background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
+        /* border: 2px solid red; */
+        height: 650px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .bannarimg::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        /* margin-top: 125px; */
+    }
+
+    .bannarimg>* {
+        z-index: 10;
+        position: relative;
+    }
 
     .imgcover {
 
         background-image: url("{{asset('./assetsclient/img/pattern.png')}}") !important;
     }
+
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
 </style>
 
 <body class="yellow-skin">
-
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -102,6 +108,17 @@
 
 
     </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', includedLanguages : 'en,ar,ur',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="{{ asset('./assetsclient/js/jquery.min.js') }}"></script>
@@ -120,6 +137,9 @@
     <!-- This page plugins -->
     <!-- ============================================================== -->
     @stack('script')
+
+
+
 </body>
 
 </html>
