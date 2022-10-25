@@ -156,12 +156,11 @@
                                             <div class="list-img-slide">
                                                 <div class="click">
                                                     <div>
-                                                        <a href="single-property-1.html">
-                                                            <img
-                                                                src="{{ asset('assetsclient/img/p-1.png') }}"
+                                                        <a href="#">
+                                                            <img src="{{ asset('assetsclient/img/p-1.png') }}"
                                                                 class="img-fluid mx-auto" alt="" />
-                                                            </a>
-                                                        </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -174,13 +173,15 @@
                                                         <span class="_list_blickes types">Condos</span>
                                                     </div>
                                                     <div class="_card_flex_last">
-                                                        <h6 class="listing-card-info-price mb-0">AED {{ $posting->price??0 }}</h6>
+                                                        <h6 class="listing-card-info-price mb-0">AED
+                                                            {{ $posting->price ?? 0 }}</h6>
                                                     </div>
                                                 </div>
                                                 <div class="_card_list_flex">
                                                     <div class="_card_flex_01">
-                                                        <h4 class="listing-name verified"><a href="single-property-1.html"
-                                                                class="prt-link-detail">{{$posting->address??''}}</a></h4>
+                                                        <h4 class="listing-name verified"><a href="#"
+                                                                class="prt-link-detail">{{ $posting->address ?? '' }}</a>
+                                                        </h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,7 +201,7 @@
                                                     <div class="inc-fleat-icon">
                                                         {{-- <img src="assets/img/move.svg"
                                                             width="16" alt="" /> --}}
-                                                        </div>{{ $posting->size??'' }} {{ $posting->size_square??'' }}
+                                                    </div>{{ $posting->size ?? '' }} {{ $posting->size_square ?? '' }}
                                                 </div>
                                             </div>
                                         </div>
@@ -230,7 +231,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="prt_saveed_12lk">
-                                                            <a href="single-property-1.html" data-toggle="tooltip"
+                                                            <a href="#" data-toggle="tooltip"
                                                                 data-placement="top"
                                                                 data-original-title="View Property"><i
                                                                     class="ti-arrow-right"></i></a>

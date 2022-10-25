@@ -42,9 +42,9 @@ class WebController extends Controller
     {
         $agency = User::where('id', $id)->first();
         $agents = User::where('role_id', 4)->where('agency_id', $id)->get();
-        $properties = Posting::with(['photos', 'floorPlans', 'threeSixties', 'videos', 'purpose', 'propertyType.placeType', 'listning_type'])->whereHas('user', function ($query) use ($id) {
+        $postings = Posting::with(['photos', 'floorPlans', 'threeSixties', 'videos', 'purpose', 'propertyType.placeType', 'listning_type'])->whereHas('user', function ($query) use ($id) {
             $query->where('agency_id', $id);
         })->get();
-        return view('client.pages.findagency.agencyproperty', ['agents' => $agents ?? [], 'agency' => $agency ?? [], 'properties' => $properties ?? []]);
+        return view('client.pages.findagency.agencyproperty', ['agents' => $agents ?? [], 'agency' => $agency ?? [], 'postings' => $postings ?? []]);
     }
 }

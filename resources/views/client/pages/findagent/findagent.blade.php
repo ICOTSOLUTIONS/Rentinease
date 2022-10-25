@@ -167,7 +167,8 @@
                                                             <div class="list-img-slide">
                                                                 <div class="click">
                                                                     <div>
-                                                                        <a href="{{ route('web.findagency',['id'=>$agency->id]) }}">
+                                                                        <a
+                                                                            href="{{ route('web.findagency', ['id' => $agency->id]) }}">
                                                                             @if (!empty($agency->logo))
                                                                                 <img src="{{ asset('storage/agency/' . $agency->logo) }}"
                                                                                     class="img-fluid mx-auto"
@@ -187,7 +188,7 @@
                                                                 <div class="_card_list_flex">
                                                                     <div class="_card_flex_01">
                                                                         <h4 class="listing-name verified text-center"><a
-                                                                                href="{{ route('web.findagency',['id'=>$agency->id]) }}"
+                                                                                href="{{ route('web.findagency', ['id' => $agency->id]) }}"
                                                                                 class="prt-link-detail">{{ $agency->owner_name }}</a>
                                                                         </h4>
                                                                         <p class="text-center">
