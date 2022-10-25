@@ -18,6 +18,7 @@ class CreatePostingsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('purpose_id')->nullable();
             $table->unsignedBigInteger('property_type_place_id')->nullable();
+            $table->unsignedBigInteger('listing_type_id')->nullable();
             $table->string('layout')->nullable();
             $table->string('bath')->nullable();
             $table->string('size')->nullable();
@@ -38,10 +39,10 @@ class CreatePostingsTable extends Migration
             $table->mediumText('facilities')->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-            $table->string('listing_type')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('purpose_id')->references('id')->on('purposes')->onDelete('CASCADE');
             $table->foreign('property_type_place_id')->references('id')->on('property_type_places')->onDelete('CASCADE');
+            $table->foreign('listing_type_id')->references('id')->on('coin_deductions')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

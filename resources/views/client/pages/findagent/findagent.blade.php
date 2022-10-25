@@ -56,13 +56,13 @@
                                     @forelse ($agents as $agent)
                                         <div class="col-lg-4 col-md-6 col-sm-12">
                                             <div class="grid_agents">
-                                                <div class="elio_mx_list theme-bg-2">{{ $agent->posting_count ?? 0 }}
+                                                <div class="elio_mx_list theme-bg-2">{{ $agent->agent_posting_count ?? 0 }}
                                                     Listings
                                                 </div>
                                                 <div class="grid_agents-wrap">
 
                                                     <div class="fr-grid-thumb">
-                                                        <a href="{{ url('/agentproperty') }}">
+                                                        <a href="{{ route('web.agentproperty', ['id' => $agent->id]) }}">
                                                             @if ($agent->authorized)
                                                                 <span class="verified"><img
                                                                         src="{{ asset('assetsclient/img/verified.svg') }}"
@@ -167,7 +167,7 @@
                                                             <div class="list-img-slide">
                                                                 <div class="click">
                                                                     <div>
-                                                                        <a href="{{ url('/agencyproperty') }}">
+                                                                        <a href="{{ route('web.findagency',['id'=>$agency->id]) }}">
                                                                             @if (!empty($agency->logo))
                                                                                 <img src="{{ asset('storage/agency/' . $agency->logo) }}"
                                                                                     class="img-fluid mx-auto"
@@ -187,7 +187,7 @@
                                                                 <div class="_card_list_flex">
                                                                     <div class="_card_flex_01">
                                                                         <h4 class="listing-name verified text-center"><a
-                                                                                href=""
+                                                                                href="{{ route('web.findagency',['id'=>$agency->id]) }}"
                                                                                 class="prt-link-detail">{{ $agency->owner_name }}</a>
                                                                         </h4>
                                                                         <p class="text-center">

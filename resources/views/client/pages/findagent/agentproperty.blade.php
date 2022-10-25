@@ -109,7 +109,7 @@
                                         <li><strong>{{ $agent->country ?? '' }}</strong>Country</li>
                                         <li><strong>({{ $agent->phone_code ?? '' }}) {{ $agent->phone ?? '' }}</strong>Fax
                                         </li>
-                                        <li><strong>{{ $agent->posting_count ?? 0 }}</strong>Property</li>
+                                        <li><strong>{{ $agent->agent_posting_count ?? 0 }}</strong>Property</li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                                                         <span class="_list_blickes types">Condos</span>
                                                     </div>
                                                     <div class="_card_flex_last">
-                                                        <h6 class="listing-card-info-price mb-0">{{ $posting->price??0 }}</h6>
+                                                        <h6 class="listing-card-info-price mb-0">AED {{ $posting->price??0 }}</h6>
                                                     </div>
                                                 </div>
                                                 <div class="_card_list_flex">
@@ -210,7 +210,7 @@
                                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18"
                                                         alt="" />{{ $posting->area }}, {{ $posting->city }}</div>
                                             </div>
-                                            <div class="footer-flex">
+                                            {{-- <div class="footer-flex">
                                                 <ul class="selio_style">
                                                     <li>
                                                         <div class="prt_saveed_12lk">
@@ -237,7 +237,7 @@
                                                         </div>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                     </div>

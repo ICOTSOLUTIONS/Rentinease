@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Posting;
 use App\Models\User;
 
 class WebController extends Controller
@@ -20,6 +21,7 @@ class WebController extends Controller
         $blog = Blog::with('user')->where('id', $id)->first();
         return view('client.pages.blog.blogmore', ['blog' => $blog ?? []]);
     }
+
     public function findagent()
     {
         $agents = User::where('role_id', 4)->where('agency_id', null)->get();
@@ -34,5 +36,15 @@ class WebController extends Controller
             $agent = User::with('postings')->where('role_id', 4)->where('id', $id)->first();
             return view('client.pages.findagent.agentproperty', ['agent' => $agent ?? []]);
         }
+    }
+
+    public function findagency($id)
+    {
+        $agency = User::where('id', $id)->first();
+        $agents = User::where('role_id', 4)->where('agency_id', $id)->get();
+        $properties = Posting::with(['photos', 'floorPlans', 'threeSixties', 'videos', 'purpose', 'propertyType.placeType', 'listning_type'])->whereHas('user', function ($query) use ($id) {
+            $query->where('agency_id', $id);
+        })->get();
+        return view('client.pages.findagency.agencyproperty', ['agents' => $agents ?? [], 'agency' => $agency ?? [], 'properties' => $properties ?? []]);
     }
 }

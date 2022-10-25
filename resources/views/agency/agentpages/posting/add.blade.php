@@ -856,7 +856,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <label>Discription</label> <br>
+                                            <label>Description</label> <br>
                                             <textarea class="text_area w-100" name="description">
 @if (old('description'))
 {{ old('description') }}

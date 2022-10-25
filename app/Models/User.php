@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password',
     ];
     protected $appends = [
-        'posting_count',
+        'agent_posting_count',
+        'agency_posting_count',
         'agency_agent_count',
         'agency_agent_for_sale_count',
         'agency_agent_for_rent_count'
@@ -63,10 +64,18 @@ class User extends Authenticatable
         return $this->hasMany(Posting::class, 'user_id', 'id');
     }
 
-    protected function getPostingCountAttribute()
+    protected function getAgentPostingCountAttribute()
     {
         $count = Posting::where('user_id', $this->id)->count();
         return $count;
+    }
+
+    protected function getAgencyPostingCountAttribute()
+    {
+        $agency_posting_count = Posting::whereHas('user', function ($query) {
+            $query->where('agency_id', $this->id);
+        })->count();
+        return $agency_posting_count;
     }
 
     protected function getAgencyAgentCountAttribute()
