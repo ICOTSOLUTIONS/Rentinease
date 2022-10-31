@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+
 class AgentController extends Controller
 {
     /**
@@ -20,8 +21,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agent = User::where('role_id',4)->where('agency_id',auth()->user()->id)->orderBy('id','DESC')->get();
-        return view('agency.pages.agent.agent',['agents'=>$agent]);
+        $agent = User::where('role_id', 4)->where('agency_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
+        return view('agency.pages.agent.agent', ['agents' => $agent]);
     }
 
     /**
@@ -45,7 +46,7 @@ class AgentController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $rules =[
+        $rules = [
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'company_name' => 'required',
@@ -67,11 +68,11 @@ class AgentController extends Controller
             'building' => 'required',
             'office' => 'required',
             'logo' => 'required',
-            'licence' => 'required',
-            'agent_visa' => 'required',
-            'agent_eid' => 'required',
-            'rera' => 'required',
-            'additional_documents' => 'required',
+            'licence' => 'nullable',
+            'agent_visa' => 'nullable',
+            'agent_eid' => 'nullable',
+            'rera' => 'nullable',
+            'additional_documents' => 'nullable',
             'authorized' => 'nullable',
         ];
         $customMessage = [
@@ -102,7 +103,7 @@ class AgentController extends Controller
             'rera.required' => 'The Rera field is required',
             'additional_documents.required' => 'The Additional Documents field is required',
         ];
-        $validate = Validator::make($request->all(),$rules,$customMessage);
+        $validate = Validator::make($request->all(), $rules, $customMessage);
 
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
@@ -134,41 +135,41 @@ class AgentController extends Controller
         $agent->building = $request->building;
         $agent->office = $request->office;
         $agent->authorized = $request->authorized;
-        if($request->hasFile('logo')){
+        if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/logo', $fileName,'public');
-            $agent->logo = 'logo/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/logo', $fileName, 'public');
+            $agent->logo = 'logo/' . $fileName;
         }
-        if($request->hasFile('licence')){
+        if ($request->hasFile('licence')) {
             $file = $request->file('licence');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/licence', $fileName,'public');
-            $agent->licence = 'licence/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/licence', $fileName, 'public');
+            $agent->licence = 'licence/' . $fileName;
         }
-        if($request->hasFile('agent_visa')){
+        if ($request->hasFile('agent_visa')) {
             $file = $request->file('agent_visa');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/agent-visa', $fileName,'public');
-            $agent->visa = 'agent-visa/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/agent-visa', $fileName, 'public');
+            $agent->visa = 'agent-visa/' . $fileName;
         }
-        if($request->hasFile('agent_eid')){
+        if ($request->hasFile('agent_eid')) {
             $file = $request->file('agent_eid');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/agent-eid', $fileName,'public');
-            $agent->eid = 'agent-eid/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/agent-eid', $fileName, 'public');
+            $agent->eid = 'agent-eid/' . $fileName;
         }
-        if($request->hasFile('rera')){
+        if ($request->hasFile('rera')) {
             $file = $request->file('rera');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/rera', $fileName,'public');
-            $agent->rera = 'rera/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/rera', $fileName, 'public');
+            $agent->rera = 'rera/' . $fileName;
         }
-        if($request->hasFile('additional_documents')){
+        if ($request->hasFile('additional_documents')) {
             $file = $request->file('additional_documents');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/additional_documents', $fileName,'public');
-            $agent->additional_documents = 'additional_documents/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/additional_documents', $fileName, 'public');
+            $agent->additional_documents = 'additional_documents/' . $fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";
@@ -176,27 +177,27 @@ class AgentController extends Controller
                 'agency.email.agentAddMail',
                 [
                     // 'name'=>$request->owner_name,
-                    'email'=>$request->email,
-                    'password'=>$request->password,
+                    'email' => $request->email,
+                    'password' => $request->password,
                 ],
-                function($message) use ($request){
+                function ($message) use ($request) {
                     $message->from(env('MAIL_USERNAME'));
                     $message->to($request->email);
                     $message->subject('Agent Credentials');
                 }
             );
-            if($agent->save()){
+            if ($agent->save()) {
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Add';
-                $log->logs = auth()->user()->owner_name.' '.auth()->user()->company_name.
-                ' recently added a new agent on the date of '.Carbon::now()->format('d-m-Y').
-                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->logs = auth()->user()->owner_name . ' ' . auth()->user()->company_name .
+                    ' recently added a new agent on the date of ' . Carbon::now()->format('d-m-Y') .
+                    ' at the time of ' . Carbon::now()->format('h:i:s A');
                 $log->save();
                 session()->flash('message', 'Successfully Agent Added!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agency.agent.index');
-            }else{
+            } else {
                 session()->flash('message', 'Agent not Added!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('agency.agent.index');
@@ -218,11 +219,10 @@ class AgentController extends Controller
     public function show($id)
     {
         // $package = Package::all();
-        $agent = User::whereHas('roles',function ($q)
-        {
-            $q->where('name','agent');
-        })->where('id',$id)->first();
-        return view('agency.pages.agent.viewagent',['agent'=>$agent]);
+        $agent = User::whereHas('roles', function ($q) {
+            $q->where('name', 'agent');
+        })->where('id', $id)->first();
+        return view('agency.pages.agent.viewagent', ['agent' => $agent]);
     }
 
     /**
@@ -235,11 +235,10 @@ class AgentController extends Controller
     {
         // $agency = Agency::all();
         // $package = Package::all();
-        $agent = User::whereHas('roles',function ($q)
-        {
-            $q->where('name','agent');
-        })->where('id',$id)->first();
-        return view('agency.pages.agent.editagent',['agent'=>$agent]);
+        $agent = User::whereHas('roles', function ($q) {
+            $q->where('name', 'agent');
+        })->where('id', $id)->first();
+        return view('agency.pages.agent.editagent', ['agent' => $agent]);
     }
 
     /**
@@ -253,7 +252,7 @@ class AgentController extends Controller
     {
         // dd($request->all());
         $rules = [
-            'email' => 'required|email|unique:users,email,'. $id,
+            'email' => 'required|email|unique:users,email,' . $id,
             // 'password' => 'required',
             'company_name' => 'required',
             'owner_name' => 'required',
@@ -308,12 +307,12 @@ class AgentController extends Controller
             // 'rera.required' => 'The Rera field is required',
             // 'additional_documents.required' => 'The Additional Documents field is required',
         ];
-        $validate = Validator::make($request->all(),$rules,$customMessage);
+        $validate = Validator::make($request->all(), $rules, $customMessage);
 
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
-        $agent =  User::where('id',$id)->first();
+        $agent =  User::where('id', $id)->first();
         $agent->role_id = 4;
         // if(!empty($request->package)) $agent->package_id = $request->package;
         // if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
@@ -337,41 +336,41 @@ class AgentController extends Controller
         $agent->building = $request->building;
         $agent->office = $request->office;
         $agent->authorized = $request->authorized;
-        if($request->hasFile('logo')){
+        if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/logo', $fileName,'public');
-            $agent->logo = 'logo/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/logo', $fileName, 'public');
+            $agent->logo = 'logo/' . $fileName;
         }
-        if($request->hasFile('licence')){
+        if ($request->hasFile('licence')) {
             $file = $request->file('licence');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/licence', $fileName,'public');
-            $agent->licence = 'licence/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/licence', $fileName, 'public');
+            $agent->licence = 'licence/' . $fileName;
         }
-        if($request->hasFile('agent_visa')){
+        if ($request->hasFile('agent_visa')) {
             $file = $request->file('agent_visa');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/agent-visa', $fileName,'public');
-            $agent->visa = 'agent-visa/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/agent-visa', $fileName, 'public');
+            $agent->visa = 'agent-visa/' . $fileName;
         }
-        if($request->hasFile('agent_eid')){
+        if ($request->hasFile('agent_eid')) {
             $file = $request->file('agent_eid');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/agent-eid', $fileName,'public');
-            $agent->eid = 'agent-eid/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/agent-eid', $fileName, 'public');
+            $agent->eid = 'agent-eid/' . $fileName;
         }
-        if($request->hasFile('rera')){
+        if ($request->hasFile('rera')) {
             $file = $request->file('rera');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/rera', $fileName,'public');
-            $agent->rera = 'rera/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/rera', $fileName, 'public');
+            $agent->rera = 'rera/' . $fileName;
         }
-        if($request->hasFile('additional_documents')){
+        if ($request->hasFile('additional_documents')) {
             $file = $request->file('additional_documents');
-            $fileName = 'IMG-'.time().'-'.rand().'-'.$file->getClientOriginalExtension();
-            $file->storeAs('agencyAgents/additional_documents', $fileName,'public');
-            $agent->additional_documents = 'additional_documents/'.$fileName;
+            $fileName = 'IMG-' . time() . '-' . rand() . '-' . $file->getClientOriginalExtension();
+            $file->storeAs('agencyAgents/additional_documents', $fileName, 'public');
+            $agent->additional_documents = 'additional_documents/' . $fileName;
         }
         try {
             // $email = "icotsolutions@gmail.com";
@@ -379,27 +378,27 @@ class AgentController extends Controller
                 'agency.email.agentUpdateMail',
                 [
                     // 'name'=>$request->owner_name,
-                    'email'=>$request->email,
-                    'password'=>$request->password,
+                    'email' => $request->email,
+                    'password' => $request->password,
                 ],
-                function($message) use ($request){
+                function ($message) use ($request) {
                     $message->from(env('MAIL_USERNAME'));
                     $message->to($request->email);
                     $message->subject('Agent Credentials');
                 }
             );
-            if($agent->save()){
+            if ($agent->save()) {
                 $log = new ActivityLog();
                 $log->user_id = auth()->user()->id;
                 $log->title = 'Agent Update';
-                $log->logs = auth()->user()->owner_name.' '.auth()->user()->company_name.
-                ' recently upadted a agent on the date of '.Carbon::now()->format('d-m-Y').
-                ' at the time of '.Carbon::now()->format('h:i:s A');
+                $log->logs = auth()->user()->owner_name . ' ' . auth()->user()->company_name .
+                    ' recently upadted a agent on the date of ' . Carbon::now()->format('d-m-Y') .
+                    ' at the time of ' . Carbon::now()->format('h:i:s A');
                 $log->save();
                 session()->flash('message', 'Successfully Agent Updated!');
                 session()->flash('messageType', 'success');
                 return redirect()->route('agency.agent.index');
-            }else{
+            } else {
                 session()->flash('message', 'Agent not Updated!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('agency.agent.index');
@@ -419,18 +418,17 @@ class AgentController extends Controller
      */
     public function destroy($id)
     {
-        $agent = User::where('id',$id)->first();
-        if(!empty($agent)){
-            if($agent->delete()){
+        $agent = User::where('id', $id)->first();
+        if (!empty($agent)) {
+            if ($agent->delete()) {
                 session()->flash('message', 'Successfully Agent Deleted!');
                 session()->flash('messageType', 'danger');
                 return redirect()->route('agency.agent.index');
             }
-        }else{
+        } else {
             session()->flash('message', 'Agent not Deleted!');
             session()->flash('messageType', 'danger');
             return redirect()->route('agency.agent.index');
         }
     }
 }
-
