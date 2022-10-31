@@ -143,7 +143,7 @@
                                 </ul> -->
                       </li>
                       <li><a href="#">Index<span class="submenu-indicator"></span></a></li>
-                      <li><a href="{{url( '/findagent') }}">Find Agent<span class="submenu-indicator"></span></a>
+                      <li><a href="{{route( 'web.findagent') }}">Find Agent<span class="submenu-indicator"></span></a>
                       </li>
                       <!-- <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
                        </li> -->

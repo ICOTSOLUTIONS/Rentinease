@@ -60,7 +60,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Coins
-                                                <input type="text" name="coins" value="{{ old('coins') }}"
+                                                <input type="number" name="coins" value="{{ old('coins') }}"
                                                     class="form-control">
                                             </label>
                                             @error('coins')

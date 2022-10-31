@@ -107,7 +107,9 @@ Route::post('/agency/register', [Agency\AuthController::class, 'agencyRegister']
 Route::get('/agencyportal', [Agency\ClientController::class, 'clientAgency'])->name('agency.portal');
 Route::get('/blog', [Web\WebController::class, 'blog'])->name('web.blog');
 Route::get('/blog-detail/{id}', [Web\WebController::class, 'blog_details'])->name('web.blog.details');
-// Route::get('/findagent', [Web\WebController::class, 'findagent'])->name('web.findagent');
+Route::get('/agent-agency', [Web\WebController::class, 'findagent'])->name('web.findagent');
+Route::get('/agentproperty/{id}', [Web\WebController::class, 'agentproperty'])->name('web.agentproperty');
+Route::get('/agency/{id}', [Web\WebController::class, 'findagency'])->name('web.findagency');
 
 // Route::view('/addadmin', 'admin.pages.admin.addadmin');
 // Route::view('/addcustomeradmin', 'admin.pages.admin.addadmin');
@@ -154,13 +156,13 @@ Route::view('/buy', 'client.pages.buy.buy');
 // rent
 Route::view('/rent', 'client.pages.rent.rent');
 // findagent
-Route::view('/findagent', 'client.pages.findagent.findagent');
+// Route::view('/findagent', 'client.pages.findagent.findagent');
 // agentproperty
-Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
+// Route::view('/agentproperty', 'client.pages.findagent.agentproperty');
 // findagency
-Route::view('/findagency', 'client.pages.findagency.findagency');
+// Route::view('/findagency', 'client.pages.findagency.findagency');
 // agencyproperty
-Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
+// Route::view('/agencyproperty', 'client.pages.findagency.agencyproperty');
 //blog
 Route::view('/contact', 'client.pages.contact.contact');
 //profile

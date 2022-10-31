@@ -63,7 +63,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Coins
-                                                <input type="text" name="coins" class="form-control"
+                                                <input type="number" name="coins" class="form-control"
                                                     @if (old('coins')) value="{{ old('coins') }}"
                                                 @else
                                                 value="{{ $coins_deduct->coins_deduct }}" @endif />

@@ -28,9 +28,9 @@ class PostingController extends Controller
      */
     public function index()
     {
-        $posting = Posting::with(['photos','floorPlans','threeSixties','videos','purpose','propertyType.placeType'])->get();
+        $posting = Posting::with(['photos', 'floorPlans', 'threeSixties', 'videos', 'purpose', 'propertyType.placeType', 'listning_type'])->where('user_id', auth()->user()->id)->get();
         // dd($posting);
-        return view('agency.agentpages.posting.index',['postings'=>$posting??[]]);
+        return view('agency.agentpages.posting.index', ['postings' => $posting ?? []]);
     }
 
     /**
@@ -43,7 +43,7 @@ class PostingController extends Controller
         $place_type = PlaceType::with('place')->get();
         $coins_deduct = CoinDeduction::with('packages')->get();
         $areas = Area::all();
-        return view('agency.agentpages.posting.add', ['place_types' => $place_type, 'coins_deduct' => $coins_deduct,'areas'=>$areas]);
+        return view('agency.agentpages.posting.add', ['place_types' => $place_type, 'coins_deduct' => $coins_deduct, 'areas' => $areas]);
     }
 
     /**
@@ -54,7 +54,7 @@ class PostingController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->facilities);
+        // dd($request->all());
         $rules = [
             'purpose' => 'required',
             'size' => 'required',
@@ -76,24 +76,24 @@ class PostingController extends Controller
             'three_sixty.*' => 'required',
             'floor_plan_layout.*' => 'required',
         ];
-        if($request->place_type == 'commercial'){
+        if ($request->place_type == 'commercial') {
             $rules['p_commercial'] = 'required';
-        }else{
+        } else {
             $rules['p_residential'] = 'required';
-            if($request->layout == 'custom'){
+            if ($request->layout == 'custom') {
                 $rules['l_custom'] = 'required';
-            }else{
+            } else {
                 $rules['layout'] = 'required';
             }
-            if($request->bath == 'custom'){
+            if ($request->bath == 'custom') {
                 $rules['b_custom'] = 'required';
-            }else{
+            } else {
                 $rules['bath'] = 'required';
             }
         }
-        if($request->building_age == 'custom'){
+        if ($request->building_age == 'custom') {
             $rules['build_age_custom'] = 'required';
-        }else{
+        } else {
             $rules['building_age'] = 'required';
         }
 
@@ -120,32 +120,39 @@ class PostingController extends Controller
             'floor_plan_layout.*' => 'Floor Plan Layout',
         ];
 
-        $valid = Validator::make($request->all(),$rules,[],$customFields);
+        $valid = Validator::make($request->all(), $rules, [], $customFields);
         if ($valid->fails()) {
             return back()->withErrors($valid->errors())->withInput();
         }
         try {
             DB::beginTransaction();
-            $remain_coins = UserPackageCoins::where('user_id', auth()->user()->id)->first();
-            if(empty($remain_coins)) throw new Error("Please Buy Package First!");
+            $user = auth()->user();
+            $user_id = $user->id;
+            if ($user->agency_id != null) {
+                $remain_coins = UserPackageCoins::where('user_id', $user->agency_id)->first();
+            } else {
+                $remain_coins = UserPackageCoins::where('user_id', $user_id)->first();
+            }
+            if (empty($remain_coins)) throw new Error("Please Buy Package First!");
             if ($remain_coins->remain_coins >= 0) {
                 $posting = new Posting();
-                if($request->purpose){
+                $posting->user_id = $user_id;
+                if ($request->purpose) {
                     $purpose = Purpose::where('name', $request->purpose)->first();
                     $posting->purpose_id = $purpose->id;
                 }
-                if($request->place_type == 'commercial'){
+                if ($request->place_type == 'commercial') {
                     $posting->property_type_place_id = $request->p_commercial;
-                }else{
+                } else {
                     $posting->property_type_place_id = $request->p_residential;
-                    if($request->layout == 'custom'){
+                    if ($request->layout == 'custom') {
                         $posting->layout = $request->l_custom;
-                    }else{
+                    } else {
                         $posting->layout = $request->layout;
                     }
-                    if($request->bath == 'custom'){
+                    if ($request->bath == 'custom') {
                         $posting->bath = $request->b_custom;
-                    }else{
+                    } else {
                         $posting->bath = $request->bath;
                     }
                 }
@@ -153,9 +160,9 @@ class PostingController extends Controller
                 $posting->size_square = $request->size_square;
                 $posting->building_name = $request->building_name;
                 $posting->furnishing = $request->furnishing;
-                if($request->building_age == 'custom'){
+                if ($request->building_age == 'custom') {
                     $posting->building_age = $request->build_age_custom;
-                }else{
+                } else {
                     $posting->building_age = $request->building_age;
                 }
                 $posting->price = $request->price;
@@ -164,6 +171,8 @@ class PostingController extends Controller
                 $posting->area = $request->area;
                 $posting->lat = $request->a_lat;
                 $posting->lng = $request->a_lon;
+                $posting->map_place_id = $request->map_place_id;
+                $posting->address = $request->address;
                 $posting->amenities = implode(", ", array_filter($request->amenities));
                 $posting->facilities = implode(", ", array_filter($request->facilities));
                 // $posting->amenities = json_encode($request->amenities);
@@ -171,6 +180,7 @@ class PostingController extends Controller
                 $posting->title = $request->title;
                 $posting->description = $request->description;
                 if (isset($request->listning_type)) {
+                    $posting->listing_type_id = $request->listning_type;
                     $coins_deduct = CoinDeduction::where('id', $request->listning_type)->first();
                     if ($coins_deduct->coins_deduct > $remain_coins->remain_coins) throw new Error("Please Buy Package First. Your Coins 0!");
                     $remain_coins->remain_coins -= $coins_deduct->coins_deduct;
@@ -276,14 +286,14 @@ class PostingController extends Controller
      */
     public function destroy($id)
     {
-        $posting = Posting::where('id',$id)->first();
-        if(!empty($posting)){
-            if($posting->delete()){
+        $posting = Posting::where('id', $id)->first();
+        if (!empty($posting)) {
+            if ($posting->delete()) {
                 session()->flash('message', 'Successfully Posting Deleted!');
                 session()->flash('messageType', 'danger');
                 return redirect()->back();
             }
-        }else{
+        } else {
             session()->flash('message', 'Posting not Deleted!');
             session()->flash('messageType', 'danger');
             return redirect()->back();

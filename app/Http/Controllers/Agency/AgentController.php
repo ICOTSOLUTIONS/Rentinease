@@ -75,32 +75,32 @@ class AgentController extends Controller
             'authorized' => 'nullable',
         ];
         $customMessage = [
-            'email.required' => 'The Email field is required', 
-            'email.unique' => 'The Email field is unique', 
+            'email.required' => 'The Email field is required',
+            'email.unique' => 'The Email field is unique',
             'password.required' => 'The Password field is required',
-            'company_name.required' => 'The Company Name field is required', 
-            'owner_name.required' => 'The Owner Name field is required', 
-            'phone.required' => 'The Phone field is required', 
-            'mobile.required' => 'The Mobile field is required', 
-            'agent_type.required' => 'The Agent Type field is required', 
-            'licence_no.required' => 'The Licence no. field is required', 
-            'permit_no.required' => 'The Permit no. field is required', 
-            'rera_no.required' => 'The Rera no. field is required', 
-            'establishment_date.required' => 'The Establishment Date field is required', 
-            'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            // 'coins_of_agents.required' => 'The Coins of Agents field is required', 
-            // 'package.required' => 'The Package field is required', 
-            'country.required' => 'The Country field is required', 
-            'city.required' => 'The City field is required', 
-            'street.required' => 'The Street field is required', 
-            'building.required' => 'The Building field is required', 
-            'office.required' => 'The Office field is required', 
-            'logo.required' => 'The Agent Photo field is required', 
-            'licence.required' => 'The Licence field is required', 
-            'agent_visa.required' => 'The Agent Visa field is required', 
-            'agent_eid.required' => 'The Agent EID field is required', 
-            'rera.required' => 'The Rera field is required', 
-            'additional_documents.required' => 'The Additional Documents field is required', 
+            'company_name.required' => 'The Company Name field is required',
+            'owner_name.required' => 'The Owner Name field is required',
+            'phone.required' => 'The Phone field is required',
+            'mobile.required' => 'The Mobile field is required',
+            'agent_type.required' => 'The Agent Type field is required',
+            'licence_no.required' => 'The Licence no. field is required',
+            'permit_no.required' => 'The Permit no. field is required',
+            'rera_no.required' => 'The Rera no. field is required',
+            'establishment_date.required' => 'The Establishment Date field is required',
+            'licence_exp_date.required' => 'The Licence Expiry Date field is required',
+            // 'coins_of_agents.required' => 'The Coins of Agents field is required',
+            // 'package.required' => 'The Package field is required',
+            'country.required' => 'The Country field is required',
+            'city.required' => 'The City field is required',
+            'street.required' => 'The Street field is required',
+            'building.required' => 'The Building field is required',
+            'office.required' => 'The Office field is required',
+            'logo.required' => 'The Agent Photo field is required',
+            'licence.required' => 'The Licence field is required',
+            'agent_visa.required' => 'The Agent Visa field is required',
+            'agent_eid.required' => 'The Agent EID field is required',
+            'rera.required' => 'The Rera field is required',
+            'additional_documents.required' => 'The Additional Documents field is required',
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
 
@@ -114,7 +114,7 @@ class AgentController extends Controller
         $agent->agency_id = auth()->user()->id;
         $agent->email = $request->email;
         $agent->password = Hash::make($request->password);
-        $agent->company_name = $request->company_name; 
+        $agent->company_name = $request->company_name;
         $agent->owner_name = $request->owner_name;
         $agent->phone = $request->phone;
         $agent->phone_code = $request->p_code;
@@ -282,31 +282,31 @@ class AgentController extends Controller
             'authorized' => 'nullable',
         ];
         $customMessage = [
-            'email.required' => 'The Email field is required', 
-            'email.unique' => 'The Email field is unique', 
-            'company_name.required' => 'The Company Name field is required', 
-            'owner_name.required' => 'The Owner Name field is required', 
-            'phone.required' => 'The Phone field is required', 
-            'mobile.required' => 'The Mobile field is required', 
-            'agent_type.required' => 'The Agent Type field is required', 
-            'licence_no.required' => 'The Licence no. field is required', 
-            'permit_no.required' => 'The Permit no. field is required', 
-            'rera_no.required' => 'The Rera no. field is required', 
-            'establishment_date.required' => 'The Establishment Date field is required', 
-            'licence_exp_date.required' => 'The Licence Expiry Date field is required', 
-            // 'package.required' => 'The Package field is required', 
-            // 'coins_of_agents.required' => 'The Coins of Agents field is required', 
-            'country.required' => 'The Country field is required', 
-            'city.required' => 'The City field is required', 
-            'street.required' => 'The Street field is required', 
-            'building.required' => 'The Building field is required', 
-            'office.required' => 'The Office field is required', 
-            // 'logo.required' => 'The Agent Photo field is required', 
-            // 'licence.required' => 'The Licence field is required', 
-            // 'agent_visa.required' => 'The Agent Visa field is required', 
-            // 'agent_eid.required' => 'The Agent EID field is required', 
-            // 'rera.required' => 'The Rera field is required', 
-            // 'additional_documents.required' => 'The Additional Documents field is required', 
+            'email.required' => 'The Email field is required',
+            'email.unique' => 'The Email field is unique',
+            'company_name.required' => 'The Company Name field is required',
+            'owner_name.required' => 'The Owner Name field is required',
+            'phone.required' => 'The Phone field is required',
+            'mobile.required' => 'The Mobile field is required',
+            'agent_type.required' => 'The Agent Type field is required',
+            'licence_no.required' => 'The Licence no. field is required',
+            'permit_no.required' => 'The Permit no. field is required',
+            'rera_no.required' => 'The Rera no. field is required',
+            'establishment_date.required' => 'The Establishment Date field is required',
+            'licence_exp_date.required' => 'The Licence Expiry Date field is required',
+            // 'package.required' => 'The Package field is required',
+            // 'coins_of_agents.required' => 'The Coins of Agents field is required',
+            'country.required' => 'The Country field is required',
+            'city.required' => 'The City field is required',
+            'street.required' => 'The Street field is required',
+            'building.required' => 'The Building field is required',
+            'office.required' => 'The Office field is required',
+            // 'logo.required' => 'The Agent Photo field is required',
+            // 'licence.required' => 'The Licence field is required',
+            // 'agent_visa.required' => 'The Agent Visa field is required',
+            // 'agent_eid.required' => 'The Agent EID field is required',
+            // 'rera.required' => 'The Rera field is required',
+            // 'additional_documents.required' => 'The Additional Documents field is required',
         ];
         $validate = Validator::make($request->all(),$rules,$customMessage);
 
@@ -319,7 +319,7 @@ class AgentController extends Controller
         // if(!empty($request->agency_id)) $agent->agency_id = $request->agency_id;
         $agent->email = $request->email;
         $agent->password = Hash::make($request->password);
-        $agent->company_name = $request->company_name; 
+        $agent->company_name = $request->company_name;
         $agent->owner_name = $request->owner_name;
         $agent->phone = $request->phone;
         $agent->mobile = $request->mobile;
@@ -430,7 +430,7 @@ class AgentController extends Controller
             session()->flash('message', 'Agent not Deleted!');
             session()->flash('messageType', 'danger');
             return redirect()->route('agency.agent.index');
-        }   
+        }
     }
 }
 
