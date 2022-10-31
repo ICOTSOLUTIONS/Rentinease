@@ -17,7 +17,7 @@
     <!-- <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' /> -->
     <!-- Map box style CSS -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+    {{-- <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' /> --}}
 
 
     <script src="http://cdn.pubnub.com/pubnub-3.7.1.min.js"></script>
