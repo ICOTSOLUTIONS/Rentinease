@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+
 @section('content')
 <!-- ============================ Hero Banner  Start================================== -->
 <div class="image-cover hero_banner bannarimg" data-overlay="0">

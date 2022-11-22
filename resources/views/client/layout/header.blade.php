@@ -35,8 +35,17 @@
               <form class="">
                   <div class="row mt-3">
                       <div class="col-md-2 mt-3">
+                          <!-- Use CSS to replace link text with flag icons -->
+                          <ul class="translation-linkqas">
+                              <li><a href="#" class="flag-icon-uae" data-lang="ar">Arabic</a></li>
+                              <li><a href="#" class="flag-icon-pk" data-lang="ur">Urdu</a></li>
+                          </ul>
                           <div id="google_translate_element"></div>
                       </div>
+
+
+
+
                       <div class="col-md-6"></div>
                       <div class="col-md-4 foot-news-last">
                           <div class="input-group">
