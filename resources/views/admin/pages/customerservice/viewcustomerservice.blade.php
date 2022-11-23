@@ -38,7 +38,7 @@
                     <div class="card design">
                         <div class="card-header justify-content-center">
                             <h4>
-                                VIEW customerservice
+                                View customerservice
                             </h4>
                         </div>
                         <div class="card-body">

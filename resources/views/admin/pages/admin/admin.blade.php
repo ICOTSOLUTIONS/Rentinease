@@ -45,11 +45,9 @@
                                         <td>{{ $admin->designation }}</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <a href="{{ route('admin.edit', ['admin' => $admin->id]) }}" class="btn btn-info text-white">Edit</a>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <a href="{{ route('admin.show',['admin'=>$admin->id]) }}" class="btn btn-info text-white">View</a>
+                                                <div class="col-md-12 d-flex justify-content-around">
+                                                    <a href="{{ route('admin.show',['admin'=>$admin->id]) }}" class="btn btn-info text-white"><i class="fas fa-eye"></i></a>
+                                                    <a href="{{ route('admin.edit', ['admin' => $admin->id]) }}" class="btn btn-success text-white"><i class="fas fa-edit"></i></a>
                                                 </div>
                                                 @if ($admin->id != 1 && $admin->fname != 'admin')
                                                 <div class="col-md-4">

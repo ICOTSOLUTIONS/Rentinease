@@ -1,6 +1,5 @@
 @extends('agency.layouts.master')
 @section('content')
-    <div class="main-content">
         <section class="section">
             <div class="section-body">
                 <div class="row">
@@ -62,7 +61,6 @@
                 </div>
             </div>
         </section>
-    </div>
 @endsection
 <!-- @section('script')
     <script>

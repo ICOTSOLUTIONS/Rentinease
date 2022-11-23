@@ -38,7 +38,7 @@
                     <div class="card design">
                         <div class="card-header justify-content-center">
                             <h4>
-                                VIEW blogger
+                                View blogger
                             </h4>
                         </div>
                         <div class="card-body">
