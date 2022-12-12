@@ -308,7 +308,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 justify-content-center offset-md-4">
+                                <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-success w-100 col-md-4">Save</button>
                                 </div>
                             </div>
