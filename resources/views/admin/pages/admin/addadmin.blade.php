@@ -10,16 +10,6 @@
         padding: 0 15px;
         height: 28px;
     }
-
-    .w-110 {
-        width: 110%;
-
-    }
-
-    .w-178 {
-        width: 178%;
-
-    }
 </style>
 <section>
     <div class="container">
@@ -34,9 +24,9 @@
                         <div class="card-body">
                             <div class="row">
                                 <h6 class="text-success">Enter Your Admin Details</h6>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>First Name
+                                        <label class="w-100">First Name
                                             <input type="text" name="fname" value="{{ old('fname') }}" class="form-control">
                                         </label>
                                         @error('fname')
@@ -44,9 +34,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Last Name
+                                        <label class="w-100">Last Name
                                             <input type="text" name="lname" value="{{ old('lname') }}" class="form-control">
                                         </label>
                                         @error('lname')
@@ -54,9 +44,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Email
+                                        <label class="w-100">Email
                                             <input type="email" name="email" value="{{ old('email') }}" class="form-control">
                                         </label>
                                         @error('email')
@@ -64,9 +54,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Password
+                                        <label class="w-100">Password
                                             <input type="password" name="password" value="{{ old('password') }}" class="form-control">
                                         </label>
                                         @error('password')
@@ -74,9 +64,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Contact Number
+                                        <label class="w-100">Contact Number
                                             <input type="text" name="phone" value="{{ old('phone') }}" class="form-control">
                                         </label>
                                         @error('phone')
@@ -84,9 +74,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Designation
+                                        <label class="w-100">Designation
                                             <input type="text" name="designation" value="{{ old('designation') }}" class="form-control">
                                         </label>
                                         @error('designation')
@@ -94,9 +84,9 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Picture
+                                        <label class="w-100">Picture
                                             <input type="file" name="logo" value="{{ old('logo') }}" class="form-control">
                                         </label>
                                         @error('logo')

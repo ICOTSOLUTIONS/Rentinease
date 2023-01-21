@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+
 @section('content')
 <!-- ============================ Hero Banner  Start================================== -->
 <div class="image-cover hero_banner bannarimg" data-overlay="0">
@@ -46,7 +47,7 @@
                                                         <option value="">&nbsp;</option>
                                                         <option value="1">New York City</option>
                                                         <option value="2">Honolulu, Hawaii</option>
-                                                        <option value="3">California</option>
+                                                        <option value="3">Rentinease</option>
                                                         <option value="4">New Orleans</option>
                                                         <option value="5">Washington</option>
                                                         <option value="6">Charleston</option>
@@ -231,7 +232,7 @@
                                                         <option value="">&nbsp;</option>
                                                         <option value="1">New York City</option>
                                                         <option value="2">Honolulu, Hawaii</option>
-                                                        <option value="3">California</option>
+                                                        <option value="3">Rentinease</option>
                                                         <option value="4">New Orleans</option>
                                                         <option value="5">Washington</option>
                                                         <option value="6">Charleston</option>
@@ -417,7 +418,7 @@
                                                         <option value="">&nbsp;</option>
                                                         <option value="1">New York City</option>
                                                         <option value="2">Honolulu, Hawaii</option>
-                                                        <option value="3">California</option>
+                                                        <option value="3">Rentinease</option>
                                                         <option value="4">New Orleans</option>
                                                         <option value="5">Washington</option>
                                                         <option value="6">Charleston</option>
@@ -841,16 +842,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">4 Network</span>
+                                    <!-- <span class="_list_blickes _netork">4 Network</span> -->
                                     <span class="_list_blickes types">Condos</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$6,700</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 6,700</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">7012 Shine Sehu Street, Liverpool London,
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">7012 Shine Sehu Street, Liverpool ,
                                             LC345AC</a></h4>
                                 </div>
                             </div>
@@ -876,8 +877,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -923,16 +924,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">5 Network</span>
+                                    <!-- <span class="_list_blickes _netork">5 Network</span> -->
                                     <span class="_list_blickes types">Apartment</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$6,900</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 6,900</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">425 Vine 012 Street, Montreal Canada, UHW45Q</a>
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">425 Vine 012 Street, Bur Dubai Dubai, UHW45Q</a>
                                     </h4>
                                 </div>
                             </div>
@@ -958,8 +959,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -1005,16 +1006,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">4 Network</span>
+                                    <!-- <span class="_list_blickes _netork">4 Network</span> -->
                                     <span class="_list_blickes types">Villas</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$8,500</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 8,500</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">1244 Vansh Market, Mise Mizkel Australia,
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">1244 Vansh Market, Mise Mizkel ,
                                             AU456HA</a></h4>
                                 </div>
                             </div>
@@ -1040,8 +1041,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -1106,16 +1107,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">4 Network</span>
+                                    <!-- <span class="_list_blickes _netork">4 Network</span> -->
                                     <span class="_list_blickes types">Condos</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$6,700</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 6,700</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">7012 Shine Sehu Street, Liverpool London,
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">7012 Shine Sehu Street, Liverpool ,
                                             LC345AC</a></h4>
                                 </div>
                             </div>
@@ -1141,8 +1142,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -1188,16 +1189,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">5 Network</span>
+                                    <!-- <span class="_list_blickes _netork">5 Network</span> -->
                                     <span class="_list_blickes types">Apartment</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$6,900</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 6,900</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">425 Vine 012 Street, Montreal Canada, UHW45Q</a>
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">425 Vine 012 Street, Bur Dubai Dubai, UHW45Q</a>
                                     </h4>
                                 </div>
                             </div>
@@ -1223,8 +1224,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -1270,16 +1271,16 @@
                         <div class="listing-short-detail-wrap">
                             <div class="_card_list_flex mb-2">
                                 <div class="_card_flex_01">
-                                    <span class="_list_blickes _netork">4 Network</span>
+                                    <!-- <span class="_list_blickes _netork">4 Network</span> -->
                                     <span class="_list_blickes types">Villas</span>
                                 </div>
                                 <div class="_card_flex_last">
-                                    <h6 class="listing-card-info-price mb-0">$8,500</h6>
+                                    <h6 class="listing-card-info-price mb-0">AED 8,500</h6>
                                 </div>
                             </div>
                             <div class="_card_list_flex">
                                 <div class="_card_flex_01">
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">1244 Vansh Market, Mise Mizkel Australia,
+                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">1244 Vansh Market, Mise Mizkel ,
                                             AU456HA</a></h4>
                                 </div>
                             </div>
@@ -1305,8 +1306,8 @@
 
                     <div class="listing-detail-footer">
                         <div class="footer-first">
-                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Montreal,
-                                Canada</div>
+                            <div class="foot-location"><img src="{{ asset('./assetsclient/img/pin.svg')}}" width="18" alt="" />Bur Dubai,
+                                Dubai</div>
                         </div>
                         <!-- <div class="footer-flex">
                             <ul class="selio_style">
@@ -1357,7 +1358,7 @@
                     <a href="grid-layout-with-sidebar.html" class="img-wrap">
                         <div class="location_wrap_content visible">
                             <div class="location_wrap_content_first">
-                                <h4>California, USA</h4>
+                                <h4>Rentinease, Dubai</h4>
                                 <span>48 Properties</span>
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
@@ -1370,7 +1371,7 @@
                     <a href="grid-layout-with-sidebar.html" class="img-wrap">
                         <div class="location_wrap_content visible">
                             <div class="location_wrap_content_first">
-                                <h4>Barbingham, USA</h4>
+                                <h4>Barbingham, Dubai</h4>
                                 <span>73 Properties</span>
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
@@ -1383,7 +1384,7 @@
                     <a href="grid-layout-with-sidebar.html" class="img-wrap">
                         <div class="location_wrap_content visible">
                             <div class="location_wrap_content_first">
-                                <h4>Denever, USA</h4>
+                                <h4>Denever, Dubai</h4>
                                 <span>40 Properties</span>
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>
@@ -1396,7 +1397,7 @@
                     <a href="grid-layout-with-sidebar.html" class="img-wrap">
                         <div class="location_wrap_content visible">
                             <div class="location_wrap_content_first">
-                                <h4>Liverpool, London</h4>
+                                <h4>Liverpool, </h4>
                                 <span>35 Properties</span>
                             </div>
                             <div class="location_btn"><i class="fa fa-arrow-right"></i></div>

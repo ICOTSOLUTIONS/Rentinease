@@ -20,7 +20,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page">Agency Detail</li>
                     </ol>
-                    <h2 class="breadcrumb-title">California Real Estate - UK</h2>
+                    <h2 class="breadcrumb-title">Rentinease Real Estate - Dubai</h2>
                 </div>
 
             </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="_prtis_list_body">
                         <ul class="deatil_features">
-                            <li><strong>California Real Estate</strong>Name</li>
+                            <li><strong>Rentinease Real Estate</strong>Name</li>
                             <li><strong>svalia.tech@gmail.com</strong>Email</li>
                             <li><strong>568 942 5163</strong>Call</li>
                             <li><strong>Liverpool</strong>City</li>
@@ -723,7 +723,7 @@
                                 <a href="agency-page.html"><img id="profile_img" src="{{asset('assetsclient/img/myimg.jpg')}}" class="img-fluid" alt=""></a>
                             </div>
                             <div class="agency_gridio_txt">
-                                <h4><a href="agency-page.html">California Real Estate</a></h4>
+                                <h4><a href="agency-page.html">Rentinease Real Estate</a></h4>
                                 <span class="agt_gridio_ocat">Liverpool. London</span>
                                 <a href="#" data-toggle="modal" data-target="#autho-message" class="vew_agency_btn">Send Message</a>
                             </div>
@@ -869,7 +869,7 @@
 <!-- ============================ About Agency End ================================== -->
 
 <!-- ============================ Call To Action ================================== -->
-<section class="theme-bg call_action_wrap-wrap">
+<!-- <section class="theme-bg call_action_wrap-wrap">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -885,7 +885,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- ============================ Call To Action End ================================== -->
 
 @endsection

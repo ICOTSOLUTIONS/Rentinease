@@ -131,8 +131,8 @@
           </li> -->
     <li class="dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('assets/img/myimg.jpg') }}" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
       <div class="dropdown-menu dropdown-menu-right pullDown">
-        <div class="dropdown-title">Hello 
-        @if(auth()->user()->roles->name === 'admin')
+        <div class="dropdown-title">Hello
+          @if(auth()->user()->roles->name === 'admin')
           {{ auth()->user()->fname }}
           @elseif(auth()->user()->roles->name === 'superadmin')
           {{ auth()->user()->fname }}
@@ -142,7 +142,7 @@
           {{ auth()->user()->fname }}
           @endif
         </div>
-        <a href="{{ route('admin.profile',['id'=>auth()->user()->id]) }}" class="dropdown-item has-icon"> <i class="far
+        <a href="{{ route('admin.profile',['id'=>auth()->user()->id]) }}" class="dropdown-item has-icon text-white"> <i class="fas
 										fa-user"></i> Profile
         </a>
         <!-- <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>

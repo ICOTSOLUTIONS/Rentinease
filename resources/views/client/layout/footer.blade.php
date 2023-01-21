@@ -1,6 +1,6 @@
 			<style>
 				.widthimg {
-					width: 30%;
+					width: 50%;
 				}
 
 				.fs32px {
@@ -8,19 +8,35 @@
 				}
 
 				.fa-facebook {
-					color: blue;
+					color: rgb(39, 174, 96);
+				}
+
+				.fa-facebook:hover {
+					color: white;
 				}
 
 				.fa-whatsapp {
-					color: green;
+					color: rgb(39, 174, 96);
+				}
+
+				.fa-whatsapp:hover {
+					color: white;
 				}
 
 				.fa-instagram {
-					color: #ff0000b3;
+					color: rgb(39, 174, 96);
+				}
+
+				.fa-instagram:hover {
+					color: white;
 				}
 
 				.fa-twitter {
-					color: blue;
+					color: rgb(39, 174, 96);
+				}
+
+				.fa-twitter:hover {
+					color: white;
 				}
 			</style>
 			<footer class="dark-footer skin-dark-footer style-2">
@@ -30,7 +46,7 @@
 
 							<div class="col-lg-5 col-md-5">
 								<div class="footer_widget">
-									<span class="w-100"><img class="widthimg" src="{{asset('assets/img/Rentinease-HR-Logo-05.png')}}" alt="" srcset=""></span>
+									<span class="w-100"><img class="widthimg m-4" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
 									<!-- <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="img-footer small mb-2" alt="" /> -->
 									<!-- <h4 class="extream mb-3">Do You Really want Assistance With<br>Anything?</h4> -->
 									<h4 class="extream mb-3">Social Media</h4>
@@ -50,6 +66,16 @@
 										</div>
 									</div> -->
 								</div>
+								<form class="">
+									<div class="col-md-10 foot-news-last">
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Email Address">
+											<div class="input-group-append">
+												<button type="button" class="input-group-text theme-bg b-0 text-light">Subscribe</button>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 
 							<div class="col-lg-6 col-md-7 ml-auto">
@@ -59,16 +85,16 @@
 										<div class="footer_widget">
 											<h4 class="widget_title">Layouts</h4>
 											<ul class="footer-menu">
-												<li><a href="#">Home Page</a></li>
-												<li><a href="#">Buy Page</a></li>
-												<li><a href="#">Rent Page</a></li>
-												<li><a href="#">Blog Page</a></li>
-												<li><a href="#">Find an Agency Page</a></li>
-												<li><a href="#">Floor plans Page</a></li>
-												<li><a href="#">Index Page</a></li>
-												<li><a href="#">New project page</a></li>
-												<li><a href="#">Agent Portal page</a></li>
-												<li><a href="#">Events page</a></li>
+												<li><a href="#">Home</a></li>
+												<li><a href="#">Buy</a></li>
+												<li><a href="#">Rent</a></li>
+												<li><a href="#">Index</a></li>
+												<li><a href="#">Agent Portal</a></li>
+												<li><a href="#">Find an Agency</a></li>
+												<!-- <li><a href="#">Floor plans</a></li> -->
+												<li><a href="#">Events</a></li>
+												<li><a href="#">Blog</a></li>
+												<li><a href="#">New project</a></li>
 											</ul>
 										</div>
 									</div>
@@ -77,8 +103,9 @@
 										<div class="footer_widget">
 											<h4 class="widget_title">All Sections</h4>
 											<ul class="footer-menu">
-												<li><a href="#">Headers<span class="new">New</span></a></li>
-												<li><a href="#">Features</a></li>
+												<!-- <li><a href="#">Headers<span class="new">New</span></a></li> -->
+												<li><a href="#">Headers</a></li>
+												<li><a href="#">Features<span class="new">New</span></a></li>
 												<!-- <li><a href="#">Attractive<span class="new">New</span></a></li>
 												<li><a href="#">Testimonials</a></li>
 												<li><a href="#">Videos</a></li> -->
