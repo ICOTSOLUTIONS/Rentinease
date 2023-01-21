@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Themezhub" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/fav.png') }}" />
 
     <title>Rentinease</title>
 
@@ -13,6 +14,7 @@
     <link href="{{ asset('./assetsclient/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('./assetagency/bundles/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('./assetsclient/css/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet"> -->
+
 </head>
 <style>
     ::-webkit-scrollbar {

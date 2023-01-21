@@ -1,6 +1,6 @@
   <style>
       .nav-brand img {
-          max-width: 107px;
+          max-width: 144px;
       }
 
       .goog-te-gadget-icon {
@@ -16,8 +16,11 @@
       }
 
       .goog-te-gadget-simple {
-          border-radius: 8px;
-          background-color: #23af5e;
+          /* border-radius: 8px; */
+          background-color: transparent !important;
+          color: white !important;
+          border: none;
+          font-weight: bolder;
       }
 
       .goog-te-menu-value {
@@ -28,42 +31,42 @@
       .goog-te-menu-value>span>img>span>img {
           color: white !important;
       }
+
+      .goog-te-gadget-simple .goog-te-menu-value span {
+          color: white !important;
+      }
+
+      .header.header-fixed .goog-te-gadget-simple {
+          color: #547599 !important;
+
+      }
+
+      .header.header-fixed .goog-te-menu-value {
+          color: #547599 !important;
+
+      }
+
+      .header.header-fixed .goog-te-menu-value>span>img>span>img {
+          color: #547599 !important;
+
+      }
+
+      .header.header-fixed .goog-te-menu-value span {
+          color: #547599 !important;
+
+      }
   </style>
   <div class="header header-transparent change-logo">
       <div class="container-fluid">
           <nav id="navigation" class="navigation navigation-landscape">
-              <form class="">
-                  <div class="row mt-3">
-                      <div class="col-md-2 mt-3">
-                          <!-- Use CSS to replace link text with flag icons -->
-                          <!-- <ul class="translation-linkqas">
-                              <li><a href="#" class="flag-icon-uae" data-lang="ar">Arabic</a></li>
-                              <li><a href="#" class="flag-icon-pk" data-lang="ur">Urdu</a></li>
-                          </ul> -->
-                          <div id="google_translate_element"></div>
-                      </div>
 
-
-
-
-                      <div class="col-md-6"></div>
-                      <div class="col-md-4 foot-news-last">
-                          <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Email Address">
-                              <div class="input-group-append">
-                                  <button type="button" class="input-group-text theme-bg b-0 text-light">Subscribe</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </form>
               <div class="nav-header">
                   <!-- <a class="nav-brand static-logo" href="#">
                     <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="logo" alt="" /></a> -->
                   <!-- <a class="nav-brand fixed-logo" href="#">
                         <img src="{{ asset('./assetsclient/img/logo.png') }}" class="logo" alt="" /></a> -->
-                  <span class="nav-brand static-logo mr-0 p-0"><img class="w-75 h-25 pb-2" src="{{asset('assets/img/Rentinease-HR-Logo-05.png')}}" alt="" srcset=""></span>
-                  <span class="nav-brand fixed-logo mr-0 p-0"><img class="w-75 h-25 pb-2" src="{{asset('assets/img/Rentinease-HR-Logo-05.png')}}" alt="" srcset=""></span>
+                  <span class="nav-brand static-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
+                  <span class="nav-brand fixed-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
                   <div class="nav-toggle"></div>
                   <div class="mobile_nav">
                       <ul>
@@ -72,7 +75,7 @@
                       </ul>
                   </div>
               </div>
-              <div class="nav-menus-wrapper" style="transition-property: none;">
+              <div class="nav-menus-wrapper d-flex justify-content-around" style="transition-property: none;">
                   <ul class="nav-menu">
 
                       <li class="active"><a href="{{ '/' }}">Home<span class="submenu-indicator"></span></a>
@@ -152,14 +155,18 @@
                                 </ul> -->
                       </li>
                       <li><a href="#">Index<span class="submenu-indicator"></span></a></li>
-                      <li><a href="{{route( 'web.findagent') }}">Find Agent<span class="submenu-indicator"></span></a>
-                      </li>
+
                       <!-- <li><a href="{{ '/findagency' }}">Find Agency<span class="submenu-indicator"></span></a>
                        </li> -->
 
                       <!-- <li><a href="{{ route('agency.portal') }}">Agency Portal<span class="submenu-indicator"></span></a>
                        </li> -->
-                      <li><a href="{{ route('agent.portal') }}">Agent Portal<span class="submenu-indicator"></span></a>
+                      <li><a href="#">Agent<span class="submenu-indicator"></span></a>
+                          <ul class="nav-dropdown nav-submenu">
+                              <li><a href="{{route( 'web.findagent') }}">Find Agent<span class="submenu-indicator"></span></a>
+                              </li>
+                              <li><a href="{{ route('agent.portal') }}">Agent Portal</a></li>
+                          </ul>
                       </li>
                       <li><a href="#">Events<span class="submenu-indicator"></span></a>
                           <!-- <ul class="nav-dropdown nav-submenu">
@@ -178,21 +185,30 @@
                       </li>
                   </ul>
 
-                  <ul class="nav-menu nav-menu-social align-to-right">
-                      <li>
-                          <a href="#" class="alio_green" data-toggle="modal" data-target="#login">
-                              <i class="fas fa-sign-in-alt mr-1"></i><span class="dn-lg">Sign In</span>
-                          </a>
-                      </li>
+                  <ul class="nav-menu nav-menu-social align-to-right d-flex">
                       <li class="add-listing">
-                          <a href="#" class="theme-cl">
-                              <i class="fas fa-plus-circle mr-1"></i>Become a Member
+                          <!-- <li> -->
+                          <a href="#" class="alio_green" data-toggle="modal" data-target="#login">
+                              <i class="fas fa-sign-in-alt"></i><span class="dn-lg">Sign In</span>
                           </a>
                       </li>
-                  </ul>
+                      <li class="d-flex align-items-center">
+                          <!-- <li class="add-listing"> -->
+                          <!-- <a href="#" class="theme-cl">
+                              <i class="fas fa-plus-circle mr-1"></i>Become a Member
+                          </a> -->
+                          <!-- Use CSS to replace link text with flag icons -->
+                          <!-- <ul class="translation-linkqas">
+										  <li><a href="#" class="flag-icon-uae" data-lang="ar">Arabic</a></li>
+										  <li><a href="#" class="flag-icon-pk" data-lang="ur">Urdu</a></li>
+									  </ul> -->
+                          <div id="google_translate_element"></div>
               </div>
-          </nav>
+              </li>
+              </ul>
       </div>
+      </nav>
+  </div>
   </div>
   <!-- End Navigation -->
   <div class="clearfix"></div>
