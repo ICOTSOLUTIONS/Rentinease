@@ -15,12 +15,47 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('agency_id')->nullable();
+            // $table->unsignedBigInteger('package_id')->nullable();
+            $table->string('unique_code')->nullable();
+            $table->string('fname')->nullable();
+            $table->string('lname')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('company_name')->nullable();
+            $table->string('owner_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('phone_code')->nullable();
+            $table->string('mobile_code')->nullable();
+            $table->longText('website')->nullable();
+            $table->string('type')->nullable();
+            $table->string('licence_no')->nullable();
+            $table->string('permit_no')->nullable();
+            $table->string('rera_no')->nullable();
+            $table->string('establishment_date')->nullable();
+            $table->string('licence_exp_date')->nullable();
+            // $table->string('coins')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('street')->nullable();
+            $table->string('building')->nullable();
+            $table->string('office')->nullable();
+            $table->mediumText('logo')->nullable();
+            $table->mediumText('licence')->nullable();
+            $table->mediumText('visa')->nullable();
+            $table->mediumText('eid')->nullable();
+            $table->mediumText('rera')->nullable();
+            $table->mediumText('additional_documents')->nullable();
+            $table->string('authorized')->nullable();
+            $table->string('designation')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('agency_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
         });
     }
 
