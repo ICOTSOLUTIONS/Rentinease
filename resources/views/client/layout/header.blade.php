@@ -65,8 +65,8 @@
                     <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="logo" alt="" /></a> -->
                   <!-- <a class="nav-brand fixed-logo" href="#">
                         <img src="{{ asset('./assetsclient/img/logo.png') }}" class="logo" alt="" /></a> -->
-                  <span class="nav-brand static-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
-                  <span class="nav-brand fixed-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
+                  <span class="nav-brand static-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/rentinease_white.png')}}" alt="" srcset=""></span>
+                  <span class="nav-brand fixed-logo mr-0 my-3 p-0 w-100"><img class="pt-2" src="{{asset('assets/img/rentinease.png')}}" alt="" srcset=""></span>
                   <div class="nav-toggle"></div>
                   <div class="mobile_nav">
                       <ul>

@@ -46,7 +46,7 @@
 
 							<div class="col-lg-5 col-md-5">
 								<div class="footer_widget">
-									<span class="w-100"><img class="widthimg m-4" src="{{asset('assets/img/logo_rentinease.png')}}" alt="" srcset=""></span>
+									<span class="w-100"><img class="widthimg m-4" src="{{asset('assets/img/rentinease_white.png')}}" alt="" srcset=""></span>
 									<!-- <img src="{{ asset('./assetsclient/img/Rentinease.png') }}" class="img-footer small mb-2" alt="" /> -->
 									<!-- <h4 class="extream mb-3">Do You Really want Assistance With<br>Anything?</h4> -->
 									<h4 class="extream mb-3">Social Media</h4>
