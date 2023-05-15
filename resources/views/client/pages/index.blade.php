@@ -45,7 +45,7 @@
                                                 <div class="input-with-icon">
                                                     <select id="location" class="form-control">
                                                         <option value="">&nbsp;</option>
-                                                        <option value="1">New York City</option>
+                                                        <option value="1">Sharjah</option>
                                                         <option value="2">Honolulu, Hawaii</option>
                                                         <option value="3">Rentinease</option>
                                                         <option value="4">New Orleans</option>

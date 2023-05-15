@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Themezhub" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/fav.png') }}" />
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/fav_white.png') }}" />
 
     <title>Rentinease</title>
 
@@ -34,18 +34,18 @@
     }
 
     .bgloginimg {
-        background-image:url("{{ asset('./assetsclient/img/log.jpg')}}") !important;
+        background-image: url("{{ asset('./assetsclient/img/log.jpg') }}") !important;
         background-repeat: no-repeat !important;
     }
 
     /* .bannarimg {
-        background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
+        background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg') }}") !important;
         background-repeat: no-repeat !important;
     } */
 
 
     .bannarimg {
-        background-image:url("{{ asset('./assetsclient/img/bannar/03.jpg')}}") !important;
+        background-image: url("{{ asset('./assetsclient/img/bannar/03.jpg') }}") !important;
         /* border: 2px solid red; */
         height: 650px;
         background-size: 100%;
@@ -76,7 +76,7 @@
 
     .imgcover {
 
-        background-image: url("{{asset('./assetsclient/img/pattern.png')}}") !important;
+        background-image: url("{{ asset('./assetsclient/img/pattern.png') }}") !important;
     }
 
     .goog-te-banner-frame.skiptranslate {
@@ -102,7 +102,8 @@
         @include('client.layout.header')
         @yield('content')
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=+971543826351&text=Hello, I need some help with Rentinease.com in WhatsApp chat.."
+            class="float" target="_blank">
             <i class="fa fa-whatsapp my-float text-white"></i>
         </a>
         @include('client.layout.footer')
@@ -116,14 +117,15 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,ar,ur',
+                includedLanguages: 'en,ar,ur,zh-CN,zh-TW',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             }, 'google_translate_element');
         }
     </script>
 
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
+    </script>
 
 
 
