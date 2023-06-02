@@ -59,11 +59,10 @@
                             </div>
                             <div class="card-body">
                                 @if (Session::has('message'))
-                                    <div class="alert alert-{{ Session::get('messageType') }}">
-                                        <strong>{{ Session::get('message') }} </strong>
-                                        <button type="button" class="btn-close float-right" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
+                                <div class="alert alert-{{ Session::get('messageType') }}">
+                                    <strong>{{ Session::get('message') }} </strong>
+                                    <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close">X</button>
+                                </div>
                                 @endif
                                 <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
                                     @csrf

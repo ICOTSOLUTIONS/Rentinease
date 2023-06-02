@@ -6,6 +6,11 @@
         border: 1px solid #27ae60;
         color: #ffffff;
     }
+
+    .imgbg {
+        background-image: url('/public/assets/img/bgimg05.jpeg') !important;
+        background-size: 100% !important;
+    }
 </style>
 <!-- ============================ Page Title Start================================== -->
 <div class="page-title" style="background:#f4f4f4 url(assetsclient/img/slider-3.jpg);" data-overlay="5">
@@ -59,7 +64,7 @@
 <!-- ============================ Agency List End ================================== -->
 
 <!-- ============================ Our Partner Start ================================== -->
-<section class="gray-simple">
+<section class="gray-simple imgbg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-6 col-sm-12 flex-wrap justify-content-center text-center">

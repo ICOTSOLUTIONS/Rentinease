@@ -5,10 +5,10 @@
                 <!-- <img alt="image" src="{{ asset('assetagency/img/logo.png') }}"
                     class="header-logo" /> -->
                 @if (auth()->user()->roles->name === 'agency')
-                    <span class="logo-name">Agency</span>
+                <span class="logo-name">Agency</span>
                 @endif
                 @if (auth()->user()->roles->name === 'agent')
-                    <span class="logo-name">Agent</span>
+                <span class="logo-name">Agent</span>
                 @endif
             </a>
         </div>
@@ -38,36 +38,30 @@
         <ul class="sidebar-menu">
             <!-- <li class="menu-header">Main</li> -->
             @if (auth()->user()->roles->name === 'agency')
-                <li class="dropdown">
-                    <a href="{{ route('agency.dashboard') }}" class="nav-link"><i
-                            data-feather="monitor"></i><span>Dashboard</span></a>
-                    <a href="{{ route('agency.agent.index') }}" class="nav-link"><i
-                            data-feather="monitor"></i><span>Agent</span></a>
-                    <a href="{{ route('payment.index') }}" class="nav-link"><i
-                            data-feather="monitor"></i><span>Package
-                            Buy</span></a>
-                    <!-- <ul class="dropdown-menu">
+            <li class="dropdown">
+                <a href="{{ route('agency.dashboard') }}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+                <a href="{{ route('agency.agent.index') }}" class="nav-link"><i data-feather="monitor"></i><span>Agent</span></a>
+                <a href="{{ route('payment.index') }}" class="nav-link"><i data-feather="monitor"></i><span>Package
+                        Buy</span></a>
+                <!-- <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="index-2.html">Dashboard 1</a></li>
                                 <li><a class="nav-link" href="index2.html">Dashboard 2</a></li>
                             </ul> -->
-                </li>
+            </li>
             @endif
             @if (auth()->user()->roles->name === 'agent')
-                <li class="dropdown">
-                    <a href="{{ route('agent.dashboard') }}" class="nav-link"><i
-                            data-feather="monitor"></i><span>Dashboard</span></a>
-                    @if (empty(auth()->user()->agency_id))
-                        <a href="{{ route('agent.payment.index') }}" class="nav-link"><i
-                                data-feather="monitor"></i><span>Package
-                                Buy</span></a>
-                    @endif
-                    <a href="{{ route('agentposting.index') }}" class="nav-link"><i
-                        data-feather="monitor"></i><span>Posting</span></a>
-                    <!-- <ul class="dropdown-menu">
+            <li class="dropdown">
+                <a href="{{ route('agent.dashboard') }}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+                @if (empty(auth()->user()->agency_id))
+                <a href="{{ route('agent.payment.index') }}" class="nav-link"><i data-feather="monitor"></i><span>Package
+                        Buy</span></a>
+                @endif
+                <a href="{{ route('agentposting.index') }}" class="nav-link"><i data-feather="monitor"></i><span>Posting</span></a>
+                <!-- <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="index-2.html">Dashboard 1</a></li>
                                 <li><a class="nav-link" href="index2.html">Dashboard 2</a></li>
                             </ul> -->
-                </li>
+            </li>
             @endif
             <!-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i

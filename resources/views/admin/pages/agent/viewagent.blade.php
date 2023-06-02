@@ -38,7 +38,7 @@
                     <div class="card design">
                         <div class="card-header justify-content-center">
                             <h4>
-                                VIEW Agent
+                                View Agent
                             </h4>
                         </div>
                         <div class="card-body">

@@ -3782,7 +3782,7 @@ ul {
 }
 
 .nav-brand {
-    padding: 28px 1px;
+    padding: 18px 0px;
     /* padding:18px 15px; */
     font-size: 24px;
     margin-right: 1rem;
@@ -14058,7 +14058,7 @@ img.img-footer.small {
 }
 
 .footer_widget {
-    padding: 60px 0 60px;
+    padding: 0px 0 0px;
 }
 h4.widget_title {
     margin-bottom: 10px;

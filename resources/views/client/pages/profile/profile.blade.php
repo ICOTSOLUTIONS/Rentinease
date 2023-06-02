@@ -164,7 +164,7 @@
 <!-- ============================ User Dashboard End ================================== -->
 
 <!-- ============================ Call To Action ================================== -->
-<section class="theme-bg call_action_wrap-wrap">
+<!-- <section class="theme-bg call_action_wrap-wrap">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -180,7 +180,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- ============================ Call To Action End ================================== -->
 
 <!-- ============================ Footer Start ================================== -->

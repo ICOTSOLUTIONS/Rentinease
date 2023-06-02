@@ -34,10 +34,14 @@
 .box:hover::after {
     opacity: 1;
 }
-.bannaragent{
+.bannaragent {
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-
-
+.flag-icon-pk {
+    background-image: url(./flag-icon-css/flags/4x3/pk.svg);
+}
+.flag-icon-pk.flag-icon-squared {
+    background-image: url(./flag-icon-css/flags/1x1/pk.svg);
+}

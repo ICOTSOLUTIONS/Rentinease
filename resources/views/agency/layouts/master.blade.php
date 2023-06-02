@@ -51,7 +51,10 @@
             @include('agency.layouts.header')
             @include('agency.layouts.sidebar')
             <!-- Main Content -->
-            @yield('content')
+            <div class="main-content">
+                @yield('content')
+            </div>
+
             @include('agency.layouts.footer')
         </div>
     </div>
